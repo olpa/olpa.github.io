@@ -1,0 +1,32 @@
+---
+layout: post
+title: hello sendmail
+date: 2006-04-04 20:17:35.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/04/04/hello-sendmail/"
+---
+<p>I've purchased a Virtual Private Server for my new project. The first thing to do is to make mail working. Initially, I want the most trivial setup: all domain mail should be forwarded to my gmail account.</p>
+<p><!--more--></p>
+<p>I've refreshed my sendmail skills. (When I was young, I came to our faculty computer center and said I want to become a system administrator. The answer was "Wonderful! Please install and configure sendmail for the faculty mail.")</p>
+<p>Refreshing took some time, so I'm fixating the steps in the blog for future reference.</p>
+<p>To ask sendmail to accept the mail for the domain, add to <tt>/etc/mail/local-host-names</tt> an entry:</p>
+<pre>consodoc.com</pre>
+<p>To forward domain mail to my gmail account, add to <tt>/etc/mail/virtusertable</tt> an entry:</p>
+<pre>@consodoc.com   olepar@gmail.com</pre>
+<p>Convert plain text to database:</p>
+<pre># makemap hash /etc/mail/virtusertable.db &lt; /etc/mail/virtusertable</pre>
+<p>The next step is to restart sendmail or to send SIGHUP signal. I don't need it because sendmail is run not as daemon, but from xinetd.</p>
+<p>That's all.</p>

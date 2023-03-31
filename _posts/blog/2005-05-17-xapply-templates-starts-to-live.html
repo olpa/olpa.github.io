@@ -1,0 +1,48 @@
+---
+layout: post
+title: x:apply-templates starts to live
+date: 2005-05-17 22:46:06.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta:
+  keywords: apply-templates,Scheme
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/17/xapply-templates-starts-to-live/"
+---
+<p>The Scheme function "x:apply-templates" should work like the XSLT function "apply-templates". The very basic test case is passed today.</p>
+<p><!--more--></p>
+<p>The default XSLT stylesheet is extended by the following template for elements.</p>
+<pre>
+&lt;x:template match="*">
+  &lt;elem name="{name()}">
+    &lt;x:apply-templates select="*"/>
+  &lt;/elem>
+&lt;/x:template>
+</pre>
+<p>The function <tt>x:apply-templates</tt> is used as follows.</p>
+<pre>
+`(
+ ,(x:apply-templates '(a1))
+ ,(x:apply-templates '())
+ ,(x:apply-templates '((a2)))
+ ,(x:apply-templates '((a3) (a4) (a5 (a6))))
+)
+</pre>
+<p>And result is as expected:</p>
+<pre>
+&lt;elem name="a1"/>
+&lt;elem name="a2"/>
+&lt;elem name="a3"/>&lt;elem name="a4"/>
+&lt;elem name="a5">&lt;elem name="a6"/>&lt;/elem>
+</pre>

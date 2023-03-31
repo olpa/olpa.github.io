@@ -1,0 +1,38 @@
+---
+layout: post
+title: how to analyze FICS games
+date: 2007-12-16 10:43:13.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- chess
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/12/16/how-to-analyze-fics-games/"
+---
+<p>I play chess on <a href="http://freechess.org/">freechess.org</a>. Sometmes I like how I play. But the sad truth is that my good play is illusion. Thanks computers to reveal me a lot of mistakes.</p>
+<p>Here is how I feed the games to the computer.</p>
+<p><!--more--></p>
+<h2>Step 1: get the game</h2>
+<p>In FICS console, say (to get the games in the PGN format)</p>
+<pre>fics% set pgn 1</pre>
+<p>To get the list of recetly played games:</p>
+<pre>fics% history olpa</pre>
+<p>In the output, the first number is the game number. To get the game by e-mail, say:</p>
+<pre>fics% mailstored olpa game_number</pre>
+<h2>Step 2: analyze</h2>
+<p>Just use your favourite chess program. I use <a href="http://www.craftychess.com/">crafty</a>.</p>
+<p>At the moment, I use the command:</p>
+<pre>annotate game.pgn wb x-999 .1 10</pre>
+<p>Details are in the documentation.</p>
+<p>After annotating is finished, I use gvim or XBoard to see crafty comments:</p>
+<pre>$ xboard -lgf game.pgn.can</pre>

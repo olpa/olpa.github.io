@@ -1,0 +1,29 @@
+---
+layout: post
+title: Aspire 1610 internal modem under Linux
+date: 2006-01-06 07:30:55.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/01/06/aspire-1610-internal-modem-under-linux/"
+---
+<p>Notebook "Aspire 1610" has an internal modem which identified by <tt>lspci</tt> as "Intel Corp. 82801EB/ER (ICH5/ICH5R) AC'97 Modem Controller (rev 02)". It took much time to make it working under Linux.</p>
+<p><!--more--></p>
+<p>My receipt is following.</p>
+<pre>
+modprobe snd-intel8x0m
+modprobe slamr
+slmodemd --country=GERMANY --alsa
+</pre>
+<p>The magic is the first <tt>insmod</tt> and the parameter <tt>--alsa</tt>. If you know a simplier way, please describe it in comments.</p>

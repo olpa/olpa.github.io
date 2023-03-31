@@ -1,0 +1,38 @@
+---
+layout: post
+title: scheme as a virtual machine - III
+date: 2010-11-12 16:22:59.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- scheme
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/11/12/scheme-as-a-virtual-machine-iii/"
+---
+<p>After experimenting with CPSCM, I have to drop it. The final now consists of two implementations: Chicken and Gambit.</p>
+<p><!--more--></p>
+<p>For closures, CPSCM relies on the host language. It works well for Scheme, Lisp and JavaScript backends, but no luck for PHP.</p>
+<p><code>
+<pre>
+function getMyFunc($a){
+  return create_function('$b', 'print "a='.$a.', b=$b";');
+}
+$f1 = getMyFunc(1);
+$f1(2);
+</pre>
+<p></code></p>
+<p>The code above and a few tricks to emulate lambdas do not work in PHP 4. As I was told on Stackoverflow, "...some changes have been made starting with PHP 5.3, but even there you don't have your expected variable scopes that would allow you to do what you have in your examples."</p>
+<p><a href="http://stackoverflow.com/questions/4155254/anonymous-functions-lambdas-closures-in-php-4">http://stackoverflow.com/questions/4155254/anonymous-functions-lambdas-closures-in-php-4</a></p>
+<p>Anyway, despite of dropping, I like CPSCM.</p>
+<h3>18.11.2010, update</h3>
+<p>The same problem is with Chicken. The final winner is Gambit.</p>

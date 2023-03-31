@@ -1,0 +1,55 @@
+---
+layout: post
+title: automating GUI tasks in Python
+date: 2007-07-20 20:02:23.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/07/20/automating-gui-tasks-in-python/"
+---
+<p>I have a program which is an example of usability nightmare. It's easier to create data in Excel and somehow migrate them to that program. Unfortunately, the only access to data is through GUI.</p>
+<p>Well, I decided to find some automation tool for GUI testing, with Python as a scripting language. The need of Python is essential, because I don't want to learn yet another scripting language, especially if it is claimed to be user-friendly.</p>
+<p>The first try was <a href="http://www.automatedqa.com/products/testcomplete/">TestComplete</a>, but the license costs too much for me ($600), therefore I didn't even consider it. Then I skipped several tools because of unknown scripting languages. Finally, I found something promising: <a href="http://www.ranorex.com/">Ranorex</a>.</p>
+<p><!--more--></p>
+<p>I can't say I'm very impressed. It took a lot of time to make a test script working.</p>
+<p>Ranorex doesn't distribute binaries for Python 2.5, I failed to make Ranorex to work with Python 2.3, therefore I had to install Python 2.4 and find the installation instructions in the forum. Fortunately, it helped.</p>
+<p>The second problem is that in some cases the documentation differs from the reality. Fortunately, not too much.</p>
+<p>The test scripts don't work with Calculator from Windows 2000.</p>
+<p>But I understand that the program is very new and Python isn't the main priority of the developers, therefore I don't blame anyone. Ranorex is quite good for the version 1.0.</p>
+<p>Meanwhile, here is a test script I wrote. It finds a Calculator windows, presses the buttons "2", "*", "7", "=", and checks that the result is as expected.</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">import</span> RanorexPython as Ranorex
+
+<span style="color:#800000; font-weight:bold; ">def</span> a<span style="color:#808030; ">(</span>val<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">assert</span> val
+    <span style="color:#800000; font-weight:bold; ">assert</span> val <span style="color:#808030; ">!</span><span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span>
+
+<span style="color:#696969; "># Find the calculator</span>
+form <span style="color:#808030; ">=</span> Ranorex<span style="color:#808030; ">.</span>FormFindTitle<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"Calculator"</span><span style="color:#808030; ">,</span> Ranorex<span style="color:#808030; ">.</span>MATCH_EXACT<span style="color:#808030; ">,</span> <span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">5000</span><span style="color:#808030; ">)</span>
+a<span style="color:#808030; ">(</span>form<span style="color:#808030; ">)</span>
+
+<span style="color:#696969; "># Press the buttons "2" "*" "7" "="</span>
+<span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#e34adc; ">id</span> <span style="color:#800000; font-weight:bold; ">in</span> <span style="color:#808030; ">[</span><span style="color:#008c00; ">126</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">91</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">131</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">112</span><span style="color:#808030; ">]</span><span style="color:#808030; ">:</span>
+    button <span style="color:#808030; ">=</span> Ranorex<span style="color:#808030; ">.</span>FormFindChildControlId<span style="color:#808030; ">(</span>form<span style="color:#808030; ">,</span> <span style="color:#e34adc; ">id</span><span style="color:#808030; ">)</span>
+    a<span style="color:#808030; ">(</span>button<span style="color:#808030; ">)</span>
+    a<span style="color:#808030; ">(</span>Ranorex<span style="color:#808030; ">.</span>ButtonClick<span style="color:#808030; ">(</span>button<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+
+<span style="color:#696969; "># Get the expected result</span>
+result <span style="color:#808030; ">=</span> Ranorex<span style="color:#808030; ">.</span>FormFindChildControlId<span style="color:#808030; ">(</span>form<span style="color:#808030; ">,</span> <span style="color:#008c00; ">403</span><span style="color:#808030; ">)</span>
+a<span style="color:#808030; ">(</span>result<span style="color:#808030; ">)</span>
+s <span style="color:#808030; ">=</span> Ranorex<span style="color:#808030; ">.</span>ControlGetText<span style="color:#808030; ">(</span>result<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">assert</span><span style="color:#808030; ">(</span><span style="color:#0000e6; ">"14, "</span> <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> s<span style="color:#808030; ">)</span>
+</pre>
+<p></code></p>

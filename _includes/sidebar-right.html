@@ -1,0 +1,7 @@
+{% assign sorted_categories = site.categories | sort %}
+<div class="sidebar sidebar__right">
+  <h1>Categories</h1>
+  {% for category in sorted_categories %}
+  <li><a href="/blog/category/{{ category | first | slugify }}/">{{ category | first }}</a>{{category.name}}</li>
+    {% endfor %}
+</div>

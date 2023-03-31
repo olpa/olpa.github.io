@@ -1,0 +1,29 @@
+---
+layout: post
+title: namespaces in "x:value-of" are supported
+date: 2005-04-18 23:54:37.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/18/namespaces-in-xvalue-of-are-supported/"
+---
+<p>I haven't worked on generative XML for half of month and completely forgot what I'm doing. Fortunately, the <a href="http://uucode.com/blog/2005/04/01/xvalue-of-is-not-so-simple/">last post</a> on this topic suggested the start point: namespaces and variables in the Scheme function "x:value-of".</p>
+<p><!--more--></p>
+<p>I've made namespaces working. It was a sort of mystery quest. I dug in the source code of libxslt and succeeded. The source of information were implementations of the XSLT element "value-of" and the EXSLT element "result".</p>
+<p>It's easy to support namespaces in XPath evaluation if you have list of namespaces. To get this list, that is the task. Working on it, I reorganized code a bit.</p>
+<p>Now I use precompilation for the "s:scheme" extension element. Making it work took a time to find, understand, copy and paste appropriate code. After having it done, everything looks simple.</p>
+<p>While doing precompilation of "s:scheme", code creates a special structure, then calculates and stores list of namespaces in the structure. Then the structure is associated with the XSLT element. When xsltproc processes the element, the extension processing function is called with this structure as one of the parameters.</p>
+<p>Additionally, I moved getting Scheme code of "s:scheme" to the precompilation step. If Guile supports compilation, I think it's reasonable to compile code too. But it's not required yet.</p>
+<p>Now I'm going to add support of variables. First attempt is failed. On the one side I have the list of variables where I need it, but on the other side XPath evaluator ignores variables. Probably some magic initialization function should be used. I'll see later.</p>

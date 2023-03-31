@@ -1,0 +1,40 @@
+---
+layout: post
+title: eSATA hot swap in Linux
+date: 2010-12-29 22:40:47.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/12/29/esata-hot-swap-in-linux/"
+---
+<p>I hoped that eSATA interface allows to attach and detach HDDs to Linux on the fly, and the system would notice the changes automatically. The reality was quote apposite, the system hung during experiments. Finally, after scanning internet knowledge, and trying to get commands like <tt>atacontrol</tt> or <tt>scsiadd</tt> working, I found the command for manual swap.</p>
+<p><!--more--></p>
+<p>After a HDD is attached, ask Linux to re-scan the bus to find the HDD:</p>
+<pre><code>
+$ sudo sh -c 'echo "- - -" >/sys/class/scsi_host/host0/scan '
+</code></pre>
+<p>or without sudo:</p>
+<pre><code>
+# echo "- - -" >/sys/class/scsi_host/host0/scan
+</code></pre>
+<p>To detach the HDD (umount it first!) (in this case, the hdd is <tt>sdb</tt>):</p>
+<pre><code>
+$ sudo sh -c "echo 1 > /sys/block/sdb/device/delete "
+</code></pre>
+<p>or without sudo:</p>
+<pre><code>
+# echo 1 > /sys/block/sdb/device/delete
+</code></pre>
+<p>Well, I actually don't need hotswap, manual swap is ok for me. The problem is solved.</p>

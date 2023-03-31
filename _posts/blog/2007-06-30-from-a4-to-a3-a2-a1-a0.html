@@ -1,0 +1,34 @@
+---
+layout: post
+title: From A4 to A3 (A2, A1, A0)
+date: 2007-06-30 06:36:41.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- publishing
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/06/30/from-a4-to-a3-a2-a1-a0/"
+---
+<p>I've prepared a poster. For the development purposes, the paper size is A4. Now I need to enlarge the paper size. Here is a sequence of the commands which got the things done:<br />
+<!--more--></p>
+<pre><code>
+pdftops poster.pdf
+psresize -PA4 -pA3 poster.ps poster-a3.ps
+ps2pdf -sPAPERSIZE=a3 poster-a3.ps
+</code></pre>
+<p>Unfortunately, <tt>psresize</tt> doesn't know A2, A1 and A0 format. Therefore, direct dimension specification is required:</p>
+<pre><code>
+psresize -PA4 -w420mm -h594mm poster.ps poster-a2.ps
+psresize -PA4 -w594mm -h841mm poster.ps poster-a1.ps
+psresize -PA4 -w841mm -h1189mm poster.ps poster-a0.ps
+</code></pre>

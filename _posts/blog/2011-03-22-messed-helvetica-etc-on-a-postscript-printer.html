@@ -1,0 +1,28 @@
+---
+layout: post
+title: messed Helvetica etc on a PostScript printer
+date: 2011-03-22 16:16:54.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/03/22/messed-helvetica-etc-on-a-postscript-printer/"
+---
+<p>I've got PostScript files, which does look ok on the screen, but badly printed on Lexamark E232. The letters collide each with other, seems like instead of Helvetica some monospace font is substituted.</p>
+<p><!--more--></p>
+<p>So far I have not found a rapair, but only a workaround:</p>
+<p><code><br />
+ps2pdf -dPDFSETTINGS=/prepress print.ps print.pdf<br />
+</code></p>
+<p>And print the PDF-file.</p>

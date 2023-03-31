@@ -1,0 +1,34 @@
+---
+layout: post
+title: python trap
+date: 2006-08-02 07:11:52.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/08/02/python-trap/"
+---
+<p>What will this code print?</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">for</span> item <span style="color:#800000; font-weight:bold; ">in</span> <span style="color:#808030; ">(</span><span style="color:#0000e6; ">'aaa'</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span> <span style="color:#800000; font-weight:bold; ">print</span> item
+</code></pre>
+<p><!--more--><br />
+The result is:</p>
+<pre>a
+a
+a
+</pre>
+<p>I think you expected the following as the result:</p>
+<pre>aaa</pre>
+<p>I was near reporting a bug, but, fortunately, realized, that "('aaa')" is actually not a list, but a string in parenthesis. The correct way to get the desired result is:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">for</span> item <span style="color:#800000; font-weight:bold; ">in</span> <span style="color:#808030; ">(</span><span style="color:#0000e6; ">'aaa'</span><span style="color:#808030; ">,</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span> <span style="color:#800000; font-weight:bold; ">print</span> item</code></pre>

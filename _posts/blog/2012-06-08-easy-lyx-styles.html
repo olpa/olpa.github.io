@@ -1,0 +1,69 @@
+---
+layout: post
+title: easy LyX styles
+date: 2012-06-08 12:41:57.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2012/06/08/easy-lyx-styles/"
+---
+<p>The official way to introduce custom styles to LyX is:</p>
+<p>* the layout-file should be located in a special directory,<br />
+* after the layout file is changed, the user should:<br />
+. - execute re-configure and<br />
+. - restart LyX.</p>
+<p>This way is too cumbersome for experimenting and developing styles. Fortunately, there is a solution.</p>
+<p><!--more--></p>
+<p>It is possible to embed styles into a document. The following small example is a good starting point.</p>
+<p>1) Create, save, close a simple LyX document.</p>
+<p>2) Open the file in a text editor.</p>
+<p>3) Between the lines<br />
+<code>
+<pre>
+\use_geometry false
+and
+\use_amsmath 1
+</pre>
+<p></code></p>
+<p>put the code:</p>
+<p><code>
+<pre>
+\begin_local_layout
+InsetLayout Flex:MyEmph
+  LyxType      Charstyle
+  LatexType    Command
+  LatexName    MyEmph
+  LabelString  MyEmph
+  Font
+    Shape      Italic
+  EndFont
+  Preamble
+    \newcommand{\MyEmph}[1]{\emph{#1}}
+  EndPreamble
+End
+Style MyPara
+  LatexType    Environment
+  LatexName    MyPara
+  LeftMargin   "MyPara: "
+  LabelType    Static
+  LabelString  "MyPara: "
+  Preamble
+    \newenvironment{MyPara}{\par MyPara: }{\par}
+  EndPreamble
+End
+\end_local_layout
+</pre>
+<p></code></p>
+<p>4) Save the file and open in LyX. Now you have access to the paragraph style "MyPara" and the character style "MyEmph".</p>

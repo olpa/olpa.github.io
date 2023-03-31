@@ -1,0 +1,34 @@
+---
+layout: post
+title: importing as module when a file has a non-identifier name
+date: 2009-06-12 14:18:07.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2009/06/12/importing-as-module-when-a-file-has-a-non-identifier-name/"
+---
+<p>I need to reuse a function in a file. The usual way is just to import this file as a module. But what to do if the name is "bad"? The following doesn't work:</p>
+<pre><code>
+import foo-bar as foo_bar
+foo_bar.callme()
+</code></pre>
+<p>After trials and errors, the desired magic found: </p>
+<p><!--more--></p>
+<pre><code>
+foo_bar = __import__('foo-bar', globals(),  locals(), [], -1)
+foo_bar.callme()
+</code></pre>
+<p>See Python Documentation for details: in some cases you don't want to use <tt>__import__</tt>.</p>
+<p>The best solution is, obviously, to rename file. But I wanted to find an answer to this importing challenge.</p>

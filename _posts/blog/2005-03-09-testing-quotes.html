@@ -1,0 +1,40 @@
+---
+layout: post
+title: testing quotes
+date: 2005-03-09 01:28:38.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/09/testing-quotes/"
+---
+<p>WordPress (this blog engine) changes quotes (") to (\"). Let see if</p>
+<pre>
+php_flag magic_quotes_gpc off
+php_flag magic_quotes_runtime off
+</pre>
+<p>have fixed the problem.</p>
+<p>Update: good, it seems so.</p>
+<p>--------------</p>
+<p>Updated, 10 March</p>
+<p>Unfortunately, it doesn't help. For some reason, quotes inside the "pre" tag get a backslash. And quotes in text are smart. I hate it!</p>
+<p>-------------</p>
+<p>Updated, 12 March</p>
+<p>Finally fixed by hacking the code. I've commented out smart quotes stuff and corrected the following line in "wp-includes/functions-formatting.php":</p>
+<pre>$pee = preg_replace('!(&lt;pre.*?>)(.*?)&lt;/pre>!ise',
+  " stripslashes('$1') .  clean_pre('$2')  . '&lt;/pre>' ", $pee);</pre>
+<p>I changed</p>
+<pre>clean_pre('$2')</pre>
+<p>to</p>
+<pre>clean_pre(stripslashes('$2'))</pre>

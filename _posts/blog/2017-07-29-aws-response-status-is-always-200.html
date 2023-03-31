@@ -1,0 +1,39 @@
+---
+layout: post
+title: AWS response status is always 200
+date: 2017-07-29 12:36:46.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  _edit_last: '1'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2017/07/29/aws-response-status-is-always-200/"
+---
+<p>There is a task, which can't be avoided when developing serverless applicatoins on Amazon Web Services:</p>
+<p>How to return a custom status code from a REST API?</p>
+<p>One of the approaches is to use "prefix mapping", like for example is shown in this amazon blog post: <a href="https://aws.amazon.com/blogs/compute/error-handling-patterns-in-amazon-api-gateway-and-aws-lambda/">Error Handling Patterns in Amazon API Gateway and AWS Lambda</a> by Bryan Liston.</p>
+<p>The only problem is that the approach doesn't always work. After a long debuggin session with many false tries, I've found the reason.</p>
+<p><!--more--></p>
+<p>There is an AWS bug. More precisely, it is a feature because it is documented (<a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings-execution-console.html">Set up Data Mappings between Method and Integration</a>)):</p>
+<blockquote><p>If you use '.+' as the selection pattern to filter responses, be aware that it may not match a response containing a newline ('\n') character. </p></blockquote>
+<p>Therefore, such a rule (from the referenced blog post) is wrong:</p>
+<p><code>
+<pre>Selection pattern: “^[BadRequest].*”</pre>
+<p></code></p>
+<p>The correct expression is:</p>
+<p><code>
+<pre>Selection pattern: “^[BadRequest](\n|.)*”</pre>
+<p></code></p>
+<p>The last question is: why the response message could contain newlines? Easily: they are produced by throwing an RuntimeException, and Java serializes the exception to a multi-line string.</p>

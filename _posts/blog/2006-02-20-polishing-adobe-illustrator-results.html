@@ -1,0 +1,47 @@
+---
+layout: post
+title: Polishing Adobe Illustrator results
+date: 2006-02-20 07:29:53.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: adobe illustrator,svg,eps,epstool
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/02/20/polishing-adobe-illustrator-results/"
+---
+<p>Adobe Illustrators seems to be a very good tool, even although I've never used it. Unfortunately, I have problems with AI results exported as SVG and EPS.</p>
+<p><!--more--></p>
+<p>One can't directly use SVG produced by AI due to wrong namespaces. I had to write a program, which corrects some issues I found:</p>
+<p>* The program changes DOCTYPE with some old SVG public identifier to just "<code>&lt;!DOCTYPE svg [</code>".<br />
+* The default namespace is set: <code>xmlns="http://www.w3.org/2000/svg"</code><br />
+* The namespace for xlink is defined: <code>xmlns:xlink="http://www.w3.org/1999/xlink"</code></p>
+<p>Another set of problems can be found in EPS files. My users must have EPS with preview images. Unfortunately, <tt>epstopdf</tt> fails on such files. After some investigations I found that what AI produces is not an EPS file, but a DOS EPS file with some binary header.</p>
+<p>To extract PostScript from a DOS EPS file, I found the program "<a href="http://www.cs.wisc.edu/~ghost/gsview/epstool.htm">epstool</a>". The most part of EPS files, filtered by <tt>epstool</tt>, is accepted by <tt>epstopdf</tt>.</p>
+<p>Unfortunately, <tt>epstool</tt> rejects some DOS EPS files. I found out that it's because such files contain "<tt>%Trailer</tt>" too far from the end of the stream and "<tt>%EOF</tt>" isn't at the end of the stream. I don't know why. To workaround the problem, I patched <tt>epstool</tt> source code to lower severity of the error. Now conversion works well.</p>
+<p>The patch file to use with "patch -p1":</p>
+<pre>
+diff -Naur epstool-3.08.orig/src/dscparse.c epstool-3.08/src/dscparse.c
+--- epstool-3.08.orig/src/dscparse.c    2005-06-10 13:41:00 +0400
++++ epstool-3.08/src/dscparse.c 2006-02-18 10:36:17 +0300
+@@ -135,8 +135,8 @@
+ /* DSC error reporting */
+ dsc_private const int dsc_severity[] = {
+     CDSC_ERROR_WARN,   /* CDSC_MESSAGE_BBOX */
+-    CDSC_ERROR_WARN,   /* CDSC_MESSAGE_EARLY_TRAILER */
+-    CDSC_ERROR_WARN,   /* CDSC_MESSAGE_EARLY_EOF */
++    CDSC_ERROR_INFORM,         /* CDSC_MESSAGE_EARLY_TRAILER */
++    CDSC_ERROR_INFORM,         /* CDSC_MESSAGE_EARLY_EOF */
+     CDSC_ERROR_ERROR,  /* CDSC_MESSAGE_PAGE_IN_TRAILER */
+     CDSC_ERROR_ERROR,  /* CDSC_MESSAGE_PAGE_ORDINAL */
+     CDSC_ERROR_ERROR,  /* CDSC_MESSAGE_PAGES_WRONG */
+</pre>

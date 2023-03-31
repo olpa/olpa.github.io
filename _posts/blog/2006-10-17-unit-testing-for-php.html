@@ -1,0 +1,33 @@
+---
+layout: post
+title: unit testing for PHP
+date: 2006-10-17 08:45:44.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- PHP
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/10/17/unit-testing-for-php/"
+---
+<p>At some moment, I found that I'm afraid of writing new code. The reason was simple. I wrote in PHP and, obviously, without unit testing. I got the programmer's block as punishment. To overcome the block, I had to create tests first.</p>
+<p>As usual, the first thing I made, was searching Usenet. And I'm astomished by the result. The search for "unit testing" in the group "comp.lang.php" generates on four (4!) pages! PHP developers suck!</p>
+<p><!--more--></p>
+<p>Well, I switched to usual Google and found few resources:</p>
+<p><a href="http://www.lastcraft.com/first_test_tutorial.php">PHP unit testing tutorial - Creating an example test case in PHP</a><br />
+The first link I got.</p>
+<p><a href="http://www.opensourcetesting.org/unit_php.php">PHP unit testing tools (7 found)</a><br />
+The complete list of PHP unit testing frameworks.</p>
+<p><a href="http://groups.google.com/group/comp.lang.php/browse_frm/thread/9e1c06f2ea753fc7/6a30edda800ea77d">Unit testing in PHP.</a><br />
+Thread in comp.lang.php, with critique of phpunit, PHPUnit and PHPUnit2.</p>
+<p>I didn't have time to investigate all the frameworks in the details. Therefore, impressed by the good documentation, I chose <a href="http://www.lastcraft.com/simple_test.php">SimpleTest</a> (don't be misguided by the name, it's actually full-featured).</p>
+<p>I've written the tests for my application, and I'm glad with this framework. Thank you, Marcus Baker, for SimpleTest.</p>

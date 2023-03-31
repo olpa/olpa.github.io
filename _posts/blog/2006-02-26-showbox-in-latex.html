@@ -1,0 +1,42 @@
+---
+layout: post
+title: showbox in LaTeX
+date: 2006-02-26 08:05:12.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: latex,showbox
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/02/26/showbox-in-latex/"
+---
+<p>Not a first time when I need to trace a LaTeX layout by digging into the details, and again I've spend time remembering how to do it. Fixing the magic in writing.</p>
+<p><!--more--></p>
+<p>First, content should be wrapped by a box:</p>
+<pre>
+\\newsavebox{\\xxx}
+\\savebox{\\xxx}{
+... content ...
+}
+</pre>
+<p>Now dump it into the log-file:</p>
+<pre>
+\\showboxdepth=100
+\\showboxbreadth=100
+\\showbox\\xxx
+</pre>
+<p>The non-obvious thing here is setting <tt>showboxdepth</tt> and <tt>showboxbreadth</tt>. For some reason, LaTeX disables box-printing by setting these values to -1. I don't know where from one could know about it.</p>
+<p>Finally, return the box to the document:</p>
+<pre>
+\\usebox{\\xxx}
+</pre>

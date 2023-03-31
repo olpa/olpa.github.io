@@ -1,0 +1,45 @@
+---
+layout: post
+title: revising LaTeX notes on font substitutions
+date: 2005-10-05 15:17:10.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/10/05/revising-latex-notes-on-font-substitutions/"
+---
+<p>Automatic font selection scheme in LaTeX somethimes is not so good. For example, when series "n" (normal) and "bx" (extra bold) are defined for a font, and an user want "b" (bold), the system uses "n" font, not "bx" font.</p>
+<p><!--more--></p>
+<p>Fortunately, the system writes a message to a log, but, unfortunately, the message is lost in the big log. Using grep helps:</p>
+<pre>
+$ grep -A 1 Font file.log | grep -A 1 unde
+$ grep -A 1 Font Standardanleitung.log | grep -A 1 available
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size &lt;12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 64.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size &lt;10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 67.
+--
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size &lt;9> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 188.
+--
+LaTeX Font Info:    Font shape `TS1/phv/bx/n' in size &lt;10> not available
+(Font)              Font shape `TS1/phv/b/n' tried instead on input line 867.
+LaTeX Font Info:    Font shape `T1/phv/bx/sl' in size &lt;10> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 881.
+</pre>
+<h2>Update</h2>
+<p>To avoid all that "not available" messages, I used:</p>
+<pre>
+\\renewcommand\\bfdefault{b}
+</pre>

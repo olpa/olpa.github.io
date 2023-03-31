@@ -1,0 +1,29 @@
+---
+layout: post
+title: one step forward, two back
+date: 2005-04-26 22:47:44.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/26/one-step-forward-two-back/"
+---
+<p>Conversion of the attribute nodes seems working, although with some glitches. And I traditionally mention namespaces. I decided to have holes in ns processing in the first version.</p>
+<p><!--more--></p>
+<p>By the way, what's surprised me most is that in SXML it's possible to store a namespace declaration together with an attribute. Consider the following XML:</p>
+<pre>&lt;a b:c="d" xmlns:b="u.w.z" /></pre>
+<p>If we take an attribite, we get:</p>
+<pre>b:c="d"</pre>
+<p>loosing information about the "b" prefix. Compare it with SXML where we can carry the attribute together with the namespace:</p>
+<pre>(@ (b "c") (*NAMESPACES* (b "u.w.z")))</pre>

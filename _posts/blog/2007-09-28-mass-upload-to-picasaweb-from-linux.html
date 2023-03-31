@@ -1,0 +1,42 @@
+---
+layout: post
+title: mass-upload to picasaweb from Linux
+date: 2007-09-28 08:28:35.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/09/28/mass-upload-to-picasaweb-from-linux/"
+---
+<p><a href="http://picasaweb.google.com/">Picasaweb</a> is a Google's service for publishing web photo albums. <strike>The main</strike>A drawback of this service is that under Linux you have to upload each image manually. The evil empire (not microsoft) knows about the problem, but has't released even a temporary solution. Fortunately, I managed to find a workaround:<br />
+<!--more--><br />
+Start a browser, login to picasaweb. Create the album "incoming". Go to the photo upload page. View the page source (or use Web Developer plugin to get form details). Follow the data in the HTML code to create <tt>picasa.sh</tt>. Here is the skeleton:</p>
+<pre><code>
+curl \
+-b /home/olpa/.mozilla/..../cookies.txt \
+-F redir='http://picasaweb.google.com/..../Incoming?authkey=....' \
+-F uname=.... \
+-F aid=.... \
+-F num='1' \
+-F name='' \
+-F file0=@$1 \
+'http://picasaweb.google.com/lh/addPhotos?tok=....'
+</code></pre>
+<p>Option "<tt>-b</tt>" is the path to your Firefox cookies file. The value of the form field "<tt>file0</tt>" is read from a file. The value "<tt>num</tt>" shouldn't be empty, but set to "<tt>1</tt>".</p>
+<p>Usage:</p>
+<pre><code>$ picasa.sh <i>my_photo.jpg</i></code></pre>
+<p>If everything is ok, you'll get as the response "Moved Temporarily".</p>
+<p>To upload all the files in a directory:</p>
+<pre><code>$ for i in *jpg; do picasa.sh $i; done</code></pre>
+<p><b>evil_empire++</b></p>
+<p>I've realized that there is no such feature as password protection of albums. Picasaweb disqualified, I'm going to search for another web album service.</p>

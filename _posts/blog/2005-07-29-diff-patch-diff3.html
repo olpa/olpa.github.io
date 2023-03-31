@@ -1,0 +1,51 @@
+---
+layout: post
+title: diff, patch, diff3
+date: 2005-07-29 16:45:44.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/07/29/diff-patch-diff3/"
+---
+<p>In order to produce a <tt>patch</tt> file, I've looked through the following books:</p>
+<ul>
+<li><a href="http://www.gnu.org/software/diffutils/manual/html_node/">Comparing and Merging Files</a></li>
+<li><a href="http://www.gnu.org/prep/maintain/html_node/index.html">Information For Maintainers of GNU Software</a></li>
+</ul>
+<p><!--more--></p>
+<p>In order to produce a patch, the first book <a href="http://www.gnu.org/software/diffutils/manual/html_node/Tips-for-Patch-Producers.html#Tips%20for%20Patch%20Producers">suggests</a>:</p>
+<pre>diff -Naur gcc-3.0.3 gcc-3.0.4</pre>
+<p>And the second book <a href="http://www.gnu.org/prep/maintain/html_node/Distribution-Patches.html#Distribution-Patches">suggests</a>:</p>
+<pre>LC_ALL=C TZ=UTC0 diff -rc2P gcc-2.3.2 gcc-2.3.3 | \
+gzip -9 >gcc-2.3.2-2.3.3.patch.gz</pre>
+<p>I decided to follow the first variant:</p>
+<pre>diff -Naur <i>old-version-dir</i> <i>new-version-dir</i> > <i>program.patch</i></pre>
+<p>(7 April, update) improved:</p>
+<pre>diff -Naur  --exclude=.svn --exclude='*~' --exclude='svn-commit.tmp' <i>old-version-dir</i> <i>new-version-dir</i> > <i>program.patch</i></pre>
+<h2>Applying a patch</h2>
+<p>If a patch is produced as above, the simplest way to apply the patch is:</p>
+<pre>
+$ cd <i>program-directry</i>
+$ patch -p1 &lt; <i>path-to-patch-file</i>
+</pre>
+<h2>Using diff3</h2>
+<ul>
+<li>We had a file <i>oldfile</i></li>
+<li>You've made some changes to this file (let's name the result <i>yourfile</i>)</li>
+<li>I also have made some changes to this file (let's name the result <i>myfile</i>)</li>
+</ul>
+<p>The program <tt>diff3</tt> can merge my and yuor changes:</p>
+<pre>
+diff3 -m <i>myfile</i> <i>oldfile</i> <i>yourfile</i> &gt; <i>newfile</i>
+</pre>

@@ -1,0 +1,33 @@
+---
+layout: post
+title: '"x:value-of" is not so simple'
+date: 2005-04-01 23:49:05.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/01/xvalue-of-is-not-so-simple/"
+---
+<p>Implementation of the "x:value-of" function evolved to a quest. There are many questions, and in order to find answers, I have to dig in the source code of libxml and libxslt.</p>
+<p><!--more--></p>
+<p>As soon as I finally passed the compilation step, I got a coredump. I used <tt>gdb</tt> to look at the core and found that the XPath evaluation function may return not only nodesets, but also basic types such as booleans, strings and similar.</p>
+<p>I consulted implementation of the <tt>xsl:copy-of</tt> function and borrowed the approach from it.</p>
+<p>It checks if an XPath result is the real nodeset or the document node and performs appropriate actions. Otherwise, it uses <tt>xmlXPathConvertString</tt> to make a string from the result of any type.</p>
+<p>I corrected <tt>x:value-of</tt> to set the context node for correct calculation of relative XPaths. It took some time because I had no idea how to do it. I remembered about <tt>xmlXPathSetContextNode</tt> in Python bindings, so I looked at their source code and found that it's enough to set <tt>node</tt> field of the <tt>xmlXPathContext</tt> structure.</p>
+<p>I shouldn't have problems with the document order, but I'd like to know more about some issues. Does <tt>xmlXPathEvalExpression</tt> return nodes in the document order? If not, is there an example how it can return a nodeset with an incorrect order? Why there are two functions to sort nodesets: <tt>xmlXPathNodeSetSort</tt> and <tt>xsltDocumentSortFunction</tt>? The former looks better, so I use it. But I'm afraid to miss something important.</p>
+<p>The problems left:</p>
+<ul>
+<li>the function "document()" is not found. Probably I should perform some additional initialization of libxslt.</li>
+<li><tt>x:value-of</tt> should support namespaces and XSLT variables.</li>
+</ul>

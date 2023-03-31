@@ -1,0 +1,59 @@
+---
+layout: post
+title: allow filenames with '?' in apache, or retiring a forum
+date: 2010-11-02 16:45:31.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/11/02/allow-filenames-with-in-apache-or-retiring-a-forum/"
+---
+<p>After I <a href="http://uucode.com/blog/2010/10/19/retiring-a-wordpress-blog/">retired a blog</a>, I continued with a forum. Unexpectedly, this step consists of two tasks:<br />
+1) convert phpBB2 forum to static pages<br />
+2) retain the old URLs</p>
+<p><!--more--></p>
+<p>The first task was easy, all I needed is to carefully to change the templates and the source code to remove all the dynamic elements from the forum pages. Then mirrored:</p>
+<pre><code>
+wget -r -np -m -p --wait=5 -o log http://mysite/forum2/
+</code></pre>
+<p>I checked the "log" file to make sure that all the pages downloaded ok:</p>
+<pre><code>
+grep '^   ' log  | grep -v '     0K'
+</code></pre>
+<p>Then I manually looked at the set of the downloaded files. I made several edit-mirror-check cycles before the result was ok.</p>
+<p>After I uploaded the static copy, I got a nasty surprise. The names of files are:</p>
+<pre><code>
+viewforum.php?f=1
+viewtopic.php?t=378&start=15
+...
+</code></pre>
+<p>The web server (apache) can't deliver such files because of the question sigh, which is reserved to separate the file name and the query. How to stop this correct behaviour?</p>
+<p>The task is challenging. My answer is:</p>
+<p>* Use mod_rewrite to change the question sign to the underscore sign<br />
+* Correspondingly, rename the files: "viewforum.php?f=1" to "viewforum.php_f=1", "viewtopic.php?t=378&start=15" to "viewtopic.php?t=378&start=15" etc.</p>
+<p>The <tt>.htaccess</tt> is:</p>
+<pre><code>
+RewriteEngine On
+RewriteCond %{ENV:REDIRECT_STATUS} =""
+RewriteCond %{QUERY_STRING} !=""
+RewriteRule ^(.*)$ $1_%{QUERY_STRING} [L]
+
+ForceType "text/html; charset=iso-8859-1"
+</code></pre>
+<p>Everything is obvious except the line 2. After applying the rewrite rule, the sever repeats the rewriting process and can fall into a loop. The REDIRECT_STATUS-line detects the second pass and prevents the mod_rewrite from looping.</p>
+<p>It was hard to construct this line. The documentation on mod_rewrite does not describe "REDIRECT_STATUS". Thanks log level 9 for explaining the problem, Google for relevant search and Internet for storing knowledge.</p>
+<p>As for rewriting the file names, different approaches are possible. I used Perl.</p>
+<pre><code>
+find forum2/ -name '*\?*' >flist
+cat flist | perl -nle '$a=$_; s/\?/_/; rename $a,$_;'
+</code></pre>

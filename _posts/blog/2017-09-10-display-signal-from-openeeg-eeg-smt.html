@@ -1,0 +1,89 @@
+---
+layout: post
+title: Display signal from OpenEEG EEG-SMT
+date: 2017-09-10 15:56:20.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- bci
+tags: []
+meta:
+  _edit_last: '1'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2017/09/10/display-signal-from-openeeg-eeg-smt/"
+---
+<p>There is a number of software intended for EEG works. The <a href="https://www.olimex.com/Products/EEG/OpenEEG/EEG-SMT/resources/EEG-SMT_QUICKSTART.pdf">EEG-SMT quick start guide</a> suggests <a href="http://realization.org/page/topics/electric_guru.htm">Electric Guru</a>, <a href="http://www.shifz.org/brainbay/">BrainBay</a> and <a href="http://openvibe.inria.fr/">OpenVibe</a>, but it implies the use of a legacy operating system instead of Linux.</p>
+<p>This post extends the quick start to have Linux notes. The content:</p>
+<p>* Install OpenVIBE<br />
+* Connect STM-EEG to Linux<br />
+* Configure OpenVIBE<br />
+* Get the signal</p>
+<p><!--more--></p>
+<h2>OpenVIBE</h2>
+<blockquote><p><a href="http://openvibe.inria.fr/">OpenVibe</a> is a software platform that enables to design, test and use Brain-Computer Interfaces (BCIs). OpenViBE can also be used as a generic realtime EEG acquisition, processing and visualization system.</p></blockquote>
+<p>The version 2.0 BETA is released at the moment of writing, but I decided to avoid being a tester and downloaded the <a href="http://openvibe.inria.fr/pub/src/openvibe-1.3.0-src.tar.xz">stable version 1.3.0</a> as the source code package. Unpack it:</p>
+<pre><code>tar xJvf openvibe-1.3.0-src.tar.xz</code></pre>
+<p>Read the file <tt>INSTALL</tt> for instructions. The short story is:</p>
+<pre><code>
+$ cd scripts
+$ ./linux-install_dependencies
+$ ./linux-build
+</code></pre>
+<p>Under Ubuntu 16.04.03, these commands have successfully built OpenVIBE without any tuning. The result is in "dist/".</p>
+<h2>Connect STM-EEG to Linux</h2>
+<p>Connect the device. Linux detects it automatically as:</p>
+<pre><code>
+Bus 001 Device 009: ID 0403:6001 Future Technology Devices
+  International, Ltd FT232 USB-Serial (UART) IC
+</code></pre>
+<p>Modules are been automatically loaded: <tt>ftdi_sio</tt>, <tt>usbserial</tt>.</p>
+<p>A new tty device automatically appears:</p>
+<pre><code>
+$ ls -l /dev/ttyUSB0
+crw-rw---- 1 root dialout 188, 0 Sep  2 16:48 /dev/ttyUSB0
+</code></pre>
+<p>You are not allowed to access this file because you are not in the group "dialout". For the time being, I use a quick dirty solution, allowing access to everyone. I don't remember if write access is also required, but grant it too.</p>
+<pre><code>
+$ sudo chmod o+rw /dev/ttyUSB0
+$ ls -l /dev/ttyUSB0
+crw-rw-rw- 1 root dialout 188, 0 Sep  2 16:48 /dev/ttyUSB0
+</code></pre>
+<h2>Configure OpenVIBE acquisition server</h2>
+<p>Now you can follow the quick start guide.</p>
+<p>Start the aquisition server (<tt>$ ./openvibe-acquisition-server.sh</tt>) and configure as suggested:</p>
+<blockquote><p>
+19) Select "OpenEEG Modular EEG p2" from the drop-down menu and adjust it's properties. Especially change the COM port to the proper port the EEG-SMT got connected to (after the drivers were installed in point) and also remember to reduce the number of channels to 1 or 2!
+</p></blockquote>
+<p><img src="{{ site.baseurl }}/assets/2017/09/openvibe-acq-server.png" alt="openvibe-acq-server" width="1166" height="446" class="alignnone size-full wp-image-526" /></p>
+<p>In our case, the port is "<tt>/dev/ttyUSB0</tt>".</p>
+<p>Click "Connect". A debug message appears in the console:</p>
+<pre><code>
+[  INF  ] Connecting to device [OpenEEG Modular EEG P2]...
+[  INF  ] Connection succeeded !
+</code></pre>
+<p>Click "Run". Console:</p>
+<pre><code>
+[  INF  ] Starting the acquisition...
+[  INF  ] Now acquiring...
+</code></pre>
+<p>The program complains often that "device drift is too high". I don't know if it is bad and hope it can be ignored.</p>
+<h2>Get the signal</h2>
+<p>The visualisation tool is OpenVIBE designer (<tt>./openvibe-designer.sh</tt>).</p>
+<p>A minimal useful program consist of two blocks:</p>
+<p>* get the signal, and<br />
+* visualise the signal.</p>
+<p><img src="{{ site.baseurl }}/assets/2017/09/openvibe-show-signal-min.png" alt="openvibe-show-signal-min" width="617" height="333" class="alignnone size-full wp-image-527" /></p>
+<p>Consult the quick start for detailed instructions.</p>
+<p>Make sure that the acquisition server is running, now run the visualisation program and see the result:</p>
+<p><img src="{{ site.baseurl }}/assets/2017/09/signal-is-bad.png" alt="signal-is-bad" width="500" height="368" class="alignnone size-full wp-image-528" /></p>
+<p>This is a disaster with a lot of noice. And a topic for the next post.</p>

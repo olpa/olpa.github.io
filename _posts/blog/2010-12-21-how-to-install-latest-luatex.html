@@ -1,0 +1,39 @@
+---
+layout: post
+title: how to install latest LuaTeX
+date: 2010-12-21 15:45:04.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/12/21/how-to-install-latest-luatex/"
+---
+<p>After reading Paul Isambert's article "<a href="https://www.tug.org/members/TUGboat/tb31-3/tb99isambert.pdf">Three things you can do with LuaTeX that would be extremely painful otherwise </a>" I finally decided to check <a href="http://www.luatex.org/">LuaTeX</a>. Unfortunately, the code from the article does not work under old LuaTeX from TeX Live 2009 (and probably from TeX Live 2010 too). I downloaded a binary from the site, tried to run it and got an expected error:</p>
+<pre>
+This is LuaTeX, Version beta-0.40.6-2009100220 (TeX Live 2009)
+(Fatal format file error; I'm stymied)
+</pre>
+<p><!--more--></p>
+<p>There is no README. No installation instructions. No FAQ entry. Just a binary file.</p>
+<p>Below is my way to run a new luatex without changing the working installation of TeX. First of all, I need the <tt>textool.sh</tt> wrapper to run TeX tools from non-standard locations, <a href="http://uucode.com/blog/2010/04/28/running-tex-tools-from-non-standard-locations/">decribed here</a>.</p>
+<p>The next step is to generate a new luatex format:</p>
+<pre>
+$ ./textool.sh ./luatex --ini luatex-plain.tex
+$ mv luatex-plain.fmt luatex.fmt
+</pre>
+<p>Finally, the file compiles:</p>
+<pre>
+$ ./textool.sh ./luatex LuaTUGboat.tex
+</pre>
+<p>As for luatex, context etc, I think the approach is the same. I don't need these formats (yet), therefore haven't tried to find details. They are welcome as comments.</p>

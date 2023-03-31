@@ -1,0 +1,40 @@
+---
+layout: post
+title: Yet another rejection (post-GTTSE'2005)
+date: 2006-01-08 10:10:32.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- science
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/01/08/yet-another-rejection-post-gttse2005/"
+---
+<p>The post-<a href="http://www.di.uminho.pt/GTTSE2005">GTTSE'2005</a> paper "XML View on Hierarchical Data Using SXML and Scheme" (<a href="http://uucode.com/texts/xmlview/xmlview.html">HTML</a>, <a href="http://uucode.com/texts/xmlview/xmlview.pdf">PDF</a>) is rejected. Below are the rejection reviews.</p>
+<p><!--more--></p>
+<h2>Review</h2>
+<p>I am really puzzled by this paper. It's not really clear to me what this paper is about and even less what is its scientific contribution. There is mention of Scheme, virtual machines, and embeddings (of Scheme apparently). There is also mention of XML and SXML, a Scheme representation for XML. However, it is not clear for this reviewer how it all fits together.</p>
+<p>* Are you proposing to write Scheme programs to process XML via a transparent XML -> SXML embedding?<br />
+* Are you proposing something else altogether (viz your mention of libxml2 and libxslt)?<br />
+* Or is your goal to provide a Scheme interface in addition to a C-based XML interface?<br />
+* And what role does XSLT play in the picture? Is it driven by the Scheme code or is it driven by the application or is it to beconsidered separately?</p>
+<p>Further, if XSLT plays a major role, then why can't you use that for scripting?</p>
+<h2>Review</h2>
+<p>The paper deals with an interesting and uptodate topic (the use of Scheme-based XML thecnology in the context of programs that handle tree-like data). I always believe and like this idea---to use in one context (compilers, or language processors in general) other conceptual or technological approaches, in order to take the best profit from existing solutions or tools; on account of that, I think<br />
+and I suggest that the paper is accepted. However I feel that the paper deserves a strong revision, before publication.</p>
+<p>I agree that it is not clear, and difficult to read; in fact, although the english could be improved, I feel that it is not a syntactical problem. A better structure and a more concise flow of ideas are necessary. Notice that in the Introduction the three last parag are devoted to explain the structure of the paper, but they fail to do that---they should be entirely rewritten. Sect 2 and 3 do not have an introduction before subsections, though it is difficult to understand their proposal and contents. Sect 4, that should be the heart of the paper, is too short and fails to define (describe) the Mapping XML-SXML; it is more concerned with the process (or processor) of implememnting the Mapping than with its definiton! Once again, Sect 5 is not properly integrated with the rest of the paper; what is its purpose?... Sect 6 should be renamed to "Conclusion" even though it can contain the discussion of Related Work; it should be improved with some final remarks and conclusions of the proposal.</p>
+<p>Basic concepts or terms should be clearly defined initially (for instance, "symmetry" or "SXML", "XPath data model", "XSLT processing model" are never defined!).</p>
+<h2>Review</h2>
+<p>This paper presents techniques to embed an XML based virtual machine which has the Scheme programming language as native bytecode. I found this paper difficult to read and to understand its contribution. There are too many references to XML dialects/systems (Xquery, XSieve, xsltproc, Guile, libxml2, etc) that makes it difficult to follow. In section 4 and 5, the mappings from XML and SXML and for XPath and XSLT are explained very briefly and in a very informal way! I think that the use of a small example in these sections will improve the readability of the paper.</p>
+<p>In the very first sentence the author refers to the benefits of XML for construction of compilers and text processors. I'm not very convinced about this "XMLization" of the world. Nevertheless, some alternative solutions should be discussed in the related work. For example, the well-known technique of hash-consing that colapses ASTs into DAGs, used by the ATERM library, and by systems like ASF+SDF, Stratego, Lrc, etc. Futhermore, there has been a lot of work on embedding XML in general purposes languages such as Haskell (for example, the HaXml library). A reference to those works should also be included in the related work section.</p>
+<p>The English must be improved.</p>

@@ -1,0 +1,44 @@
+---
+layout: post
+title: execute an XPath and get the line numbers
+date: 2007-03-05 14:23:54.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/03/05/execute-an-xpath-and-get-the-line-numbers/"
+---
+<p>I'm investigating the structure of an XML file. The best tool is an usual text editor (vim), but I need to look at some specific tags in some specific contexts. The idea is to execute an XPath and somehow to get to the location in the editor. Remembering that I saw something interesting while playing with libxml internals, I re-checked... And bingo! I've written a script which executes an XPath and prints the result together with the line number of the source XML file.</p>
+<p><!--more--></p>
+<p>Usage:</p>
+<p><tt>python xpath.py <i>document</i> <i>xpath</i></tt></p>
+<p>Code:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> sys<span style="color:#808030; ">,</span>libxml2
+
+doc_name <span style="color:#808030; ">=</span> sys<span style="color:#808030; ">.</span>argv<span style="color:#808030; ">[</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span>
+xpath    <span style="color:#808030; ">=</span> sys<span style="color:#808030; ">.</span>argv<span style="color:#808030; ">[</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">]</span>
+
+<span style="color:#800000; font-weight:bold; ">print</span> doc_name<span style="color:#808030; ">,</span> xpath
+doc  <span style="color:#808030; ">=</span> libxml2<span style="color:#808030; ">.</span>parseFile<span style="color:#808030; ">(</span>doc_name<span style="color:#808030; ">)</span>
+ctxt <span style="color:#808030; ">=</span> doc<span style="color:#808030; ">.</span>xpathNewContext<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+res  <span style="color:#808030; ">=</span> ctxt<span style="color:#808030; ">.</span>xpathEval<span style="color:#808030; ">(</span>xpath<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">for</span> node <span style="color:#800000; font-weight:bold; ">in</span> res<span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">print</span> node<span style="color:#808030; ">.</span>lineNo<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">print</span> node
+
+doc<span style="color:#808030; ">.</span>freeDoc<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+ctxt<span style="color:#808030; ">.</span>xpathFreeContext<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">del</span> ctxt
+<span style="color:#800000; font-weight:bold; ">del</span> doc
+</code></pre>

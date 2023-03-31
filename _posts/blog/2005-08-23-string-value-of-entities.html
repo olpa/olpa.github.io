@@ -1,0 +1,40 @@
+---
+layout: post
+title: string value of entities
+date: 2005-08-23 15:29:36.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/23/string-value-of-entities/"
+---
+<p>The XPath specification doesn't define what is the string value of an entity. Even more, the data model for XPath doesn't have entities. But in XSieve I do have entities.</p>
+<p><!--more--></p>
+<p>Consider the XML fragment:</p>
+<pre>&lt;data>aaa&amp;mdash;bbb&lt;/data></pre>
+<p>What is the string value of the fragment above? I see three variants:</p>
+<p>1) Entity has no value at all. Result: "aaabbb".<br />
+2) Entity is written as is. Result: "aaa&amp;mdash;bbb".<br />
+3) The value is the value of the expansion. Result is something like "aaa---bbb".</p>
+<p>In my opinion, the third were the best if were possible. But the use of the phrase "something like" identifies the main problem with the approach. Sometimes (I'd even say often) we don't know how to expand an entity.</p>
+<p>At the moment, "x:string" of XSieve is implemented through calling an libxml function, and that function doesn't support entity nodes. Therefore, "x:string" currently returns "aaabbb". I dislike it.</p>
+<p>I think about implementing the second approach, writing entities as is. However, two issues bother me.</p>
+<p>1) Consistency. If the string value of an entity is something like "&amp;mdash;", why the string value of an attribute isn't "aname='aval'", the string value of a processing instruction isn't "< ?pi target?>", and so on?</p>
+<p>2) Escaping for HTML. Imagine a PHP developer writing the code:</p>
+<pre>echo htmlspecialchars(string_value(...XML fragment above...))</pre>
+<p>Result is:</p>
+<pre>aaa&amp;amp;mdash;bbb</pre>
+<p>And browsers show it as:</p>
+<pre>aaa&amp;mdash;bbb</pre>
+<p>Is it the right thing?</p>

@@ -1,0 +1,33 @@
+---
+layout: post
+title: XML to SXML coredumped
+date: 2005-03-29 00:05:16.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/29/xml-to-sxml-coredumped/"
+---
+<p>Surprisingly, conversion from libxml2 tree to SXML seems a trivial task now. Only attributes and namespaces are left.</p>
+<p><!--more--></p>
+<p>The core of the conversion engine is a set of self-recursive procedures. It took some time to implement them for the unnecessary (I though so at the moment) goal of conversion of the document node (<tt>*TOP*</tt> in SXML). But having the procedures, the whole tree of elements was converted with help of a few C lines.</p>
+<p>Summary:</p>
+<p>* conversion works for: document nodes, comments, processing instructions;<br />
+* basically works for elements, but without attributes and namespaces;<br />
+* TODO: attributes and namespaces.</p>
+<p>I hope to finish "TODO" in one work block.</p>
+<p>But I have to fix bugs first.</p>
+<p>The first issue probably is not a bug. While coding the conversion (XML to SXML), I forgot about the internal XML-SXML map, and was converting the same XML node several times. It's fixed now, but I want to check that I did't forget to use the map in the reverse (SXML to XML) conversion.</p>
+<p>The second issue is definitely not a bug, but it still worth checking. Is it possible to create comment or PI with NULL (not empty string!) content using SXML to XML conversion?</p>
+<p>The real bug is coredumping on a certain construction. I stopped programming when I got coredump and can't say for sure, but I think I know the reason and solution in advance. </p>

@@ -1,0 +1,32 @@
+---
+layout: post
+title: the fall of XPath over filesystem
+date: 2006-07-13 05:44:14.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/07/13/the-fall-of-xpath-over-filesystem/"
+---
+<p>Many XPath tutorials use file paths as an analogy of XPath. While it is ok from a high-level point of view, the analogy is misleading and actual technical implementations (<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconXPathNavigatorOverDifferentStores.asp">one</a>, <a href="http://dret.net/projects/fsx/">another</a>, <a href="http://uucode.com/texts/xfind/index.html">my</a>) are kludge (at least, my implementation). Here are some issues.<br />
+<!--more--><br />
+The first one is the user interface. When a node (a file) is matched, what should be printed to the user:</p>
+<p><tt>/usr/bin/find</tt>, or<br />
+<tt>../../../../bin/find</tt>?</p>
+<p>Other issues are technical.</p>
+<p>The second issue. The file system isn't a tree. There are symbolic links. On the one hand, as user, I want that XPath "<tt>.//*[match(name(),'*.c')]</tt>" find matches in the folder "src", even if this folder is actually a symbolic link. On the other hand, symbolic links can create hardly detectable infinite loops.</p>
+<p>Third. File systems have many features. One of them allows to create a folder, for which one can't get the list of the children files, but one can enter to a subdirectory if the name is known. Let's have a site in the folder "<tt>/var/web/pub/uVc7k/</tt>" and "pub" is a such folder. Then XPath "<tt>//*[match(name(),'*.html')]</tt>" doesn't find HTML files of the site.</p>
+<p>Fourth. XPath tutorials suggest nice XPath expressions like "<tt>/usr/bin/find</tt>". Unfortunately, actual expressions look like <tt>/node[name()='usr']/node[name()='bin']/node[name()='find']</tt>. Indeed, file names are not limited to the ASCII letters and digits.</p>
+<p>Fifth, the situation is even worse. Many file systems allow to use any characters for file names, excluding "\000" and "/", but including the symbols with codes "\001", "\002" etc, which are forbidden in XML.</p>
+<p>Sixth. Finally, the main. I just don't see what a practical problem can be solved using XPath over file system. I hope I overlooked something.</p>

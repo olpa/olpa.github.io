@@ -1,0 +1,30 @@
+---
+layout: post
+title: vim unicode setup for windows 2000
+date: 2010-12-29 17:49:21.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- vim
+- windows
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/12/29/vim-unicode-setup-for-windows-2000/"
+---
+<p>To display unicode (utf8) files in vim in windows, the following commands should be added to <tt>%PROGRAMS%\Vim\_vimrc</tt>:</p>
+<p><!--more--></p>
+<pre>
+set encoding=utf-8
+set guifont=Courier_New:h12
+set guifontwide=Arial_Unicode_MS:h12
+</pre>
+<p>The built-in method to input diacritical marks is to use vim digraphs, <tt>Ctrl-K + symbol1 + symbol2</tt>. The full list of them can be displayed using <tt>:digraphs</tt> command.</p>

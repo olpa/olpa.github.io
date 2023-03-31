@@ -1,0 +1,40 @@
+---
+layout: post
+title: codegeneration is cool
+date: 2007-02-07 08:33:09.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/02/07/codegeneration-is-cool/"
+---
+<p>The expression "<tt>1+2+3</tt>" is converted to:</p>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">list-ec</span>
+    <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">:list</span> e1 <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">gx:.</span> gx<span style="color:#400000; ">:unit</span> gx-ffi<span style="color:#400000; ">:number</span> gx<span style="color:#400000; ">:fido</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">gx:unit</span> <span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+    <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">:list</span> e2
+      <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">gx:.</span> gx<span style="color:#400000; ">:unit</span> gx-ffi<span style="color:#400000; ">:number</span> gx<span style="color:#400000; ">:fido</span>
+        <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">list-ec</span>
+            <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">:list</span> e1 <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">gx:.</span> gx<span style="color:#400000; ">:unit</span> gx-ffi<span style="color:#400000; ">:number</span> gx<span style="color:#400000; ">:fido</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">gx:unit</span> <span style="color:#008c00; ">2</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+            <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">:list</span> e2 <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">gx:.</span> gx<span style="color:#400000; ">:unit</span> gx-ffi<span style="color:#400000; ">:number</span> gx<span style="color:#400000; ">:fido</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">gx:unit</span> <span style="color:#008c00; ">3</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+          <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">+</span> e1 e2<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+  <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">+</span> e1 e2<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+</pre>
+<p><!--more--></p>
+<p>For those who is curious and have some theoretical background:</p>
+<p>* list-ec -- list comprehension<br />
+* :list -- generator of list comprehension<br />
+* gx:. -- function composition<br />
+* gx:unit -- wrap a value to a list<br />
+* gx:fido -- take the first element from a sorted list<br />
+* gx:gx-ffi:number -- convert to a number</p>

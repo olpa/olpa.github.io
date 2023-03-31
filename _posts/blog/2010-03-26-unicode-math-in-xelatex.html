@@ -1,0 +1,64 @@
+---
+layout: post
+title: unicode math in xelatex
+date: 2010-03-26 11:43:18.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/03/26/unicode-math-in-xelatex/"
+---
+<p>In XeTeX, an unicode version of TeX, it's logical to use unicode math. However, till now (march 2010) unicode math publishing doesn't work directly out of the box. Here are two solutions, one is fast (and not so wrong) and one is probably the future standard.</p>
+<p><!--more--></p>
+<p>The LaTeX code to compile is:</p>
+<p><code>
+<pre>
+\documentclass{minimal}
+...SOMETHING...
+\begin{document}
+$$\sin(\alpha+\beta) = \sin α \cos β + \cos\alpha \sin\beta$$
+$$\int\!\!\!\int_D dx\,dy$$
+\end{document}
+</pre>
+<p></code></p>
+<p>Note that "alpha" and "beta" are written both as command sequences and as unicode characters.</p>
+<p>The part marked "...SOMETHING..." is a placeholder for setup.</p>
+<h2>Fast, no so wrong way</h2>
+<p>If the goal is only to:</p>
+<p>* allow the greek letters as unicode symbols, and<br />
+* it is not important which math font is used,</p>
+<p>then the simplest solution is:</p>
+<p>* make the greek letters active,<br />
+* define the greek letters as the corresponding commands:</p>
+<p>Replace the placeholder "...SOMETHING..." with:</p>
+<p><code>
+<pre>
+\catcode`\^^^^03b1=13
+\let^^^^03b1=\alpha
+\catcode`\^^^^03b2=13
+\let^^^^03b2=\beta
+</pre>
+<p></code></p>
+<p>Repeat it for the all possible letters.</p>
+<h2>unicode-math package</h2>
+<p>This package is not yet released on CTAN. Latest developmental and archived historical versions of this package are available from GitHub: <a href="http://github.com/wspr/unicode-math">http://github.com/wspr/unicode-math</a>.</p>
+<p>Given that the author, Will Robertson, is also the author of such packages as fontspec, xltxtra, euenc etc, I think that unicode-math will be a standard way to have unicode math in XeLaTeX.</p>
+<p>After installing this package, I succesfully compiled the test document using the following "...SOMETHING...":</p>
+<p><code>
+<pre>
+\usepackage{unicode-math}
+\setmathfont{[Asana-Math]}
+</pre>
+<p></code></p>
+<p>The font Asana-Math can be found on TeX Live 2009 DVD (and probably on 2007 and 2008 too). The square brackets around the name forces xelatex to search for a .otf/.ttf-file instead of getting the font from OS. In my case, xelatex somehow found the font automatically, I didn't need to give the full path.</p>

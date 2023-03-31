@@ -1,0 +1,12 @@
+---
+layout: single
+---
+{{ content }}
+
+
+<div>
+  <span>Categories:</span>
+  {% for cat in page.categories %}
+    <a href="/blog/category/{{ cat | slugify }}/">{{ cat }}</a>
+  {% endfor %}
+</div>

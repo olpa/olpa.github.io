@@ -1,0 +1,30 @@
+---
+layout: post
+title: currently executing python file
+date: 2006-08-16 06:54:43.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/08/16/currently-executing-python-file/"
+---
+<p>Here is a way to get the currently executing Python file:</p>
+<pre>print (lambda x:x).func_code.co_filename</pre>
+<p><!--more--></p>
+<p>Probably there is a simpler way, but I haven't found it. The best alternative I found is to use the special attribute <tt>__file__</tt>, but it doesn't work for SConscript files:</p>
+<pre>print (lambda x:x).func_code.co_filename
+print __file__</pre>
+<p>results is</p>
+<pre>/home/olpa/p/.../SConscript.py
+/usr/lib/python2.4/site-packages/SCons/Script/__init__.pyc</pre>

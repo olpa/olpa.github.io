@@ -1,0 +1,28 @@
+---
+layout: post
+title: indenting XML in vim
+date: 2005-06-15 13:55:49.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- vim
+tags: []
+meta:
+  keywords: vim,xml,indent,reformat,format
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/15/indenting-xml-in-vim/"
+---
+<p>Sometimes I need to look inside XML files which consist of one big line. It's very impossible, and reformatting takes a time. Fortunately, I've found a good solution for vim.</p>
+<p><!--more--></p>
+<p> I added to my ".vimrc" file:</p>
+<pre>map &lt;F2> &lt;Esc>:1,$!xmllint --format -&lt;CR></pre>
+<p>Now I can press "F2" button, and vim indents the text.</p>
+<p>More hints on indenting XML in vim: <a href="http://www.vim.org/tips/tip.php?tip_id=349">Tip #349: Format your xml document using xmllint</a>.</p>

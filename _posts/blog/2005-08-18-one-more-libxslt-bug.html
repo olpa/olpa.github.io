@@ -1,0 +1,77 @@
+---
+layout: post
+title: one more libxslt bug
+date: 2005-08-18 23:39:28.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/18/one-more-libxslt-bug/"
+---
+<p>That's not funny. Again the namespaces, again a libxslt bug. Libxslt is confused when XSLT and XML use the same prefix with different URI.</p>
+<p><!--more--></p>
+<p>The following stylesheet adds attribute "y:foo" to each element, the<br />
+full name of the attribute is "{y:y:y}foo".</p>
+<p>[code]</p>
+<pre>
+&lt;x:stylesheet
+  xmlns:x = &quot;http://www.w3.org/1999/XSL/Transform&quot;
+  xmlns:y = &quot;y:y:y&quot;
+  version = &quot;1.0&quot;&gt;
+&lt;!-- --&gt;
+
+&lt;x:template match=&quot;node()|@*&quot;&gt;
+        &lt;x:copy&gt;
+                &lt;x:attribute name=&quot;y:foo&quot;&gt;bar&lt;/x:attribute&gt;
+                &lt;x:apply-templates select=&quot;node()|@*&quot;/&gt;
+        &lt;/x:copy&gt;
+&lt;/x:template&gt;
+
+&lt;/x:stylesheet&gt;
+</pre>
+<p>[/code]</p>
+<p>Apply the stylesheet to the following XML.</p>
+<p>[code]</p>
+<pre>
+&lt;a xmlns:y=&quot;y2:y2:y2&quot;&gt;
+        &lt;b y:white=&quot;white&quot;&gt;
+                &lt;c y:black=&quot;black&quot;/&gt;
+        &lt;/b&gt;
+&lt;/a&gt;
+</pre>
+<p>[/code]</p>
+<p>Result is the following.</p>
+<p>[code]</p>
+<pre>
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;a xmlns:y=&quot;y2:y2:y2&quot; y:foo=&quot;bar&quot;&gt;
+        &lt;b y:foo=&quot;bar&quot; y:white=&quot;white&quot;&gt;
+                &lt;c y:foo=&quot;bar&quot; y:black=&quot;black&quot;/&gt;
+        &lt;/b&gt;
+&lt;/a&gt;
+</pre>
+<p>[/code]</p>
+<p>The full name of the "foo" attribute is "{y2:y2:y2}foo", but should be<br />
+"{y:y:y}foo".</p>
+<p>By the way, saxon generates the following:</p>
+<p>[code]</p>
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;a xmlns:y=&quot;y2:y2:y2&quot; xmlns:y.5=&quot;y:y:y&quot; y.5:foo=&quot;bar&quot;&gt;
+        &lt;b y.5:foo=&quot;bar&quot; y:white=&quot;white&quot;&gt;
+                &lt;c y.5:foo=&quot;bar&quot; y:black=&quot;black&quot;/&gt;
+        &lt;/b&gt;
+&lt;/a&gt;
+</pre>
+<p>[/code]</p>
+<p>I've submitted the <a href="http://bugzilla.gnome.org/show_bug.cgi?id=313890">bug</a> to the libxslt team.</p>

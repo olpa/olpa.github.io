@@ -1,0 +1,39 @@
+---
+layout: post
+title: now wt2db bug
+date: 2005-08-18 15:48:46.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/18/now-wt2db-bug/"
+---
+<p>Yet another bug, in yet another program. I like <a href="http://en.tldp.org/wt2db/">wt2db</a> (WikiText to DocBook, I've already written <a href="http://uucode.com/blog/2005/06/21/fast-docbook-editing-in-vim/">about wt2db</a>), so I've submitted a <a href="http://bugzilla.gnome.org/show_bug.cgi?id=313828">bug</a>.</p>
+<p><!--more--></p>
+<p>Steps to reproduce:</p>
+<pre>
+$ tar zxf wt2db-0.5.tar.gz
+$ cd wt2db-0.5
+$ perl Makefile.PL
+$ make
+$ gvim test.pl
+
+set
+[code]
+$buffer = "[[file:xslt2xsieve.xsl]";
+[/code]
+
+$ perl -Ilib test.pl
+
+.. hanging ...
+</pre>

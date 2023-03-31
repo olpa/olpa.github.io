@@ -1,0 +1,54 @@
+---
+layout: post
+title: TexML and unicode characters for math operators
+date: 2009-11-25 07:18:12.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+- TeXML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2009/11/25/texml-and-unicode-characters-for-math-operators/"
+---
+<p>Bug (?) report: ``after switching from LaTeX(pdflatex) to XeTeX(xelatex) as the PDF generator something has ceased to work. Mathematical operators given as unicode characters in math formulas do not show up in the final document.´´</p>
+<p><!--more--></p>
+<p>The letter continues:</p>
+<p>I've diagnosed the problem. The cause is a change in the encoding option of the TexML converter, from <code>-eISO-8859-1</code> to <code>-eUTF-8</code>, as expected by XeTeX. Previously some unicode characters were automagically converted to the corresponding LaTeX mathematical symbols, but now they are just copied to the generated LaTeX code.</p>
+<p>I've solved the problem myself by a quick-and-dirty hack of <code>texmlwr.py</code>. A new conditional section in <code>writech(...)</code> before the chained tests for TeXML modes forces the conversion inside math mode, regardless of the particular output encoding.</p>
+<p><code>
+<pre>
+263c263
+ &lt;     # First attempt to write symbol as-is
+---
+ &gt;     # First attempt to write symbol as-is  **** IF NOT IN MATH MODE ****
+264a265,276
+ &gt;     if self.mode == MATH:
+ &gt;       #
+ &gt;       # Math mode, lookup math map
+ &gt;       #
+ &gt;       try:
+ &gt;         chord = ord(ch)
+ &gt;         if chord &gt; 255:                            # no Latin-1
+ &gt;           self.stream.write(unimap.mathmap[chord])
+ &gt;           return                                             # return
+ &gt;       except:
+ &gt;         pass
+ &gt;
+</pre>
+<p></code></p>
+<h2>My coment</h2>
+<p>So, XeTeX (and probably other TeXs, I think) doesn't interpret the unicode math correctly. The solution is to avoid the unicode math and use the corresponding escape sequences instead.</p>
+<p>I'm afraid it's the only available solution right now. However, I vaguely remember discussions in XeTeX mailing list and articles in TUGboat, therefore I'd like to spend some time in looking for an alternative. Probably a magic option for XeTeX cures the problem.</p>
+<p>Finally, I asked for a few examples of TeXML, generated TeX and PDF files (both correct and not). Hopefully, I'll have a bit of time to find a better solution.</p>
+<h2>26.03.2010, solution</h2>
+<p><a href="http://uucode.com/blog/2010/03/26/unicode-math-in-xelatex/">unicode math in xelatex</a></p>

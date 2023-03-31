@@ -1,0 +1,62 @@
+---
+layout: post
+title: escape a TeX string in Python
+date: 2008-10-17 13:23:12.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+- TeX
+- TeXML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/10/17/escape-a-tex-string-in-python/"
+---
+<p>Do you generate [La]TeX files using Python? If yes, do you escape the special characters. Haven't you forgotten to escape also empty strings?</p>
+<p>To avoid reinventing the wheel, I tried to use <a href="http://getfo.org/texml/">TeXML</a> libraries. This is the right choice, but one has to use a little trick.</p>
+<p><!--more--></p>
+<p>The problem is that TeXML doesn't provide a simple function like:</p>
+<pre style="color:#000000;background:#ffffff;"><code>s <span style="color:#808030; ">=</span> tex_escape<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span></code></pre>
+<p>Instead, TeXML assumes it converts a big XML. The escaping functions are a part of an object which writes to an output stream.</p>
+<p>Well, can we use <tt>StringIO</tt> to use a string as an output buffer?</p>
+<p>Yes. But then the next subproblem: it is assumed that the stream is created once and used forever. Unfortunately, we can't reset the content of a string buffer. And re-creating and re-initializing a string buffer and TeXML writer each time we need to escape a string is unefficient.</p>
+<p>Wait! We can reset the string! The function <tt>truncate</tt> does work.</p>
+<p>So, here is the solution:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> cStringIO<span style="color:#808030; ">,</span> Texml<span style="color:#808030; ">.</span>texmlwr
+
+<span style="color:#800000; font-weight:bold; ">class</span> TexEscape<span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">def</span> <span style="color:#e34adc; ">__init__</span><span style="color:#808030; ">(</span>self<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    self<span style="color:#808030; ">.</span>stream <span style="color:#808030; ">=</span> cStringIO<span style="color:#808030; ">.</span>StringIO<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+    self<span style="color:#808030; ">.</span>texmlwr <span style="color:#808030; ">=</span> Texml<span style="color:#808030; ">.</span>texmlwr<span style="color:#808030; ">.</span>texmlwr<span style="color:#808030; ">(</span>self<span style="color:#808030; ">.</span>stream<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'utf-8'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'72'</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">def</span> escape<span style="color:#808030; ">(</span>self<span style="color:#808030; ">,</span> s<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    self<span style="color:#808030; ">.</span>texmlwr<span style="color:#808030; ">.</span>write<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"x\n"</span><span style="color:#808030; ">)</span>
+    self<span style="color:#808030; ">.</span>stream<span style="color:#808030; ">.</span>truncate<span style="color:#808030; ">(</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">)</span>
+    self<span style="color:#808030; ">.</span>texmlwr<span style="color:#808030; ">.</span>write<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span>
+    <span style="color:#800000; font-weight:bold; ">return</span> self<span style="color:#808030; ">.</span>stream<span style="color:#808030; ">.</span>getvalue<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">def</span> free<span style="color:#808030; ">(</span>self<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    self<span style="color:#808030; ">.</span>stream<span style="color:#808030; ">.</span>close<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+
+e <span style="color:#808030; ">=</span> TexEscape<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+s <span style="color:#808030; ">=</span> <span style="color:#0000e6; ">"foo&amp;bar\n\n\nbar&amp;foo"</span>
+s <span style="color:#808030; ">=</span> e<span style="color:#808030; ">.</span>escape<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">print</span> s
+e<span style="color:#808030; ">.</span>free<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+</code></pre>
+<p>The only last trick is '<tt>self.texmlwr.write("x\n")</tt>'. I use it to reset internal state flags.</p>
+<p>Running the code produces the desired result:</p>
+<pre><code>
+$ python test.py
+foo\&bar
+%
+%
+bar\&foo
+</code></pre>

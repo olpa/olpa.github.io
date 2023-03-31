@@ -1,0 +1,35 @@
+---
+layout: post
+title: favicon.ico
+date: 2006-05-31 06:17:31.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: favicon
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/05/31/faviconico/"
+---
+<p>I'm tired of "<tt>favicon.ico</tt>" entries in <tt>error_log</tt>s of my sites, so I've decided to fix this problem.</p>
+<p><!--more--></p>
+<p>Additional information: <a href="http://www.winterdrache.de/freeware/png2ico/favicon.html">How To Create And Install A favicon.ico</a>.</p>
+<p>I've created two icons in 16x16 and 32x32 sizes, saved them as png and created an icon using the freeware <a href="http://www.winterdrache.de/freeware/png2ico/">png2ico</a> converter:</p>
+<pre>png2ico favicon.ico ico16x16.png ico32x32.png</pre>
+<p>I haven't tried, but it seems that gimp can create ico-file. The image should consist of two layers, of sizes 16x16 and 32x32, than just save it as a file with the extension .ico.</p>
+<p>Yet another observation:</p>
+<pre>$ file favicon.ico 
+favicon.ico: MPEG sequence</pre>
+<p>Attaching an icon to a web-page: in <tt>&lt;head&gt;</tt>:</p>
+<pre>
+&lt;link rel=&quot;icon&quot; href=&quot;favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;
+</pre>

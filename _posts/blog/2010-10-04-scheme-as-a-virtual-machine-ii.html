@@ -1,0 +1,57 @@
+---
+layout: post
+title: scheme as a virtual machine - II
+date: 2010-10-04 14:04:54.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- scheme
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/10/04/scheme-as-a-virtual-machine-ii/"
+---
+<p><a href="http://uucode.com/blog/2010/09/28/r5rs-scheme-as-a-virtual-machine-i/">Closing a TODO</a>, I've filtered the list of Scheme implementations to find candidates for experimenting with using Scheme as a VM. The winners are:</p>
+<p><!--more--></p>
+<p><a href="http://www.call-cc.org/">Chicken</a><br />
+<a href="http://www.omnigia.com/scheme/cpscm/home/">CPSCM</a> (suprise, surprise, I've never heard of it)<br />
+<a href="http://dynamo.iro.umontreal.ca/~gambit/wiki/index.php/Main_Page">Gambit</a></p>
+<p>I expect that I'll have to choose between Chicken and Gambit, but right now the winner is CPSCM. I expect it allows a fast start, especially because it already compiles Scheme to JavaScript.</p>
+<p>Now description of the filtering process.</p>
+<p>The page <a href="http://community.schemewiki.org/?scheme-faq-standards#implementations">http://community.schemewiki.org/?scheme-faq-standards#implementations</a> provides a list of all Scheme implementations. I followed each link to find if a tool is a compiler or an interpreter. I got:</p>
+<p>Bigloo<br />
+Chez Scheme<br />
+Chicken<br />
+CPSCM<br />
+Dream<br />
+Gambit<br />
+Ikarus<br />
+Kawa<br />
+Larceny<br />
+Luna<br />
+MIT/GNU Scheme<br />
+PLT Scheme<br />
+Rhizome/pi<br />
+RScheme<br />
+Scheme-to-C<br />
+Schlep<br />
+SCM<br />
+Shoe<br />
+Stalin</p>
+<p>The next filtering step is to search in Google for the phrases "virtual machine site:xxx" and "backend site:xxx", where xxx is the homepage of the tool. If something is found, the tool is retained in the list. Now the list is shorter:</p>
+<p>Bigloo<br />
+chicken<br />
+CPSCM<br />
+Gambit<br />
+Ikarus(?)<br />
+PLT Scheme(?)<br />
+RScheme</p>
+<p>The list is finally small. On the last step, I reviewed the documentation of the tools to find that they really support r5rs and real compilation and that the documentation is helpful for my goals. This way, I've got the 3 winners listed in the beginning.</p>

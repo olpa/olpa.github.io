@@ -1,0 +1,63 @@
+---
+layout: post
+title: python Selenium in Ubuntu 16.04
+date: 2016-12-22 12:03:41.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+- testing
+tags:
+- selenium
+meta:
+  _edit_last: '2'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2016/12/22/python-selenium-in-ubuntu-16-04/"
+---
+<p><a href="http://www.seleniumhq.org/">Selenium</a> is a web browser automation software. In Ubuntu 16.04 it doesn't work out of the box, and external components should be installed. In this post I note how to install them locally without affecting the system.</p>
+<p><!--more--></p>
+<p>First, I create a virtual environment named <tt>selenium</tt>:</p>
+<p><code>
+<pre>
+$ mkdir ~/opt
+$ cd ~/opt
+$ virtualenv selenium
+$ cd selenium
+$ source bin/activate
+</pre>
+<p></code></p>
+<p>Note that the command prompt is changed from "<tt>$</tt>" to "<tt>(selenium) $</tt>".</p>
+<p>Second, install <tt>selenium</tt> using <tt>pip</tt>.</p>
+<p><code>
+<pre>
+(selenium) $ pip install selenium
+</pre>
+<p></code></p>
+<p>Third, download the driver from <a href="https://github.com/mozilla/geckodriver/releases">https://github.com/mozilla/geckodriver/releases</a>, unpack it and move to the virtual environment <tt>bin</tt> directory, in which <tt>selenium</tt> will find the driver.</p>
+<p><code>
+<pre>
+(selenium) $ tar zxf ..../geckodriver-vX.XX.X-linux64.tar.gz
+(selenium) $ mv geckodriver bin/
+</pre>
+<p></code></p>
+<p>Installation is complete. Check that a sample program works: <a href="http://selenium-python.readthedocs.io/getting-started.html">http://selenium-python.readthedocs.io/getting-started.html</a>.</p>
+<p>Finally, make an usability improvement by providing a shortcut to <tt>selenium</tt>:</p>
+<pre>
+$ mkdir ~/bin # if not already created
+$ ln -s ~/opt/selenium/bin/activate ~/bin/activate-selenium
+</pre>
+<p>Now <tt>selenium</tt> environment can be activated from anywhere:</p>
+<pre>
+$ source activate-selenium
+(selenium) $
+</pre>

@@ -1,0 +1,40 @@
+---
+layout: post
+title: '"undefined namespace prefix" with XSLT prefix and two predicates'
+date: 2007-02-14 07:29:11.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/02/14/undefined-namespace-prefix-with-xslt-prefix-and-two-predicates/"
+---
+<p>I've caught yet another libxml2/libxslt bug: <a href="http://bugzilla.gnome.org/show_bug.cgi?id=407731">Bug 407731</a>.</p>
+<p><!--more--></p>
+<p>Consider the stylesheet (<tt>test.xsl</tt>):</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">stylesheet</span> <span style="color:#666616; ">xmlns</span><span style="color:#800080; ">:</span><span style="color:#074726; ">xsl</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#666616; ">http</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#5555dd; ">www.w3.org</span><span style="color:#40015a; ">/1999/XSL/Transform</span><span style="color:#0000e6; ">"</span> <span style="color:#074726; ">version</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#008c00; ">1.0</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">></span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">template</span> <span style="color:#074726; ">match</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">*</span><span style="color:#44aadd; ">[</span><span style="color:#44aadd; ">xsl:template</span><span style="color:#44aadd; ">]</span><span style="color:#44aadd; ">[</span><span style="color:#008c00; ">1</span><span style="color:#44aadd; ">]</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">></span>
+  <span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">x</span><span style="color:#a65700; ">/></span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">template</span><span style="color:#a65700; ">></span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">stylesheet</span><span style="color:#a65700; ">></span>
+</code></pre>
+<p>Let run it:</p>
+<pre>
+$ ~/p/third_party/libxslt/opt/bin/xsltproc test.xsl test.xsl
+<font color="red">XPath error : Undefined namespace prefix</font>
+&lt;?xml version="1.0"?>
+&lt;x/>
+</pre>
+<p>Note the error "Undefined namespace prefix" is appeared, but there is no error. And, for example, Saxon doesn't complaint.</p>
+<p>The funny thing is that if I change "<tt>*[xsl:template][1]</tt>" to "<tt>*[xsl:template]</tt>", the error is disappeared.</p>

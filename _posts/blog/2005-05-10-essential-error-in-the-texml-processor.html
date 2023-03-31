@@ -1,0 +1,48 @@
+---
+layout: post
+title: essential error in the TeXML processor
+date: 2005-05-10 00:07:48.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeXML
+tags: []
+meta:
+  keywords: TeXML,TeX,xml
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/10/essential-error-in-the-texml-processor/"
+---
+<p>Shame on me. The TeXML processor had a bug in the core functionality.</p>
+<p><!--more--></p>
+<p>Consider the following XML:</p>
+<pre>
+&lt;para>
+Paragraph starts ...
+
+... and ends.
+&lt;/para>
+</pre>
+<p>One can try to translate it to TeX this way:</p>
+<pre>
+Paragraph starts ...
+
+... and ends.
+\\pre
+</pre>
+<p>But this conversion is invalid. In TeX, a blank line creates a paragraph break. In the example above, we have two paragraphs instead of one.</p>
+<p>TeXML comments out blank lines to avoid paragraph breaks:</p>
+<pre>
+Paragraph starts ...
+<b>%</b>
+... and ends.
+\\pre
+</pre>
+<p>The bug was in understanding what is a blank line. The blank line in TeX is not just the empty line. The blank line is a line which consists of zero or more space characters. Now the bug is fixed.</p>

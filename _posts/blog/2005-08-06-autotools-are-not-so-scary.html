@@ -1,0 +1,35 @@
+---
+layout: post
+title: autotools are not so scary
+date: 2005-08-06 22:49:48.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta:
+  keywords: autoconf,automake,autoheader,libtoolize,aclocal,endif
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/06/autotools-are-not-so-scary/"
+---
+<p>This week I was porting XSieve installation tarball to GNU standards, in particular, to using <tt>./configure</tt>, <tt>make</tt>, <tt>make install</tt>. It was not easy, especially because my package is not standard, but I've done it. On Monday I plan to update documentation and release the version 0.0.2.</p>
+<p><!--more--></p>
+<p>It took a time to chew the interdependencies of autoconf, automake, autoheader, libtoolize, aclocal and other stuff. My main reading were the book "<a href="http://sources.redhat.com/autobook/">Autoconf, Automake, and Libtool: Autoconf, Automake, and Libtool</a>" and the texinfo documentation for the tools.</p>
+<p>Initially I was sceptic about usefulness of the autotools, but now I realized thair potential. My Makefiles are greately simplified and I hope I'll be able to compile code on any platform.</p>
+<p>The main drawback is the size of generated files. With autotools, size of the distribution package is increased from 30 Kb to 280 Kb (ten times).</p>
+<p>There was a problem with name collision in autoconf and make. Autoconf uses the keywords <tt>if/endif</tt>, raising an error on keywords <tt>ifeq/endif</tt> which sometimes needed in Makefiles:</p>
+<pre>.../Makefile.am:XX: endif without if</pre>
+<p>To fix the problem, add to <tt>configure.ac</tt>:</p>
+<pre>MK=''; AC_SUBST(MK)</pre>
+<p>Now use the following construction in <tt>Makefile.am</tt>-files:</p>
+<pre>@MK@ifeq (...,...)
+...
+@MK@endif</pre>

@@ -1,0 +1,43 @@
+---
+layout: post
+title: libxml doesn't compile
+date: 2005-06-21 00:07:36.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: libxml2,linking
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/21/libxml-doesnt-compile/"
+---
+<p>The latest CVS version of libxml2 doesn't build. Linking fails with messages:</p>
+<pre>
+../../.libs/libxml2.so: undefined reference to `pthread_getspecific'
+../../.libs/libxml2.so: undefined reference to `pthread_once'
+../../.libs/libxml2.so: undefined reference to `pthread_key_create'
+../../.libs/libxml2.so: undefined reference to `pthread_setspecific'
+</pre>
+<p><!--more--></p>
+<p>It seems I'm not alone. Here is a message form the libxml2 mailing list: "<a href="http://mail.gnome.org/archives/xml/2005-June/msg00108.html">Linker error Compiling off the HEAD</a>".</p>
+<p>The sad thing is that it will not be fixed for some time: <a href="http://mail.gnome.org/archives/xml/2005-June/msg00112.html">Re: Linker error Compiling off the HEAD</a>:</p>
+<blockquote><p>
+... and I don't have a complete solution. Probably need a compiler portability expert input to get it right...
+</p></blockquote>
+<p>My workaround is bad. In several Makefiles (Makefile, doc/examples/Makefile, example/Makefile), I changes the line</p>
+<pre>
+LDADDS =  $(top_builddir)/libxml2.la  -lz $(ICONV_LIBS) -lm 
+</pre>
+<p>to</p>
+<pre>
+LDADDS =  $(top_builddir)/libxml2.la  -lz $(ICONV_LIBS) -lm -lpthread 
+</pre>
+<p>Similar actions are required for libxslt (in xsltproc/Makefile).</p>

@@ -1,0 +1,48 @@
+---
+layout: post
+title: captions of wide longtables are indented
+date: 2005-10-12 15:06:36.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: longtable,caption2,caption,left,raggedright,indent
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/10/12/captions-of-wide-longtables-are-indented/"
+---
+<p>Some of my longtables are wider than \hsize (=\columnwidth). It's ok. The problem is the left-aligned captions of such tables. If a table is X too wide, then the caption is indented by X.</p>
+<p><!--more--></p>
+<p>An example to reproduce the problem:</p>
+<pre>
+\\documentclass{article}
+\\usepackage{longtable}
+\\usepackage[nooneline,justification=raggedright]{caption}
+\\begin{document}
+\\begin{longtable}[l]{|p{\\hsize}|p{50pt}|}
+row1col1&row1col2\\\\
+row2col1&row2col2\\\\
+\\caption{my table}
+\\end{longtable}
+\\end{document}
+</pre>
+<p>In this example, the caption is indented by 50pt.</p>
+<p>I <a href="http://groups.google.com/group/comp.text.tex/browse_frm/thread/bc71315b5032c310/88162e212f04977b#88162e212f04977b">asked in comp.text.tex</a>: Any suggestions how to avoid indenting? Or, at least, any ideas why it happens?</p>
+<p>Axel Sommerfeldt, the author of the longtable package, explained that the caption in a longtable is typeset as centered multicolumn. It, and looking at the source code of \LT@makecaption, revealed me the source of the problem.</p>
+<p>Among Axel's suggestins, I've choosen patching the definition of \LT@makecaption. It combines code from the longtable and caption2 packages, and uses the fact that my captions are always of \hsize.</p>
+<pre>
+\\def\\LT@makecaption#1#2#3{ %
+  \\LT@mcol\\LT@cols l{\\hskip-\\tabcolsep\\hbox to\\z@{\\parbox[t]\\hsize{ %
+    \\captionfont\\selectfont {#2: }#3%
+    \\endgraf\\vskip\\baselineskip}%
+  \\hss}}}
+</pre>

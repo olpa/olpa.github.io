@@ -1,0 +1,41 @@
+---
+layout: post
+title: 'libxml2 tree: NULL vs empty string'
+date: 2005-03-11 02:13:04.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/11/libxml2-tree-null-vs-empty-string/"
+---
+<p>In libxml2, C calls</p>
+<pre>
+xmlNewPI("name", NULL);
+xmlNewPI("name", "");
+</pre>
+<p>produce the following processing instructions</p>
+<pre>
+&lt;?name?>
+&lt;?name ?>
+</pre>
+<p>(notice the space in the second case). At the first moment I though that I shouldn't allow the first variant. But then reminded that in XML absence of node and empty node are sometimes very different things. So let both variants be.</p>
+<p>Then I tested two variants for another node type:</p>
+<pre>
+xmlNewComment(NULL);
+xmlNewComment("");
+</pre>
+<p>The second case produced the expected result</p>
+<pre>&lt;----></pre>
+<p>but the first variant seems broken. In serialized XML, I have no comments at all!</p>
+<p>Anyway, I decided to have difference between nothing and empty string. I feel it can be used somehow,</p>

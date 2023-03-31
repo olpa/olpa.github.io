@@ -1,0 +1,42 @@
+---
+layout: post
+title: notes on compiling XSieve for Windows
+date: 2007-02-16 05:44:28.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/02/16/notes-on-compiling-xsieve-for-windows/"
+---
+<p>Some time ago I tried to compile XSieve for the win32 platform. I was partially successfull, I compiled everything except of the XSieve DLL itself. I'm not going to repeat the attempt in the near future, and I have to do something with the notes. The simplest solution is to put the notes to the blog for future reference.</p>
+<p><!--more--></p>
+<p>----------------------------</p>
+<p>Notes on compiling for Win32</p>
+<p>1) First install MinGW, and only then MSYS. Then MSYS correctly integrates with MinGW</p>
+<p>2) libtool -- install separately</p>
+<p>3) GMP</p>
+<p>4) PATH CFLAGS LDFLAGS<br />
+-- for configure</p>
+<p>*) GMP: can't be both shared & dynamic.<br />
+Had to say guile --shared<br />
+-<br />
+scmconfig</p>
+<p>*) regex.0.12 -- by hand. see forconf.</p>
+<p>----------------------</p>
+<p>Notes on compiling libxml2 and libxslt</p>
+<p>libxml_modules_enables</p>
+<p>1) libxml should made fix in area of xmlversion.h</p>
+<p>libxml: -liconv -lws2_32 (+-lthread?)</p>
+<p>2) xml-config from xml-configin manually, with corrected modules settings</p>
+<p>3) libxslt: libiconv.la: correct libdir (iconv should be installed to c:\...)</p>

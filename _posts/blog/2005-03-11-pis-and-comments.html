@@ -1,0 +1,27 @@
+---
+layout: post
+title: PIs and comments
+date: 2005-03-11 02:30:17.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/11/pis-and-comments/"
+---
+<p>My code now converts the special nodes *TOP*, *PI* and *COMMENT* to XML.</p>
+<p>The *TOP* is just a mark for the tree root. The code just skips it and descends to children.</p>
+<p>Conversion of *PI* was painful. The neet trick I used for attributes didn't work. So I had to write a function to extract text content from SXML. But having the function, conversion of *COMMENT* was trivial.</p>
+<p>Unfortunately, I've left a bug. At the last moment I noticed that I had to escape special XML characters manually. I'll do it later.</p>
+<p>The only SXML special nodes left are *ENTITY* and *NAMESPACES*. I'm frightened by the latter in advance. I'm afraid it will take a lot of time to implement all the gory details.</p>
+<p>And, unexpectedly, *ENTITY* appeared to be a non-trivial task. It is used for unexpanded entity, but I want to have the normal entity! Going to complain in the ssax-sxml mailing list.</p>

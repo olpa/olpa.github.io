@@ -1,0 +1,30 @@
+---
+layout: post
+title: script wrapper for Windows
+date: 2005-07-11 20:19:28.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/07/11/script-wrapper-for-windows/"
+---
+<p>I'm always spending lots of time searching for these information: "<a href="http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/percent.mspx">Using batch parameters</a>", "<a href="http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/batch.mspx">Using batch files</a>", "<a href="http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/ntcmds_shelloverview.mspx">Command shell overview</a>".</p>
+<p><!--more--></p>
+<p>I need it to write batch file for Windows. It's a part of trade-off between usability and development time.</p>
+<p>If I create a Perl script for processing files, my Windows users can do nothing with the script. My solution is quite simple, but working. In addition to the Perl script, I also create a batch file which is just a wrapper for the Perl script.</p>
+<p>Installation procedure: user creates a link to the batch file at the Windows Desktop. Usage procedure: user selects files to be processed and drags them on the link. All is quite simple.</p>
+<p>By the way, the batch file looks as follows:</p>
+<pre>
+perl %~dp0script.pl %*
+pause
+</pre>

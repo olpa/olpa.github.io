@@ -1,0 +1,51 @@
+---
+layout: post
+title: python, re-encoding incorrected encoded string
+date: 2007-08-17 14:02:07.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/08/17/python-re-encoding-incorrected-encoded-string/"
+---
+<p>Python has a quite decent internal support of unicode. But sometimes it's hard to find how to exploit the support.</p>
+<p>I've lost some time solving a simple problem:</p>
+<p>* A program reads a file, which is in the iso-8859-1 encoding.<br />
+* The text is converted to Unicode<br />
+* At some moment, program detects that some strings are actually were in windows-1251 encoding<br />
+* The task: how to re-interpret the string?</p>
+<p>The only solution I found is hacky:</p>
+<p><!--more--></p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> codecs
+w1251dec <span style="color:#808030; ">=</span> codecs<span style="color:#808030; ">.</span>getdecoder<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'windows-1251'</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">def</span> reenc<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  s2 <span style="color:#808030; ">=</span> <span style="color:#0000e6; ">''</span>
+  <span style="color:#800000; font-weight:bold; ">for</span> ch <span style="color:#800000; font-weight:bold; ">in</span> s<span style="color:#808030; ">:</span>
+    s2 <span style="color:#808030; ">=</span> s2 <span style="color:#808030; ">+</span> <span style="color:#e34adc; ">chr</span><span style="color:#808030; ">(</span><span style="color:#e34adc; ">ord</span><span style="color:#808030; ">(</span>ch<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">return</span> w1251dec<span style="color:#808030; ">(</span>s2<span style="color:#808030; ">)</span><span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span>
+
+s <span style="color:#808030; ">=</span> unicode<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"\xc3\xeb\xe0\xe2\xe0"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'latin-1'</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">print</span> s<span style="color:#808030; ">,</span> <span style="color:#e34adc; ">repr</span><span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span>
+s <span style="color:#808030; ">=</span> reenc<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">print</span> s<span style="color:#808030; ">,</span> <span style="color:#e34adc; ">repr</span><span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span>
+</code></pre>
+<p>Anyway, it works. Running the program gives:</p>
+<pre><code>
+Ãëàâà u'\xc3\xeb\xe0\xe2\xe0'
+Глава u'\u0413\u043b\u0430\u0432\u0430'
+</code></pre>
+<p>If you know a better solution, please share it!</p>
+<p>By the way, do you feel the difference between <tt>s</tt> and <tt>s2</tt>? Variable <tt>s</tt> is the unicode string, but <tt>s2</tt> is the usual string (== array of bytes). I solved the problem only after I invented this trick.</p>
+<p>See also: <a href="http://uucode.com/blog/2007/03/23/shut-up-you-dummy-7-bit-python/">shut up, you dummy 7-bit Python</a>.</p>

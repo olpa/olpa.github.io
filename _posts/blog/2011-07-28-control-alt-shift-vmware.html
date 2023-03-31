@@ -1,0 +1,27 @@
+---
+layout: post
+title: control alt shift vmware
+date: 2011-07-28 10:46:17.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/07/28/control-alt-shift-vmware/"
+---
+<p>Sometimes vmware makes something very wrong, and X server do not understand the keys CTRL, ALT, SHIFT and similar anymore. Solution: "setxkbmap" without any arguments.<br />
+<!--more--><br />
+In case the setting are lost, my configuration is:</p>
+<pre>
+setxkbmap -model pc105 -layout de,ru -variant ,winkeys -option grp:caps_toggle -option compose:rwin
+</pre>

@@ -1,0 +1,35 @@
+---
+layout: post
+title: local macports (darwinports) repository, granting a network access
+date: 2008-11-11 12:41:26.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Mac
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/11/11/local-macports-darwinports-repository-granting-a-network-access/"
+---
+<p>It's quite easy to create a local <a href="http://www.macports.org/">MacPorts</a> repository. Unfortunately, the <a href="http://guide.macports.org/">documentation</a> doesn't say how to share the repository with others. After trials, errors and reading the source code, I've found the answer: the only way is rsync.</p>
+<p><!--more--></p>
+<p>My first optimistic attempt was to use the http protocol. In <tt>/opt/local/etc/macports/sources.conf</tt> I added:</p>
+<pre>http://myserver.localdomain/myports</pre>
+<p>The synchronization command (<tt>port sync</tt>) run successfully. But installing a port raised a mysterious error message:</p>
+<pre>
+$ sudo port install myportname
+Error: Unable to open port: Port extract failed: 
+gzip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error exit delayed from previous errors
+</pre>
+<p>The real reason of the problem is that the port file was missed on the file system. In theory, the port files are downloaded during the synchronization process. In practice, when the protocol is http, the system downloads only the file <tt>PortIndex</tt> and doesn't recursively get other files.</p>
+<p>According to the sources, the only protocol when the whole ports tree is downloaded is rsync.</p>

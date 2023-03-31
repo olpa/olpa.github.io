@@ -1,0 +1,36 @@
+---
+layout: post
+title: Algorithm for SXML to libxml2 namespaces
+date: 2005-03-16 00:09:55.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/16/algorithm-for-sxml-to-libxml2-namespaces/"
+---
+<p>The previous entry "preparation for namespaces" was about presentation of namespaces in libxml2 and SXML. Now I'm going to describe the algorithm of translation from SXML to libxml2.</p>
+<p>The general conversion algorithm uses top-bottom tree traversal, and XML nodes go in the next order:</p>
+<p>1. Element name (probably with namespace prefix)<br />
+2. Attributes (probably with namespace prefixes)<br />
+3. Definition of namespaces<br />
+4. Children</p>
+<p>The use of a namespace prefix can precede the definition of this namespace, and it is a big problem. Ideally, the converter should lookahead for (3) at the step (1). But I decided to "cheat", and if an element or an attribite has a namespace, then I use the next approach:</p>
+<p>A. A name has a namespace if the name contains the character ":". The string after the last ":" is the element name, and the string before the last ":" is the ns-id (the namespace ID).<br />
+B. Suppose that the ns-id is a namespace prefix and call the libxml2 function "xmlSearchNs".<br />
+C. If not found, suppose that the ns-id is a namespace URI and use the function "xmlSearchNsByHref".<br />
+D. If still not found, create a dummy "xmlNs" with NULL "href" (it's an incorrect value) and add it to the list of the ns definitions attacheda to the current element (even if we process an attribute (then use its element)).<br />
+E. Continue the traversal.</p>
+<p>When a namespace definition is found, we add/replace the namespace node to/in the ns definiiton list attached to the element node in context.</p>
+<p>There is a moment when element's attributes and namespace definitions are processed, and the children are not started yet (technical detail: before returing from processing of the special node "@"). It's a good chance to check for consistency of namespace definitions. The converter should warn about NULL "href"s and set "href=prefix" for them. Then it should check namespace usage in the attributes and update the "href"s according to the namespace definitions.</p>
+<p>All this should work well for the examples of the SXML namespaces usage (see the previous article). The only uncovered thing is the "original prefix". I'm ignoring it because it needs some effort to implement, but it should not appear in normal SXML&lt;->libxml2 mapping.</p>

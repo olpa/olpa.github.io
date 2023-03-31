@@ -1,0 +1,58 @@
+---
+layout: post
+title: chess fen plugin for anki
+date: 2011-06-27 15:01:11.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- chess
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/06/27/chess-fen-plugin-for-anki/"
+---
+<p>After I discovered <a href="http://ankisrs.net/">anki</a>, a tool to assist in remembering facts, I started to actively use it. Among other uses, I want to keep in memory some important chess positions. To display these positions in anki, I have written a plugin.</p>
+<p><!--more--></p>
+<p>In future, it would be possible to install it from the anki plugins repository, write now you have to install it manually. You have to donwload the plugin and unpack it to the anki "plugin" folder. Under Linux, the path is "$HOME/.anki/plugins"</p>
+<p><a href="http://uucode.com/download/2011/chess_fen_20110627.zip">Download chess fen plugin for anki</a> (version 20110627).</p>
+<p>The README-file is below, now two screenshots.</p>
+<p>1) The text with fen-tags</p>
+<p><img src="{{ site.baseurl }}/assets/2011/06/anki-fen-text.png" alt="anki-fen-text.png" width="442" height="224" /></p>
+<p>2) The fen-tag converted to image</p>
+<p><img src="{{ site.baseurl }}/assets/2011/06/anki-chess-dia.png" alt="anki-chess-dia.png" width="454" height="550" /></p>
+<h3>The README-file</h3>
+<p>chess fen<br />
+Anki plugin to generate chess diagramms<br />
+===========================================================</p>
+<p>The plugin converts "fen" tag to a corresponding image.</p>
+<p>The original text:</p>
+<p>:: Do you like this position?<br />
+:: [fen]rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1[/fen]</p>
+<p>After processing:</p>
+<p>:: &lt;img src="xxxxx" width="nn" height="nn" border="1" />&lt;br /><br />
+:: &lt;b style="color:gray;font-size:50%;">[fen]rnbqkbnr/pppppppp<br />
+::   /8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1[/fen]&lt;/b></p>
+<p>The images are generated and stored in the deck's media directory.<br />
+An image is generated only if it does not exist. The plugin never<br />
+deletes images. It is possible to test diagramm generation from<br />
+the command line, see the comments inside "chess_fen.py".</p>
+<p>Installation<br />
+-----------------------------------------------------------</p>
+<p>Install the fen plugin from the anki plugins repository.</p>
+<p>While it is not available there, unpack the archive into<br />
+the anki's plugin folder. Under Linux is it<br />
+$HOME/.anki/plugins</p>
+<p>License<br />
+-----------------------------------------------------------</p>
+<p>The GNU General Public License</p>
+<p>Author<br />
+-----------------------------------------------------------</p>
+<p>Oleg Parashchenko, olpa@ http://uucode.com/</p>

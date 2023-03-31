@@ -1,0 +1,49 @@
+---
+layout: post
+title: 'wxPython GIFAnimationCtrl: embed animation gif in the source code'
+date: 2013-03-27 12:00:31.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2013/03/27/wxpython-gifanimationctrl-embed-animation-gif-in-the-source-code/"
+---
+<p>In some cases it is useful to store media files inside the python code itself. For images, <tt>PyEmbeddedImage</tt> and the script <tt>img2py.py</tt> work well. But for <tt>GIFAnimationCtrl</tt> no obvious solution is available, therefore I had to investigate the source code of <tt>wx.animate</tt> to find one.</p>
+<p><!--more--></p>
+<p>After the solution is found, it is easy. Wx-animation consist of two parts: one part is the control to display animation, and another part is the data. The existance of the second part is not obvious, but as soon as one notices it, the rest is easy. Pseudocode:</p>
+<p><code>
+<pre style="color:#000000;background:#f1f0f0;">a <span style="color:#806030; ">=</span> wx<span style="color:#806030; ">.</span>animate<span style="color:#806030; ">.</span>GIFAnimationCtrl<span style="color:#806030; ">(</span>self<span style="color:#806030; ">,</span> <span style="color:#806030; ">-</span><span style="color:#c00000; ">1</span><span style="color:#806030; ">,</span> <span style="color:#e60000; ">''</span><span style="color:#806030; ">)</span> <span style="color:#c34e00; "># The control</span>
+
+a2 <span style="color:#806030; ">=</span> wx<span style="color:#806030; ">.</span>animate<span style="color:#806030; ">.</span>Animation<span style="color:#806030; ">(</span><span style="color:#806030; ">)</span> <span style="color:#c34e00; "># The data</span>
+data <span style="color:#806030; ">=</span> base64<span style="color:#806030; ">.</span>b64decode<span style="color:#806030; ">(</span>gif_img_base64<span style="color:#806030; ">)</span>
+a2<span style="color:#806030; ">.</span>Load<span style="color:#806030; ">(</span>cStringIO<span style="color:#806030; ">.</span>StringIO<span style="color:#806030; ">(</span>data<span style="color:#806030; ">)</span><span style="color:#806030; ">)</span>
+a<span style="color:#806030; ">.</span>SetAnimation<span style="color:#806030; ">(</span>a2<span style="color:#806030; ">)</span> <span style="color:#c34e00; "># Bind the data and the control</span>
+
+a<span style="color:#806030; ">.</span>GetPlayer<span style="color:#806030; ">(</span><span style="color:#806030; ">)</span><span style="color:#806030; ">.</span>UseBackgroundColour<span style="color:#806030; ">(</span><span style="color:#e34adc; ">True</span><span style="color:#806030; ">)</span>
+a<span style="color:#806030; ">.</span>Play<span style="color:#806030; ">(</span><span style="color:#806030; ">)</span>
+</pre>
+<p></code></p>
+<p>The variable <tt>gif_img_base64</tt> is base64-encoded content of a GIF file with animation. A helper program to create the code:</p>
+<p><code>
+<pre style="color:#000000;background:#f1f0f0;"><html><body style="color:#000000; background:#f1f0f0; "><pre>
+<span style="color:#400000; font-weight:bold; ">import</span> sys<span style="color:#806030; ">,</span> base64
+data <span style="color:#806030; ">=</span> sys<span style="color:#806030; ">.</span>stdin<span style="color:#806030; ">.</span>read<span style="color:#806030; ">(</span><span style="color:#806030; ">)</span>
+s <span style="color:#806030; ">=</span> base64<span style="color:#806030; ">.</span>b64encode<span style="color:#806030; ">(</span>data<span style="color:#806030; ">)</span>
+<span style="color:#400000; font-weight:bold; ">print</span> <span style="color:#e60000; ">'gif_img_base64 = ('</span>
+<span style="color:#400000; font-weight:bold; ">while</span> s<span style="color:#806030; ">:</span>
+  <span style="color:#400000; font-weight:bold; ">print</span> <span style="color:#e60000; ">'  "'</span> <span style="color:#806030; ">+</span> s<span style="color:#806030; ">[</span><span style="color:#806030; ">:</span><span style="color:#c00000; ">62</span><span style="color:#806030; ">]</span> <span style="color:#806030; ">+</span> <span style="color:#e60000; ">'"'</span>
+  s <span style="color:#806030; ">=</span> s<span style="color:#806030; ">[</span><span style="color:#c00000; ">62</span><span style="color:#806030; ">:</span><span style="color:#806030; ">]</span>
+<span style="color:#400000; font-weight:bold; ">print</span> <span style="color:#e60000; ">'  )'</span>
+</pre>
+<p></body></html></code></p>

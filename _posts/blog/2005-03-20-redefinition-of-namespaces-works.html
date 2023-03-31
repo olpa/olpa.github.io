@@ -1,0 +1,41 @@
+---
+layout: post
+title: redefinition of namespaces works
+date: 2005-03-20 23:30:45.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/20/redefinition-of-namespaces-works/"
+---
+<p>In <a href="/blog/2005/03/20/namespaces-are-completed-at-the-first-look-but-then-not/">one of the previous entries</a> I wrote that conversion of namespaces is mostly working, but in some cases doesn't. I've traced the reason, and it neither a bug in my code, neither a bug in libxml2. It's just an interference of features.</p>
+<p><!--more--></p>
+<p>I fix up namespace definitions after possible use of these namespaces. If a namespace prefix is used before the actual definition, the code creates a temporary namespace definition in which URI is NULL.</p>
+<p>At the moment of fixup, the code doesn't know if a definition was created or not. So the initial codeflow was as follows. Suppose that there is no definition yet and use "xmlNewNs" to create a new one. If it returns NULL, it means that the definition is already created. In this case I use "xmlSearchNs" to find this definition.</p>
+<p>But "xmlSearchNs" also returns NULL! The problem is that a namespace definition with URI set to NULL is invalid, and "xmlSearchNs" seems check it and return NULL instead of the namespace definition itself. Maybe it's reasonable, but it's bad for me.</p>
+<p>Now, instead of using "xmlSearchNs", I manually walk over "nsDef" list. The conversion works now. SXML:</p>
+<pre>
+(e1 (@
+    (ns:a1 "a1")
+    (@ (*NAMESPACES* (ns "myns"))))
+  (e2 (@
+      (ns:a2 "a2")
+      (@ (*NAMESPACES* (ns "yours")))))))
+</pre>
+<p>XML:</p>
+<pre>
+&lt;e1 xmlns:ns="myns" ns:a1="a1">
+  &lt;e2 xmlns:ns="yours" ns:a2="a2"/>
+&lt;/e1>
+</pre>

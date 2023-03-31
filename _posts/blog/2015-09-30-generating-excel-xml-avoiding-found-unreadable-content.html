@@ -1,0 +1,64 @@
+---
+layout: post
+title: Generating Excel XML, avoiding "found unreadable content"
+date: 2015-09-30 15:03:55.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+- windows
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2015/09/30/generating-excel-xml-avoiding-found-unreadable-content/"
+---
+<p>In theory, changing content of an Excel file is easy:</p>
+<p>* Parse XML from the zip-file<br />
+* Change XML<br />
+* Save XML into the zip</p>
+<p>In practice I got the error: >>Von Excel wurde unlesbares Inhalt in ... gefunden. Möchten Sie den Inhalt dieser Arbeitsmappe wiederherstellen?< < (English: "Excel found unreadable content...")</p>
+<p><!--more--></p>
+<p>After long debug, I found that my code is actually correct. The problem has appeared due to:</p>
+<p>Misunderstanding of XML namespaces by the developers of the Word XML format. They use:</p>
+<p><code>
+<pre>
+&lt;worksheet
+  xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"
+  xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:x14ac="http://schemas.microsoft.com/office/spreadsheetml/2009/9/ac"
+
+  mc:Ignorable="x14ac">
+
+</pre>
+<p></code></p>
+<p>But the correct use is:</p>
+<p><code>
+<pre>
+&lt;worksheet
+  ...
+  mc:Ignorable="http://schemas.microsoft.com/office/spreadsheetml/2009/9/ac">
+</pre>
+<p></code></p>
+<p>One should not rely on the namespace prefixes in XML, these prefixes are arbitrary. One should use the namespace URIs.</p>
+<p>After the problem is clear, it is easy to make a fix. Or better to say, to make a workaround. The correct fix is to change the format, but it is not possible.</p>
+<p>Solution 1.</p>
+<p>Before saving XML, find out which prefix corresponds to "<tt>http://schemas.microsoft.com/office/spreadsheetml/2009/9/ac</tt>" and set it as the value of the attribute <tt>mc:Ignorable</tt>.</p>
+<p>Solution 2.</p>
+<p>I use ElementTree in Python and can force the use of desired namespace prefixes.</p>
+<p><code>
+<pre>
+xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">.</span>register_namespace<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'r'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'http://schemas.openxmlformats.org/officeDocument/2006/relationships'</span><span style="color:#808030; ">)</span>
+xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">.</span>register_namespace<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'mc'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'http://schemas.openxmlformats.org/markup-compatibility/2006'</span><span style="color:#808030; ">)</span>
+xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">.</span>register_namespace<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'x14ac'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'http://schemas.microsoft.com/office/spreadsheetml/2009/9/ac'</span><span style="color:#808030; ">)</span>
+xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">.</span>register_namespace<span style="color:#808030; ">(</span><span style="color:#0000e6; ">''</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'http://schemas.openxmlformats.org/spreadsheetml/2006/main'</span><span style="color:#808030; ">)</span>
+</pre>
+<p></code></p>

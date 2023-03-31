@@ -1,0 +1,54 @@
+---
+layout: post
+title: namespaces are completed at the first look, but then not
+date: 2005-03-20 01:07:10.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/20/namespaces-are-completed-at-the-first-look-but-then-not/"
+---
+<p>Yesterday I succeeded in writing a code for processing an auxiliary SXML list and reporting namespace definition pairs (prefix and URI). I thought I was still too far from finalizing namespaces, but today I've just finished it in less than half on hour. Unfortunately, the code has a bug.</p>
+<p><!--more--></p>
+<p>Here is a small example of namespace conversion. SXML:</p>
+<pre>
+(e1 (@
+    (ns:a1 "a1")
+    (@ (*NAMESPACES* (ns "myns"))))
+  (e2 (@
+      (ns:a2 "a2")))))
+</pre>
+<p>XML:</p>
+<pre>
+&lt;e1 xmlns:ns="myns" ns:a1="a1">
+  &lt;e2 ns:a2="a2"/>
+&lt;/e1>
+</pre>
+<p>I decided to provide a similar example and found a bug. At the moment of writing, SXML</p>
+<pre>
+(e1 (@
+    (ns:a1 "a1")
+    (@ (*NAMESPACES* (ns "myns"))))
+  (e2 (@
+      (ns:a2 "a2")
+      (@ (*NAMESPACES* (ns "yourns")))))))
+</pre>
+<p>is resulting in</p>
+<pre>
+&lt;e1 xmlns:ns="yourns" ns:a1="a1">
+  &lt;e2 xmlns:ns="yourns" ns:a2="a2"/>
+&lt;/e1>
+</pre>
+<p>The bug is that "xmlns:ns" at "e1" should be "myns", not "yours". The first attempt on fixing is failed, giving up.</p>
+<p>And I should also test default namespace.</p>

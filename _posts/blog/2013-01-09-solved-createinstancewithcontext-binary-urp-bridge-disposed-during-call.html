@@ -1,0 +1,49 @@
+---
+layout: post
+title: 'solved: createInstanceWithContext: Binary URP bridge disposed during call'
+date: 2013-01-09 08:04:07.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- publishing
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2013/01/09/solved-createinstancewithcontext-binary-urp-bridge-disposed-during-call/"
+---
+<p>I decided to experiment with OpenOffice automation from Python, found the official <a href="http://wiki.openoffice.org/wiki/Python">PyUNO wiki</a>, followed the "a must read" link <a href="http://wiki.openoffice.org/wiki/PyUNO_bridge">PyUNO bridge</a> and tried the proposed hello-world program "<tt>hello_world.py</tt>". As it was feared, nothing worked immediately. The error was:</p>
+<p><code>
+<pre>
+Traceback (most recent call last):
+  File "hello.py", line 19, in <module>
+    desktop = smgr.createInstanceWithContext( "com.sun.star.frame.Desktop",ctx)
+__main__.RuntimeException: Binary URP bridge disposed during call
+</module></pre>
+<p></code></p>
+<p><!--more--></p>
+<p>The search in Internet was not helpful. Instead, it added confusion.</p>
+<p>Fortunately, there was a mention of the tool <a href="http://dag.wieers.com/home-made/unoconv/">unoconv</a>, which converts between any document format that OpenOffice understands. I tried it to test if it would fail with the same problem. But it worked perfect.</p>
+<p>I opened the source code, found that <tt>unoconv</tt> does a lot of initialization of the environment and decided to reproduce it. I dumped the environment inside the <tt>Convertor::__init__</tt> method:</p>
+<p><code>
+<pre>
+for i in os.environ.iteritems():
+  print '%s=%s' % i
+</pre>
+<p></code></p>
+<p>This helped to construct my own initialization:</p>
+<pre><code>
+export URE_BOOTSTRAP=vnd.sun.star.pathname:/usr/lib/libreoffice/program/fundamentalrc
+PATH=/usr/lib/libreoffice/program:$PATH
+export UNO_PATH=/usr/lib/libreoffice/program
+export LD_LIBRARY_PATH=/usr/lib/libreoffice/program:/usr/lib/libreoffice/ure/lib
+export PYTHONPATH=/usr/lib/libreoffice/program:$PYTHONPATH
+</code></pre>
+<p>Now "hello_world.py" works as promised.</p>

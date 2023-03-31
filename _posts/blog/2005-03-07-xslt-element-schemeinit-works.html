@@ -1,0 +1,46 @@
+---
+layout: post
+title: XSLT element "scheme:init" works
+date: 2005-03-07 02:31:19.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/07/xslt-element-schemeinit-works/"
+---
+<p>I'm working on embedding Guile (Scheme interpreter) to xsltproc. I've introduced the element "init" to contain Scheme initialization code and added (I suppose, sometimes redundant) error checks. Well, it works now:</p>
+<pre>
+&lt;x:stylesheet
+  xmlns:x = "http://www.w3.org/1999/XSL/Transform"
+  xmlns:s = "http://uucode.com/xslt/scheme"
+  x:extension-element-prefixes="s"
+  version = "1.0">
+
+&lt;s:init>
+  (display "SCHEME: Initialization")
+  (define greeting "SCHEME: Hello from scheme.xsl!")
+  (newline)
+&lt;/s:init>
+
+&lt;x:template match="/">
+  &lt;x>
+    &lt;s:scheme>
+      (display greeting)
+      (newline)
+    &lt;/s:scheme>
+  &lt;/x>
+&lt;/x:template>
+
+&lt;/x:stylesheet>
+</pre>

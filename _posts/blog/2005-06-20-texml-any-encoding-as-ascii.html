@@ -1,0 +1,67 @@
+---
+layout: post
+title: 'TeXML: any encoding as ASCII'
+date: 2005-06-20 14:24:26.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+- TeXML
+tags: []
+meta:
+  keywords: latex,chinese,simplified,ascii,tex
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/20/texml-any-encoding-as-ascii/"
+---
+<p>The TeXML development version 1.27 brings new essential functionality: "<tt>--ascii</tt>" parameter. Now it's possible to generate plain ASCII TeX files in a desired encoding. Non-ascii bytes are encoded as "<tt>^^XX</tt>".</p>
+<p><!--more--></p>
+<p>The folder "tests" contains the file "chinese1.xml" which is a working example of Chinese TeXML/LaTeX file:</p>
+<pre>
+&lt;TeXML&gt;
+	&lt;cmd name="documentclass" nl2="1"&gt;
+		&lt;parm&gt;article&lt;/parm&gt;
+	&lt;/cmd&gt;
+	&lt;cmd name="usepackage" nl2="1"&gt;
+		&lt;opt&gt;encapsulated&lt;/opt&gt;
+		&lt;parm&gt;CJK&lt;/parm&gt;
+	&lt;/cmd&gt;
+	&lt;cmd name="usepackage" nl2="1"&gt;
+    &lt;parm&gt;ucs&lt;/parm&gt;
+  &lt;/cmd&gt;
+	&lt;cmd name="usepackage" nl2="1"&gt;
+		&lt;opt&gt;utf8x&lt;/opt&gt;
+		&lt;parm&gt;inputenc&lt;/parm&gt;
+	&lt;/cmd&gt;
+	&lt;env name="document"&gt;
+		&lt;env name="CJK"&gt;
+			&lt;parm&gt;UTF8&lt;/parm&gt;
+			&lt;parm&gt;cyberbit&lt;/parm&gt;
+			&amp;#x4E16;&amp;#x754C;&amp;#xFF0C;&amp;#x4F60;&amp;#x597D;&amp;#xFF01;
+		&lt;/env&gt;
+	&lt;/env&gt;
+&lt;/TeXML&gt;
+</pre>
+<p>("&#x4E16;&#x754C;&#xFF0C;&#x4F60;&#x597D;&#xFF01;" should mean "Hello, World!", but I'm not sure)</p>
+<p>After processing it with TeXML (options "<tt>--encoding utf8 --ascii</tt>"), you get the following result:</p>
+<pre>
+\\documentclass{article}
+\\usepackage[encapsulated]{CJK}
+\\usepackage{ucs}
+\\usepackage[utf8x]{inputenc}
+\\begin{document}
+\\begin{CJK}{UTF8}{cyberbit}
+^^e4^^b8^^96^^e7^^95^^8c^^ef^^bc^^8c^^e4^^bd^^a0^^e5^^a5^^bd^^ef^^bc^^81
+\\end{CJK}
+\\end{document}
+</pre>
+<p>There are also minor improvements in the new version:</p>
+<p>* TeXML issues a warning if an XML symbol isn't converted to TeX and printed as '&amp;#xNNN;'</p>
+<p>* Refactoring. Code for tuning output stream is moved from "handler.py" to "texmlwr.py".</p>

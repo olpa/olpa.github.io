@@ -1,0 +1,48 @@
+---
+layout: post
+title: programmer's nightmare is a coredump in malloc
+date: 2005-05-05 00:01:28.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta:
+  keywords: coredump,malloc,libxml2
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/05/programmers-nightmare-is-a-coredump-in-malloc/"
+---
+<p>Yesterday I updated libxml2 and xsltproc from CVS and got a coredump. I am very scared because I can't produce a test case and I think that the problem is on libxml's side.</p>
+<p><!--more--></p>
+<p>Fortunately, I found a workaround at least. In the file "xpath.c" find the code fragment:</p>
+<pre>
+#ifdef LIBXML_PATTERN_ENABLED
+#define XPATH_STREAMING
+#endif
+</pre>
+<p>Change this code to:</p>
+<pre>
+#ifdef LIBXML_PATTERN_ENABLED
+#define XPATH_STREAMING
+#undef XPATH_STREAMING
+#endif
+</pre>
+<p>Streaming is probably a good idea, but I'd better wait till the core for it is debugged well.</p>
+<p>And I ought to write to mailing list and ask to make a switch for the "configure" script. It's not very good to edit code after each CVS update.</p>
+<p><i>6 May 2005, update</i></p>
+<p><a href="http://mail.gnome.org/archives/xml/2005-May/msg00014.html">I've wrote</a> to the libxml mailing list, and a patch appeared in CVS. Here is what fixed the problem:</p>
+<pre>
+$ diff xpath.c xpath.c.r1.288 
+11303c11303
+< namespaces = xmlMalloc(2 * (ctxt->nsNr + 1) * sizeof(xmlChar*));
+---
+> namespaces = xmlMalloc(2 * (ctxt->nsNr + 1));
+</pre>

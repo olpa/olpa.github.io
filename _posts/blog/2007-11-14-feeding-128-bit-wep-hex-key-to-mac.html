@@ -1,0 +1,22 @@
+---
+layout: post
+title: feeding 128-bit wep hex key to Mac
+date: 2007-11-14 07:27:59.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Mac
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/11/14/feeding-128-bit-wep-hex-key-to-mac/"
+---
+<p>For historical reasons, my home wifi router uses a WEP 128-bit HEX key. It caused troubles while installing a Mac. The setup program accepted only 40-bit keys. Fortunately, the workaround is simple. Specify to use WEP with password, and as the password set "<tt>$0123...012345</tt>" -- the character <tt>$</tt> (dollar) followed by the key.</p>

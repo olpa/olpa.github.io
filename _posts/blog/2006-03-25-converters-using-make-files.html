@@ -1,0 +1,30 @@
+---
+layout: post
+title: converters using make-files
+date: 2006-03-25 07:44:44.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/03/25/converters-using-make-files/"
+---
+<p>I sometimes need to convert a lot of files from one format to another. When the task is a one-time task, it's better to use the "for" loop in shell, but when the task is repeating, it's better to use a make file. Here is one of such make files.</p>
+<p><!--more--></p>
+<pre>dvi_files := $(wildcard *.dvi)
+eps_files = $(patsubst %.dvi,%.eps,$(dvi_files))
+
+all: $(eps_files)
+
+%.eps: %.dvi
+&nbsp;&nbsp;dvips -E -f $< &nbsp;>$@</pre>
+<p>The first line gets a list of all the source files. The second line creates a list of the target files. The first rule says that the default goal "all" requires all the target files. The final rule speficies how to convert from a source file to the correspoding target file.</p>

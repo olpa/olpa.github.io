@@ -1,0 +1,66 @@
+---
+layout: post
+title: highlighting in the console
+date: 2007-02-08 08:20:16.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/02/08/highlighting-in-the-console/"
+---
+<p>One of the unit testing tools (<a href="http://www.neilvandyke.org/testeez/">Testeez</a>, to be more precise) is a bit too verbose. It displays not only the failed tests, but also the passed tests. When the number of the tests is big, it's hard to find the failed one. Therefore, I decided to highlight them in red.</p>
+<p><!--more--></p>
+<p>Surprisingly, it wasn't very hard. The third search in Google was something like "console ESC color", I found "colour ls mini howto" and borrowed the code.</p>
+<p>For Testeez it looks so:</p>
+<pre><code>
+... | sed $'s/^\(;; \)\(FAILED!\)/\\1\033[40;31;1m\\2\033[0m/' \
+    | sed $'s/^\(;; [0-9]\+\. \)\(.*\)$/\\1\033[40;34;1m\\2\033[0m/'
+</code></pre>
+<p>It highlights the "failed" messages in red, and the titles of the tests in blue. Here is a "screenshot":</p>
+<pre style="background-color:#000;color:#fff;"><code>
+;;; BEGIN "Foo Station" TESTS
+
+;; 1. <b><font color="blue">Put two and two together</font></b>
+(+ 2 2)
+;; ==> 4
+;; Passed.
+
+;; DEFINE: Bar function
+(define bar (lambda (x) (+ x 42)))
+
+;; 2. <b><font color="blue">Bar scene</font></b>
+(bar 69)
+;; ==> 111
+;; <b><font color="red">FAILED!</font></b>  Expected:
+;;     0
+
+;; 3. <b><font color="blue">Full circle</font></b>
+(* (bar -21) 2)
+;; ==> 42
+;; Passed.
+
+;; 4. <b><font color="blue">Multiple</font></b>
+(values (+ 2 2) (string #\h #\i) (char-upcase #\p))
+;; ==> 4
+;;     "hi"
+;;     #\P
+;; Passed.
+
+;;; END "Foo Station" TESTS: FAILED
+;;;     (Total: 4  Passed: 3  Failed: 1)
+</code></pre>
+<h2>12 Februrary 2007, update</h2>
+<p>I also added highlighting of the "Failed: X" if X > 0. Addition to the command line:</p>
+<pre><code>
+... | sed $'s/\(Failed: [1-9][0-9]*\))/\033[40;31;1m\\1\033[0m)/'
+</code></pre>

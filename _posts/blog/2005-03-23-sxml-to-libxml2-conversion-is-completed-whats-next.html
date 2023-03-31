@@ -1,0 +1,41 @@
+---
+layout: post
+title: SXML to libxml2 conversion is completed. what's next?
+date: 2005-03-23 02:22:29.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/23/sxml-to-libxml2-conversion-is-completed-whats-next/"
+---
+<p>All tests are passed, and now I think that conversion from SXML to libxml2 is working and stable.</p>
+<p><!--more--></p>
+<p>In the previous post I announced that <a href="/blog/2005/03/23/namespaces-are-finished/">namespaces are finished</a>. At that moment I was near the end. The only things to do were:</p>
+<ul>
+<li> Fix conversion of processing instructions. The PI targets are the Scheme symbols, not the Scheme strings.
+</li>
+<li> Check escaping of the XML special symbols in XMLs generated.
+</li>
+</ul>
+<p>All is done, and the conversion code is complete.</p>
+<p>Honestly, some things are not supported (and probably will never be supported):</p>
+<ul>
+<li> TOP metadata: namespace definitions can't be mapped to the root node in libxml2 (I might be wrong).
+</li>
+<li> "ENTITY" special node: it's never used.
+</li>
+<li> PI metadata: it's never used.
+</li>
+</ul>
+<p>Now it's time to think on further development. I think that it's a good idea to work on a reverse conversion from XML to SXML. I'm going to implement a Scheme function "x:context-node" which returns a context node of an XSLT transformation as SXML.</p>

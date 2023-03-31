@@ -1,0 +1,25 @@
+---
+layout: post
+title: Google AdSense
+date: 2005-03-18 01:48:57.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/18/google-adsense/"
+---
+<p>I've decided to join the <a href="http://www.google.com/adsense/"> Google AdSense</a> program. Now you can see advertisement blocks at the sidebar. Hope they are relevant, and that it may give me revenue.</p>
+<p><!--more--></p>
+<p>The changes were quite trivial. In the folder "<tt>./wp-content/themes/default</tt>" I created the file "<tt>adsense.php</tt>" and in the file "<tt>sidebar.php</tt>" I added near the end:</p>
+<p><code>&lt;?php include (TEMPLATEPATH . '/adsense.php'); ?></code></p>
+<p>It is enough to show ad blocks on all pages with a sidebar. A personal page for a post doesn't have a sidebar, so I also changed the template "<tt>single.php</tt>".</p>

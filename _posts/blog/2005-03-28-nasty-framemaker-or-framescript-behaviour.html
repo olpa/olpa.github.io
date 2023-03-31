@@ -1,0 +1,32 @@
+---
+layout: post
+title: nasty FrameMaker or FrameScript behaviour
+date: 2005-03-28 17:44:16.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- FrameMaker
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/28/nasty-framemaker-or-framescript-behaviour/"
+---
+<p>Recently I got a complaint from an user that my FrameScript code did not work.  Understanding the problem was a valuable experience.</p>
+<p><!--more--></p>
+<p>The code does the following: it processes all images in a document and sets frames padding to zero. Initially it was a very trivial script, but then some features were added and script became more compilcated. The last change was in January when I added regarding of yet another offset parameter.</p>
+<p>At first, I failed to reproduce the user's problem and asked him to send me video of his actions. He did it, and I reproduced the problem on my own.</p>
+<p>It was very ridiculous. Depending on a location in a document, the script fixes different number of images. I hardly was able to beleive my eyes. The script could not be non-determenistic.</p>
+<p>The localization of the problem was a simple, but time-consuming task. Finally I got it.</p>
+<p>FrameMaker doesn't immediately load all images of a document when opening the document. Instead, it uses a sort of proxy objects. When an user scrolls to a proxied object, FM automatically loads the corresponding image object.</p>
+<p>The problem was in the following. One of the properties of a proxy object (in my case <tt>LocY</tt>) had one value, but the real value was another.</p>
+<p>The only solution is to avoid the proxy objects. That's what I do now. Before accessing image properies, the script scrolls the document to the location of the image, and if it is a proxy, it's automatically replaced by the real image.</p>
+<p>Unfortunately, now theh script works a lot slower.</p>
+<p>And I don't know why the problem appeared only now, after a long time of successfull use.</p>

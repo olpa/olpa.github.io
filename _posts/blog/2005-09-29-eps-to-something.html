@@ -1,0 +1,54 @@
+---
+layout: post
+title: eps to something
+date: 2005-09-29 13:59:05.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: epstosmth,eps2smth,epstopng,eps2png,epstojpg,eps2jpg,convert eps
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/29/eps-to-something/"
+---
+<p>I generated an HTML version of a product catalogue and found that the result was very bad due to poor PNG images. To get good PNG images, I had to write some code. Here it is: <a href="/blog/wp-content/epstosmth.tar.gz">convertor from eps to other formats</a>.</p>
+<p><!--more--></p>
+<h2>Using the standard ways</h2>
+<p>The first and obvious attempt to convert images was:</p>
+<pre>
+$ convert file.eps file.png
+</pre>
+<p>The result was bad.</p>
+<p>I noticed that "epstopdf" generated good pdf and tried to convert from the pdf files, not from the eps files. The result was the same.</p>
+<p>Then I thought that "convert" uses "gs", and decided to play with "gs".</p>
+<pre>
+gs -dBATCH -sDEVICE=png16m -sOutputFile=file.png file.eps
+</pre>
+<p>The result was the same.</p>
+<p>Finally, I investigated the internals of "epstopdf". I found that it uses "gs", but it gives data to "gs" through a pipe, and calculates the bounding box and crops the resulted image on its own. As the PDF result is good, I decided to use the same way for other formats. I've added some code "epstopdf" and renamed it to "epstosmth".</p>
+<h2>"epstosmth": eps to something</h2>
+<p>Based on "epstopdf" by Sebastian Rahtz and Heiko Oberdiek. New parameters are added:</p>
+<pre>
+  --gsdev=<dev>:    select gs device
+  --gsopt=<opts>:   additional gs options
+</opts></dev></pre>
+<p>To get list of gs devices and options, run "gs --help".</p>
+<p>Examples:</p>
+<p>eps to png:</p>
+<pre>$ epstosmth --gsdev=png16m file.eps</pre>
+<p>eps to jpeg, resolution 85 dpi:</p>
+<pre>$ epstosmth --gsdev=jpeg --gsopt=-r85x85 file.eps</pre>
+<h2>Error: /undefined in II*</h2>
+<p>Converting some EPS files gives the error reproduced in the title.</p>
+<p>After some researh, I found that these files contains a TIFF preview in some DOS dialect of EPS. Manual fix is possible:</p>
+<p>* delete binary header,<br />
+* delete binary TIFF data at the end of EPS.</p>
+<p>For automatic fixing I found <a href="http://www.cs.wisc.edu/~ghost/gsview/epstool.htm">epstool</a> tool. It can extract PostScript from DOS EPS files. I haven't tested the tool yet.</p>

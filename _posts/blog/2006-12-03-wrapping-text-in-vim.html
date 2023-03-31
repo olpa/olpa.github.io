@@ -1,0 +1,95 @@
+---
+layout: post
+title: wrapping text in vim
+date: 2006-12-03 06:35:21.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- vim
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/12/03/wrapping-text-in-vim/"
+---
+<p>For long time, I wanted the following functionality in vim: I select text and say "wrap the text by a tag". Now I'm formatting texts for HTML, and this functionality is so much required that I've got it.</p>
+<p><!--more--></p>
+<p>Google suggested:</p>
+<p><a href="http://www.vim.org/tips/tip.php?tip_id=346">Tip #346: Wrap text in HTML/XML tags after prompting for the tag name</a></p>
+<p>I've put the code from the comment labelled as "David Fishburn, May 8, 2006" to the file <tt>tagwrap.vim</tt>, and stored the file in the folder <tt>$HOME/.vim/plugin</tt>. To trigger wraping, I press the button "<tt>,</tt>" three times.</p>
+<pre style="bgcolor:white;"><code>
+<font color="#0000ff">&quot; These mappings and TagSelection function will allow you to place</font>
+<font color="#0000ff">&quot; an XML tag around either the current word, or the current selected</font>
+<font color="#0000ff">&quot; text.</font>
+<font color="#0000ff">&quot; If the visual select is on a single line, the tag is wrapped</font>
+<font color="#0000ff">&quot; around the text &lt;this&gt;way&lt;/this&gt;.  If the visual select extends</font>
+<font color="#0000ff">&quot; over multiple lines, the tag is wrapped around the text</font>
+<font color="#0000ff">&quot;     &lt;this&gt;</font>
+<font color="#0000ff">&quot;     way</font>
+<font color="#0000ff">&quot;     &lt;/this&gt;</font>
+<font color="#0000ff">&quot;    </font>
+<font color="#0000ff">&quot; When you are prompted for the tag name, you can enter:</font>
+<font color="#0000ff">&quot;     Tag name?  p class=&quot;classname&quot; attri=&quot;bute&quot;</font>
+<font color="#0000ff">&quot; The select is wrapped with:</font>
+<font color="#0000ff">&quot;     &lt;p class=&quot;classname&quot; attri=&quot;bute&quot;&gt;</font>
+<font color="#0000ff">&quot;     Your selection</font>
+<font color="#0000ff">&quot;     &lt;/p&gt;</font>
+<font color="#0000ff">&quot; Notice the attributes have been stripped from the closing tag.</font>
+<font color="#0000ff">&quot;</font>
+<font color="#0000ff">&quot; Use nmap, not nnoremap, since we do want to use an existing mapping</font>
+<font color="#a52a2a"><b>nmap</b></font> ,,, viw,,,
+<font color="#a52a2a"><b>vnoremap</b></font> ,,, <font color="#6a5acd">&lt;</font><font color="#6a5acd">Esc</font><font color="#6a5acd">&gt;</font>:<font color="#a52a2a"><b>call</b></font> TagSelection<font color="#a52a2a"><b>()</b></font><font color="#6a5acd">&lt;</font><font color="#6a5acd">CR</font><font color="#6a5acd">&gt;</font>
+
+<font color="#a52a2a"><b>function</b></font>! TagSelection<font color="#a52a2a"><b>()</b></font>
+  <font color="#a52a2a"><b>let</b></font> tag <font color="#a52a2a"><b>=</b></font> <font color="#008b8b">input</font><font color="#a52a2a"><b>(</b></font><font color="#ff00ff">&quot;Tag name (include attributes)? &quot;</font><font color="#a52a2a"><b>)</b></font>
+
+  <font color="#a52a2a"><b>if</b></font> <font color="#008b8b">strlen</font><font color="#a52a2a"><b>(</b></font>tag<font color="#a52a2a"><b>)</b></font> <font color="#a52a2a"><b>==</b></font> <font color="#ff00ff">0</font>
+      <font color="#a52a2a"><b>return</b></font>
+  <font color="#a52a2a"><b>endif</b></font>
+
+<font color="#0000ff">  &quot; Save b register</font>
+  <font color="#a52a2a"><b>let</b></font> saveB       <font color="#a52a2a"><b>=</b></font> <font color="#6a5acd">@b</font>
+<font color="#0000ff">  &quot; &lt;C-R&gt; seems to automatically reindent the line for some filetypes</font>
+<font color="#0000ff">  &quot; this will disable it until we have applied our changes</font>
+  <font color="#a52a2a"><b>let</b></font> saveIndent  <font color="#a52a2a"><b>=</b></font> &amp;indentexpr
+  <font color="#a52a2a"><b>let</b></font> curl        <font color="#a52a2a"><b>=</b></font> <font color="#008b8b">line</font><font color="#a52a2a"><b>(</b></font><font color="#ff00ff">&quot;.&quot;</font><font color="#a52a2a"><b>)</b></font>
+  <font color="#a52a2a"><b>let</b></font> curc        <font color="#a52a2a"><b>=</b></font> <font color="#008b8b">col</font><font color="#a52a2a"><b>(</b></font><font color="#ff00ff">&quot;.&quot;</font><font color="#a52a2a"><b>)</b></font>
+  <font color="#a52a2a"><b>let</b></font> &amp;indentexpr <font color="#a52a2a"><b>=</b></font> <font color="#ff00ff">''</font>
+
+<font color="#0000ff">  &quot; If the visual selection is over multiple lines, then place the</font>
+<font color="#0000ff">  &quot; data between the tags on newlines:</font>
+<font color="#0000ff">  &quot;    &lt;tag&gt;</font>
+<font color="#0000ff">  &quot;    data</font>
+<font color="#0000ff">  &quot;    &lt;/tag&gt;</font>
+  <font color="#a52a2a"><b>let</b></font> newline <font color="#a52a2a"><b>=</b></font> <font color="#ff00ff">''</font>
+  <font color="#a52a2a"><b>if</b></font> <font color="#008b8b">getline</font><font color="#a52a2a"><b>(</b></font><font color="#ff00ff">&quot;'&gt;&quot;</font><font color="#a52a2a"><b>)</b></font> <font color="#a52a2a"><b>!=</b></font> <font color="#008b8b">getline</font><font color="#a52a2a"><b>(</b></font><font color="#ff00ff">&quot;'&lt;&quot;</font><font color="#a52a2a"><b>)</b></font>
+      <font color="#a52a2a"><b>let</b></font> newline <font color="#a52a2a"><b>=</b></font> <font color="#ff00ff">&quot;\n&quot;</font>
+      <font color="#a52a2a"><b>let</b></font> curl  <font color="#a52a2a"><b>=</b></font> <font color="#008b8b">line</font><font color="#a52a2a"><b>(</b></font><font color="#ff00ff">&quot;'&gt;&quot;</font><font color="#a52a2a"><b>)</b></font>
+  <font color="#a52a2a"><b>endif</b></font>
+
+<font color="#0000ff">  &quot; Strip off all but the first word in the tag for the end tag</font>
+  <font color="#a52a2a"><b>let</b></font> <font color="#6a5acd">@b</font> <font color="#a52a2a"><b>=</b></font> newline <font color="#a52a2a"><b>.</b></font> <font color="#008b8b">substitute</font><font color="#a52a2a"><b>(</b></font> tag, <font color="#ff00ff">'^[ \t&quot;]*</font><font color="#6a5acd">\(\</font><font color="#ff00ff">&lt;\S*\&gt;</font><font color="#6a5acd">\)</font><font color="#ff00ff">.*'</font>, <font color="#ff00ff">'&lt;\/\1&gt;\e'</font>, <font color="#ff00ff">&quot;&quot;</font> <font color="#a52a2a"><b>)</b></font>
+  <font color="#a52a2a"><b>let</b></font> curc <font color="#a52a2a"><b>=</b></font> curc <font color="#a52a2a"><b>+</b></font> <font color="#008b8b">strlen</font><font color="#a52a2a"><b>(</b></font>@b<font color="#a52a2a"><b>)</b></font>
+  <font color="#a52a2a"><b>exec</b></font> <font color="#ff00ff">&quot;normal `&gt;a\&lt;C-R&gt;b&quot;</font>
+
+  <font color="#a52a2a"><b>let</b></font> <font color="#6a5acd">@b</font> <font color="#a52a2a"><b>=</b></font> <font color="#008b8b">substitute</font><font color="#a52a2a"><b>(</b></font> tag, <font color="#ff00ff">'^[ \t&quot;]*</font><font color="#6a5acd">\(\</font><font color="#ff00ff">&lt;.*</font><font color="#6a5acd">\)</font><font color="#ff00ff">'</font>, <font color="#ff00ff">'&lt;\1&gt;\e'</font>, <font color="#ff00ff">&quot;&quot;</font> <font color="#a52a2a"><b>)</b></font> <font color="#a52a2a"><b>.</b></font> newline
+  <font color="#a52a2a"><b>let</b></font> curc <font color="#a52a2a"><b>=</b></font> curc <font color="#a52a2a"><b>+</b></font> <font color="#008b8b">strlen</font><font color="#a52a2a"><b>(</b></font>@b<font color="#a52a2a"><b>)</b></font>
+  <font color="#a52a2a"><b>exec</b></font> <font color="#ff00ff">&quot;normal `&lt;i\&lt;C-R&gt;b&quot;</font>
+
+<font color="#0000ff">  &quot; Now format the area</font>
+  <font color="#a52a2a"><b>exec</b></font> <font color="#ff00ff">&quot;normal `&lt;V'&gt;j=&quot;</font>
+
+<font color="#0000ff">  &quot; Restore b register</font>
+  <font color="#a52a2a"><b>let</b></font> <font color="#6a5acd">@b</font>          <font color="#a52a2a"><b>=</b></font> saveB
+  <font color="#a52a2a"><b>let</b></font> &amp;indentexpr <font color="#a52a2a"><b>=</b></font> saveIndent
+
+  <font color="#a52a2a"><b>call</b></font> <font color="#008b8b">cursor</font><font color="#a52a2a"><b>(</b></font>curl, curc<font color="#a52a2a"><b>)</b></font>
+<font color="#a52a2a"><b>endfunction</b></font>
+</code></pre>

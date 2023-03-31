@@ -1,0 +1,36 @@
+---
+layout: post
+title: mocking microservices for functional tests
+date: 2017-02-04 15:27:31.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- testing
+tags: []
+meta:
+  _edit_last: '2'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2017/02/04/mocking-microservices-for-functional-tests/"
+---
+<p>Here are a few links which helped me to understand what to use to mock microservices with REST API. Just for a case, I've choosen <a href="http://wiremock.org/">wiremock</a> because I need Java and saboteur functionality.</p>
+<p><!--more--></p>
+<p>A summary on approaches for microservices testing: <a href="https://opencredo.com/working-locally-with-microservices/">Working Locally with Microservices</a>.</p>
+<p><a href="https://ep2016.europython.eu/conference/talks/tdd-of-python-microservices">TDD of Python microservices</a> by Michał Bultrowicz at EuroPython 2016. <a href="https://ep2016.europython.eu/media/conference/slides/tdd-of-python-microservices.pdf">Slides.</a> <a href="https://www.youtube.com/watch?v=d-ka10jngQQ">Video.</a></p>
+<p>The presentation points to:</p>
+<p>* <a href="http://wiremock.org/">WireMock</a> (Java)<br />
+* Pretenders (Python)<br />
+* <a href="http://www.mbtest.org/">Mountebank</a> (JavaScript) plus <a href="https://github.com/butla/mountepy">mountepy</a> as python binding</p>
+<p>An easy way to start with WireMock is to workout the <a href="http://www.ontestautomation.com/open-sourcing-my-workshop-on-wiremock/">open-source wiremock workshop</a> by Bas Dijkstra.</p>
+<p>Finally, there are use cases:</p>
+<p>* <a href="https://habrahabr.ru/company/yandex/blog/228691/">Тестирование в Яндексе. Сам себе web-service over SSH, или как сделать заглушку для целого сервиса</a> (in Russian)<br />
+* <a href="http://uploads.pnsqc.org/2015/papers/t-046_Chang_paper.pdf">The Journey of Testing with Stubs and Proxies in AWS</a></p>

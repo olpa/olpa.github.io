@@ -1,0 +1,52 @@
+---
+layout: post
+title: postponing unquote
+date: 2007-02-10 08:14:50.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/02/10/postponing-unquote/"
+---
+<p>I need to generate S-expressions like:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">let</span> <span style="color:#808030; ">(</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">val</span> <span style="color:#0000e6; ">"datum"</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span> val<span style="color:#808030; ">)</span>
+</code></pre>
+<p>The actual expressions are more complex, the value "datum" is dynamic, therefore the special Scheme feature "quasiquote" should be used:</p>
+<p><!--more--></p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">quasiquote</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">let</span> <span style="color:#808030; ">(</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">val</span> <span style="color:#666616; ">,value</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span> val<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+</code></pre>
+<p>When a Scheme imterpreter/compiler finds a "quasiquote" construction, it replaces comma-starting identifiers with their values.</p>
+<p>To add more complexity, I have to generate the skeleton of an S-expression at one time, and provide actual values later. Surprisingly for me, I needed only one attempt to write a working test code:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">define</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">pre-generate</span><span style="color:#808030; ">)</span>
+  <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">lambda</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">value</span><span style="color:#808030; ">)</span>
+    <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">quasiquote</span>
+      <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">let</span> <span style="color:#808030; ">(</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">val</span> <span style="color:#666616; ">,value</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+        val<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">define</span> x <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">pre-generate</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">write</span> x<span style="color:#808030; ">)</span>
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">display</span> <span style="color:#0000e6; ">"\n"</span><span style="color:#808030; ">)</span>
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">define</span> y <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">x</span> <span style="color:#0000e6; ">"datum"</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">write</span> y<span style="color:#808030; ">)</span>
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">display</span> <span style="color:#0000e6; ">"\n"</span><span style="color:#808030; ">)</span>
+</code></pre>
+<p>Executing code in Guile:</p>
+<pre><code>
+#<procedure x (value)>
+(let ((val "datum")) val)
+</code></pre>
+<p>In Bigloo:</p>
+<pre><code>
+#<procedure:8210be0.1>
+(let ((val "datum")) val)
+</procedure:8210be0.1></code></pre>

@@ -1,0 +1,56 @@
+---
+layout: post
+title: why elements in XML can't be numbers
+date: 2005-04-11 23:57:29.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/11/why-elements-in-xml-cant-be-numbers/"
+---
+<p>A man wanted to make the numbers be the tag identifiers. Nope. Not allowed. He asked in the <a href="http://groups.yahoo.com/group/xml-doc/">xml-doc mailing list</a> why. <a href="http://groups.yahoo.com/group/xml-doc/message/5203">My answers</a> follows.</p>
+<p><!--more--></p>
+<p>Before reading it, <a href="http://groups.yahoo.com/group/xml-doc/message/5199">check the original letter</a>. If ready, let's go.</p>
+<pre>On Sat, 09 Apr 2005 01:19:02 -0400
+"Thomas J. Hruska" <shinelight @...> wrote:</pre>
+<blockquote><p>...</p>
+<p>Let's say I want a numbered list in XML to contain data. The natural thing to do is to make the numbers be the tag identifiers as part of a parent group.
+</p></blockquote>
+<p>It depends. For me it's very unnatural. Numbers shouldn't be in XML,<br />
+they are to be calculated by a visualisation/transformation agent.</p>
+<blockquote><p>Nope. Not allowed. Here's an example of what I'm talking about:</p>
+<p>(This is a really _simple_ example of my main scenario)</p>
+<pre>
+< ?xml version="1.0" standalone="yes"?>
+&lt;World>
+&lt;Widgets>
+&lt;Count>15< &lt;Count>
+&lt;1>...some data...&lt;/1>
+&lt;2>...some data...&lt;/2>
+&lt;3>...some data...&lt;/3>
+...You get the idea...
+&lt;/Widgets>
+&lt;/World>
+</pre>
+<p>...</p>
+<p>What _was_ the W3C (ir)rationality behind the idea of requiring element names to start with a letter?
+</p></blockquote>
+<p>One of the design goals for XML was "XML shall be compatible with SGML", and SGML works so.</p>
+<p>More, having a programming background, it's quite natural to avoid literals which start with a number. It's because allowing this limits flexibility in different tools.</p>
+<p>For example, consider the following XPaths:</p>
+<pre>aaa[bbb]
+aaa[1]</pre>
+<p>The former selects elements "aaa" which have a child "bbb", the latter selects the first element "aaa".</p>
+<p>If we allow "1" as an element name, how to interpret the following:</p>
+<pre>/World/Widgets[1]</pre>
+<p>Is it "Widgets" which have a child "1" or is it the first "Widget"?</p>

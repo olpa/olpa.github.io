@@ -1,0 +1,32 @@
+---
+layout: post
+title: How to stop WordPress spam
+date: 2007-03-19 07:10:57.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- bbAntiSpam
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/03/19/how-to-stop-wordpress-spam/"
+---
+<p>My blog is protected by <a href="http://bbantispam.com/atc/">Advanced Textual Confirmation</a>.</p>
+<p>* No more spam.<br />
+* No complains from the visitors.</p>
+<p><!--more--></p>
+<p>ATC is a generic tool, suitable for any PHP script. On my sites, it also protects phpBB forum and several Wikis.</p>
+<p>Installation is simple, just follow the <a href="http://bbantispam.com/atc/install.html">instructions</a>. For WordPress, it's enough to modify only one file, <tt>wp-config.php</tt>. Add at the beginning:</p>
+<pre>
+require_once '...../bbantispam.php';
+</pre>
+<p>Trivial install, trivial maintenance.</p>

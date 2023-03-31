@@ -1,0 +1,50 @@
+---
+layout: post
+title: hijacking .sconsign
+date: 2006-07-29 06:39:43.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- consodoc
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/07/29/hijacking-sconsign/"
+---
+<p>I have a lot of functional tests for SCons processes. At some moment, I improved one of the first steps in the process. As result, now most tests fail due to "rebuilding `<i>file</i>' because the contents of the build action changed". It's impossible to re-made the tests. Instead, I decided to correct information in the <tt>.sconsign</tt> files.</p>
+<p><!--more--></p>
+<p>Quick look into the SCons source code revealed that <tt>.sconsign</tt> is created using <tt>cPickle</tt> module. Then I wrote a Python program to convert <tt>.sconsign</tt> to ASCII:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#696969; ">""" Convert pickle data (for example, in .sconsign) from binary to ASCII """</span>
+<span style="color:#800000; font-weight:bold; ">import</span> pickle
+<span style="color:#800000; font-weight:bold; ">import</span> sys
+
+<span style="color:#800000; font-weight:bold; ">for</span> f <span style="color:#800000; font-weight:bold; ">in</span> sys<span style="color:#808030; ">.</span>argv<span style="color:#808030; ">[</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">:</span><span style="color:#808030; ">]</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">print</span> f
+  o <span style="color:#808030; ">=</span> pickle<span style="color:#808030; ">.</span>load<span style="color:#808030; ">(</span><span style="color:#e34adc; ">open</span><span style="color:#808030; ">(</span>f<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+  pickle<span style="color:#808030; ">.</span>dump<span style="color:#808030; ">(</span>o<span style="color:#808030; ">,</span> <span style="color:#e34adc; ">open</span><span style="color:#808030; ">(</span>f<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'w'</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">)</span>
+</code></pre>
+<p>Now, there are step-by-step instructions how to repair a corrupted test.</p>
+<h2>1. Make a copy of the test</h2>
+<pre>cp -r before/ x</pre>
+<p>In this example, <tt>before</tt> is the folder with the test, <tt>x</tt> is the folder for the copy.</p>
+<h2>2. Convert all <tt>.sconsign</tt> files to ASCII:</h2>
+<pre>find . -name .sconsign | xargs python .../pickle2ascii.py</pre>
+<h2>3. Run SCons over the copy and re-convert to ASCII:</h2>
+<pre>
+cd x; scons
+find . -name .sconsign | xargs python .../pickle2ascii.py
+</pre>
+<h2>4. Compare the new and original <tt>.sconsign</tt> files</h2>
+<pre>
+for i in `find . -name .sconsign`; do diff -u $i ../before/$i; done
+</pre>
+<h2>5.-X.</h2>
+<p>Decide what to do further. In my case, as I want to correct build signatures, I check for changed <tt>bsig</tt> fields.</p>

@@ -1,0 +1,36 @@
+---
+layout: post
+title: Running GF-RGL
+date: 2019-03-29 23:47:13.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- languages
+tags: []
+meta:
+  _edit_last: '1'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2019/03/29/running-gf-rgl/"
+---
+<p>The <a href="http://www.grammaticalframework.org/lib/doc/synopsis.html">GF Resource Grammar Library</a> is the standard library for <a href="http://www.grammaticalframework.org/">Grammatical Framework</a>. It covers the morphology and basic syntax of over 30 languages. The GF project is big, and it is hard for outsiders to start using GF-RGL. This post summarizes my first steps which can be repeated by others.</p>
+<p><!--more--></p>
+<p>First, GF self should be installed as described on its site. I used a deb-package, so that the executable is installed as `/usr/bin/gf`.</p>
+<p>I cloned RGL from its git repository `<a href="https://github.com/GrammaticalFramework/gf-rgl">https://github.com/GrammaticalFramework/gf-rgl</a>`. My setup command was:</p>
+<pre><code>
+./Setup.sh --dest=~/opt/gf-rgl/opt --gf=/usr/bin/gf --verbose
+</code></pre>
+<p>Files were installed into the directory `~/opt/gf-rgl/opt`. To understand how to use them, I searched github for rgl projects and found <a href="https://github.com/odanoburu/gf-matrix">gf-matrix</a>. Again, cloned the repository and tried to make anything. The following commands worked:</p>
+<pre><code>
+export GF_LIB_PATH=/home/my-user-name/opt/gf-rgl/opt
+make
+</code></pre>

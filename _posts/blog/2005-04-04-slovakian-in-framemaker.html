@@ -1,0 +1,26 @@
+---
+layout: post
+title: slovakian ť in FrameMaker
+date: 2005-04-04 17:48:22.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- FrameMaker
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/04/slovakian-in-framemaker/"
+---
+<p>Unfortunately, Slovakian letter <b>&#x165;</b> (latin small letter t with caron) is not supported by FrameMaker.</p>
+<p><!--more--></p>
+<p>At first, I thought it was a problem with so-called locked codes in FM (codes which are reserved for internal use for FM and are not available for users). But investigations revealed the following.</p>
+<p>Internally, FrameMaker stores character data in MAC encoding, even although it runs under Windows. When FM uses Windows resources (for example, fonts), it transparently converts text between Windows and MAC encodings. The problem is that the letter &#x165; doesn't exist in the MAC encoding, so there is no &#x165; in FM.</p>
+<p>For Slovakian, it's the only such letter, so nobody want to produce high-tech workarounds. Instead, the simple solution is used: <b>&#x165;</b> is represented as <b>t&#x2019;</b> (the letter t plus right single quotation mark).</p>

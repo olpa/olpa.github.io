@@ -1,0 +1,58 @@
+---
+layout: post
+title: 'multimedia over network III: any ALSA-enabled application'
+date: 2008-09-30 07:55:52.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/09/30/multimedia-over-network-iii-any-alsa-enabled-application/"
+---
+<p>ALSA is the <b>A</b>dvanced <b>L</b>inux <b>S</b>ound <b>A</b>rchitecture. The system can forward ALSA sound to PulseAudio.</p>
+<p><!--more--></p>
+<p>My config file for ALSA:</p>
+<pre><code>
+pcm.pude {
+    type pulse
+}
+ctl.pude {
+    type pulse
+}
+</code></pre>
+<p>In this config, I've created a pseudo-device "<tt>pude</tt>" (<b>Pu</b>lseAudio <b>de</b>vice) and specified that this device is connected to Pulse Audio.</p>
+<p>Now the following should work:</p>
+<pre><code>
+$ mplayer 01_introduction.avi -vo null -ao alsa:device=pude
+</code></pre>
+<p>Unfortunately, on my system, mplayer's alsa output is broken. I get the following error:</p>
+<pre><code>
+pulse_write: Assertion `pcm->last_size >= (size * pcm->frame_size)' failed.
+</code></pre>
+<p>I don't know how to fix it.</p>
+<h3>Testing</h3>
+<p>The following plays on the local PC through the defaul ALSA device:</p>
+<pre><code>
+$ aplay /usr/share/sounds/*.wav
+</code></pre>
+<p>This plays over network (through PulseAudio):</p>
+<pre><code>
+$ aplay -D pude /usr/share/sounds/*.wav 
+</code></pre>
+<h3>Usage</h3>
+<p>Each application has its own way to specify</p>
+<p>* to play through ALSA, and<br />
+* use the device "pude".</p>
+<p>For example:</p>
+<p>* mplayer: -ao alsa:device=pude<br />
+* xine: -A alsa:device=pude</p>

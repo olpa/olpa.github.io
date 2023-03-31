@@ -1,0 +1,36 @@
+---
+layout: post
+title: User TeX Live 2013 repository when 2014 is the default
+date: 2014-07-07 15:19:09.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2014/07/07/user-tex-live-2013-repository-when-2014-is-the-default/"
+---
+<p>I've tried to install a TeX package and got the error message:</p>
+<pre><code>
+tlmgr: The TeX Live versions supported by the repository
+http://ftp.fernuni-hagen.de/ftp-dir/pub/mirrors/www.ctan.org/systems/texlive/tlnet
+  (2014--2014)
+do not include the version of the local installation
+  (2013)
+</code></pre>
+<p><!--more--></p>
+<p>The recommended solution is to install TeX Live 2014, but at the moment I have no time to upgrade. Therefore, I've found a TeX Live archive and the command line to switch to it:</p>
+<pre><code>
+tlmgr option repository \
+  ftp://ftp.tug.org/historic/systems/texlive/2013/tlnet-final
+</code></pre>

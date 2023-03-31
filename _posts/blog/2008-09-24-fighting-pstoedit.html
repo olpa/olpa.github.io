@@ -1,0 +1,70 @@
+---
+layout: post
+title: fighting pstoedit
+date: 2008-09-24 14:29:24.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- publishing
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/09/24/fighting-pstoedit/"
+---
+<p>I wanted to convert text to curves in PostScript. The well-known tool to do it is <tt>pstoedit</tt> (alternatives are welcome). Unfortunately, it worked only partially.</p>
+<p><!--more--></p>
+<p>This works:</p>
+<p><code>
+<pre>
+$ pstoedit -f ps -dt test.eps flattened.ps
+</pre>
+<p></code></p>
+<p>But this doesn't (I want 600 DPI, not the default 72 DPI):</p>
+<p><code>
+<pre>
+$ pstoedit -f ps -dt -psarg "-r600x600" test.eps flattened.ps
+</pre>
+<p></code></p>
+<p>Well, actually it works, but PostScript tools reject the file "flattened.ps":</p>
+<p><code>
+<pre>
+Error: /typecheck in --restore--
+Operand stack:
+   --nostringval--   0   0   0   0   0
+Execution stack:
+   %interp_exit   .runexec2   --nostringval--   --nostringval-- 
+   --nostringval--   2   %stopped_push   --nostringval--   --no
+   stringval--   --nostringval--   false   1   %stopped_push   
+   1889   1   3   %oparray_pop   1888   1   3   %oparray_pop   
+   1872   1   3   %oparray_pop   1755   1   3   %oparray_pop   
+   --nostringval--   %errorexec_pop   .runexec2   --nostringval
+   --   --nostringval--   --nostringval--   2   %stopped_push  
+   --nostringval--   1818   5   3   %oparray_pop   --nostringva
+   l--   1802   5   3   %oparray_pop   --nostringval--
+Dictionary stack:
+   --dict:1149/1684(ro)(G)--   --dict:0/20(G)--   --dict:78/200(L)--
+Current allocation mode is local
+GPL Ghostscript 8.62: Unrecoverable error, exit code 1
+</pre>
+<p></code></p>
+<p>I tried a lot of approaches and tools. The best seems: filter the generated PostScript through the tool <tt>eps2eps</tt> three (!) times. Unfortunately, Adobe Illustrator ignores the bounding box of such EPS-files. Therefore, it's not a solution for me.</p>
+<p>The final solution is a dirty hack:</p>
+<p>* Download <tt>pstoedit</tt> source code.<br />
+* In the file "src/pstoedit.ph" change all "72" (except "72 pscover") to "600" (or any other desired DPI).<br />
+* Compile as usual.<br />
+* Use the custom version.</p>
+<h3>25 Sep 2009, update</h3>
+<p>On a older PC with an older "<tt>gs</tt>" (for example, 7.07.1), one has also to update and use "gs":</p>
+<p><code>
+<pre>
+$ GS=.../ghostscript-8.63/opt/bin/gs .../pstoedit-3.45/opt/bin/pstoedit -f ps -dt input.eps outlined.eps
+</pre>
+<p></code></p>

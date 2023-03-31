@@ -1,0 +1,43 @@
+---
+layout: post
+title: suggestions for thesis projects
+date: 2005-04-29 00:24:39.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- sTeXme
+- TeX
+- TeXML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/29/suggestions-for-thesis-projects/"
+---
+<p>In comp.text.tex, Tristan Miller <a href="http://www.google.com/groups?lr=&selm=4041728.8tjGUmDvru%40ID-187157.News.Individual.NET">asked</a>:</p>
+<blockquote><p>Can anyone recommend some small to medium-sized open problems which satisfy all of the four points below?</p></blockquote>
+<p><!--more--> </p>
+<p>Here are projects which I'd like to work on, but have no time for them.</p>
+<h2>1) web2scheme</h2>
+<p>Most TeX distributions are based on the web2c program which translates the TeX source code to C. As an alternative, it may be useful to develop a converter to the Scheme programming language.</p>
+<p>The main idea is to port TeX to new platforms (such as ,NET) without rewriting TeX itself. Scheme is quite good as an intermediate language.</p>
+<p>More, due to the Scheme nature, it should be possible to semiautomatically refactor the Scheme code and get a basis for the TeX improvement. It's the second main idea: TeX is a program which transforms a lot of lists of tokens, and there are languages which are good in it, and one of them has the phrase "list processing" in its name.</p>
+<p>At least, such system should beat the sTeXme project: <a href="http://stexme.sourceforge.net/">http://stexme.sourceforge.net/</a></p>
+<h2>2) TeXML processors for different languages</h2>
+<p>TeXML (<a href="http://getfo.sourceforge.net/texml/">http://getfo.sourceforge.net/texml/</a>) is an XML vocabulary for TeX. The processor transforms TeXML markup into the TeX markup, escaping special and out-of-encoding characters. The intended audience is developers who automatically generate [La]TeX or ConTeXt files.</p>
+<p>At the moment, the converter from TeXML to TeX is available only in Python. More languages are required.</p>
+<h2>3) DocBook to LaTeX/ConTeXt</h2>
+<p>If we ignore tables, it's not very hard to develop a converter from DocBook to LaTeX or ConTeXt using XSLT and TeXML. Due to these tools, such converter may be more robust and of easier maintenance than dblatex or db2latex.</p>
+<p>Some steps in this direction are already done, see the XML2TeXML project: <a href="http://xml2texml.sourceforge.net/">http://xml2texml.sourceforge.net/</a></p>
+<p>And the CALS tables converter is the task for me.</p>
+<h2>4) LaFO</h2>
+<p>XSL-FO is a W3C standard which defines an XML vocabulary for specifying formatting semantics.</p>
+<p>Converting XML directly to XSL-FO is a quite low-level task. Instead, it's better to develop some intermediate set of styles (let call it LaFO) which defines default formatting properties for paragraphs, lists and other elements.</p>
+<p>LaFO for XSL-FO is like LaTeX for TeX.</p>

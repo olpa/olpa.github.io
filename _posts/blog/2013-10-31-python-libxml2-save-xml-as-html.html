@@ -1,0 +1,85 @@
+---
+layout: post
+title: 'python libxml2: save XML as HTML'
+date: 2013-10-31 10:51:00.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2013/10/31/python-libxml2-save-xml-as-html/"
+---
+<p>HTML is the main output format for XML transformations. Every XSLT-processor, including <a href="http://www.xmlsoft.org/">libxslt/libxml2</a>, supports it. But if you transform a libxml2 tree manually, you are in trouble. You can save XML only as XML, not as HTML. A solution is required. My version is not elegant, but works.</p>
+<p><!--more--></p>
+<p>By the way, the desired functionality is provided by the plain C library. I think that the parameter <tt>options</tt> of the functions <a href="http://xmlsoft.org/html/libxml-xmlsave.html">xmlSaveToXXX</a> should set the flag <tt>XML_SAVE_AS_HTML</tt>, "force HTML serialization on XML doc". Another try would be to change the type of a node from <tt>XML_DOCUMENT_NODE</tt> to <tt>XML_HTML_DOCUMENT_NODE</tt>.</p>
+<p>Unfortunately, the Python bindings can't access this functionality. Fortunately, based on the "node type" idea, the following does work:</p>
+<p>* Create an empty HTML document<br />
+* Move nodes from the XML tree into the new HMTL tree<br />
+* Save the HTML tree</p>
+<p>Proof-of-the concept code:</p>
+<pre style="color:#000000;background:#ffffff;"><code>
+<span style="color:#800000; font-weight:bold; ">import</span> libxml2
+
+doc <span style="color:#808030; ">=</span> libxml2<span style="color:#808030; ">.</span>parseDoc<span style="color:#808030; ">(</span><span style="color:#696969; ">'''</span>
+<span style="color:#696969; ">&lt;html></span>
+<span style="color:#696969; ">&#xa0;&#xa0;&lt;head></span>
+<span style="color:#696969; ">&#xa0;&#xa0;&#xa0;&#xa0;&lt;title>I'm a title&lt;/title></span>
+<span style="color:#696969; ">&#xa0;&#xa0;&#xa0;&#xa0;&lt;link rel="stylesheet" type="text/css" href="style/style.css">&lt;/link></span>
+<span style="color:#696969; ">&#xa0;&#xa0;&lt;/head></span>
+<span style="color:#696969; ">&#xa0;&#xa0;&lt;body></span>
+<span style="color:#696969; ">&#xa0;&#xa0;&#xa0;&#xa0;&lt;h1>Test&lt;/h1></span>
+<span style="color:#696969; ">&#xa0;&#xa0;&#xa0;&#xa0;&lt;img src="#none" width="32" height="32"/></span>
+<span style="color:#696969; ">&#xa0;&#xa0;&#xa0;&#xa0;&lt;p>Test&lt;/p></span>
+<span style="color:#696969; ">&#xa0;&#xa0;&lt;/body></span>
+<span style="color:#696969; ">&lt;/html></span>
+<span style="color:#696969; ">'''</span><span style="color:#808030; ">)</span>
+node <span style="color:#808030; ">=</span> doc<span style="color:#808030; ">.</span>getRootElement<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">print</span> node<span style="color:#808030; ">.</span>serialize<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+
+html_doc <span style="color:#808030; ">=</span> libxml2<span style="color:#808030; ">.</span>htmlParseDoc<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'&lt;html>&lt;/html>'</span><span style="color:#808030; ">,</span> <span style="color:#e34adc; ">None</span><span style="color:#808030; ">)</span>
+html_root <span style="color:#808030; ">=</span> html_doc<span style="color:#808030; ">.</span>getRootElement<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">while</span> node<span style="color:#808030; ">.</span>children<span style="color:#808030; ">:</span>
+  kid <span style="color:#808030; ">=</span> node<span style="color:#808030; ">.</span>children
+  kid<span style="color:#808030; ">.</span>unlinkNode<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+  html_root<span style="color:#808030; ">.</span>addChild<span style="color:#808030; ">(</span>kid<span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#0000e6; ">'------------------'</span>
+<span style="color:#800000; font-weight:bold; ">print</span> html_root<span style="color:#808030; ">.</span>serialize<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+</code></pre>
+<p>The output. First as an XML-tree, than as an HTML-tree</p>
+<pre><code>
+&lt;html>
+  &lt;head>
+    &lt;title>I'm a title&lt;/title>
+    &lt;link rel="stylesheet" type="text/css" href="style/style.css"/>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>Test&lt;/h1>
+    &lt;img src="#none" width="32" height="32"/>
+    &lt;p>Test&lt;/p>
+  &lt;/body>
+&lt;/html>
+------------------
+&lt;html>
+  &lt;head>
+    &lt;title>I'm a title&lt;/title>
+    &lt;link rel="stylesheet" type="text/css" href="style/style.css">
+  &lt;/head>
+  &lt;body>
+    &lt;h1>Test&lt;/h1>
+    &lt;img src="#none" width="32" height="32">
+    &lt;p>Test&lt;/p>
+  &lt;/body>
+&lt;/html>
+</code></pre>
+<p>Note the differences in the ends of the elements <tt>link</tt> and <tt>img</tt>.</p>

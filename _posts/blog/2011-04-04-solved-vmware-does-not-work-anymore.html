@@ -1,0 +1,65 @@
+---
+layout: post
+title: 'solved: vmware does not work anymore'
+date: 2011-04-04 15:09:52.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/04/04/solved-vmware-does-not-work-anymore/"
+---
+<p>After some system update, vmware stopped working. It wrote some information which modules are loaded, and then silently exited. In a log file "ui-NNNN.log", I found: "vmui| Caught signal 11". The stacktrace said only that the crash was likely due to some signal.</p>
+<p><!--more--></p>
+<p>Search in internet gave only one suggestion: use the gtk libraries, which are shipped together with vmware, not the system ones. Did not help.</p>
+<p>But what if to force to use all the shipped libraries instead of the system ones?</p>
+<p>Yet another log file, "appLoader-NNN.log" traces loading of libraries. A Python script to process it:</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">import</span> sys<span style="color:#808030; ">,</span> re
+
+re_so <span style="color:#808030; ">=</span> re<span style="color:#808030; ">.</span><span style="color:#e34adc; ">compile</span><span style="color:#808030; ">(</span><span style="color:#0000e6; ">'LOG NOT INITIALIZED \\| (.*so)[0-9.]* &lt;SYSTEM>'</span><span style="color:#808030; ">)</span>
+
+fname <span style="color:#808030; ">=</span> sys<span style="color:#808030; ">.</span>argv<span style="color:#808030; ">[</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span>
+h <span style="color:#808030; ">=</span> <span style="color:#e34adc; ">open</span><span style="color:#808030; ">(</span>fname<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">for</span> l <span style="color:#800000; font-weight:bold; ">in</span> h<span style="color:#808030; ">:</span>
+  m <span style="color:#808030; ">=</span> re_so<span style="color:#808030; ">.</span>search<span style="color:#808030; ">(</span>l<span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> m<span style="color:#808030; ">:</span>
+    s_so <span style="color:#808030; ">=</span> m<span style="color:#808030; ">.</span>group<span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span>
+    <span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#0000e6; ">'mv /usr/lib/%s* /usr/lib/tmp/'</span> <span style="color:#808030; ">%</span> s_so
+h<span style="color:#808030; ">.</span>close<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+</pre>
+<p></code></p>
+<p>After processing the log, I get a file "move.sh":</p>
+<pre>
+mv /usr/lib/libsexy.so* /usr/lib/tmp/
+mv /usr/lib/libart_lgpl_2.so* /usr/lib/tmp/
+mv /usr/lib/libXrandr.so* /usr/lib/tmp/
+...
+</pre>
+<p>(This codes only for my backup reasons, do not even try to use it unless you understand it completely.)</p>
+<p>With all these libraries "removed", vware started.</p>
+<p>Using bisection, I found that in my case the bad library was "libgiomm".</p>
+<p>Repair script is:</p>
+<p><code>
+<pre>
+#!/bin/sh
+
+( \
+mv /usr/lib/libgiomm-2.4.so.1 /usr/lib/libgiomm-2.4.so.1.3.0 /usr/lib/tmp/; \
+  sleep 5; \
+mv /usr/lib/tmp/libgiomm-2.4.so.1 /usr/lib/tmp/libgiomm-2.4.so.1.3.0 /usr/lib/ \
+) &
+sleep 1
+vmware
+</pre>
+<p></code></p>

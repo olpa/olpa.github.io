@@ -1,0 +1,38 @@
+---
+layout: post
+title: chess publishing in latex, starting
+date: 2009-09-15 07:43:28.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- chess
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2009/09/15/chess-publishing-in-latex-starting/"
+---
+<p>I'm experimenting with LaTeX and chess. As there is no "for dummies" information in internet, my notes (even if incorrect) could be useful for beginners.</p>
+<p>So, the step 1. Print some game or some position.</p>
+<p><!--more--></p>
+<p>I opened "LaTeX Graphics Companion" (first edition, 1999, probably I should upgrade) and read about chess. The package I needed is named (surprise!) <tt>chess</tt>.</p>
+<p>It's a real monster. You put the moves in, and the package automatically traces how the figures move (including en passant etc). At any moment, it can typeset a diagramm. Very impressive!</p>
+<p>It's an overkill for me. All I need is diagramms. And after I found that the symbol "|" has a special meaning and can conflict with the usual use, I decided to find something else.</p>
+<p>There is a number of chess-packages on CTAN. However, it was easy to minimize the choice. As the important question for me is "how to select/change a chess font", I immediately was interested in the actively developing packages:</p>
+<p>* <a href="http://tug.ctan.org/tex-archive/fonts/chess/enpassant/">enpassant</a>, a collection of type1 chessfonts ready for TeX, and<br />
+* <a href="http://tug.ctan.org/tex-archive/macros/latex/contrib/chessfss/">chessfss</a>, chess fontselection scheme.</p>
+<p>The author is Ulrike Fischer, the both packages are not in TeX Live, only on CTAN. In the package notes, it is said that the font collection is supported by the package "skak":</p>
+<p>* <a href="http://www.ctan.org/tex-archive/fonts/chess/skak/">skak</a>, fonts and macros for typesetting chess games.</p>
+<p>The package "skak" seems an improvement of "chess". It is included in TeX Live. The package provides sample files as documentation, this is enough to start using the package. The first steps are even easier with this program:</p>
+<p>* <a href="http://pgn2ltx.sourceforge.net">Pgn2ltx</a> - A program for converting PGN (Portable Game Notation) data into a LaTeX input file. By Dirk Baechle, GPL2.</p>
+<p>At the end, one more useful link:</p>
+<p>* <a href="http://www.enpassant.dk/chess/homeeng.htm">EN PASSANT - Nørresundby Chess Club</a>. En Passant is a chess site with free chess software and resources for chess publishing like chess fonts, diagram utilities, graphics and more. En Passant is the homepage of Nørresundby Chess Club in Denmark.</p>
+<p>TODO: check that I really can change chess fonts.</p>

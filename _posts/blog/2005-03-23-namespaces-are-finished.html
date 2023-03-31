@@ -1,0 +1,59 @@
+---
+layout: post
+title: namespaces are finished
+date: 2005-03-23 02:02:39.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/23/namespaces-are-finished/"
+---
+<p>Namespace support in the SXML to libxml2 conversion is completed.</p>
+<p><!--more--></p>
+<p>I though I could finish namespace conversion much earlier. But programming was not very easy because I was finding more and more features. Some time ago I decided that I had done everything, but <a href="/blog/2005/03/21/default-namespaces-force-new-changes/">default namespaces forced new changes</a>.</p>
+<p>The first thing in finalization was to support the original namespace prefixes. Consider the example of SXML:</p>
+<pre>
+(a:b:c:d:doc
+  (@ (@ (*NAMESPACES* (a:b:c:d "http://localhost/z" <b>oldns</b>))))
+  "data"
+  (a:b:c:d:subdoc))
+</pre>
+<p>Earlier it was producing the following XML:</p>
+<pre>
+&lt;a:b:c:d:doc xmlns:a:b:c:d="http://localhost/z">
+  data
+  &lt;a:b:c:d:subdoc>
+&lt;/a:b:c:d:doc>
+</pre>
+<p>Now the correct translation is:</p>
+<pre>
+&lt;oldns:doc xmlns:oldns="http://localhost/z">
+  data
+  &lt;oldns:subdoc>
+&lt;/oldns:doc>
+</pre>
+<p>Originally I thought I never need the original prefix functionality, but finally I realized that it is the only way to define default namespaces. The namespaced SXML names must have a colon in name, so they have a prefix, but the resulting XML shouldn't have a prefix. The rewriting is the only way to get rid of the prefix in the XML.</p>
+<p>Note that we have to rewrite not to the empty string, but to the NULL value. No Scheme symbol corresponds to the NULL, so SXML uses a special name <b>*DEFAULT*</b> for NULL.</p>
+<p>Suppose you have "*DEFAULT*" as the original prefix in the SXML example above. Then the result of translation is:</p>
+<pre>
+&lt;doc xmlns="http://localhost/z">
+  data
+  &lt;subdoc>
+&lt;/doc>
+</pre>
+<p>Imprementation of the prefix rewriting was surprisingly simple.</p>
+<p>While processing a namespace definition, we remember the original prefix in the "_private" field of the "xmlNs" structure.</p>
+<p>I already had a code to post-process the namespace definitions on exiting from an element. I've added a checking for the "_private" field followed by rewriting.</p>
+<p>I've added tests for namespace conversion. Among them are slightly modified examples from the SXML specification. All tests are succesfully passed.</p>
+<p>And also I found a problem with xsltproc. More on it later.</p>

@@ -1,0 +1,52 @@
+---
+layout: post
+title: using freebidi from python using ctypes
+date: 2014-12-08 14:42:10.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- publishing
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2014/12/08/using-freebidi-from-python-using-ctypes/"
+---
+<p><a href="http://fribidi.org/">GNU FriBidi</a> is an implementation of the <a href="http://www.unicode.org/reports/tr9/">Unicode Bidirectional Algorithm (bidi)</a>. There is a Python binding <a href="http://pyfribidi.sourceforge.net/">PyFribidi</a>, but it is not complete. What I need is not a visual presentation of a string, but information where direction is changing. This function is not provided by the binding, therefore I've made an alternative using <a href="http://docs.python.org/2/library/ctypes.html">ctypes</a>.</p>
+<p><!--more--></p>
+<p>Download: <a href="http://uucode.com/download/2014/ctfribidi.zip">http://uucode.com/download/2014/ctfribidi.zip</a>.</p>
+<p>License: public domain.</p>
+<p>It was a chance for me to experiment with <tt>ctypes</tt>. With google and gdb, the success is archived. Don't use my code as a source for inspiration. Most likely, some things can be done better.</p>
+<p>Usage:</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">import</span> ctfribidi
+
+s <span style="color:#808030; ">=</span> u<span style="color:#800000; ">"</span><span style="color:#0000e6; ">......</span><span style="color:#800000; ">"</span>
+
+<span style="color:#004a43; "># Get the visual representation</span>
+s2 <span style="color:#808030; ">=</span> ctfribidi<span style="color:#808030; ">.</span>log2vis<span style="color:#808030; ">(</span>s<span style="color:#808030; ">,</span> <span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span>
+print repr<span style="color:#808030; ">(</span>s2<span style="color:#808030; ">)</span>
+
+<span style="color:#004a43; "># Mark direction changes</span>
+levels <span style="color:#808030; ">=</span> ctfribidi<span style="color:#808030; ">.</span>log2levels<span style="color:#808030; ">(</span>s<span style="color:#808030; ">,</span> <span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span>
+s2 <span style="color:#808030; ">=</span> ctfribidi<span style="color:#808030; ">.</span>insert_markers<span style="color:#808030; ">(</span>s<span style="color:#808030; ">,</span> levels<span style="color:#808030; ">,</span> <span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span>
+print repr<span style="color:#808030; ">(</span>s2<span style="color:#808030; ">)</span>
+</pre>
+<p></code></p>
+<p>The function <tt>log2levels</tt> (from <tt>fribidi</tt>) returns an array. Each member corresponds to a character of the source string and is the nesting direction level.</p>
+<p>The Python code <tt>insert_markers</tt> uses the array to insert markers into the string. The markers are the characters:</p>
+<p>- <a href="http://www.fileformat.info/info/unicode/char/202a/">LEFT-TO-RIGHT EMBEDDING (U+202A)</a><br />
+- <a href="http://www.fileformat.info/info/unicode/char/202b/">RIGHT-TO-LEFT EMBEDDING (U+202B)</a><br />
+- <a href="http://www.fileformat.info/info/unicode/char/202c/">POP DIRECTIONAL FORMATTING (U+202C)</a></p>
+<p>So far I see, the nesting is correct. Each LRE and RLE is closed by PDF. But nothing promises this desired behaviour.</p>
+<p>Inside the function one finds commented-out code to insert ZWNJ:</p>
+<p>- <a href="http://www.fileformat.info/info/unicode/char/200c/">ZERO WIDTH NON-JOINER' (U+200C)</a></p>
+<p>It was an attempt to solve a comma-position problem: <a href="http://tex.stackexchange.com/questions/214773/">http://tex.stackexchange.com/questions/214773/</a>. For my needs, the problem was solved by other means, but maybe you still want the original attempt.</p>

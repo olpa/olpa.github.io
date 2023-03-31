@@ -1,0 +1,27 @@
+---
+layout: post
+title: alsa and HDA Intel SigmaTel STAC9227
+date: 2008-08-19 09:50:55.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/08/19/alsa-and-hda-intel-sigmatel-stac9227/"
+---
+<p>After upgrading my Linux, I've got sound lost. Everything looked ok -- all the modules are loaded, all the special devices are created, no complaints in logs, -- but no sound.</p>
+<p><!--more--></p>
+<p>Everything looked like the sound was muted (switched off).</p>
+<p>Finally, the solution in found: in "alsamixer", the base of the bars "Master" and "Front" (and probably of some others) should contains the letters "<tt>OO</tt>" instead of the letters "<tt>MM</tt>". From the man-page:</p>
+<blockquote><p>When a mixer control is turned off, M (mute) appears below  the  volume  bar.   When it's turned on, O in green appears instead.  You can toggle   the switch via m key.</p></blockquote>
+<p>The problem is easy when you know the solution.</p>

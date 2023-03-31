@@ -1,0 +1,28 @@
+---
+layout: post
+title: Structured FrameMaker bug with insets
+date: 2005-09-02 14:50:48.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- FrameMaker
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/02/structured-framemaker-bug-with-insets/"
+---
+<p>It seems that text format rules, which are defined in a FrameMaker EDD, are lost when updating text insets.</p>
+<p><!--more--></p>
+<p>Open "test.fm". Text "some text" is bold.</p>
+<p>Click on "some text". The window "Text Inset Properties" appears. Press the button "Update now".</p>
+<p>Bold formatting is lost. At least, in the version 7.0p492.</p>
+<p>Anyone could please test it in other versions of FM?</p>
+<p>A package with test files: <a href="http://uucode.com/blog/wp-content/formatting_lost_on_inset_update.zip">http://uucode.com/blog/wp-content/formatting_lost_on_inset_update.zip</a></p>

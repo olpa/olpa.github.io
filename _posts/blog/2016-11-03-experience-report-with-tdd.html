@@ -1,0 +1,50 @@
+---
+layout: post
+title: experience report with TDD
+date: 2016-11-03 13:21:04.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- testing
+tags: []
+meta:
+  _edit_last: '2'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2016/11/03/experience-report-with-tdd/"
+---
+<p>I've seriously tried TDD in a real project, writing tests before code and following the red-green-refactor cycle. Short summary:</p>
+<p>* I believe in TDD now;<br />
+* training and practice are required to learn TDD, reading books is not enough;<br />
+* the initial time investment is big.</p>
+<p><!--more--></p>
+<p>The promise of TDD is that the profit appears in the long run, thanks to the better code design and possibility to change the code without breaking the existing functionality. Only future can show if it is really so.</p>
+<h2>Some statistics.</h2>
+<p>The task has taken 4 times more than I'd expect without TDD (40 hours vs 10 hours). However,</p>
+<p>* 10 hours is an optimistic evaluation;<br />
+* I had to learn TDD and tools;<br />
+* I worked on a GUI component, which greately increases the complexity.<br />
+* I had to write the initial mock and fake objects for the parts of the applications, which are used by the component.</p>
+<p>After the learning and preparation phases are done, I'd estimate the overhead coefficient to be less than 1.5.</p>
+<p>My learning time:</p>
+<p>* ~8h to actively read the book "Moder C++ Programming with Test-Drive Development" by Jeff Langr<br />
+* ~8h to re-learn on the real Python project.</p>
+<p>The number of code lines:</p>
+<p>* 350 lines: new functionality<br />
+* 600 lines: tests<br />
+* 240 lines: common test doubles<br />
+* ??? lines: refactored</p>
+<h2>Good things</h2>
+<p><i>"Avoiding 'legacy code' from the beginning".</i> At some moment, I noticed that the code design was not so good as it could be. It was easy to refactor and immediately test the code without making a lot of clicks in GUI. Otherwise I'd have to retain the bad decision in just written code.</p>
+<p><i>"Test names can serve as documentation"</i>: yes.</p>
+<p><i>"Better design", "Code reuse".</i> To test some functionality, I had to refactor existing code, extracting the fragments to a smaller functions. This way I noticed unexpected possibilities for new useful classes, which are useful also in other code.</p>
+<p><i>"Next test helps start writing".</i> Sometimes I just can't start coding. <a href="http://www.joelonsoftware.com/articles/fog0000000339.html">Fire and Motion</a> by Joel Spolsky. With tests, there is always some easy task, which is easy to implement. Then the second. And then the programming "in flow" starts.</p>

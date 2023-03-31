@@ -1,0 +1,27 @@
+---
+layout: post
+title: understanding if LaTeX run is successful
+date: 2006-03-23 08:37:53.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/03/23/understanding-if-latex-run-is-successful/"
+---
+<p>I'm using LaTeX in batch scripts, and I need to detect if the result is successful. It seems the best way is to look into the log file. I wonder if an imaginery tool "<tt>texloginfo</tt>" exists to:</p>
+<p><!--more--></p>
+<p>"<tt>texloginfo --rerun</tt>": detect if re-run of LaTeX is required (for example, to get cross-references right).<br />
+"<tt>texloginfo --warnings</tt>": extract warning messages from the log file.<br />
+"<tt>texloginfo --errors</tt>": extract warning messages from the log file.</p>
+<p>I suspect such a program doesn't exist, and I have to write it. Then, if you are interested in the tool, please send me comments and suggestions.</p>

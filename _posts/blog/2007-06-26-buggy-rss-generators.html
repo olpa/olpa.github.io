@@ -1,0 +1,24 @@
+---
+layout: post
+title: buggy rss-generators
+date: 2007-06-26 08:15:15.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/06/26/buggy-rss-generators/"
+---
+<p>Just like the most of pseudo-XML tools, many RSS generators are buggy. For example, many just put the text into a CDATA section, without checking if it contains the sequence "]]>". As result, the feed might become invalid.</p>
+<p><!--more--></p>
+<p>Recently I got a nice compaint from a <a href="http://tohtml.com/">tohtml.com</a> user. He spent <i>several hours</i> to find why his feed was invalid. Finally he found that he highlighted XML with a CDATA section and got "]]>", which broke the RSS.</p>
+<p>I've followed the suggestion and introduced a workaround: my syntax highlighter now returns "]]&amp;gt;" instead of "]]>".</p>

@@ -1,0 +1,76 @@
+---
+layout: post
+title: Subversion is not available, temporary switch to RCS
+date: 2013-01-30 18:09:25.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2013/01/30/subversion-is-not-available-temporary-switch-to-rcs/"
+---
+<p>The server with the subversion repository has crashed. Repair takes a few days. How to work during repair? Git isn't a solution, because man had to switch before the disaster, not after.</p>
+<p>My answer is: temporary switch to RCS.</p>
+<p><!--more--></p>
+<h2>Basic introduction to RCS</h2>
+<p><a href="http://oreilly.com/perl/excerpts/system-admin-with-perl/five-minute-rcs-tutorial.html">The Five-Minute RCS Tutorial - Automating System Administration with Perl</a> by David N. Blank-Edelman</p>
+<h2>Adding RCS control</h2>
+<p><code>
+<pre>
+mkdir RCS
+for f in *.py; do ci -t-initial -u $f; done
+for f in *.py; do rcs -ko $f; done
+</pre>
+<p></code></p>
+<h2>Work</h2>
+<p>To modify:<br />
+<code>
+<pre>
+co -l filename
+</pre>
+<p></code></p>
+<p>After modification:<br />
+<code>
+<pre>
+ci -u filename
+</pre>
+<p></code></p>
+<h2>Subversion returned back, re-play changes to it</h2>
+<p>Find which files have been changed:<br />
+<code>
+<pre>
+find . -name RCS
+svn status
+</pre>
+<p></code></p>
+<p>Get all RCS revisions with log messages. For each RCS revision, checkout the revision and submit to subversion</p>
+<p><code>
+<pre>
+rlog filename
+co -r1.2 filename
+svn commit filename
+co -r1.3 filename
+svn commit filename
+...
+co filename
+svn commit filename
+</pre>
+<p></code></p>
+<p>After the whole dir finished:</p>
+<p><code>
+<pre>
+rcsdiff *py
+rm -rf RCS
+chmod +w files
+</pre>
+<p></code></p>

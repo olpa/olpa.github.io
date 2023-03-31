@@ -1,0 +1,25 @@
+---
+layout: post
+title: wrong but fast fix
+date: 2008-12-12 08:05:27.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/12/12/wrong-but-fast-fix/"
+---
+<p>After a small system upgrade an application started to crash with the message:</p>
+<pre>*** glibc detected *** sylpheed: double free or corruption (out): 0x0839e818 ***</pre>
+<p>The right thing is to trace the application and submit a bug report to the author, but I found a fast workaround. Set an environment variable before running the program:</p>
+<pre>export MALLOC_CHECK_=0</pre>

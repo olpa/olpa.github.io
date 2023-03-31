@@ -1,0 +1,35 @@
+---
+layout: post
+title: tracing libc calls with dtrace
+date: 2011-01-26 17:00:43.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Mac
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/01/26/tracing-libc-calls-with-dtrace/"
+---
+<p>In order to find if I can affect a program through environment variables, I decided to trace all <tt>getenv</tt> calls and see if there is something interesting. Easy to said, harder to make. Fortunately, it is possible.</p>
+<p><!--more--></p>
+<p>Quite fast, I found that I want to use the tool <tt>dtrace</tt>. To my disappointment, I realized that I could not just click and run this tool, but had to learn.</p>
+<p>Therefore, at the first I skipped the document <a href="http://dlc.sun.com/osol/docs/content/DTRCUG/gcgkk.html">Tracing User Processes</a> and returned to it only after making all the exercises of a tutorial: <a href="http://wikis.sun.com/display/DTrace/Introduction">Introduction</a>. Finally, I managed to get what I want:</p>
+<pre><code>
+$ cat getenv.d 
+pid$target:libSystem.B.dylib:getenv:entry
+{
+    printf("getenv: '%s'", copyinstr(arg0));
+}
+% sudo dtrace -s getenv.d -c my_program
+</code></pre>
+<p>Note 1: Under Mac OS X, libc seems to be libSystem.B.dylib</p>
+<p>Note 2: According to the documentation, I could use <tt>args[]</tt> array. But for some reason, I could not. Instead, I cast the first argument (int) to a string.</p>

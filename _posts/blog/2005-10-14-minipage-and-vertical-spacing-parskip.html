@@ -1,0 +1,34 @@
+---
+layout: post
+title: minipage and vertical spacing, parskip
+date: 2005-10-14 16:35:48.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: latex,minipage,parskip
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/10/14/minipage-and-vertical-spacing-parskip/"
+---
+<p>I noticed that my \parskip was ignored by the "minipage" environment. After some investigations I found that many vertical spacing commands have a special behaviour inside a minipage, and that the command "if@minipage" is used quite often.</p>
+<p><!--more--></p>
+<p>Here are <a href="http://groups.google.com/group/comp.text.tex/browse_thread/thread/8facf46eec6e5f26/ae9a34afc02115f6#ae9a34afc02115f6">my questions in comp.text.tex</a>:</p>
+<p>What is the reason for such behaviour?</p>
+<p>Where could I read about it?</p>
+<p>By the way, here is how I restore the value of a \parskip inside a "minipage":</p>
+<pre>
+\\let\\V@oldminipagerestore\\@minipagerestore
+\\def\\@minipagerestore{\\V@oldminipagerestore
+  \\setlength{\\parskip}{X plusY minusZ}}
+</pre>
+<p>I'm not sure it is the right way, but I don't see an alternative.</p>

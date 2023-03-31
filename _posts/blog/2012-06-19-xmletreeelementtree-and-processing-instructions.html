@@ -1,0 +1,65 @@
+---
+layout: post
+title: xml.etree.ElementTree and processing instructions
+date: 2012-06-19 15:08:45.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2012/06/19/xmletreeelementtree-and-processing-instructions/"
+---
+<p>Python standard library <tt>xml.etree.ElementTree</tt> is convenient to work with a simple subset of XML. Unfortunately for me, this subset does not include processing instructions, therefore an workaround is required.<br />
+<!--more--><br />
+The source XML:</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">a</span><span style="color:#a65700; ">></span>Is <span style="color:#004a43; ">&lt;?</span><span style="color:#004a43; ">aaaa</span><span style="color:#004a43; "> bbbb</span><span style="color:#004a43; ">?></span> supported?<span style="color:#a65700; ">&lt;/</span><span style="color:#5f5035; ">a</span><span style="color:#a65700; ">></span>
+</pre>
+<p></code></p>
+<p>After roundtrip (read and immediately write) with help of ElementTree, one gets:</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">a</span><span style="color:#a65700; ">></span>Is  supported?<span style="color:#a65700; ">&lt;/</span><span style="color:#5f5035; ">a</span><span style="color:#a65700; ">></span>
+</pre>
+<p></code></p>
+<p>My workaround is to tune the internals of the library and force handling of processing instructions. I represent them as elements with the special name <tt>*PI*</tt> and attributes <tt>target</tt> and <tt>data</tt>.</p>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">import</span> xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree
+
+<span style="color:#800000; font-weight:bold; ">def</span> pi_handler<span style="color:#808030; ">(</span>obj<span style="color:#808030; ">,</span> target<span style="color:#808030; ">,</span> data<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  obj<span style="color:#808030; ">.</span>start<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'*PI*'</span><span style="color:#808030; ">,</span> <span style="color:#800080; ">{</span><span style="color:#0000e6; ">'target'</span><span style="color:#808030; ">:</span> target<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'data'</span><span style="color:#808030; ">:</span> data<span style="color:#800080; ">}</span><span style="color:#808030; ">)</span>
+  obj<span style="color:#808030; ">.</span>end<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'*PI*'</span><span style="color:#808030; ">)</span>
+xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">.</span>TreeBuilder<span style="color:#808030; ">.</span>pi <span style="color:#808030; ">=</span> pi_handler
+
+tree <span style="color:#808030; ">=</span> xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+tree<span style="color:#808030; ">.</span>parse<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"x.xml"</span><span style="color:#808030; ">)</span>
+xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">.</span>dump<span style="color:#808030; ">(</span>tree<span style="color:#808030; ">)</span>
+</pre>
+<p>This code creates the following XML.</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">a</span><span style="color:#a65700; ">></span>Is <span style="color:#ffffff; background:#dd0000; font-weight:bold; font-style:italic; ">&lt;</span>*PI* data="bbbb" target="aaaa" /> supported?<span style="color:#a65700; ">&lt;/</span><span style="color:#5f5035; ">a</span><span style="color:#a65700; ">></span>
+</pre>
+<p></code></p>
+<p>Notes:</p>
+<p>* The XML is obviously incorrect, but it is not important as long as you don't need to have got it serialized.<br />
+* ElementTree actually supports ProcessingInstruction nodes in memory, it just does not read them<br />
+* A better approach is to create ProcessingInstruction nodes in my <tt>pi_handler</tt> instead of fake elements, but this approach requires more coding and understanding</p>
+<h2>25 July 2012, update</h2>
+<p>The code above does not work with the ElementTree from an old Python 2.5. Therefore, I have written an alternative version:</p>
+<pre style="color:#000000;background:#ffffff;"><code>xetxtb_saved_init <span style="color:#808030; ">=</span> xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">.</span>XMLTreeBuilder<span style="color:#808030; ">.</span><span style="color:#e34adc; ">__init__</span>
+<span style="color:#800000; font-weight:bold; ">def</span> xetxtb_new_init<span style="color:#808030; ">(</span>self<span style="color:#808030; ">,</span> <span style="color:#808030; ">*</span>ls<span style="color:#808030; ">,</span> <span style="color:#808030; ">*</span><span style="color:#808030; ">*</span>kw<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">def</span> new_pi<span style="color:#808030; ">(</span>target<span style="color:#808030; ">,</span> data<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    self<span style="color:#808030; ">.</span>_parser<span style="color:#808030; ">.</span>StartElementHandler<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'*PI*'</span><span style="color:#808030; ">,</span> <span style="color:#808030; ">[</span><span style="color:#0000e6; ">'target'</span><span style="color:#808030; ">,</span> target<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'data'</span><span style="color:#808030; ">,</span> data<span style="color:#808030; ">]</span><span style="color:#808030; ">)</span>
+    self<span style="color:#808030; ">.</span>_parser<span style="color:#808030; ">.</span>EndElementHandler<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'*PI*'</span><span style="color:#808030; ">)</span>
+  xetxtb_saved_init<span style="color:#808030; ">(</span>self<span style="color:#808030; ">,</span> <span style="color:#808030; ">*</span>ls<span style="color:#808030; ">,</span> <span style="color:#808030; ">*</span><span style="color:#808030; ">*</span>kw<span style="color:#808030; ">)</span>
+  self<span style="color:#808030; ">.</span>_parser<span style="color:#808030; ">.</span>ProcessingInstructionHandler <span style="color:#808030; ">=</span> new_pi
+xml<span style="color:#808030; ">.</span>etree<span style="color:#808030; ">.</span>ElementTree<span style="color:#808030; ">.</span>XMLTreeBuilder<span style="color:#808030; ">.</span><span style="color:#e34adc; ">__init__</span> <span style="color:#808030; ">=</span> xetxtb_new_init
+</code></pre>

@@ -1,0 +1,49 @@
+---
+layout: post
+title: parsing latex log files
+date: 2006-08-10 04:53:31.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/08/10/parsing-latex-log-files/"
+---
+<p>In mary cases, LaTeX should be run several times to get the correct result (for example, to resolve cross-references). The only way to detect if re-run is required is to analyze the log file. I haven't found anything ready to use, so I've written it myself.</p>
+<p><!--more--></p>
+<p><tt>texloginfo.py</tt>:<br />
+* written in Python,<br />
+* is a command-line program,<br />
+* is a re-usable class for Python programs,<br />
+* unit-tested (both the class and the command-line).</p>
+<p>I'll publish it as soon as find time. If you need it right now, contact me privately.</p>
+<p>Some examples:</p>
+<pre>
+$ ./texloginfo.py --warnings ./test-data/warnings/warnings.log 
+Overfull \hbox (90.38905pt too wide) in paragraph at lines 3--5
+
+$ ./texloginfo.py --errors ./test-data/errors/errors.log 
+! Missing number, treated as zero.
+! Illegal unit of measure (pt inserted).
+
+$ ./texloginfo.py --rerun ./test-data/rerun/rerun.log 
+$ echo $?
+1
+
+$ cat test-data/*/*log | ./texloginfo.py --rerun --errors --warnings - 
+! Missing number, treated as zero.
+! Illegal unit of measure (pt inserted).
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Overfull \hbox (90.38905pt too wide) in paragraph at lines 3--5
+</pre>

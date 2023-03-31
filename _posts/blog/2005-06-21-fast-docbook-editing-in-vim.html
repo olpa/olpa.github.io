@@ -1,0 +1,56 @@
+---
+layout: post
+title: fast docbook editing in vim
+date: 2005-06-21 23:41:49.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- vim
+tags: []
+meta:
+  keywords: vim.docbook,gvim
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/21/fast-docbook-editing-in-vim/"
+---
+<p>I'm going to write quite a big text in DocBook format. At work I use FrameMaker, but at home I don't have FM, so I'll use the universal text editor vim. DocBook is very verbose format, and it is very unefficient to edit DocBook texts without assistance from a editor. I've looked for how vim can help me and found a life changing solution.</p>
+<p><!--more--></p>
+<p>At first, I tried to find an existing solution. Search over vim.org gave me these scripts:</p>
+<ul>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=301">xmledit: A filetype plugin to help edit XML, HTML, and SGML documents</a></li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=38">dbhelper.tgz: Helper for Writing DocBook Documents</a></li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=887">docbkhelper: some menus and mappings to ease editing DocBook XM</a></li>
+</ul>
+<p>I found the first script useful and installed it. The second script didn't work well and I uninstalled it. I didn't try the third script because I didn't want to. Why? Both dbhelper and docbkhelper help to insert DocBook tags, but it's too little help for me.</p>
+<p>I prefer the WiKi approach. I like to write the plain text with little formatting hints. A program processes the plain text and generates HTML. Writing become very easy. Why not to use the same approach for writing DocBook?</p>
+<p>Fortunately, people have already worked on it. The program <tt>wt2db</tt> converts WikiText documents into DocBook XML/SGML.</p>
+<ul>
+<li><a href="http://en.tldp.org/wt2db/">wt2db homepage/man page</a> lists the WikiText formatting hints</li>
+<li><a href="http://www.tldp.org/HOWTO/WikiText-HOWTO/">LDP WikiText Editing HOWTO</a> explains how to use the LDP WikiText editing format to create DocBook documents for the LDP</li>
+<li><a href="http://unix.freshmeat.net/projects/wt2db/">wt2db at freshmeat</a> -- I found a download link here</li>
+</ul>
+<p>Installing <tt>wt2db</tt> is a trivial task. Then I added to my <tt>.vimrc</tt>:</p>
+<pre>map &lt;F3&gt; &lt;Esc&gt;:'&lt;,'&gt;!wt2db&lt;CR&gt;</pre>
+<p>Now I can select a WikiText fragment in vim, press F3, and get the fragment have been converted to DocBook. Very nice!</p>
+<h3>20 July 2005, update</h3>
+<p>Private installation of the scripts. After unpacking, say (probably it's not required):</p>
+<pre>
+$ perl Makefile.PL
+$ make
+</pre>
+<p>Then copy files to create:</p>
+<p>* ~/bin/wt2db-0.5/wt2db<br />
+* ~/bin/wt2db-0.5/lib/Wt2Db.pm</p>
+<p>And create the wrapper <tt>~/bin/wt2db</tt>:</p>
+<pre>
+#!/bin/sh
+
+perl -I/home/olpa/bin/wt2db-0.5/lib "$@" /home/olpa/bin/wt2db-0.5/wt2db
+</pre>

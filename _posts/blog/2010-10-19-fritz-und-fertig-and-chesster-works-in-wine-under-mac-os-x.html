@@ -1,0 +1,40 @@
+---
+layout: post
+title: Fritz und Fertig (= and Chesster) works in Wine under Mac OS X
+date: 2010-10-19 14:17:29.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- chess
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/10/19/fritz-und-fertig-and-chesster-works-in-wine-under-mac-os-x/"
+---
+<p><a href="http://www.fritzundfertig.de/">Frintz and Fertig</a> (english version: "Learn to Play Chess with Fritz and Chesster", russian: "ÐÐ¾Ð»ÑÑÐ¾Ðµ ÑÐ°ÑÐ¼Ð°ÑÐ½Ð¾Ðµ Ð¿ÑÑÐµÑÐµÑ?ÑÐ²Ð¸Ðµ") is a great children game. I found it works stable under Wine.</p>
+<p><!--more--></p>
+<p>Actually, there is a Mac OS X version of the original Fritz und Fertig, but the child prefers to communicate in Russian language. And the localized version (by the way, suprisingly quite good) is a nightmare from the technical side. It requires a russian windows of some specific version, I'd be not surprised if the game does not work in the standard modern environment.</p>
+<p>Fortunately, the game works perfectly under wine.</p>
+<p>Installation notes for myself.</p>
+<p>Install the crossover wine (I don't know if the vanilla wine is ok) from <a href="http://www.macports.org/">macports</a>:</p>
+<pre>$ sudo port install wine-crossover-games</pre>
+<p>Some windows things are required:</p>
+<pre>$ wine regssvr32 ole32</pre>
+<p>The game requires the CD. I made an iso-image. The image should be mounted to <cc>/volumes/FRITZ, this path is constructed somehow automatically.</p>
+<p>To start the installation process, I had to copy all the files from CD to a temporary directory and edit .ini and rename some files to avoid cyrillic letters in the file names.</p>
+<p>Further setup after installation:</p>
+<p>In <tt>dosdevices</tt>:</p>
+<pre>$ ln -s /volumes/FRITZ d:</pre>
+<p>Rename the installation folder to remove spaces in the directory and file names.</p>
+<p>A directory should be created, probably "<tt>users/<i>login_name</i></tt>". I don't remember its name. Use wine with a debug flag to find it out if the game does not start.</p>
+<p>Finally, running:</p>
+<pre>$ LANG=ru_RU.cp1251 wine ~/.wine/drive_c/....../fritz.exe</pre>
+<p></cc></p>

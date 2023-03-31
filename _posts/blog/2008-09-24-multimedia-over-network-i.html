@@ -1,0 +1,54 @@
+---
+layout: post
+title: multimedia over network I
+date: 2008-09-24 07:55:47.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/09/24/multimedia-over-network-i/"
+---
+<p>I want to:</p>
+<p>* run a program on a work PC, and<br />
+* see and hear it in action on a leisure PC.</p>
+<p>The first attempt is failed, therefore I started to search for a solution using the step-by-step approach. The first step is to make sure that multimedia over networks works at all.</p>
+<p><!--more--></p>
+<p>After some research, I found the tool ``<a href="http://www.videolan.org/">VideoLAN - VLC media player</a>''. Video streaming is one of the main features of the tool.</p>
+<p>The documentation explains what to do to:</p>
+<p>* <a href="http://www.videolan.org/doc/streaming-howto/en/index.html">http://www.videolan.org/doc/streaming-howto/en/index.html</a><br />
+* <a href="http://www.videolan.org/doc/streaming-howto/en/ch02.html">http://www.videolan.org/doc/streaming-howto/en/ch02.html</a></p>
+<p>Important settings (probably suboptimal, but they work -- it's enough for start):<br />
+* RTP: On, address, port // address is where to <b>send</b>, not where to bind<br />
+* MPEG-TS: On<br />
+* Video: On<br />
+* Audio: On</p>
+<p>The first test: make sure that streaming to 127.0.0.1 works.</p>
+<p>The second test: make sure that streaming to the same computer (but with an external IP, not 127.0.0.1) works.</p>
+<p>The third, final test, is to stream to another computer.</p>
+<h3>Command line</h3>
+<p>A correct command line for streaming can be found somewhere in GUI. In my vlc 0.9.1:</p>
+<p>* go to Media->Streaming,<br />
+* select a file,<br />
+* press the button "Stream",<br />
+* after setting options, borrow the text from the field "Generated stream output string".</p>
+<p>My test command line (on the streaming PC):</p>
+<pre><code>
+$ cvlc lalalalala.avi --sout '#transcode{vcodec=mp1v,vb=80
+  0,scale=0,acodec=mpga,ab=128,channels=2}:duplicate{dst=r
+  tp{dst=leisure_ip,mux=ts,port=1234}}'
+</code></pre>
+<p>To play video (on the multimedia PC):</p>
+<pre><code>
+$ cvlc rtp://@leisure_ip:1234
+</code></pre>

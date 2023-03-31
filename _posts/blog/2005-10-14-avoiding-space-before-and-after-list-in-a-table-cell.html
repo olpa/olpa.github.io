@@ -1,0 +1,38 @@
+---
+layout: post
+title: avoiding space before and after list in a table cell
+date: 2005-10-14 15:49:39.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: longtable,itemize,space,spacing
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/10/14/avoiding-space-before-and-after-list-in-a-table-cell/"
+---
+<p>The problem is best described by <a href="http://groups.google.com/group/comp.text.tex/browse_frm/thread/b3cf90ca11e15e66/b86b5a8096c5f727#b86b5a8096c5f727">someone else's question</a>:</p>
+<blockquote><p>I'm trying to use the generic list environment inside a longtable. Unfortunately I get unexpected space above and below the list environment. If I use the same list between normal paragraphs, this extra space is not there.</p>
+<p>Any ideas?</p></blockquote>
+<p><!--more--></p>
+<p>Recently a similar question <a href="http://groups.google.com/group/comp.text.tex/browse_thread/thread/fedbf3afc4a36577/20a3198cee905dac#20a3198cee905dac">was asked</a> in comp.tex.tex, and <a href="http://groups.google.com/group/comp.text.tex/browse_frm/thread/fedbf3afc4a36577/f15955f6fd583614#f15955f6fd583614">I answered</a>.</p>
+<p>Probably the "res" package uses some tabular environment. It seems that unneeded vertical space before and after a list in a cell is a known problem without a good solution. In your case, instead of hardcoding sizes, I'd try something like this (probably, with \null):</p>
+<pre>
+\\vspace{-\\baselineskip}\\vspace{-\\parskip}\\vspace{-\\parsep}
+</pre>
+<p>I don't know why \topset doesn't work. I suspect that that table cell starts in the horizontal mode, and when a list adds a break penalty, TeX creates an empty paragraph due to switching from the horizontal mode to the vertical mode.</p>
+<p>By the way, for my longtables I use the following commands:</p>
+<pre>
+\\newcommand{\\celltolist}{\\vspace{-\\baselineskip}\\vspace{-\\parskip}}
+\\newcommand{\\listtocell}{\\vspace{-\\baselineskip}\\vspace{-\\parskip}\\vspace{-\\parskip}}
+</pre>
+<p>Probably it's only a coincide that these commands work for me.</p>

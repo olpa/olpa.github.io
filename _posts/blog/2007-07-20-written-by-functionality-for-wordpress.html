@@ -1,0 +1,34 @@
+---
+layout: post
+title: "'written by' functionality for wordpress"
+date: 2007-07-20 06:51:49.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/07/20/written-by-functionality-for-wordpress/"
+---
+<p>Recently I started a new blog "<a href="http://bbspam.com/">Spam Bots and CAPTCHAs</a>" (will be announced later). I plan to have many authors on this blog, therefore I disliked that the blog postings were not annotated by the author names. After some investigations, I found that it was the default WordPress behaviour. The fix was simple.</p>
+<p><!--more--></p>
+<p>Just add something like</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;">by <span style="color:#a65700; background:#ffffe8; ">&lt;?php</span><span style="color:#000000; background:#ffffe8; "> the_author_link</span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#a65700; background:#ffffe8; ">?></span>
+</pre>
+<p></code></p>
+<p>to the template files:</p>
+<p>* archive.php<br />
+* index.php<br />
+* search.php<br />
+* single.php</p>
+<p>There is a number of alternatives to "<tt>the_author_link</tt>". Details are in the documentation.</p>

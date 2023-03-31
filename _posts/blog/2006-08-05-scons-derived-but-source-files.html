@@ -1,0 +1,38 @@
+---
+layout: post
+title: 'scons: derived but source files'
+date: 2006-08-05 07:24:29.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- consodoc
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/08/05/scons-derived-but-source-files/"
+---
+<p>My build process consists of several steps. One of the intermediate files is actually intended to be edited by the user. But I noticed that when user changes the file, SCons doesn't re-generate the rest of the build chain.</p>
+<p><!--more--></p>
+<p>After diving into the problem, I found what's wrong. My expectations were wrong. The signature of an intermediate file is derived from the signatures of the source files and build steps. Content of intermediate files doesn't affect the signature.</p>
+<p>Therefore, the problem was reformulated. My task was to force SCons to respect the content of the specific file. I haven't found easy solution. Finally, I produced the following code:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> SCons<span style="color:#808030; ">.</span>Node<span style="color:#808030; ">.</span>FS
+<span style="color:#800000; font-weight:bold; ">class</span> DerivedButSourceFile<span style="color:#808030; ">(</span>SCons<span style="color:#808030; ">.</span>Node<span style="color:#808030; ">.</span>FS<span style="color:#808030; ">.</span>File<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">def</span> calc_signature<span style="color:#808030; ">(</span>self<span style="color:#808030; ">,</span> calc<span style="color:#808030; ">=</span><span style="color:#e34adc; ">None</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    s <span style="color:#808030; ">=</span> self<span style="color:#808030; ">.</span>calc_bsig<span style="color:#808030; ">(</span>calc<span style="color:#808030; ">)</span>
+    <span style="color:#800000; font-weight:bold; ">if</span> self<span style="color:#808030; ">.</span>rexists<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+      s <span style="color:#808030; ">=</span> s <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">'_'</span> <span style="color:#808030; ">+</span> self<span style="color:#808030; ">.</span>calc_csig<span style="color:#808030; ">(</span>calc<span style="color:#808030; ">)</span>
+    <span style="color:#800000; font-weight:bold; ">return</span> s
+
+<span style="color:#808030; ">.</span><span style="color:#808030; ">.</span><span style="color:#808030; ">.</span>
+
+<span style="color:#696969; "># env is an environment object</span>
+some_file_node <span style="color:#808030; ">=</span> env<span style="color:#808030; ">.</span>fs<span style="color:#808030; ">.</span>Entry<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'some_file'</span><span style="color:#808030; ">,</span> klass<span style="color:#808030; ">=</span>DerivedButSourceFile<span style="color:#808030; ">)</span>
+</code></pre>

@@ -1,0 +1,123 @@
+---
+layout: post
+title: making unicode pdf bookmarks with TeXML
+date: 2005-09-07 19:22:28.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+- TeXML
+tags: []
+meta:
+  keywords: pdf,unicode,bookmarks,outlines,pdflatex,tex,latex
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/07/making-unicode-pdf-bookmarks-with-texml/"
+---
+<p>I've added a new feature to <a href="http://getfo.sourceforge.net/texml/">TeXML</a>. Content of the element "<tt>pdf</tt>" is converted to utf16be and encoded using escape-sequences. It is useful for making PDF strings, in particular, for PDF bookmark strings.</p>
+<p><!--more--></p>
+<h2>Problem</h2>
+<p>As an example, let start with a bit wrong example. Actually, there were no problems if only latin letters were used. But the text is partially in Russian, and it makes troubles.</p>
+<pre>
+&lt;TeXML&gt;
+  &lt;cmd name=&quot;documentclass&quot; nl2=&quot;1&quot;&gt;
+    &lt;parm&gt;article&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;cmd name=&quot;usepackage&quot; nl2=&quot;1&quot;&gt;
+    &lt;opt&gt;T2A&lt;/opt&gt;
+    &lt;parm&gt;fontenc&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;cmd name=&quot;usepackage&quot; nl2=&quot;1&quot;&gt;
+    &lt;opt&gt;koi8-r&lt;/opt&gt;
+    &lt;parm&gt;inputenc&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;cmd name=&quot;usepackage&quot;&gt;
+    &lt;parm&gt;hyperref&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;env name=&quot;document&quot;&gt;
+    &lt;cmd name=&quot;section&quot;&gt;
+      &lt;parm&gt;&amp;#1047;&amp;#1072;&amp;#1075;&amp;#1086;
+&amp;#1083;&amp;#1086;&amp;#1074;&amp;#1086;&amp;#1082; (Title)&lt;/parm&gt;
+    &lt;/cmd&gt;
+    &amp;#1058;&amp;#1077;&amp;#1082;&amp;#1089;&amp;#1090; (Text)
+  &lt;/env&gt;
+&lt;/TeXML&gt;
+</pre>
+<p>Let convert it to LaTeX using the following command.</p>
+<pre>$ texml -e koi8-r file1.xml file1.tex</pre>
+<p>Result is as expected.</p>
+<pre>
+\\documentclass{article}
+\\usepackage[T2A]{fontenc}
+\\usepackage[koi8-r]{inputenc}
+\\usepackage{hyperref}
+\\begin{document}
+\\section{ÐÐ°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº (Title)} Ð¢ÐµÐºÑ?Ñ (Text)
+\\end{document}
+</pre>
+<p>Unfortunately, it doesn't compile:</p>
+<pre>
+$ pdflatex file1.tex 
+...
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\CYRZ' on input line 6.
+...
+</pre>
+<p>As result, there are no Russian letters in the bookmarks.</p>
+<h2>Solution</h2>
+<p>Let modify TeXML file a bit. Changed parts are highlighted in italic.</p>
+<pre>
+&lt;TeXML&gt;
+  &lt;cmd name=&quot;documentclass&quot; nl2=&quot;1&quot;&gt;
+    &lt;parm&gt;article&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;cmd name=&quot;usepackage&quot; nl2=&quot;1&quot;&gt;
+    &lt;opt&gt;T2A&lt;/opt&gt;
+    &lt;parm&gt;fontenc&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;cmd name=&quot;usepackage&quot; nl2=&quot;1&quot;&gt;
+    &lt;opt&gt;koi8-r&lt;/opt&gt;
+    &lt;parm&gt;inputenc&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;cmd name=&quot;usepackage&quot;&gt;
+    <i>&lt;opt&gt;unicode&lt;/opt&gt;</i>
+    &lt;parm&gt;hyperref&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;env name=&quot;document&quot;&gt;
+    &lt;cmd name=&quot;section&quot;&gt;
+      <i>&lt;opt&gt;
+        &lt;cmd name=&quot;texorpdfstring&quot;&gt;
+          &lt;parm&gt;&lt;/parm&gt;
+          &lt;parm&gt;&lt;pdf&gt;&amp;#1047;&amp;#1072;&amp;#1075;&amp;#1086;
+&amp;#1083;&amp;#1086;&amp;#1074;&amp;#1086;&amp;#1082; (Title)&lt;/pdf&gt;&lt;/parm&gt;
+        &lt;/cmd&gt;
+      &lt;/opt&gt;</i>
+      &lt;parm&gt;&amp;#1047;&amp;#1072;&amp;#1075;&amp;#1086;
+&amp;#1083;&amp;#1086;&amp;#1074;&amp;#1086;&amp;#1082; (Title)&lt;/parm&gt;
+    &lt;/cmd&gt;
+    &amp;#1058;&amp;#1077;&amp;#1082;&amp;#1089;&amp;#1090; (Text)
+  &lt;/env&gt;
+&lt;/TeXML&gt;
+</pre>
+<p>This file results in the following TeX file. Changes are in italic.</p>
+<pre>
+\\documentclass{article}
+\\usepackage[T2A]{fontenc}
+\\usepackage[koi8-r]{inputenc}
+\\usepackage[<i>unicode</i>]{hyperref}
+\\begin{document}
+\\section<i>[ \\texorpdfstring{}{\\004\\027\\004\\060\\004\\063\\004\\076
+\\004\\073\\004\\076\\004\\062\\004\\076\\004\\072\\000\\040\\000\\050\\000
+\\124\\000\\151\\000\\164\\000\\154\\000\\145\\000\\051}
+]</i>{ÐÐ°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº (Title)} Ð¢ÐµÐºÑ?Ñ (Text)
+\\end{document}
+</pre>
+<p>Due to the option "unicode", hyperref marks PDF strings to be Unicode strings. The square brackets after "section" provide an alternative section name for TOCs and the bookmarks. The command "textrpdfstring" expands itself as the first argument in the TeX mode, and as the second argument in the PDF mode. As I don't need content for TeX, I left it empty. (Warning: probably I'm wrong. What's about TOCs?) The second argument is an Unicode version of the title.</p>
+<p>Compile with pdflatex -- and see the bookmark!</p>

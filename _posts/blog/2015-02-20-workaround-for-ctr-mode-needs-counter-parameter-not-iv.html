@@ -1,0 +1,72 @@
+---
+layout: post
+title: 'Workaround for: CTR mode needs counter parameter, not IV'
+date: 2015-02-20 14:04:23.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2015/02/20/workaround-for-ctr-mode-needs-counter-parameter-not-iv/"
+---
+<p>After upgrading the local Linux system, my python paramiko (ssh protocol implementation) program stopped working, with the error message:</p>
+<pre>CTR mode needs counter parameter, not IV</pre>
+<p><!--more--></p>
+<p>Internet search gave no solution. Therefore, it was a time to experiment.</p>
+<p>A logical consequence from the error message is that somewhere should be used only "IV" or only "counter", but not both. With a stack trace, a candidate is found. A function <tt>_get_cipher</tt> in <tt>transport.c</tt> of <tt>paramiko</tt>.</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;">
+elif name<span style="color:#808030; ">.</span>endswith<span style="color:#808030; ">(</span><span style="color:#800000; ">"</span><span style="color:#0000e6; ">-ctr</span><span style="color:#800000; ">"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">:</span>
+<span style="color:#004a43; ">&#xa0;&#xa0;&#xa0;&#xa0;# CTR modes</span><span style="color:#808030; ">,</span><span style="color:#004a43; "> we need a counter</span>
+    counter <span style="color:#808030; ">=</span> Counter<span style="color:#808030; ">.</span>new<span style="color:#808030; ">(</span>nbits<span style="color:#808030; ">=</span>self<span style="color:#808030; ">.</span>_cipher_info<span style="color:#808030; ">[</span>name<span style="color:#808030; ">]</span><span style="color:#808030; ">[</span><span style="color:#0000e6; font-weight:bold; font-style:italic; ">'block-size'</span><span style="color:#808030; ">]</span> <span style="color:#808030; ">*</span> <span style="color:#008c00; ">8</span><span style="color:#808030; ">,</span> initial_value<span style="color:#808030; ">=</span>util<span style="color:#808030; ">.</span>inflate_long<span style="color:#808030; ">(</span>iv<span style="color:#808030; ">,</span> True<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+    <span style="color:#800000; font-weight:bold; ">return</span> self<span style="color:#808030; ">.</span>_cipher_info<span style="color:#808030; ">[</span>name<span style="color:#808030; ">]</span><span style="color:#808030; ">[</span><span style="color:#0000e6; font-weight:bold; font-style:italic; ">'class'</span><span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>new<span style="color:#808030; ">(</span>key<span style="color:#808030; ">,</span> self<span style="color:#808030; ">.</span>_cipher_info<span style="color:#808030; ">[</span>name<span style="color:#808030; ">]</span><span style="color:#808030; ">[</span><span style="color:#0000e6; ">'mode'</span><span style="color:#808030; ">]</span><span style="color:#808030; ">,</span> iv<span style="color:#808030; ">,</span> counter<span style="color:#808030; ">)</span>
+</pre>
+<p></code></p>
+<p>Trying to set <tt>iv</tt> to <tt>None</tt>. Another error. Setting to an empty string. It works!</p>
+<h2>Current solution</h2>
+<p>The easiest way for _me_ is to hook into the <tt>new</tt> function. Something like this:</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">import</span> Crypto<span style="color:#808030; ">.</span>Cipher<span style="color:#808030; ">.</span>AES
+orig_new <span style="color:#808030; ">=</span> Crypto<span style="color:#808030; ">.</span>Cipher<span style="color:#808030; ">.</span>AES<span style="color:#808030; ">.</span>new
+<span style="color:#800000; font-weight:bold; ">def</span> fixed_AES_new<span style="color:#808030; ">(</span>key<span style="color:#808030; ">,</span> <span style="color:#808030; ">*</span>ls<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> Crypto<span style="color:#808030; ">.</span>Cipher<span style="color:#808030; ">.</span>AES<span style="color:#808030; ">.</span>MODE_CTR <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> ls<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">:</span>
+    ls <span style="color:#808030; ">=</span> <span style="color:#e34adc; ">list</span><span style="color:#808030; ">(</span>ls<span style="color:#808030; ">)</span>
+    ls<span style="color:#808030; ">[</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> <span style="color:#0000e6; ">''</span>
+  <span style="color:#800000; font-weight:bold; ">return</span> orig_new<span style="color:#808030; ">(</span>key<span style="color:#808030; ">,</span> <span style="color:#808030; ">*</span>ls<span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">import</span> paramiko
+
+t <span style="color:#808030; ">=</span> paramiko<span style="color:#808030; ">.</span>Transport<span style="color:#808030; ">(</span><span style="color:#808030; ">(</span>host<span style="color:#808030; ">,</span> <span style="color:#008c00; ">22</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">try</span><span style="color:#808030; ">:</span>
+  t<span style="color:#808030; ">.</span>connect<span style="color:#808030; ">(</span>username<span style="color:#808030; ">=</span>username<span style="color:#808030; ">,</span> password<span style="color:#808030; ">=</span>password<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">except</span> <span style="color:#e34adc; ">ValueError</span><span style="color:#808030; ">,</span> e<span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">print</span> e
+  <span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#0000e6; ">'! second attempt'</span>
+  t<span style="color:#808030; ">.</span>close<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+  t <span style="color:#808030; ">=</span> paramiko<span style="color:#808030; ">.</span>Transport<span style="color:#808030; ">(</span><span style="color:#808030; ">(</span>host<span style="color:#808030; ">,</span> <span style="color:#008c00; ">22</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+  Crypto<span style="color:#808030; ">.</span>Cipher<span style="color:#808030; ">.</span>AES<span style="color:#808030; ">.</span>new <span style="color:#808030; ">=</span> fixed_AES_new
+  t<span style="color:#808030; ">.</span>connect<span style="color:#808030; ">(</span>username<span style="color:#808030; ">=</span>username<span style="color:#808030; ">,</span> password<span style="color:#808030; ">=</span>password<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#0000e6; ">"password is ok"</span>
+t<span style="color:#808030; ">.</span>close<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+</pre>
+<p></code></p>
+<h2>Who to blame?</h2>
+<p>The question is hard. On one side, it is indeed <tt>paramiko</tt> who should drop <tt>iv</tt>. On the other side, how the generic code can know that in some cases <tt>new</tt> requires <tt>iv</tt> and in other cases (AES) does not?</p>
+<p>In any case, <tt>AES.py</tt> from <tt>pycrypto</tt> says:</p>
+<blockquote><p>
+IV : byte string ...<br />
+It is ignored for `MODE_ECB` and `MODE_CTR`.
+</p></blockquote>
+<p>It is false now.</p>
+<p>My intuition says that the old behaviour (indeed ignore iv) should be returned back.</p>

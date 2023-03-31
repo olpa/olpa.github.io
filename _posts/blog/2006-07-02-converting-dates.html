@@ -1,0 +1,29 @@
+---
+layout: post
+title: converting dates
+date: 2006-07-02 10:12:26.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/07/02/converting-dates/"
+---
+<p>Inspired by Google feature of converting units, such as "20 euro to usd", I tried to ask for "Sat, 1 Jul 2006 14:01:40 -0700 PDT to GMT". Unfortunately, Google don't understand it.<br />
+<!--more--><br />
+The fallback is to use my Linux:</p>
+<pre><code>$ TZ=GMT date -d 'Sat, 1 Jul 2006 14:01:40 -0700 PDT'
+date: Ð½ÐµÐ²ÐµÑÐ½Ð°Ñ? Ð´Ð°ÑÐ° `Sat, 1 Jul 2006 14:01:40 -0700 PDT'</code></pre>
+<p>It is interpreted as a wrong date. I found that it's enough to drop redundancy (timezone shift and timezone name):</p>
+<pre><code>$ TZ=GMT date -d 'Sat, 1 Jul 2006 14:01:40 PDT'
+Ð¡Ð±Ñ ÐÑÐ»  1 21:01:40 GMT 2006</code></pre>
+<p>The problem is solved. But I decided to test Google yet again, with the new format. Unfortunately, it haven't helped.</p>

@@ -1,0 +1,21 @@
+---
+layout: post
+title: the Bad Thing in xsltproc
+date: 2006-05-11 05:32:03.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/05/11/the-bad-thing-in-xsltproc/"
+---
+<p>Yet again, I've been affected by an xsltproc bug. If the result is empty, then the output file isn't changed. As result, sometimes chained transformations continue with the wrong data. It is reported to libxslt bugzilla, but, unfortunately, it's <a href="http://bugzilla.gnome.org/show_bug.cgi?id=128460#c1">WONTFIX</a>.</p>

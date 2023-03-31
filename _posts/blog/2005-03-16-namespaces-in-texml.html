@@ -1,0 +1,35 @@
+---
+layout: post
+title: namespaces in TeXML
+date: 2005-03-16 02:26:09.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeXML
+tags: []
+meta:
+  _oembed_0cde24752519f771eac034a5890ebb8b: "{{unknown}}"
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/16/namespaces-in-texml/"
+---
+<p>I've got a <a href="http://sourceforge.net/forum/forum.php?thread_id=1248397&forum_id=352892">feature request to add namespaces to TeXML</a>. Reasons are very strong, so I can't reject the proposal. Here is my answer:</p>
+<p>I though about namespaces at the very beginning, and decided to avoid namespaces to simplify TeXML. The namespaces is a dark corner of XML technologies for many developers.</p>
+<p>> the problem of trying to reconcile XML with a namespace and XML without a namespace.</p>
+<p>Unbeatable point! Well, let assign a namespace URI for TeXML:</p>
+<p>http://getfo.sourceforge.net/texml/</p>
+<p>The namespace prefix is not important, but I think the best variant is "texml". So a TeXML document may look like this:</p>
+<pre>&lt;texml:TeXML xmlns:texml="http://getfo.sourceforge.net/texml/">...&lt;/texml></pre>
+<p>I don't want force user to use TeXML namespace, so I'm going to introduce modes of processing:</p>
+<p>* namespace-aware, and<br />
+* no namespaces, as now.</p>
+<p>About technical implementation. I'd like to update "glue_handler" in the file "handler.py": let handler "startElementNS" validates "uri" (it should be None or TeXML's URI), creates new attributes map as there are no namespaces (maybe it's not required, need to read documentation), and delegates processing to "startElement". The same is for "endElementNS".</p>
+<p>I suppose all these actions slow down the conversion, so I'd like to enable namespaces feature only on demand (for example, "-ns" command line flag).</p>
+<p>What do you think about it?</p>

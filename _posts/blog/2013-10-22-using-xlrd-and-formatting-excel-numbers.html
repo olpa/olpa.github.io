@@ -1,0 +1,103 @@
+---
+layout: post
+title: using xlrd and formatting Excel numbers
+date: 2013-10-22 09:45:11.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2013/10/22/using-xlrd-and-formatting-excel-numbers/"
+---
+<p>The number (and dates) in Excel are float numbers. How these numbers are displyed to an user -- as an integer, or with two digits after a point, etc -- are defined by the cell format. Unfortunately, <a href="http://www.python-excel.org/">xlrd</a> does not support number formatting. It is your task to interpret the format and display the number as expected. My code can probably help. <a href="http://uucode.com/download/2013/xlrd-format-excel-number-20131021.tar.gz">Download xlrd-format-excel-number</a></p>
+<p><!--more--></p>
+<h3>The problem for an user</h3>
+<p>This is how you format a table in Excel:</p>
+<p><img src="{{ site.baseurl }}/assets/2013/10/invoice-table.png" alt="small excel table" /></p>
+<p>Let's dump the the table (see the attached code "dump-sheet.py"):</p>
+<pre style="color:#000000;background:#ffffff;"><code>
+wb <span style="color:#808030; ">=</span> xlrd<span style="color:#808030; ">.</span>open_workbook<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'invoice.xls'</span><span style="color:#808030; ">,</span> formatting_info<span style="color:#808030; ">=</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span>
+sh <span style="color:#808030; ">=</span> wb<span style="color:#808030; ">.</span>sheets<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span>
+<span style="color:#800000; font-weight:bold; ">for</span> i_row <span style="color:#800000; font-weight:bold; ">in</span> <span style="color:#e34adc; ">range</span><span style="color:#808030; ">(</span>sh<span style="color:#808030; ">.</span>nrows<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">for</span> i_col <span style="color:#800000; font-weight:bold; ">in</span> <span style="color:#e34adc; ">range</span><span style="color:#808030; ">(</span>sh<span style="color:#808030; ">.</span>ncols<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    ce <span style="color:#808030; ">=</span> sh<span style="color:#808030; ">.</span>cell<span style="color:#808030; ">(</span>i_row<span style="color:#808030; ">,</span>i_col<span style="color:#808030; ">)</span>
+    s <span style="color:#808030; ">=</span> as_display_string<span style="color:#808030; ">(</span>ce<span style="color:#808030; ">)</span>
+    smart_print<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span>
+</code></pre>
+<p>A naive approach to get a value from a cell is:</p>
+<pre style="color:#000000;background:#ffffff;"><code>
+<span style="color:#800000; font-weight:bold; ">def</span> as_display_string<span style="color:#808030; ">(</span>cell<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>cell<span style="color:#808030; ">.</span>value<span style="color:#808030; ">)</span>
+</code></pre>
+<p>The result is:</p>
+<pre><code>
+what           | item price     | N              | total price    |
+foo            | 23.25          | 4.0            | 93.0           |
+bar            | 5.0            | 2.0            | 10.0           |
+               |                |                |                |
+Total (no tax) |                |                | 103.0          |
+Tax 19%        |                |                | 19.57          |
+               |                |                |                |
+</code></pre>
+<p>"N" can't be "4.0" or "2.0", it should be "4" or "2"</p>
+<p>Price can't be "5.0", it should be "5.00", or more precisely (in Germany) "5,00".</p>
+<h3>The problem for a programmer</h3>
+<p>The format specification is too hard for a quick implementation:</p>
+<p><a href="http://office.microsoft.com/en-us/excel-help/number-format-codes-HP005198679.aspx">Number format codes - Excel - Office.com</a></p>
+<p>Nobody has enough time to implement everything.</p>
+<p>And there are also border and hidden cases, like this format for currency:</p>
+<pre><code>#,##0.00\ [$€-407];[RED]\-#,##0.00\ [$€-407]</code></pre>
+<p>I just have no slightest idea how to get the euro-sign from the format chunk "<tt><code>[$€-407]</code></tt>". And there are also conditions. And locale-aware formatting. No, I can't.</p>
+<h3>The idea</h3>
+<p>* Find a substring, which consists of a mix of zeros, hashes, dots and commas.<br />
+* Then to use only this substring for further formatting.</p>
+<p>It works at least for integer numbers and numbers with two digits after a comma. For my needs, it is 100% of all the use cases. It should work also for many other formats.</p>
+<p>If your formats are more complex than the code can handle, you are welcome to extend the code in "numfmt.py". Don't forget to add tests into "numfmt_test.py".</p>
+<h3>Usage</h3>
+<p>The example is "dump-sheet.py". First you have to decide which separators for number part you want to use. A good idea is to get them from the locale user settings.</p>
+<pre style="color:#000000;background:#ffffff;"><code>
+locale<span style="color:#808030; ">.</span>setlocale<span style="color:#808030; ">(</span>locale<span style="color:#808030; ">.</span>LC_ALL<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">''</span><span style="color:#808030; ">)</span>
+l <span style="color:#808030; ">=</span> locale<span style="color:#808030; ">.</span>localeconv<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+div1    <span style="color:#808030; ">=</span> l<span style="color:#808030; ">[</span><span style="color:#0000e6; ">'decimal_point'</span><span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">or</span> <span style="color:#0000e6; ">'.'</span>
+div1000 <span style="color:#808030; ">=</span> l<span style="color:#808030; ">[</span><span style="color:#0000e6; ">'thousands_sep'</span><span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">or</span> <span style="color:#0000e6; ">','</span>
+</code></pre>
+<p>The sample function <tt>format_number</tt> takes three parameters:</p>
+<p>* <tt>f</tt> is the float number to format,<br />
+* <tt>cell</tt> and <tt>wb</tt> are the cell and workbook objects, they are used to find the format string.</p>
+<p>The code to get <tt>s_fmt</tt> (the format string) is found somewhere in the internet, now I can't remember the source.</p>
+<pre style="color:#000000;background:#ffffff;"><code>
+<span style="color:#800000; font-weight:bold; ">def</span> format_number<span style="color:#808030; ">(</span>f<span style="color:#808030; ">,</span> cell<span style="color:#808030; ">,</span> wb<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  xf <span style="color:#808030; ">=</span> wb<span style="color:#808030; ">.</span>xf_list<span style="color:#808030; ">[</span>cell<span style="color:#808030; ">.</span>xf_index<span style="color:#808030; ">]</span>
+  fmt_key <span style="color:#808030; ">=</span> xf<span style="color:#808030; ">.</span>format_key
+  fmt <span style="color:#808030; ">=</span> wb<span style="color:#808030; ">.</span>format_map<span style="color:#808030; ">[</span>fmt_key<span style="color:#808030; ">]</span>
+  s_fmt <span style="color:#808030; ">=</span> fmt<span style="color:#808030; ">.</span>format_str
+  a_fmt <span style="color:#808030; ">=</span> numfmt<span style="color:#808030; ">.</span>extract_number_format<span style="color:#808030; ">(</span>s_fmt<span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> a_fmt<span style="color:#808030; ">:</span>
+    s_f <span style="color:#808030; ">=</span> numfmt<span style="color:#808030; ">.</span>format_number<span style="color:#808030; ">(</span>f<span style="color:#808030; ">,</span> a_fmt<span style="color:#808030; ">,</span> div1000<span style="color:#808030; ">,</span> div1<span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">else</span><span style="color:#808030; ">:</span>
+    s_f <span style="color:#808030; ">=</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>f<span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">return</span> s_f
+</code></pre>
+<p>The last remark: the call to <tt>xlrd.open_workbook</tt> should contain the parameter <tt>formatting_info=1</tt>, otherwise you can't access the format strings.</p>
+<p>Now the python code prints the table correct:</p>
+<pre><code>
+what           | item price     | N              | total price    |
+foo            | 23,25          | 4              | 93,00          |
+bar            | 5,00           | 2              | 10,00          |
+-              | -              | -              | -              |
+Total (no tax) | -              | -              | 103,00         |
+Tax 19%        | -              | -              | 19,57          |
+-              | -              | -              | -              |
+Total          | -              | -              | 122,57         |
+</code></pre>
+<p><a href="http://uucode.com/download/2013/xlrd-format-excel-number-20131021.tar.gz">Download xlrd-format-excel-number</a></p>

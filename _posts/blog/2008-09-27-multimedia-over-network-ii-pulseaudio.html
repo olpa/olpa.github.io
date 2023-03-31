@@ -1,0 +1,49 @@
+---
+layout: post
+title: 'multimedia over network II: pulseaudio'
+date: 2008-09-27 08:00:55.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/09/27/multimedia-over-network-ii-pulseaudio/"
+---
+<p><a href="http://www.pulseaudio.org/">PulseAudio</a> is a sound server. Applications feed music to PulseAudio, and PulseAudio decides what to do with it. For example, it can send the sound over network.</p>
+<p>When I tried to use this feature for the first time, I failed. Therefore, I experimented with a more user friendly software (see <a href="http://uucode.com/blog/2008/09/24/multimedia-over-network-i/">multimedia over network I</a>, and the second attempt was successful.</p>
+<p><!--more--></p>
+<p>Actually, the second attempt is just a building a minimal working system.</p>
+<p>My minimal "<tt>/etc/pulse/default.pa</tt>" looks as the following:</p>
+<pre><code>
+.nofail
+
+load-module module-native-protocol-unix
+
+load-module module-null-sink sink_name=rtp
+load-module module-rtp-send source=rtp.monitor destination=127.0.0.1 port=1234 loop=1
+set-default-sink rtp
+</code></pre>
+<p>Instead of the recommended way to run PulseAudio as "<tt>pulseaudio -D</tt>", I avoid the daemon mode and use the debug mode:</p>
+<pre><code>
+$ pulseaudio -v
+</code></pre>
+<p>Streaming audio (without video) to self:</p>
+<pre><code>
+$ mplayer something.avi -ao pulse -vo null
+</code></pre>
+<p>To hear:</p>
+<pre><code>
+$ cvlc rtp://@127.0.0.1:1234
+</code></pre>
+<p>Again, the second test is to stream to self, but using an external IP. The third test is to stream to another PC.</p>
+<p>According to the documentation, the option "destination" is "Destination multicast group for both RTP and SAP packets, defaults to 224.0.0.56". I suspect it means "broadcast address", but I'm not sure. For me, it's enough to stream to just one leisure PC.</p>

@@ -1,0 +1,51 @@
+---
+layout: post
+title: '"x:eval", "x:deep-copy", "current()", and attributes'
+date: 2005-04-21 23:06:01.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/21/xeval-xdeep-copy-current-and-attributes/"
+---
+<p>Namespaces are still working, xml node of the type "document" is now handled correctly, XSLT XPath functions are activated. To finish with the libxml to sxml conversion, support of the top-level attribute nodes and result tree fragments should be added.</p>
+<p><!--more--></p>
+<p>Today's development is a mess of small changes.</p>
+<p>First of all, the Scheme function "x:value-of" is renamed to "x:eval". It's much more correct, as the name "value-of" implies that we convert a result to a string, and it's not what we are doing.</p>
+<p>Next, the Scheme function "x:deep-copy" is introduced. It makes copies of the sxml expressions. This code:</p>
+<pre>&lt;x:scheme>
+ (x:current)
+&lt;/x:scheme></pre>
+<p>produces warning</p>
+<pre>scm_to_node: bounded node can't be added to tree, adding a free copy</pre>
+<p>(<a href="http://uucode.com/blog/2005/03/29/bugfixing-2-coredump/">see the explanation</a>), and this code</p>
+<pre>&lt;x:scheme>
+ (x:deep-copy (x:current))
+&lt;/x:scheme></pre>
+<p>doesn't.</p>
+<p>Another issue solved is the XSLT functions in XPath. I've found how to allow using them, and added more test cases. Some new tests make sure that relative XPaths work properly, and the constructions "current()", "self::node()" and "." give the expected result.</p>
+<p>Thanks to the improvement, I've finally tested conversion of the result of the XLT function "document()". And it was useful, as the bug was found. The code</p>
+<pre>&lt;a>
+ &lt;x:scheme>
+  (x:eval "document('test.xml')")
+ &lt;/x:scheme>
+&lt;/a></pre>
+<p>was producing</p>
+<pre>&lt;a>
+ &lt;?xml version="1.0"?>
+ &lt;test>test.xml&lt;/test>
+&lt;/a></pre>
+<p>Xml declaration is redundant in the result. The problem is fixed now.</p>
+<p>After getting the problem with the document nodes, I decided to check other top-level nodes. The only types to check are the attributes and the result tree fragments.</p>
+<p>I've got a coredump on the attributes and decided to give up for today.</p>

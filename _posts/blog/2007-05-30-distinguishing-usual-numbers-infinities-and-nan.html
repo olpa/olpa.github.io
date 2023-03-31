@@ -1,0 +1,58 @@
+---
+layout: post
+title: distinguishing usual numbers, infinities and NaN
+date: 2007-05-30 21:58:04.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/05/30/distinguishing-usual-numbers-infinities-and-nan/"
+---
+<p>In a Scheme program, I need to distinguish infinities and NaN values. In Guile, it's simple, it's just the functions <tt>inf?</tt> and <tt>nan?</tt>. But when I took another implementation, I got troubles. I spent a lot of time and tried everything -- <tt>=</tt>, <tt>eq?</tt>, <tt>equal?</tt>, but nothing helped. Fortunately, after a break, I found a simple universal solution.</p>
+<p><!--more--></p>
+<p>Let's see what happens if we compare (by <tt>&lt;</tt>) the values.</p>
+<p>Code:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">for-each</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">lambda</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">left</span><span style="color:#808030; ">)</span>
+    <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">for-each</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">lambda</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">right</span><span style="color:#808030; ">)</span>
+        <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">display</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">&lt;</span> left right<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">display</span> <span style="color:#0000e6; ">" "</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+      <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">list</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> <span style="color:#008000; ">0.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> <span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> -<span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#008c00; ">777</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+    <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">newline</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+  <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">list</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> <span style="color:#008000; ">0.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> <span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> -<span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#008c00; ">777</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+</code></pre>
+<p>The table:</p>
+<pre>
+  &lt;   | NaN +inf -inf 777
+-------------------------
+NaN   |  #f  #f   #f  #f
++inf  |  #f  #f   #f  #f
+-inf  |  #f  #t   #f  #t
+777   |  #f  #t   #f  #f
+</pre>
+<p>Similar tables can be got for <tt>&gt;</tt> and <tt>=</tt>. With this table, it's easy to differentiate the type of a variable <tt>x</tt>. For example:</p>
+<p>* If it is greater than <tt>-inf</tt> and less that <tt>+inf</tt>, it's an usual number.<br />
+* Otherwise: if it is greater than <tt>-inf</tt>, then it's <tt>+inf</tt>; if it is less than <tt>+inf</tt>, then it's <tt>-inf</tt>.<br />
+* Otherwise, it's <tt>NaN</tt>.</p>
+<p>The code uses another algorithm of the same style.</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">define</span> gx<span style="color:#400000; ">:nan</span><span style="color:#808030; ">?</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">lambda</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">x</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">not</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">or</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">&lt;</span> x <span style="color:#008c00; ">777</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">></span> x -<span style="color:#008c00; ">777</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">define</span> gx<span style="color:#400000; ">:inf</span><span style="color:#808030; ">?</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">lambda</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">x</span><span style="color:#808030; ">)</span>
+                      <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">and</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">&lt;</span> x <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> <span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">></span> x <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> -<span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+                        #f
+                        <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">not</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">gx:nan?</span> x<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+</code></pre>
+<p>Testing:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">map</span> gx<span style="color:#400000; ">:inf</span><span style="color:#808030; ">?</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">list</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> <span style="color:#008000; ">0.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> <span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> -<span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#008c00; ">777</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+    <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span><span style="color:#808030; ">=</span><span style="color:#808030; ">></span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">#f</span> #<span style="color:#7d0045; ">t</span> #<span style="color:#7d0045; ">t</span> #f<span style="color:#808030; ">)</span>
+
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">map</span> gx<span style="color:#400000; ">:nan</span><span style="color:#808030; ">?</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">list</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> <span style="color:#008000; ">0.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> <span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">/</span> -<span style="color:#008000; ">1.0</span> <span style="color:#008000; ">0.0</span><span style="color:#808030; ">)</span> <span style="color:#008c00; ">777</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+    <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span><span style="color:#808030; ">=</span><span style="color:#808030; ">></span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">#t</span> #f #f #f<span style="color:#808030; ">)</span>
+</code></pre>

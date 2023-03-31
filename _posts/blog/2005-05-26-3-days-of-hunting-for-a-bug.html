@@ -1,0 +1,30 @@
+---
+layout: post
+title: 3 days of hunting for a bug
+date: 2005-05-26 00:21:52.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta:
+  keywords: xsltproc,libxslt,mode,xsltProcessOneNode
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/26/3-days-of-hunting-for-a-bug/"
+---
+<p>I've spent 3 days on getting simple code to work. In exchange I've got more experience with xsltproc internals. But I'm not sure it's a fair trade.</p>
+<p><!--more--></p>
+<p>The task was simple. I wanted to apply templates to node in a certain mode. I found that <tt>xsltTransformContext</tt> contains mode and mode uri strings. I initialized these fields with my values, and ... got nothing.</p>
+<p>During the first day I was understanding why. The answer is simple. In some cases, xsltproc doesn't use xmlStrCmp to compare string. Instead, xsltproc compares strings as pointers. Pointers comparation works because all XSLT-related strings are interned into one dictionary. One string in the dictionary is used for all strings with the same content.</p>
+<p>Second day was lost on making lookups to dictionary. Instead of results I was getting core dumps.</p>
+<p>On the third day I wrote a separated code to test only modes. It worked. So I returned to the step two to look more closely at the core dump problem.</p>
+<p>And soon I was blaming myself.</p>
+<p>I was using "<tt>ctxt->inst->doc->dict</tt>", but <tt>ctxt</tt> was initializing only 20 lines below. Shame on me. Don't work late in evenings.</p>

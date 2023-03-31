@@ -1,0 +1,49 @@
+---
+layout: post
+title: from Scheme values to XML nodes
+date: 2005-03-08 02:02:44.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/08/from-scheme-values-to-xml-nodes/"
+---
+<p>Conversion of some basic Scheme types (string, boolean, char, number) to XML nodes now works. The stylesheet</p>
+<pre>
+&lt;x:stylesheet
+  xmlns:x = "http://www.w3.org/1999/XSL/Transform"
+  xmlns:s = "http://uucode.com/xslt/scheme"
+  x:extension-element-prefixes="s"
+  version     = "1.0">
+
+&lt;x:template match="/">
+  &lt;x>
+    &lt;x1>&lt;s:scheme>"string value"&lt;/s:scheme>&lt;/x1>
+    &lt;x2>&lt;s:scheme>(> 2 3)&lt;/s:scheme>&lt;/x2>
+    &lt;x3>&lt;s:scheme>(/ 777 2)&lt;/s:scheme>&lt;/x3>
+    &lt;x4>&lt;s:scheme>#\A&lt;/s:scheme>&lt;/x4>
+  &lt;/x>
+&lt;/x:template>
+
+&lt;/x:stylesheet>
+</pre>
+<p>produces, as expected</p>
+<pre>
+&lt;x>
+  &lt;x1>string value&lt;/x1>
+  &lt;x2>false&lt;/x2>
+  &lt;x3>388.5&lt;/x3>
+  &lt;x4>A&lt;/x4>
+&lt;/x>
+</pre>

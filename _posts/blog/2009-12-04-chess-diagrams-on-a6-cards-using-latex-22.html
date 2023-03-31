@@ -1,0 +1,38 @@
+---
+layout: post
+title: chess diagrams on A6 cards using LaTeX - 2/2
+date: 2009-12-04 08:40:23.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- chess
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2009/12/04/chess-diagrams-on-a6-cards-using-latex-22/"
+---
+<p>In <a href="http://uucode.com/blog/2009/11/27/chess-diagrams-on-a6-cards-using-latex-12/">the first part</a> I wrote: ``put to a template in your favourite text processor''. <a href="http://uucode.com/blog/wp-content/uploads/2009/12/diakarte.zip">Attached</a> is a template (class-file) for LaTeX and an example, the explanations are below.</p>
+<p><!--more--></p>
+<p>It seems that <a href="http://www.ctan.org/tex-archive/fonts/chess/skak/">skak</a> is the package to typeset chess using LaTeX. (See also an earlier post, ``<a href="http://uucode.com/blog/2009/09/15/chess-publishing-in-latex-starting/">chess publishing in latex, starting</a>''.)</p>
+<p>Unfortunately, sometimes skak ignores castling moves. I'm going to produce a minimal example and submit a bug report. But at the moment, in case case of such error, use the command <tt>\fenboard</tt> to correct a position.</p>
+<p>My class <tt>diakarte</tt> imports <tt>skak</tt> and defines two new commands:</p>
+<p><tt>\therest{...}</tt>: the argument is centered horizontally using <tt>\centerline</tt> and then centered vertically in the rest of the text flow.</p>
+<p><tt>\restcomment{...}</tt>: the argument is centered horizontally using <tt>\centerline</tt> and then attached to the previous <tt>\therest</tt>.</p>
+<p>Something like this:</p>
+<p><code>
+<pre>
+\therest{\showboard}
+\restcomment{What now?}
+</pre>
+<p></code></p>
+<p>A complete example demonstrates also advanced usage. It is included in the zip-file with <a href="http://uucode.com/blog/wp-content/uploads/2009/12/diakarte.zip">diakarte package</a>.</p>
+<p>If you've found the package useful, please drop me a note in comments.</p>

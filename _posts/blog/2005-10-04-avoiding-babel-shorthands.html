@@ -1,0 +1,60 @@
+---
+layout: post
+title: avoiding babel shorthands
+date: 2005-10-04 19:11:34.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: babel,shorthands
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/10/04/avoiding-babel-shorthands/"
+---
+<p>Babel allows LaTeX to speak multiple languages. It also introduces shorthands, one- or two-character sequences, which help non-English authors to type language-specific letters easily. Unfortunately, this feature leads to problems when generating LaTeX-files automatically.</p>
+<p><!--more--></p>
+<p>A simple example:</p>
+<pre>
+\\documentclass{article}
+\\usepackage[english,german]{babel}
+\\begin{document}
+Variant "111de000" System\\par
+Variant "111de000"~System\\par
+\\chaptername
+\\end{document}
+</pre>
+<p>Do you see an error here? No, unless you have experience typesetting German documents. Problem is here:</p>
+<pre>
+" S
+"~S
+</pre>
+<p>Quote has a special meaning when German babel is activated. In the example above, it produces "SS" and "-S". There are more such shorthands, and there is a lot of languages. I can't add all of them to my script.</p>
+<p>For automatic generation, it's better to switch shorthands off. But there is no such option. I haven't found it in documentation and <a href="http://groups.google.com/group/comp.text.tex/browse_thread/thread/5fbd187d7807fd3d/6456d8adaa925a94">asked in comp.text.tex</a>. It seems that there is no nice way, the only thing I can do is to hook babel internals. There is a proposal from Morten Hogholm (see the thread), but I like my solution better:</p>
+<p>File "lessbabel.sty":</p>
+<pre>
+\\NeedsTeXFormat{LaTeX2e}
+\\ProvidesPackage{lessbabel}[2005/10/04 Babel without shorthands]
+
+\\DeclareOption*{\\PassOptionsToPackage{\\CurrentOption}{babel}}
+\\ProcessOptions\\relax
+\\RequirePackage{babel}
+
+\\def\\bbl@activate#1{} 
+</pre>
+<p>My generated documents now use</p>
+<pre>
+\\usepackage[english,german]{lessbabel}
+</pre>
+<p>instead of</p>
+<pre>
+\\usepackage[english,german]{babel} 
+</pre>

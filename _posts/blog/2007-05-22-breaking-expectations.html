@@ -1,0 +1,39 @@
+---
+layout: post
+title: breaking expectations
+date: 2007-05-22 13:38:54.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/05/22/breaking-expectations/"
+---
+<p>How do you thing, what the following Python/libxml2 code does?</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">for</span> kid <span style="color:#800000; font-weight:bold; ">in</span> node<span style="color:#808030; ">.</span>get_children<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">print</span> kid<span style="color:#808030; ">.</span>name
+</code></pre>
+<p><!--more--></p>
+<p>Do you think the code gets the children of the node and prints theirs names? I thought so too. But the correct answer is:</p>
+<p>The code gets <b>all the ancestors</b> of the node and prints theirs names.</p>
+<p>In libxml2, <tt>get_children()</tt> returns a pointer to the first child. By the way, for C it's very reasonable and expected. Being only a wrapper, Python shouldn't change the behaviour. It's reasonable. Further, Python's xmlNode provides an interator which traverses the whole subtree of the mode.</p>
+<p>This is an excellent example how reasonable steps lead to a misfeature.</p>
+<p>My implementation of getting all the children:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">def</span> getChildren<span style="color:#808030; ">(</span>node<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  kids <span style="color:#808030; ">=</span> <span style="color:#808030; ">[</span><span style="color:#808030; ">]</span>
+  kid  <span style="color:#808030; ">=</span> node<span style="color:#808030; ">.</span>get_children<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">while</span> kid<span style="color:#808030; ">:</span>
+    kids<span style="color:#808030; ">.</span>append<span style="color:#808030; ">(</span>kid<span style="color:#808030; ">)</span>
+    kid <span style="color:#808030; ">=</span> kid<span style="color:#808030; ">.</span>get_next<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">return</span> kids
+</code></pre>

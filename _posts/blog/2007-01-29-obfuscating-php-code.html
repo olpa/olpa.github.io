@@ -1,0 +1,35 @@
+---
+layout: post
+title: obfuscating PHP code
+date: 2007-01-29 04:17:41.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- PHP
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/01/29/obfuscating-php-code/"
+---
+<p>Recently I needed to obfuscate PHP code. Nothing fancy, no bullet-proof protection needed. The goals were:<br />
+* complicate removing of license protection by an unexpierenced person, and<br />
+* prevent code re-use by a third party.</p>
+<p><!--more--></p>
+<p>Few options a found in Google (in no specific order):</p>
+<p>* <a href="http://sourceforge.net/projects/phrozen/">Phrozen - PHP encoder</a><br />
+* <a href="http://sourceforge.net/projects/iddin/">iddin - The PHP-Obfuscator</a><br />
+* <a href="http://www.semdesigns.com/Products/Obfuscators/PHPObfuscator.html">Thicket(tm) Obfuscator for PHP</a><br />
+* <a href="http://sls.web.psi.ch/goto.php/duo/obfuscate.php">Online PHP obfuscator</a><br />
+* <a href="http://www.raizlabs.com/software/phpobfuscator/">Encode and Obfuscate PHP Scripts</a><br />
+* <a href="http://pobs.mywalhalla.net/">POBS</a></p>
+<p>The first thing I was able to run was POBS, therefore I continued with it.</p>
+<p>I love open source. Having sources, one can tune a tool. In my case, I needed that an obfuscator were able to run from command line. I played a bit with POBS and got success.</p>
+<p>Thanks, Mark and Frank, for POBS!</p>

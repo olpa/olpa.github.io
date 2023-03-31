@@ -1,0 +1,55 @@
+---
+layout: post
+title: feedback on the GPCE'05 article
+date: 2005-06-05 23:46:59.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+- science
+tags: []
+meta:
+  keywords: virtual xml machine,generative xml,generative xpath
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/05/feedback-on-the-gpce05-article/"
+---
+<p>Some time ago I submitted an article to the <a href="http://gpce.org/05/">Generative Programming and Component Engineering</a> (GPCE'05) conference. Article is rejected, but to my great surprise I've got useful and inspiring comments.</p>
+<p><!--more--></p>
+<p>I reproduce reviews here for backup reasons.</p>
+<h2>review 282</h2>
+<p>English writing is understandably hard for the author. To improve the clarity and legibility of the paper, the author is strongly encouraged to use a decent spell checker as well as a grammar checker. </p>
+<p>The paper needs a lot of work. It seems the author has done a good job to find implementations of XML processors, particularly, XML virtual machines.  The author's website clearly demonstrates technical skill and know-how. To make a stronger showcase of this work, the author is encouraged to consider these suggestions:</p>
+<p>1) Describe the XML virtual machine *first*.</p>
+<p>I would suggest moving sections 5 and 6 right after 3. The "Benefits" section will be easier to write since the virtual machine will have been described earlier. The author could take advantage of that description to elaborate and clarify how Domain Specific Languages (DSL) would be defined with this machine. An example would help.</p>
+<p>2) Focus on the core strengths of this particular approach.</p>
+<p>Without making any comparison to someone else's work, can you describe what makes the XML VM a particularly good technology? It would be best if the author could show an  example that someone reading the paper could say: "wow, this is cool!".</p>
+<p>Since this paper is focused on technology, it is important here to be clear about:</p>
+<p>- what is the nature of the "Virtual Machine" operations?</p>
+<p>The author is not entirely clear on this. In section 1, the author mentions using Scheme as a virtual machine.  Is Scheme "the" Virtual Machine?</p>
+<p>Not all readers may be familiar with what it means to view "Scheme-as-a-Virtual-Machine", especially compared with the Java VM. The author could perhaps make a comparison of the JavaVM and whaterver is the XML Virtual Machine. This comparison could, for example, clarify :</p>
+<p>* what are the operations of the XML VM ?</p>
+<p>** are some operations domain-neutral? (i.e., they are only specific to XML as a tree organization of data)</p>
+<p>** are some operations domain-specific? (the author mentioned DSLs -- is the XML VM used to build a DSL on top of the XML VM or are the operations of the DSL part of the specializing the XML VM for the particular domain?)</p>
+<p>* what kind of memory model does the XML VM operate on?</p>
+<p>** is this a tree model or something else?</p>
+<p>** if it is a tree, then what is its representation?</p>
+<p>* what is the architecture of the XML VM software?</p>
+<p>The author mentions several tools, libraries and processing steps in a brief description here: http://xmlhack.ru/protva/xquery-eng.html The author is clearly motivated to make the construction of XML programs simple. Therefore, it is important for the author to clearly describe the architecture of the XML VM itself so that the author can indicate what software libraries/components/modules/functions need to be written in order to write an application using the XML VM.</p>
+<p>* The abstract mentions Python and C languages.</p>
+<p>The author should be clear about how these languages are actually used. It seems that the author relies on the Guile lirary as a C implementation of the Scheme language. Having a C-implementation of Scheme, it appears the author claims the XML VM has a reference implemention in C.</p>
+<p>This argument is not the main focus of the paper. This argument is worth stating as a benefit of the approach but it is not a fundamental property of the author's approach.</p>
+<h2>review 151</h2>
+<p>This paper aims at a new method for developing XML tools and make these tools reusable for different tree-like structures in different programming languages.</p>
+<p>Most of the contents of the paper are nothing but normal knowledge about XML. The new part is the "XML virtue machine", but the technical details are missing (which are in another unpublished paper [19]. </p>
+<p>The presentation of the paper should be improved.</p>
+<h2>review 224</h2>
+<p>The main idea of this paper is to have a single language for pattern-matching XML inside programs written in any programming language and dealing with any tree structure. That language would be Scheme! Although the idea is kind of interesting, I don't find it to have a lot of research value or even to be very convincing. The similarities of XML to S-expressions have been identified since a very, very long time. The author does not cite anything more than web sites to that effect, but there are several research papers on the subject. Beyond that, there don't seem to be too many good arguments for using Scheme syntax. Furthermore, Scheme carries with it a large baggage (as the author mentions and promises to address in an upcoming document): the language has much more than a minimal kernel for dealing with S-expressions (continuations, GC, etc.).</p>
+<p>In the end, I found the idea to be rather simplistic, the implementation and discussion to be insufficient and the paper to be rather badly written.</p>

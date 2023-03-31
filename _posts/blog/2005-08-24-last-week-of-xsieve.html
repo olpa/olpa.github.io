@@ -1,0 +1,26 @@
+---
+layout: post
+title: last week of XSieve
+date: 2005-08-24 23:43:44.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/24/last-week-of-xsieve/"
+---
+<p>I haven't release a new version of XSieve, and there are no user-visible changes, but it doesn't mean I do nothing. I've been working on low-level technical issues and writing documentation.</p>
+<p><!--more--></p>
+<p>If you are interested, here is a link to ChangeLog:</p>
+<p><a href="http://cvs.sourceforge.net/viewcvs.py/xsieve/xsieve/ChangeLog?rev=1.8&view=auto">http://cvs.sourceforge.net/viewcvs.py/xsieve/xsieve/ChangeLog?rev=1.8&view=auto</a></p>
+<p>I've started a grand testing. I've written a sketch of a naive converter from XSLT to XSieve, and converted DocBook XSL stylesheets to XSieve. Now, running DocBook XSieve and comparing the result with the expected data, I find bugs. Some of them are very hard (right now I'm trying to identify an issue which is probably related to the garbage collector). I hope to fix everything during the next week.</p>

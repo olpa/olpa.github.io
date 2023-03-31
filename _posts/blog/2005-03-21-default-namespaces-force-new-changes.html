@@ -1,0 +1,55 @@
+---
+layout: post
+title: default namespaces force new changes
+date: 2005-03-21 00:11:47.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/21/default-namespaces-force-new-changes/"
+---
+<p>I decided to make sure that default namespaces are not a problem for the converter, and I found that actually it <i>is</i> the problem.</p>
+<p><!--more--></p>
+<p>Consider the following XML:</p>
+<pre>
+&lt;doc xmlns="lalala">
+  data
+  &lt;subdoc/>
+&lt;/doc>
+</pre>
+<p>I decided that SXML representation would be:</p>
+<pre>
+`(:doc (@ (@ (*NAMESPACES* (,(string->symbol "") "lalala")))) "data" (:subdoc)))
+</pre>
+<p>But when I tested it, I got such XML:</p>
+<pre>
+&lt;:doc xmlns:="lalala">
+  data
+  &lt;:subdoc/>
+&lt;/:doc>
+</pre>
+<p>Note the colon in name.</p>
+<p>The next idea was not to have colons in SXML:</p>
+<pre>
+`(doc (@ (@ (*NAMESPACES* (,(string->symbol "") "lalala")))) "data" (subdoc)))
+</pre>
+<p>It looks very like the XML. But then I though about amount of problems with converting such data. The converter believes that if there is no colon in a element name, then the element is not namespaced. Fortunately, <a href="http://sourceforge.net/mailarchive/message.php?msg_id=1940122">a message</a> from the ssax-sxml mailing list relaxed me:</p>
+<blockquote><p>SXML does not have any notion of a default namespace because all namespace references are already resolved. If an element name in SXML is a colon-less symbol, the corresponding XML element was <i>_definitely_</i> local.</p></blockquote>
+<p>Then I found <a href="http://sourceforge.net/mailarchive/message.php?msg_id=5773959">another message</a>. According to it, the SXML may look so:</p>
+<pre>
+(z:doc (@ (@ (*NAMESPACES* (z "lalala" *DEFAULT*)))) "data" (z:subdoc)))
+</pre>
+<p>Quite a good solution. But it uses the "original prefix" feature from the SXML specification, and <a href="/blog/2005/03/16/algorithm-for-sxml-to-libxml2-namespaces/">earlier</a> I wrote:</p>
+<blockquote><p>The only uncovered thing is the "original prefix". I'm ignoring it because it needs some effort to implement, but it should not appear in normal SXML&lt;->libxml2 mapping.</p></blockquote>
+<p>Well, I was too naive, and now I have to invent something new.</p>

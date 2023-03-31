@@ -1,0 +1,55 @@
+---
+layout: post
+title: towards GTTSE 2005
+date: 2005-06-05 23:58:14.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- science
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/05/towards-gttse-2005/"
+---
+<p>I'm visiting <a href="http://wiki.di.uminho.pt/wiki/bin/view/GTTSE/">Summer School on Generative and Transformational Techniques in Software Engineering</a> (GTTSE 2005) and hopefully give a presentation.</p>
+<p><!--more--></p>
+<p>Extended abstract:</p>
+<p>Using DSLs on top of Scheme VM</p>
+<p>Software development process can benefit of using domain specific languages (DSL) instead of sets of custom libraries for data processing.</p>
+<p>* Languages are usually designed better than casual code.<br />
+* DSLs provide right abstractions, allowing to write less and express more.<br />
+* Popular DSLs are well-documented, tested and have a user base.</p>
+<p>For example, if an application extensively works with hierarchical data, it is reasonable to view the data as XML and run powerful XML tools over the XML view. One of such tools is XPath, a language for addressing parts of an XML document.</p>
+<p>It is impossible to write an XPath implementation from scratch for each different programming language and each different tree, but developers want to use XPath in different environments. In order to satisfy the needs, the following questions should be answered.</p>
+<p>* How to write a reusable DSL implementation?<br />
+* How to adapt the implementation for a specific programming language and data structure?</p>
+<p>Different approaches are possible. Our work is based on the following ideas.</p>
+<p>* Invent a custom programming language for implementing a DSL.<br />
+* Use the virtual machine (VM) technology. A DSL implementation should be compiled to a VM, and a host application should execute the compiled code.<br />
+* Write an implementation first, and only than develop the best suiting VM for the implementation.</p>
+<p>We decided that the programming language Scheme suites best for making a generative XPath implementation. The language is perfect both as a basis for a custom programming language and as a basis for a VM. Moreover, there is no impedance mismatch between the language and the VM.</p>
+<p>The following topics can be highlighted:</p>
+<p>* embedding Scheme VM,<br />
+* preprocessing by compiling Scheme VM code to a host platform,<br />
+* transforming to Scheme VM source code.</p>
+<p>Embedding is used when a DSL is required at runtime. There is a number of Scheme implementations which are ready for embedding, but before using them as VM the following issues should be solved.</p>
+<p>* Mapping between data in the host platform and data in Scheme VM.<br />
+* Minimization of overhead in the mapping.<br />
+* Garbage collection.</p>
+<p>According to our experience, mapping is the most complex task. When mapping from the host platform to Scheme VM, the complexity is a big number of different memory structures. The complexity of the reverse mapping is a flexibility of Scheme S-expressions which might not map correctly due to structural errors.</p>
+<p>Another challenge is avoiding mapping data which is not used. For example, it's unreasonable to map a whole big hierarchical structure when only top-level nodes are used. To avoid excessive work, mapping should be lazy and instantiate values on demand.</p>
+<p>Finally, garbage collection and live time of values should be considered. There is no a general advice. Each case should be handled personally.</p>
+<p>We have developed two test cases that demonstrate embedding of Scheme VM.</p>
+<p>* Python abstract syntax trees (AST) as XML. This is an example of developing a custom Scheme implementation from scratch.<br />
+* XPath over the file system. This is an example of adding a DSL (XPath) to a legacy application (GNU utility find). A modified version of Guile is used as Scheme VM.</p>
+<p>Scheme VM can be hidden in a preprocessor if a DSL is not required at runtime. For example, developers can use XPath queries in C code. A preprocessor can extract all XPath strings, compile them to Scheme VM, then compile Scheme VM to C and replace original XPath expressions by the corresponding C code fragments.</p>
+<p>Compiling a DSL to Scheme source code and rewriting the result is an important possibility. For example, Scheme code for an XPath statement can be considered as an execution plan. Using automatic rewriting or manual tuning, it is possible to trace or optimize execution of the XPath statement.</p>
+<p>Static compiling and code rewriting are subjects for the future research. We are also interested in a generative Scheme implementation which is adaptable to different environments.</p>

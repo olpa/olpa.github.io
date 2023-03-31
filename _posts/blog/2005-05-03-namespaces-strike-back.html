@@ -1,0 +1,39 @@
+---
+layout: post
+title: namespaces strike back
+date: 2005-05-03 01:05:53.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta:
+  keywords: namespace,libxml2,libxslt
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/03/namespaces-strike-back/"
+---
+<p>XML namespaces are an invention from the evil. Two harmlessly looking messages in one of the scripts evolved to two hard debug sessions. Fortunately, I managed to fix the both bugs.</p>
+<p><!--more--></p>
+<p>It took a time to produce a test case for the first problem. It was hiding in something which couldn't fail but did:</p>
+<pre>(z:elem (@ (z:attr "s") (@ (*NAMESPACES* (z "z:z:z")))))</pre>
+<p>Here are the actions of the SXML to XML converter:</p>
+<p>While processing "z:elem", the processor notices it is a namespaced element, and that prefix "z" is not defined yet. So the converter creates a fake ns definition, with prefix "z" and href NULL.</p>
+<p>While processing "z:attr", the processor first looks up for the prefix "z". It should get the definition created when "z:elem" was processed. But libxml2's function "xmlSearchNs" skips definitions which have NULL href and attached to the context node (but all is ok for the ancestor nodes).</p>
+<p>So "xmlSearchNs" returns NULL, and the processor things that the prefix "z" is not defined yet. So it creates a new definition for the prefix "z", but the function "xmlNewNs" is smart enough to notice that the prefix is actually alredy defined. So surprised programmer gets the mysterious warning:</p>
+<pre>lookup_or_mk_ns: xmlNewNs failed</pre>
+<p>Well, it's fixed now. The converter manually walks over the namespace definition list attached to the context node and only after it uses "xmlSearchNs".</p>
+<p>Now, here is the SXML for the second problem:</p>
+<pre>(a (@ (@ (*NAMESPACES* (z "z:z:z" orig))))
+  (b)  (z:z))</pre>
+<p>The error message was:</p>
+<pre>namespace declaration for 'z' is not completed</pre>
+<p>The SXML specification allows namespace prefix rewriting: you have one prefix in SXML and another prefix in XML. We have to support rewriting because it's the only way to implement default namespaces. I've already written about it somewhere.</p>
+<p>The convertor from SXML to XML uses the SXML prefix when processing the element's subtree and changes the namespace definition after subtree processing is finished. Approach is working, but implementation was poor. I was using the function "...can't remember..." which was returning all namespace definitions in the scope of a element, not only the element's definitions. As result, rewriting of prefix was having place too early. In the example above, the prefix "z" was rewritten to "orig" after processing the element "b", so the prefix "z" was unbound at the moment of processing the element "z:z". The fix was simple. We don't use the function anymore, but access the ns definition list directly.</p>

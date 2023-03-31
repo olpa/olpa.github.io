@@ -1,0 +1,29 @@
+---
+layout: post
+title: programlistingco is fake
+date: 2005-08-11 17:51:49.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: programlistingco,docbook,xsltproc,callouts
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/11/programlistingco-is-fake/"
+---
+<p>Don't use <tt>programlistingco</tt> and other <tt>co</tt>-elements of DocBook. They are not supported in full by the DocBook XSL stylesheets.</p>
+<p><!--more--></p>
+<p>Callouts, such as numbered bullets, are an annotation mechanism. For details, see <a href="http://www.docbook.org/tdg/en/html/programlistingco.html">description and an example</a>. I put program listings to my documentation, and I want to add comments to code through callouts.</p>
+<p>It's hard to combine XML listings and callouts in DocBook. The main problem is the need to escape the XML special symbols. Listings become hairy, and small changes in listings cause rework.</p>
+<p>When I found that elements <tt>programlistingco</tt> and <tt>areaspec</tt> can be used to separate a listing and its callouts, I was happy. But it didn't work. I tried several variants, copied an example from "DocBook: The Definitive Guide", and finally <a href="http://www.sagehill.net/docbookxsl/AnnotateListing.html">found</a> (emphasis is my):</p>
+<blockquote><p>You have to wrap your programlisting and calloutlist in a programlistingco element, because it supports the use of an areaspec to provide the coordinates. You also <b>must use either Saxon or Xalan</b> to process the files, because placing the callouts at the coordinates takes an XSLT extension function that is <b>not available in xsltproc</b>. To enable this function in Saxon or Xalan, you must set the stylesheet parameters use.extensions=1 and callouts.extension=1. Both must be set for it to work. Don't forget to include the appropriate DocBook XSL extensions jar file in your CLASSPATH as well.
+</p></blockquote>
+<p>I'm using xsltproc. I'm not going to switch to Saxon or Xalan. No <tt>programlistingco</tt> for me.</p>

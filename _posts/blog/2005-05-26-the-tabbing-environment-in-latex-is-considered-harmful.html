@@ -1,0 +1,32 @@
+---
+layout: post
+title: the "tabbing" environment in LaTeX is considered harmful
+date: 2005-05-26 00:02:48.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeXML
+tags: []
+meta:
+  keywords: tabbing,latex,accent
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/26/the-tabbing-environment-in-latex-is-considered-harmful/"
+---
+<p>Some time ago I got a complaint on TeXML: <a href="http://sourceforge.net/mailarchive/forum.php?thread_id=7275865&forum_id=44318">Bug in TeXML</a>. Unfortunately, it's not a bug in TeXML, but it's a big bug in the LaTeX design.</p>
+<p><!--more--></p>
+<p>Problem is that the "tabbing" environment redefines the commands "<tt>\`</tt>", "<tt>\'</tt>", "<tt>\"</tt>" and some others. From the <a href="http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tabacc">TeX FAQ on tabbing</a>:</p>
+<blockquote><p>
+This is really a rather ghastly feature of the <tt>tabbing</tt> environment; in order to type accented characters you need to use the <tt>\a</tt> kludge: so <tt>\a'{e}</tt> inside tabbing for <tt>\'{e}</tt> outside, and similarly <tt>\a'</tt> for <tt>\'</tt> and <tt>\a=</tt> for <tt>\=</tt>. This whole procedure is of course hideous and error-prone.
+</p></blockquote>
+<p>The best solutions I see are as follows.<br />
+* Don't use the "tabbing" environment.<br />
+* Use the environment "Tabbing" (note the capital "T").</p>
+<p>Obviously, I can't force users to follow these advices. Instead, I should change TeXML somehow. Probably I'll add mode "tabbing". I don't know when.</p>

@@ -1,0 +1,67 @@
+---
+layout: post
+title: running TeX tools from non-standard locations
+date: 2010-04-28 09:51:35.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/04/28/running-tex-tools-from-non-standard-locations/"
+---
+<p>In some configurations (for example, when using MacTeX), if you copy a TeX-related binary to non-standard location, the tool stops working. More precisely, if a tool uses <a href="http://tug.org/kpathsea/">kpathsea</a> library, special setup is required. More practically, is you compile something like <a href="http://dvisvgm.sourceforge.net/">dvisvgm</a>, it might not work.</p>
+<p><!--more--></p>
+<p>Discussion: <a href="http://tug.org/pipermail/tex-k/2010-April/002153.html">pointing kpathsea to the correct texmf tree</a>.</p>
+<p>Summary: texmf.cnf defines search paths in terms of SELFAUTO* variables (at least, in vanilla TeXLive and MacTeX 2009). Therefore, kpathsea looks for files relative to the location of the calling program.</p>
+<p>Therefore, to find the files, the calling program should be located in the right place or all the AUTO-based search paths should be redefined. For me, the following wrapper implements the second idea:</p>
+<p>----- textool.sh: begin<br />
+<code>
+<pre>
+#!/bin/bash
+
+for i in         \
+  TEXMFMAIN      \
+  TEXMFDIST      \
+  TEXMFLOCAL     \
+  TEXMFSYSVAR    \
+  TEXMFSYSCONFIG \
+  TEXMFCNF       
+do
+  export $i=`kpsewhich -expand-var "$"$i` 
+done
+
+"$@"
+</pre>
+<p></code><br />
+----- textool.sh: end</p>
+<p>Running kpsewhich in a wrong location doesn't work:</p>
+<p><code>
+<pre>
+$ ./kpsewhich psfonts.map
+warning: kpathsea: configuration file texmf.cnf not found in
+these directories: ...
+$ export export TEXMFCNF='{/usr/local/texlive/2009/.....
+$ ./kpsewhich psfonts.map
+$
+</pre>
+<p></code></p>
+<p>But the wrapper helps:</p>
+<p><code>
+<pre>
+$ textool.sh ./kpsewhich psfonts.map
+/usr/local/texlive/2009/texmf-var/fonts/map/dvips/updmap/psfonts.map
+$ textool.sh ./a.out 
+psfonts.map=/usr/local/texlive/2009/....../psfonts.map
+$
+</pre>
+<p></code></p>

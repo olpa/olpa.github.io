@@ -1,0 +1,40 @@
+---
+layout: post
+title: autotools games
+date: 2007-02-13 07:35:37.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/02/13/autotools-games/"
+---
+<p>After long break, I returned back to XSieve and found that the new tools doesn't compile the sources.</p>
+<p><!--more--></p>
+<p>Many errors are easy to fix, I need only to explicitely specify the type conversion. I made few changes, and re-run make to get the location of the next errors. Instead, I got serious problems:</p>
+<pre>
+$ make stox.o
+...
+stox.c:7:28: error: libxml/globals.h: No such files or directory
+In file included from sxml.h:9,
+                 from stox.c:8:
+stox.h:10:35: error: libxml/xpathInternals.h: No such files or directory
+...
+</pre>
+<p>My CFLAGS went away!</p>
+<p>I had to spend a lot of time on the dark area of autotools just to understand that the correct command line was:</p>
+<pre>
+$ make xsieve_sourceforge_net_la-stox.o
+...
+</pre>
+<p>Awesome.</p>

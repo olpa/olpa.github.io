@@ -1,0 +1,77 @@
+---
+layout: post
+title: 'LaTeX, CJK, and "Font C70/song/m/n/6/57=cyberb57 at 6.0pt not loadable: Metric
+  (TFM) file not found."'
+date: 2005-09-12 16:06:09.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: tex,latex,cjk,chipout,font,loadable
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/12/latex-cjk-and-font-c70songmn657cyberb57-at-60pt-not-loadable-metric-tfm-file-not-found/"
+---
+<p>I started to use CJK in LaTeX recently, and I spend a lot of time trying to fix the following problem:</p>
+<pre>! Font C70/song/m/n/9/65=cyberb65 at 9.0pt not loadable:
+                         Metric (TFM) file not found.
+<to be read again> 
+                   relax 
+l.74 ^^e6^^97^^a0
+                 \\par
+? 
+</to></pre>
+<p><!--more--></p>
+<p>I searched Internet to find a fix. I'm not the only one who got such error, but the only recommendation was to correctly install CJK fonts. Unfortunately, it wasn't my case. My CJK fonts were installed and worked.</p>
+<p>Finally, I've traced the source of the problem and fixed it.</p>
+<p>I use background texts which are produced in <tt>\EveryShipout</tt>. The text should be displayed in Helvetica font, so the shipout code contains:</p>
+<pre>... \\fontfamily{phv}\\selectfont ...</pre>
+<p>Now let's trace TeX execution. It processes CJK text, and the current encoding is some "CXX". A page is full, so shipout procedure is activated. "Selectfont" tries to load "phv" for "CXX" encoding (font shape "CXX/phv/m/n"). It's undefined, so fallback is "CXX/song/m/n", which somehow is translated to "cyberbXX" (my CJK font), and for some reason it is not found (altough exists).</p>
+<p>The fix is simple. The shipout code should also define the font encoding:</p>
+<pre>... \\fontfamily{phv}\\fontencoding{T1}\\selectfont ...</pre>
+<p>All this seems obvious now, but it wasn't easy to realize. TeX error message is very misleading: error context is the source code, not the shipout code.</p>
+<h2>14 September 2005, update</h2>
+<p>An example to reproduce the problem. Note that I really need to use "set@typeset@protect", therwise font changing commands doesn't work.</p>
+<pre>
+%
+% Standard preamble for a CJK document
+%
+\\documentclass{article}
+\\usepackage[encapsulated]{CJK}
+\\usepackage{ucs}
+\\usepackage[utf8x]{inputenc}
+%
+% Master page
+%
+\\usepackage{everyshi}
+\\newcommand{\\MasterPage}{ %
+% Ok
+%\\fontsize{9pt}{11pt}\\fontfamily{phv}\\fontencoding{T1}\\selectfont
+% Error
+\\fontsize{9pt}{11pt}\\fontfamily{phv}\\selectfont
+CJK Text}
+\\makeatletter\\EveryShipout{\\set@typeset@protect\\MasterPage}\\makeatother
+%
+% Document itself
+%
+\\begin{document}
+\\begin{CJK}{UTF8}{cyberbit}
+^^e6^^97^^a0CJK Text\\par
+^^e6^^97^^a0\\par
+^^e6^^97^^a0\\par
+... 100+ lines ...
+^^e6^^97^^a0\\par
+^^e6^^97^^a0\\par
+\\clearpage
+\\end{CJK}
+\\end{document}
+</pre>

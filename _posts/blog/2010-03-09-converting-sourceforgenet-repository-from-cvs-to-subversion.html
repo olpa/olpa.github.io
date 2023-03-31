@@ -1,0 +1,57 @@
+---
+layout: post
+title: converting sourceforge.net repository from CVS to subversion
+date: 2010-03-09 08:06:50.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/03/09/converting-sourceforgenet-repository-from-cvs-to-subversion/"
+---
+<p>Probably there is no need to switch from CVS to subversion, but I'm starting to forget the options of the <tt>cvs</tt> command, therefore decided to migrate. Unfortunately, there is no button "convert" on the site, therefore I had to find how to do it manually.</p>
+<p><!--more--></p>
+<p>A quick search gave a migration notes of Audacity: <a href="http://wiki.audacityteam.org/wiki/CVS_To_SVN_Migration">CVS To SVN Migration</a>. To get a better understanding what is happening, I read the following documents:</p>
+<p>* <a href="http://svnbook.red-bean.com/en/1.5/svn.forcvs.convert.html">Version Control with Subversion / Converting a Repository from CVS to Subversion</a><br />
+* <a href="http://cvs2svn.tigris.org/cvs2svn.html">cvs2svn Documentation</a></p>
+<p>The dump was easy to produce:</p>
+<p><code>
+<pre>
+$ rsync -av --delete-delay rsync://PROJECT.cvs.sourcefor
+   ge.net/cvsroot/PROJECT/* PROJECT-cvsbackup/
+
+$ cvs2svn --dumpfile=svndump PROJECT-cvsbackup > cvs2svn.log
+</pre>
+<p></code></p>
+<p>The task of importing the dump was more challenging, but also easy solved thanks to the sourceforge documentation: <a href="http://sourceforge.net/apps/trac/sourceforge/wiki/SVN%20adminrepo">Managing your Subversion Repository with adminrepo</a></p>
+<p>This moves the dump on the sourceforge servers and logs in:</p>
+<p><code>
+<pre>
+$ rsync -aiv svndump USER,PROJECT@web.sourceforge.net:.
+$ ssh -t USER,PROJECT@shell.sourceforge.net create
+</pre>
+<p></code></p>
+<p>And this what happens after logging in:</p>
+<p><code>
+<pre>
+$ mv /home/groups/P/PR/PROJECT/svndump .
+$ adminrepo --checkout svn
+$ rm -rf /svnroot/PROJECT/*
+$ svnadmin create /svnroot/PROJECT/
+$ svnadmin load /svnroot/PROJECT < svndump
+$ adminrepo --save
+</pre>
+<p></code></p>
+<h2>Project options</h2>
+<p>Remembered after writing this post: one must to activate subversion before doing the conversion:</p>
+<p>Project admin -> Feature settings -> Available Features</p>
+<p>After conversion, disable CVS.</p>

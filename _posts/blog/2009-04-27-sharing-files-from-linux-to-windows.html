@@ -1,0 +1,36 @@
+---
+layout: post
+title: sharing files from linux to windows
+date: 2009-04-27 13:32:28.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+- windows
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2009/04/27/sharing-files-from-linux-to-windows/"
+---
+<p>Yes, one installs and configures Samba. All I need is to access a big folder in the read-only mode. The quick and dirty solution is:</p>
+<p><!--more--></p>
+<p>In <tt>smb.conf</tt>:</p>
+<pre>
+security = share
+guest account = nobody
+
+[my-svn]
+  comment = SVN files
+  path = /path/to/svn
+  read only = yes
+  public = yes
+  guest ok = yes
+</pre>

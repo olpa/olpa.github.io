@@ -1,0 +1,38 @@
+---
+layout: post
+title: proposal for XML Prague 2007
+date: 2007-02-28 06:34:57.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+- science
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/02/28/proposal-for-xml-prague-2007/"
+---
+<p>I've just sent an extended abstract for the <a href="http://www.xmlprague.cz/">XML Prague</a> 2007 conference. I hope it will be accepted.</p>
+<p><!--more--></p>
+<p>Title: Generative XPath<br />
+Name:  Oleg Parashchenko<br />
+Affiliation: Saint-Petersburg State University, Russia</p>
+<p>Description:</p>
+<p>The most convenient approach to navigate over XML trees is to use XPath queries. But there is no reason to limit ourselves to XML only. Indeed, it's useful to have XPath for navigating over arbitrary tree-like structures.</p>
+<p>There are a number of projects, in which developers have tried to implement XPath over project-specific hierarchical data. Unfortunately, most of these attempts resulted in something that resembled XPath, but was not XPath. The problem is that implementing XPath, even version 1.0, is a difficult task.</p>
+<p>We propose an alternative approach. Generative XPath is an XPath 1.0 processor that can be adapted to different hierarchical memory structures and different programming languages. Customizing Generative XPath to a specific environment is several magnitudes of order easier than implementing XPath from scratch.</p>
+<p>The Generative XPath framework consists of three components:</p>
+<p>* XPath compiler,<br />
+* XML virtual machine, and<br />
+* native (customization) layer.</p>
+<p>The XPath compiler transforms XPath expressions to an executable code for the virtual machine. During execution, the code interacts with the native layer to access the tree nodes and its properties.</p>
+<p>This paper explains what the virtual machine is, what is expected from the customization layer, and how they work together. Also, background information about the design and implementation of Generative XPath is given.</p>

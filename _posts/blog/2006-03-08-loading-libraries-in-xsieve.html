@@ -1,0 +1,39 @@
+---
+layout: post
+title: loading libraries in XSieve
+date: 2006-03-08 09:34:04.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/03/08/loading-libraries-in-xsieve/"
+---
+<p>For my XTech paper, I need an example of usage of XSieve in practice. So, I finally have written a code which was in the mind for two months (more on it later, it worths a separate post). As I started to make a redistributable package, I got a problem.</p>
+<p><!--more--></p>
+<p>An XSieve stylesheet starts with</p>
+<pre>
+&lt;s:init>
+(load "my-library.scm")
+&lt;/s:init>
+</pre>
+<p>What happens if you install this stylesheet somewhere in <tt>/usr/share/...</tt> and use from the home directory? Right, <tt>load</tt> doesn't find <tt>my-library.scm</tt>, and the stylesheet fails.</p>
+<p>Very frustrating.</p>
+<p>Workaround through the environment variable <tt>GUILE_LOAD_PATH</tt> is possible, but I don't like it.</p>
+<p>Finally, I've updated XSieve a bit. Now XSieve automatically adds directories with XSieve stylesheets to the Guile load path. And instead of <tt>load</tt>, stylesheets should use <tt>load-from-path</tt>:</p>
+<pre>
+&lt;s:init>
+(load-from-path "my-library.scm")
+&lt;/s:init>
+</pre>
+<p>At the moment, this feature is in CVS only, but I think I'll release a new version in the near future.</p>

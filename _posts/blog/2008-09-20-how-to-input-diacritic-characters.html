@@ -1,0 +1,23 @@
+---
+layout: post
+title: how to input diacritic characters
+date: 2008-09-20 07:54:01.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/09/20/how-to-input-diacritic-characters/"
+---
+<p>I always used vim (for example, "Ctrl-K" ":" "u" for "ü"), but now I found a way to input such characters into any application, using the core feature of X11/xorg. The explanation and the table are here: "<a href="http://andrew.triumf.ca/iso8859-1-compose.html">ISO-8859-1 compose keystrokes in Linux</a>" (thanks Andrew Daviel).</p>
+<p>Reminder for myself: on my system, it's enough to add "compose:ralt" to the option "XkbOptions" in "xorg.conf" and use "Alt Gr" key.</p>

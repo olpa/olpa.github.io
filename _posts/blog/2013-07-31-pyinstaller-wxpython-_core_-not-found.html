@@ -1,0 +1,39 @@
+---
+layout: post
+title: pyinstaller, wxpython, _core_ not found
+date: 2013-07-31 13:18:33.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2013/07/31/pyinstaller-wxpython-_core_-not-found/"
+---
+<p>Sometimes an error and the error message are different things. One of the examples is that my wxpython-program did not want to start after converting to exe using pyinstaller:</p>
+<p><code>
+<pre>ImportError: No module named _core_</pre>
+<p></code></p>
+<p><!--more--></p>
+<p>The two confusing things for me were:</p>
+<p>* Some time ago the exe-version worked<br />
+* There is a file <tt>wx._core_.pyd</tt> in the program's directory</p>
+<p>And a minimal test example worked again!</p>
+<p>After some meditation, the root of the problem was found:</p>
+<p><code>
+<pre>
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+</pre>
+<p></code></p>
+<p>More precisely, "<tt>reload</tt>" does not work with PyInstaller. At the moment I don't know a good solution and just have commented out the problem line.</p>

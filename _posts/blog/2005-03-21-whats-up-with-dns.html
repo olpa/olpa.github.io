@@ -1,0 +1,52 @@
+---
+layout: post
+title: what's up with DNS?
+date: 2005-03-21 01:37:45.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/21/whats-up-with-dns/"
+---
+<p>I never understand why, having such a victimable system as DNS, Internet is still alive. Now my understanding is giving up.</p>
+<p><!--more--></p>
+<p>Yesterday I decided to read a bit of Joel. I selected his site from the bookmarks, but got a standard site of cybersquatters instead of Joel's site. I was surprised how Joel can lose his domain and looked up whois for details. And all was ok in it. After some investigations, I worked out that all is wrong with DNS:</p>
+<pre>
+$ host -a JOELONSOFTWARE.COM 195.19.225.253
+Trying "JOELONSOFTWARE.COM"
+Using domain server:
+Name: XXX.XX.XXX.XXX
+Address: XXX.XX.XXX.XXX#53
+Aliases: 
+
+;; ->>HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 17444
+;; flags: qr rd; QUERY: 1, ANSWER: 2, AUTHORITY: 1, ADDITIONAL: 1
+
+;; QUESTION SECTION:
+;JOELONSOFTWARE.COM.            IN      ANY
+
+;; ANSWER SECTION:
+JOELONSOFTWARE.COM.     99777   IN      A       83.222.5.155
+JOELONSOFTWARE.COM.     99777   IN      A       83.222.5.156
+
+;; AUTHORITY SECTION:
+COM.                    99952   IN      NS      3sistersmassage.COM.
+
+;; ADDITIONAL SECTION:
+3sistersmassage.COM.    20771   IN      A       216.127.88.131
+
+Received 114 bytes from XXX.XX.XXX.XXX#53 in 39 ms
+</pre>
+<p>where "XXX.XX.XXX.XXX" is the provider's DNS server.</p>
+<p>Look at the "AUTHORITY SECTION". The value "COM." is ridiculous! How can it be? Is it possible to spam DNS now? Why not to fake a site IP for Microsoft Passport?</p>
+<p>I'm afraid soon we'll upgrade Internet. E-mail is spam, and DNS smells danger.</p>

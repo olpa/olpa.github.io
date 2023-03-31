@@ -1,0 +1,46 @@
+---
+layout: post
+title: nasty libxslt surprise
+date: 2005-08-23 15:57:45.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/23/nasty-libxslt-surprise/"
+---
+<p>Libxslt optimizes "xsl:text", but there is no mention of the optimization neither on the site of libxslt, neither in its mailing list. I've got the knowledge from the deep debugging session. Should I hate libxslt, or should I love it for its puzzles?</p>
+<p><!--more--></p>
+<p>See what has happened.</p>
+<p>A fragment of an XSieve program:</p>
+<pre>&lt;x&gt;
+  &lt;x:text&gt;[[[&lt;/x:text&gt;
+  &lt;s:scheme&gt;&quot;123456789&quot;&lt;/s:scheme&gt;
+  &lt;x:text&gt;]]]&lt;/x:text&gt;
+&lt;/x&gt;</pre>
+<p>Result is as expected:</p>
+<pre>&lt;x&gt;[[[123456789]]]&lt;/x&gt;</pre>
+<p>Now near the same XSieve fragment:</p>
+<pre>&lt;x&gt;
+  &lt;x:text&gt;[[[&lt;/x:text&gt;
+  &lt;s:scheme&gt;&quot;12345678&quot;&lt;/s:scheme&gt;
+  &lt;x:text&gt;]]]&lt;/x:text&gt;
+&lt;/x&gt;</pre>
+<p>But the result made me crazy:</p>
+<pre>&lt;x&gt;[[[]]]&lt;/x&gt;</pre>
+<p>Fortunately, gdb helped me. I traced libxslt and found very interesting fields in the XSLT context structure:</p>
+<p>* const xmlChar * lasttext : last text node content<br />
+* unsigned int lasttsize : last text node size<br />
+* unsigned int lasttuse : I don't know</p>
+<p>The first "x:text" was creating a text node and setting the last-variables. "s:scheme" was adding a text to the node, but was not updating the variables. (How could I know about it?) The second "x:text" was using data from the variables, therefore result of "s:scheme" was losing. I applied the simplest fix: after executing "s:scheme", I reset "lasttext" to NULL.</p>
+<p>I still don't understand why the losing happened only for short strings. Probably it's somehow related to the variable "lastuse". But I don't care.</p>

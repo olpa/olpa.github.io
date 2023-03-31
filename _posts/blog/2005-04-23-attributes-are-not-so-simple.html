@@ -1,0 +1,44 @@
+---
+layout: post
+title: attributes are not so simple
+date: 2005-04-23 00:25:34.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/23/attributes-are-not-so-simple/"
+---
+<p>SXML to XML conversion of attribute nodes is becaming a trouble. I've fixed several initially unnoticed issues and found more items to check.</p>
+<p><!--more--></p>
+<p>The first problem was the another side of the benefits. The uniform representation of elements and attributes makes impossible to distinguish between them. The code</p>
+<pre>
+&lt;s:scheme>(x:deep-copy (x:eval "smth/.../smth/@aname"))&lt;/s:scheme>
+</pre>
+<p>was returning</p>
+<pre>(aname "some avalue")</pre>
+<p>which is the representation for</p>
+<pre>&lt;aname>some avalue&lt;/aname></pre>
+<p>Now the problem is fixed and the Scheme code above returns</p>
+<pre>(@ (aname "some avalue"))</pre>
+<p>There are still serious issues;</p>
+<p>* what's if the attribute name is in some namespaces,<br />
+* what's if the nodeset has several attributes (we mustn't return several @-nodes, but only one (or maybe we can)),<br />
+* what's if the nodeset has several attributes with the same name,<br />
+* etc.</p>
+<p>The second problem was a coredump. Having some time spent on it, I traced to the code spot which didn't look suspicious, but caused some memory reference problems. It was usage of the functions "xmlCopyNode" and "xmlAddChild". When applied to an attribute node, "xmlCopyNode" doesn't make a copy of its name. The function "xmlAddChild" adds such node to an XML tree, so the tree has two links to the same memory block. When document is freed, the memory is freed twice, causing coredump. It looks like a bug in libxml (or in my approach), but I failed to demonstrated it on a small sample, so I'll not report the problem to libxml team. And now my code contains a wonderful example of mystic code:</p>
+<pre>
+if (XML_ATTRIBUTE_NODE == node->type) {
+  node->name = xmlStrdup(node->name);
+}
+</pre>

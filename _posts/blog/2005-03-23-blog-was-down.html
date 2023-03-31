@@ -1,0 +1,33 @@
+---
+layout: post
+title: blog was down
+date: 2005-03-23 00:59:41.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/23/blog-was-down/"
+---
+<p>Yesterday evening, trying to write <a href="/blog/2005/03/23/make-test/">the previous post</a>, I found that my blog isn't working. It's the third computer failire in the last days (here are the <a href="/blog/2005/03/20/internet-outage/">first one</a> and the <a href="/blog/2005/03/21/whats-up-with-dns/">second one</a>). Have I bad carma?</p>
+<p><!--more--></p>
+<p>The problem was that WordPress didn't display any texts, including the digest on the main page and the individual pages. Instead, all dynamic blocks were annotated by messages like:</p>
+<blockquote><p>WordPress database error: [Got error 28 from table handler]</p></blockquote>
+<p>Googling immediately gave me an answer:</p>
+<blockquote><p>
+<a href="http://wiki.wordpress.org/?pagename=Error28">http://wiki.wordpress.org/?pagename=Error28</a></p>
+<p>MySQL Error 28</p>
+<p>    "Error code 28: No space left on device"</p>
+<p>This is a MySQL error and has nothing to do with Word Press directly; you should contact your host about it.
+</p></blockquote>
+<p>I immediately wrote to the hoster, but the problem was solved only today near the dinner. Probably the dinner time is a sysadmin's morning! I'm furious, but still afraid of relocating to another hoster.</p>

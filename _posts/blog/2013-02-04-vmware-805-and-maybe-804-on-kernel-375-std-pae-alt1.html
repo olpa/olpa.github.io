@@ -1,0 +1,45 @@
+---
+layout: post
+title: vmware 8.0.5 (and maybe 8.0.4) on kernel 3.7.5-std-pae-alt1
+date: 2013-02-04 15:04:33.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2013/02/04/vmware-805-and-maybe-804-on-kernel-375-std-pae-alt1/"
+---
+<p>Each kernel upgrade causes a pain with vmware. This time (3.7.5 with PAE option) is not an exception. However, only two manual interventions were required to compile vmware kernel modules.</p>
+<p><!--more--></p>
+<p>1) As often, vmware can't find kernel headers. This time I can't blame vmware: it looks for "kernel.h", but this file is missed for some reason.</p>
+<p>I've temporary copied it to the directory, where vmware looks for it (in my case).</p>
+<pre><code>
+cp /usr/src/linux-3.7.5-std-pae/include/generated/uapi/linux/version.h \
+   /lib/modules/3.7.5-std-pae-alt1/build/include/linux
+</code></pre>
+<p>Now the system compiles the modules.</p>
+<p>2) But loading of "Blocking file system" failed.</p>
+<p>"dmesg" suggested that "vmblock.ko" contained an undefined reference to "putname". Internet suggested that the name should be "__putname".</p>
+<p>* Re-start compilation of modules<br />
+* Stop the process at some moment (Ctrl+Z)<br />
+* Go to the compilation directory of the vmware (<tt>/tmp/.private/root/vmware-root/modules</tt>)<br />
+* Delete vmblock.o<br />
+* Go to the subdirectory "vmblock-only"<br />
+* Say "make clean"<br />
+* Find where "putname" is used (<tt>linux/control.c</tt>)<br />
+* Change to "__putname", save<br />
+* Say "make"<br />
+* Find "vmblock.ko" and copy it to (in my case) "<tt>/lib/modules/3.7.5-std-pae-alt1/misc</tt>".<br />
+* Continue vmware process ("fg")</p>
+<p>Now vmware starts and works.</p>
+<p>3) Delete no more needed file "version.h"</p>

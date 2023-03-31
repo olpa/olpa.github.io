@@ -1,0 +1,24 @@
+---
+layout: post
+title: workaround for mac os x lost wifi connection
+date: 2008-01-30 06:12:56.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Mac
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/01/30/workaround-for-mac-os-x-lost-wifi-connection/"
+---
+<p>Update from 10.4 to 10.5 introduced a pain. After sleep and wake up, Mac losts connection to the wireless network. To reconnect, I have to specify SID and the WEP key manually. I hate it.</p>
+<p>As a temporary solution, I found how to re-connect from a command line, thanks to the blog article ``<a href="http://osxdaily.com/2007/01/18/airport-the-little-known-command-line-wireless-utility/">airport - the Little Known Command Line Wireless Utility</a>''. I've created the file <tt>reconnect.sh</tt> and run it when required:</p>
+<pre>sudo airport -A<i>SID</i> --password='$<i>WEP_key</i>'</pre>

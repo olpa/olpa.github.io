@@ -1,0 +1,47 @@
+---
+layout: post
+title: float to integer conditionally
+date: 2005-09-01 22:57:59.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: double2int,float2int
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/01/float-to-integer-conditionally/"
+---
+<p>I need to check if a float value is actually an integer. If so, I use the value as integer, otherwise as float.</p>
+<p><!--more--></p>
+<p>How to implement it? I realized that I don't know a standard function (neither in C, neither in Java and other languages). Fortunately, traces of education helped me to formulate a search query for Google and find the constants required.</p>
+<p>The code fragment:</p>
+<pre>
+//
+// Convert to a number
+//
+// from http://pigale.sourceforge.net/doc/Tbase_8h-source.html
+// minimal double such that DBL_EPSILON + 1. != 1.
+#ifndef DBL_EPSILON
+#define DBL_EPSILON     2.22044604925031300e-016
+#endif
+if (XPATH_NUMBER == xobj->type) {
+  double val = xobj->floatval;
+  if ((0 == xmlXPathIsInf(val)) && (! xmlXPathIsNaN(val))) {
+    int ival = (int)val;
+    if (fabs(val - ival) < DBL_EPSILON) {
+      return gh_int2scm(ival);
+    } else {
+      return gh_double2scm(val);
+    }
+  }
+}
+</pre>
+<p>I'm ready for suggestions on a better variant.</p>

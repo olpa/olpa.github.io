@@ -1,0 +1,35 @@
+---
+layout: post
+title: namespaces reloaded
+date: 2005-04-01 00:14:54.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/01/namespaces-reloaded/"
+---
+<p>All this time I've subconsciously been ignoring a big namespace-related problem. I'm afraid the correct solution slows down the conversion between XML and SXML, and that I have to use the correct solution.</p>
+<p><!--more--></p>
+<p>Consider the example:</p>
+<pre>
+&lt;a xmlns:ns="x:y:z">
+ &lt;b>
+  &lt;ns:c>
+ &lt;/b>
+&lt;/a>
+</pre>
+<p>Suppose you want to copy a subtree defined by the element "b" into some other tree. But what happens then to the element "ns:c"?</p>
+<p>Unfortunately, you get a "free" entrance of the namespace prefix "ns". In this case, collisions or other troubles may happen.</p>
+<p>At the moment I see the only solution is to scan subtree for free namespace prefixes and add namespace definitions for the free prefixes.</p>
+<p>To make things worse, at the moment I don't know how to make it in SXML to XML conversion. There are no parent pointers in S-expressions, so it's impossible to find namespace definitions for a namespaced node.</p>

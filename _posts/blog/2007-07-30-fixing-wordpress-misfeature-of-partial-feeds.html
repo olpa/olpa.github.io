@@ -1,0 +1,28 @@
+---
+layout: post
+title: fixing WordPress misfeature of partial feeds
+date: 2007-07-30 06:34:47.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/07/30/fixing-wordpress-misfeature-of-partial-feeds/"
+---
+<p>All blogging tips recommend to have the full RSS feeds. To my unpleasant surprise, I found that my feeds are partial, disrespecting the option "Full text" is set. The explanation is simple.</p>
+<p><!--more--></p>
+<p>The comment next to the option says:</p>
+<blockquote><p>Note: If you use the <tt>&lt;!--more--></tt> feature, it will cut off posts in RSS feeds.</p></blockquote>
+<p>I think WordPress didn't have this misfeature initially, but it was introduced during upgrades.</p>
+<p>Fortunately, I've found a solution:</p>
+<p><a href="http://cavemonkey50.com/code/full-feed/">Full Text Feed</a> plugin by Ronald Heft, Jr.</p>

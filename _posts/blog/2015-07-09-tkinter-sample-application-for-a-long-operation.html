@@ -1,0 +1,27 @@
+---
+layout: post
+title: Tkinter sample application for a long operation
+date: 2015-07-09 15:54:42.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2015/07/09/tkinter-sample-application-for-a-long-operation/"
+---
+<p>In the year 2001 I started to experiment with GUI applications in Python. The experience was summarized and published in the article "<a href="http://uucode.com/texts/pylongopgui/pyguiapp.html">A complete Python Tkinter sample application for a long operation</a>". Now, in the year 2015, a programmer have sent me an updated code. With the minimal changes, which mostly are update of the names of Tkinter modules, the code works.</p>
+<p><!--more--></p>
+<p>A few remarks:</p>
+<p>* It is quite possible that Tkinter has made a big step in its development. Maybe there is a better way to code what I have coded.</p>
+<p>* "Still very complicated": yes, it is. But the basic rule helps: one and only one thread should work with GUI. All other threads should delegate GUI tasks (=send messages) to the GUI-thread. It is true for any GUI toolkit, I think.</p>
+<p>* If there is no difference what to use, I recommend to use wxPython for GUI.</p>

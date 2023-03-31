@@ -1,0 +1,98 @@
+---
+layout: post
+title: fixing build signatures
+date: 2006-08-12 06:09:41.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- consodoc
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/08/12/fixing-build-signatures/"
+---
+<p>I have a lot of functional tests for my build process. Recently I changed the program name on one of the intermediate steps. As result, SCons<br />
+* thinks the build signatures are updated, and<br />
+* wants to rebuild starting from that step instead of doing the expected rebuilds.<br />
+Therefore, I have to update the most part of the tests. But it's near to impossible to update manually.</p>
+<p><!--more--></p>
+<p>I decided to update build signatures automatically.</p>
+<p>To get the list of all the defined targets, I use the variable "<tt>env.ans</tt>" where <tt>env</tt> is an <tt>Environment</tt> object.</p>
+<p>Then, for each the target, I traverse the tree of dependencies.</p>
+<p>While traversing, the following nodes are ignored:</p>
+<p>* those which have no build information (either source files, either defined, but not used),<br />
+* the default target (because executing the last step to get the default target is the essence of many tests).</p>
+<p>To make a node up-to-date:</p>
+<p>* code reads the data from <tt>.sconsign</tt> using <tt>get_stored_info()</tt>,<br />
+* new build signatures are calculated using <tt>calc_bsig()</tt>,<br />
+* <tt>.sconsign</tt> build information (<tt>bsig</tt>, <tt>bact</tt> and <tt>bactsig</tt>) is updated using <tt>set_entry()</tt>.</p>
+<p>The full code:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#696969; ">#</span>
+<span style="color:#696969; "># Walk over the dependencies tree</span>
+<span style="color:#696969; ">#</span>
+<span style="color:#800000; font-weight:bold; ">def</span> walk_dep_tree<span style="color:#808030; ">(</span>node<span style="color:#808030; ">,</span> func<span style="color:#808030; ">,</span> tabs<span style="color:#808030; ">=</span><span style="color:#0000e6; ">''</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">for</span> ch <span style="color:#800000; font-weight:bold; ">in</span> node<span style="color:#808030; ">.</span>children<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    walk_dep_tree<span style="color:#808030; ">(</span>ch<span style="color:#808030; ">,</span> func<span style="color:#808030; ">,</span> tabs <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">' '</span><span style="color:#808030; ">)</span>
+  <span style="color:#696969; ">#</span>
+  <span style="color:#696969; "># Apply the function, ignoring:</span>
+  <span style="color:#696969; "># the nodes which were not built,</span>
+  <span style="color:#696969; "># default targets</span>
+  <span style="color:#696969; ">#</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#800000; font-weight:bold; ">not</span> node<span style="color:#808030; ">.</span>is_derived<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">return</span>
+  old <span style="color:#808030; ">=</span> node<span style="color:#808030; ">.</span>get_stored_info<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#e34adc; ">None</span> <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> old<span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">return</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#e34adc; ">None</span> <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> <span style="color:#e34adc; ">getattr</span><span style="color:#808030; ">(</span>old<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'bactsig'</span><span style="color:#808030; ">,</span> <span style="color:#e34adc; ">None</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">return</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>node<span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">in</span> <span style="color:#e34adc; ">map</span><span style="color:#808030; ">(</span><span style="color:#e34adc; ">str</span><span style="color:#808030; ">,</span> DEFAULT_TARGETS<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">return</span>
+  func<span style="color:#808030; ">(</span>node<span style="color:#808030; ">,</span> tabs<span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">def</span> fix_build_signatures<span style="color:#808030; ">(</span>target<span style="color:#808030; ">,</span> source<span style="color:#808030; ">,</span> env<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">def</span> print_node<span style="color:#808030; ">(</span>node<span style="color:#808030; ">,</span> tabs<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">print</span> tabs <span style="color:#808030; ">+</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>node<span style="color:#808030; ">)</span> 
+  <span style="color:#800000; font-weight:bold; ">def</span> update_bsig<span style="color:#808030; ">(</span>node<span style="color:#808030; ">,</span> tabs<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#696969; ">#print tabs + str(node)</span>
+    <span style="color:#696969; ">#</span>
+    <span style="color:#696969; "># Check if the build information is changed</span>
+    <span style="color:#696969; ">#</span>
+    old <span style="color:#808030; ">=</span> node<span style="color:#808030; ">.</span>get_stored_info<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+    node<span style="color:#808030; ">.</span>calc_bsig<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+    new  <span style="color:#808030; ">=</span> node<span style="color:#808030; ">.</span>binfo
+    is_changed <span style="color:#808030; ">=</span> <span style="color:#808030; ">(</span>old<span style="color:#808030; ">.</span>bactsig <span style="color:#808030; ">!</span><span style="color:#808030; ">=</span> new<span style="color:#808030; ">.</span>bactsig<span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">or</span> <span style="color:#808030; ">(</span>old<span style="color:#808030; ">.</span>bact <span style="color:#808030; ">!</span><span style="color:#808030; ">=</span> new<span style="color:#808030; ">.</span>bact<span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">or</span> <span style="color:#808030; ">(</span>old<span style="color:#808030; ">.</span>bsig <span style="color:#808030; ">!</span><span style="color:#808030; ">=</span> new<span style="color:#808030; ">.</span>bsig<span style="color:#808030; ">)</span>
+    <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#800000; font-weight:bold; ">not</span> is_changed<span style="color:#808030; ">:</span>
+      <span style="color:#800000; font-weight:bold; ">return</span>
+    <span style="color:#696969; ">#</span>
+    <span style="color:#696969; "># Update the build information</span>
+    <span style="color:#696969; ">#</span>
+    <span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#0000e6; ">'Updating the build signature for '</span> <span style="color:#808030; ">+</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>node<span style="color:#808030; ">)</span>
+    old<span style="color:#808030; ">.</span>bactsig <span style="color:#808030; ">=</span> node<span style="color:#808030; ">.</span>binfo<span style="color:#808030; ">.</span>bactsig
+    old<span style="color:#808030; ">.</span>bact    <span style="color:#808030; ">=</span> node<span style="color:#808030; ">.</span>binfo<span style="color:#808030; ">.</span>bact
+    old<span style="color:#808030; ">.</span>bsig    <span style="color:#808030; ">=</span> node<span style="color:#808030; ">.</span>binfo<span style="color:#808030; ">.</span>bsig
+    node<span style="color:#808030; ">.</span><span style="color:#e34adc; ">dir</span><span style="color:#808030; ">.</span>sconsign<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>set_entry<span style="color:#808030; ">(</span>node<span style="color:#808030; ">.</span>name<span style="color:#808030; ">,</span> old<span style="color:#808030; ">)</span>
+  <span style="color:#696969; ">#</span>
+  <span style="color:#696969; "># Update the signatures of all the targets</span>
+  <span style="color:#696969; ">#</span>
+  <span style="color:#696969; ">#for k in env.ans.keys():</span>
+  <span style="color:#696969; ">#  walk_dep_tree(env.ans[k], print_node)</span>
+  <span style="color:#800000; font-weight:bold; ">for</span> k <span style="color:#800000; font-weight:bold; ">in</span> env<span style="color:#808030; ">.</span>ans<span style="color:#808030; ">.</span>keys<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    walk_dep_tree<span style="color:#808030; ">(</span>env<span style="color:#808030; ">.</span>ans<span style="color:#808030; ">[</span>k<span style="color:#808030; ">]</span><span style="color:#808030; ">,</span> update_bsig<span style="color:#808030; ">)</span>
+
+node <span style="color:#808030; ">=</span> Local<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'fix-build-signatures'</span><span style="color:#808030; ">)</span>
+env<span style="color:#808030; ">[</span><span style="color:#0000e6; ">'BUILDERS'</span><span style="color:#808030; ">]</span><span style="color:#808030; ">[</span><span style="color:#0000e6; ">'fixbs'</span><span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> Builder<span style="color:#808030; ">(</span>action <span style="color:#808030; ">=</span> fix_build_signatures<span style="color:#808030; ">)</span>
+env<span style="color:#808030; ">.</span>fixbs<span style="color:#808030; ">(</span>node<span style="color:#808030; ">,</span> <span style="color:#e34adc; ">None</span><span style="color:#808030; ">)</span>
+env<span style="color:#808030; ">.</span>Alias<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'fixbs'</span><span style="color:#808030; ">,</span> node<span style="color:#808030; ">)</span>
+</code></pre>
+<p>Usage:</p>
+<pre>scons fixbs</pre>
+<h2>15 September 2006, update</h2>
+<p>Starting with SCons 0.96.92, the code doesn't work due to the signature refactoring of SCons.</p>

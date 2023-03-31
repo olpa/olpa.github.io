@@ -1,0 +1,55 @@
+---
+layout: post
+title: my first greasemonkey script
+date: 2006-06-17 07:36:31.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/06/17/my-first-greasemonkey-script/"
+---
+<p>Time to time I order translations of xml.com articles. It's not cheap, and I try to reduce costs. One of the most obvious approaches is to ignore code listings when calculating the price. Till recently, I did it as follows.</p>
+<p><!--more--></p>
+<p>1) I dropped ads from the HTML text of the article,<br />
+2) opened HTML in firefox,<br />
+3) copied the text to OpenOffice,<br />
+4) manually deleted code listings,<br />
+5) checked document statistics (number of characters and words).</p>
+<p>The step "4" is very boring. I hated it. I hated it so much that I've found time to look at my "<a href="http://www.amazon.com/gp/redirect.html?link_code=ur2&tag=xmlnewsandres-20&camp=1789&creative=9325&location=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fproduct%2F0596101651%2Fqid%3D1150518452%2Fsr%3D2-1%2Fref%3Dpd_bbs_b_2_1%3Fs%3Dbooks%26v%3Dglance%26n%3D283155">Greasemonkey Hacks</a>" book, learnt a bits of Greasemonkey and written a script to delete code from the text. Now the process looks as the following:</p>
+<p>1) I drop ads from the HTML text of the article,<br />
+2) open HTML in firefox<br />
+2b) (the script deletes code),<br />
+3) copy the text to OpenOffice,<br />
+4) check document statistics (number of characters and words).</p>
+<p>Life is much easier now. And here is the script:</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#696969; ">// ==UserScript==</span>
+<span style="color:#696969; ">// @name            Drop code</span>
+<span style="color:#696969; ">// @namespace       http://uucode.com/</span>
+<span style="color:#696969; ">// @description     Drop code listings in "code" tags</span>
+<span style="color:#696969; ">// @include         file:///home/olpa/p/RAC/to_rus/*</span>
+<span style="color:#696969; ">// ==/UserScript==</span>
+
+<span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span>confirm <span style="color:#808030; ">(</span><span style="color:#0000e6; ">"Drop code?"</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+  drop_code<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+
+<span style="color:#800000; font-weight:bold; ">function</span> drop_code<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+  <span style="color:#800000; font-weight:bold; ">var</span> i<span style="color:#808030; ">,</span> elems<span style="color:#800080; ">;</span>
+  elems <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>getElementsByTagName<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'code'</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+  <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span>i <span style="color:#800000; font-weight:bold; ">in</span> elems<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    elems<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>innerHTML <span style="color:#808030; ">=</span> <span style="color:#0000e6; ">''</span><span style="color:#800080; ">;</span>
+  <span style="color:#800080; ">}</span>
+<span style="color:#800080; ">}</span>
+</pre>
+<p></code></p>

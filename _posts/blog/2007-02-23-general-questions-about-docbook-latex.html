@@ -1,0 +1,51 @@
+---
+layout: post
+title: general questions about DocBook -> LaTeX
+date: 2007-02-23 12:21:06.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- consodoc
+- TeX
+tags: []
+meta:
+  _oembed_e03a43f51efffe4d8ffe0b8fa027b0cd: "{{unknown}}"
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/02/23/general-questions-about-docbook-latex/"
+---
+<p>In the mailing list docbook-apps, I recently <a href="http://lists.oasis-open.org/archives/docbook-apps/200702/msg00171.html">answered</a> to the post titled "<a href="http://lists.oasis-open.org/archives/docbook-apps/200702/msg00158.html">General questions about DocBook -> LaTeX</a>". I think my notes are interesting not only for the subscribers, but also for others.</p>
+<p><!--more--></p>
+<blockquote><p>
+I've read online that some people follow a different procedure; instead of going from DocBook to FO, they go from DocBook to LaTeX before creating their final PDF print output (using dblatex<http ://dblatex.sourceforge.net/>, for example).  I am wondering if this would be a better publishing model for my needs, since I know LaTeX is made for print output.  I've never used LaTeX before, however, so it would take some research on my part before starting to work with it.
+</p></blockquote>
+<p>Unless you are an experienced LaTeX user, you'd better avoid the LaTeX way.</p>
+<blockquote><p>
+So, the point of this email is to ask some general questions, if anyone with more experience can answer them for me:</p>
+<p>1. What are the main advantages of going from DocBook to LaTeX before generating final print output of documents?
+</p></blockquote>
+<p>The main advantages:</p>
+<p>* better typesetting quality,<br />
+* more control over the final layout.</p>
+<p>However, if you don't know LaTeX, you can't get them. An offensive remark: I expect that the authors of dblatex and db2latex are not LaTeX experts and their tools don't give the advatanges.</p>
+<p>I'm also not an expert, but I have experience with converting XML to LaTex. I lost a lot of time in LaTeX debris, but the results were very good.</p>
+<p>Unfortunately, at the moment the results are not available. Year ago, I promised to write DocBook TeXML stylesheets, but I still can't start doing it.</p>
+<blockquote><p>
+2. If you know what you're doing, can you do most things with XSL stylesheets and FO that you could do with LaTeX?<br />
+3. Which publishing model would be the best choice for making pretty PDFs for print.
+</p></blockquote>
+<p>I've developed Consodoc publishing server:</p>
+<p>XML to beautiful documents<br />
+http://consodoc.com/</p>
+<p>I think it's one of the best choices.</p>
+<blockquote><p>
+I realize that these are vague questions, and it is probably perfectly valid to respond "it depends on what you are actually doing in your documents".  I understand this, but I wanted to first get a basic understanding of what can be gained by the DocBook -> LaTeX publishing model before further investing large amounts of time in either approach.
+</p></blockquote>
+<p>At the moment, the safe side is to follow FO. At least, nobody will accuse you in case of problems.</p>

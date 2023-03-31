@@ -1,0 +1,35 @@
+---
+layout: post
+title: Generative XML in FrameMaker
+date: 2005-04-21 00:37:53.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- FrameMaker
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/21/generative-xml-in-framemaker/"
+---
+<p>One of the use cases for XPath over legacy data is structured FrameMaker (FrameMaker+SGML). The structure is in fact XML, that's good. But the only interface to this XML is something tree-like which is worse than DOM.</p>
+<p><!--more--></p>
+<p>Indeed, writing scripts for structured FrameMaker, that's led me to the idea of the generative XML. I like to solve problem in general, not in a particular case, and this way sometimes takes too much time.</p>
+<p>Generative XPath for FrameMaker is one of such examples. While I was thinking on a general solution, Russ Ward made an XPath for FrameMaker, <a href="http://www.weststreetconsulting.com/">FrameSLT</a>.</p>
+<p>Well, the idea was in the air. After Russ initially <a href="http://www.freeframers.org/archive/04/msg00022.html">wrote</a> to the "FrameSGML List" and "Free Framers" about his idea of database-style queries, and after I <a href="http://www.freeframers.org/archive/04/msg00043.html">responed</a> suggesting to use XPath syntax (see also <a href="http://www.freeframers.org/archive/04/threads.html#00022">the full thread</a>), I got a pair of personal letters with words of interest from possible customers.</p>
+<p>So I think that now Russ is getting money. At least, I wish him it.</p>
+<p>Today I decided to try FrameSLT Lite instead of writing FrameScript code for tree traversing and to check if I can save time. Unfortunately, no. I played with it for 10-20 minutes and was not satisfied.</p>
+<p>First, I didn't remember how Russ named his system, and googling for "xpath framemaker" didn't show it on the first pages.</p>
+<p>Next, evaluation splash screen appears each time when I start FM, not when I use FrameSLT. It's very inconvinient and disturbing because I need to restart FM often.</p>
+<p>More, when I tried to test XPath functionality, I had to learn interface instead of typing XPath and getting results immediately.</p>
+<p>The worst thing is that Russ started (it seems so) to write his XPath from scratch, and at the moment XPath support is quite poor. Some expressions with nested parentheses can't be parsed, and (warning: technical remark) comparation between nodesets seems working not as the XPath specification says. Probably there are more issues, but I gave up fast because for my simple task it was faster to write some usual code. Well, I'll try FrameSLT again when it reach version 2.0.</p>
+<p>Don't think I say that FrameSLT is bad. I think it's a must-have tool. I just didn't get used to it.</p>
+<p>By the way, concerning my generative XPath developments. Will I compete with Russ? I can, but I'll not.</p>

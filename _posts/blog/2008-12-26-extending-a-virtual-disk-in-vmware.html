@@ -1,0 +1,37 @@
+---
+layout: post
+title: extending a virtual disk in vmware
+date: 2008-12-26 20:11:30.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- windows
+tags: []
+meta:
+  _oembed_7226cf9ec8e8157a6caa6598ff4d8361: "{{unknown}}"
+  _oembed_d252f34195c9bba17b2262c44b71d4de: "{{unknown}}"
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/12/26/extending-a-virtual-disk-in-vmware/"
+---
+<p>Extending a virtual disk in vmware</p>
+<p>1. Backup!</p>
+<p>2. Somewhere in the vmware installation directory, there is a tool named "<b>vmware-vdiskmanager.exe</b>". There is a lot of options, for resize use "<b>-x</b>":</p>
+<pre><code>vmware-vdiskmanager.exe -x 8Gb ...path.to.vm..../vm_disk.vmdk</code></pre>
+<p>(hint: type the command manually, do not copy/paste from web. Otherwise you can get typographical spaces or minuses instead of the usual ones.)</p>
+<p><!--more--></p>
+<p>3. The disk is extended, now it's time to update the partition table and the disk "C" to match the new size of the disk. Several options are availabe, they are listed in vmware's knowledge base:</p>
+<p><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1647">VMware Virtual Disk Manager Does Not Expand Partitions</a><br />
+http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1647</p>
+<p>I tried GParted LiveCD and it worked:</p>
+<p><a href="http://gparted.sourceforge.net/livecd.php">GParted -- Live CD/USB/PXE/HD</a><br />
+http://gparted.sourceforge.net/livecd.php</p>
+<p>GParted run automatically, I had no problems to use it.</p>
+<p>4. When Windows started, it noticed that something strange had happended with the disk and executed "chkdsk". The tool validated that everything is in order, and Windows started as usual. With a bigger system disk.</p>

@@ -1,0 +1,35 @@
+---
+layout: post
+title: XML to SXML conversion is taking off
+date: 2005-03-28 00:09:50.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/28/xml-to-sxml-conversion-is-taking-off/"
+---
+<p>Several days ago I <a href="/blog/2005/03/23/sxml-to-libxml2-conversion-is-completed-whats-next/">passed</a> the first milestone in the generative XML work (conversion from XML to SXML). Reverse conversion looks simplier, but I just was not able to start working on this task.</p>
+<p><!--more--></p>
+<p>It's the well-known problem for me. After finishing a product (in this case, passing the milestone), I have a period of unproductivity. Sometimes it's very long. The only solution is to make the first step, and finally I've done it.</p>
+<p>By the way, here are some texts on motivation: "<a href="http://joelonsoftware.com/articles/fog0000000339.html">Fire And Motion</a>" by Joel Spolsky and <a href="http://www.dexterity.com/articles/">Personal Productivity &amp; Motivation</a> articles by Steve Pavlina.</p>
+<p>Back to programming.</p>
+<p>The function "<tt>node_to_scm</tt>" does two things:</p>
+<p>* validates input parameters (alerts and returns if they are NULLs),<br />
+* and reports that the input node type is unsupported.</p>
+<p>In the next days I'll add code into the middle, after the first thing and before the second thing. </p>
+<p>For the Scheme side, I've created the function "<tt>x:current-node</tt>" which returns the current node of the XSLT context. This function will work as soon as "<tt>node_to_scm/tt>" works.</p>
+<p>While creating "</tt><tt>x:current-node</tt>", I also tempered to create "<tt>x:current-nodelist</tt>". But I didn't find a corresponding item in xsltproc's C code. But it should be, as I don't believe that XSLT XPath function "<tt>position()</tt>" is being dynamically calculated. Will see later.</p>
+<p>Here is another issue. In "<tt>apply-templates</tt>", I used the following "<tt>select</tt>":</p>
+<p><tt>descendant-or-self::*/@*</tt></p>
+<p>For some reason, the output file contains this string literally. I'll investigate if it's a bug of xsltproc or my mind.</p>

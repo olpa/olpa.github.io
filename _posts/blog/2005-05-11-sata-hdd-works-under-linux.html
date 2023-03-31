@@ -1,0 +1,36 @@
+---
+layout: post
+title: SATA HDD works under Linux
+date: 2005-05-11 18:26:06.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: SATA,HDD,Linux,ICH5,Promise
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/11/sata-hdd-works-under-linux/"
+---
+<p>Due to historical reasons, my Linux box at work uses Promise RAID. Recently (month ago) I added a new HDD (AFAIK, attached to ICH5). Unfortunately, the HDD didn't work.</p>
+<p><!--more--></p>
+<p>The first attempt was to try to find anything in "/dev/hd*" and in "/dev/sd*". No success.</p>
+<p>The second attempt was more serious. I even looked at manuals and searched information in Internet. No success.</p>
+<p>I have a lot of important projects, so I can't spend much time on technic and system administration. Also, I had a lot of projects in which I didn't need a lot of space. So I gave up trying to mount the HDD.</p>
+<p>But soon I'll get a lot of data, so I had to solve the problem. Unexpectely, I've mounted the HDD quite fast. The commands are:</p>
+<pre>
+# modprobe libata
+# insmod /lib/modules/2.4.25-std-up-alt1/kernel/drivers/scsi/ata_piix.o
+# mount /dev/sdb1 /x
+</pre>
+<p>I don't know why it works. Also, at the moment, I don't know how to execute them during boot. However, I have the light in the dark, and I can use room of the HDD.</p>
+<p>Now comes final remarks, just for reference. My Linux is <a href="http://altlinux.com/">ALT Linux</a> 2.4:</p>
+<p>Linux xxxxxxxx 2.4.25-std-up-alt1 #1 Sun Feb 29 20:06:30 MSK 2004 i686 unknown unknown GNU/Linux</p>
+<p>The query phrase for search in Internet is "third IDE master".</p>

@@ -1,0 +1,30 @@
+---
+layout: post
+title: web site statistics is a myth
+date: 2007-08-13 07:26:32.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/08/13/web-site-statistics-is-a-myth/"
+---
+<p>There is a lot of software to display statistics of a web site. But all that tables and graphics are of no use for me. I just don't know what to do with this data. After some thinking, I realized what I really need:</p>
+<p><!--more--></p>
+<p>First, the access log should be filtered from spammers and bots. Also, loading of images by links from other sites should be removed. As result, just for curiosity, I'll have the real visitors count.</p>
+<p>Parameters to trace:</p>
+<p>* Ratio of new people to downloads</p>
+<p>* If a visitor purchased software (or, for a blog site, subscribed to RSS), then I want to get the full visitor's path over the site, including where from he came and by which keywords.</p>
+<p>Well, it seems nothing more required, except ability to split the parameters by a country, marketing channel or something other.</p>
+<p>Funny, there are no such tools (== I can't find). The nearest match is Google Analytics, but it can't track file downloads.</p>
+<p>Therefore, as usual, I need to implement my own software.</p>

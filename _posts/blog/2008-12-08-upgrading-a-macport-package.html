@@ -1,0 +1,35 @@
+---
+layout: post
+title: upgrading a macport package
+date: 2008-12-08 15:02:53.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Mac
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/12/08/upgrading-a-macport-package/"
+---
+<p>Upgrading a macports (darwinports) package is not as easy as<br />
+<code>
+<pre>$ sudo port upgrade something</pre>
+<p></code><br />
+In many cases I need the following command:</p>
+<p><!--more--></p>
+<p><code>
+<pre>$ sudo port -u -n -f upgrade something</pre>
+<p></code></p>
+<p>(Use it only when you know what it means!)</p>
+<p>1) <b>-u</b>: The upgrade option by default does not uninstall an upgraded port, it deactivates it. If you wish to uninstall the old version, use the -u<br />
+option.</p>
+<p>2) <b>-n</b>: If you wish not to upgrade a port's dependencies, use the -n switch.</p>
+<p>3) <b>-f</b>: The uninstall phase is a part of upgrade. If a port as installed as a dependency of another port, uninstall will not remove it unless you remove the dependent ports first. To override this behavior, use the -f (force) switch.</p>

@@ -1,0 +1,102 @@
+---
+layout: post
+title: draft text on XML, XPath, S-expressions
+date: 2005-04-03 23:19:38.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+- science
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/03/draft-text-on-xml-xpath-s-expressions/"
+---
+<p>I'm writing a paper (not for GTTSE2005 as the <a href="/blog/2005/04/03/im-participating-in-gttse2005/">previous entry</a> may suggest). Here is a bit of the text written today.</p>
+<p><!--more--></p>
+<div class="section" id="xml">
+<h2>XML</h2>
+<p>Extensible Markup Language (XML, <em>ref</em>) is a text format<br />
+which helps to represent a logical structure in documents.<br />
+Example of a possible document in the XML format:</p>
+<pre class="literal-block">
+&lt;article id=&quot;hw&quot;&gt;
+ &lt;title&gt;Hello&lt;/title&gt;
+ &lt;para&gt;Hello &lt;object&gt;World&lt;/object&gt;!&lt;/para&gt;
+&lt;/article&gt;
+</pre>
+<p>Ignoring details, one can said that XML documents consist<br />
+of elements and attributes. Elements specify named text<br />
+extents and attibutes curry properties. Elements should be<br />
+properly nested, so any XML can be mapped to a tree.<br />
+One of such mappings is described in the Document Object Model<br />
+(DOM, <em>ref</em>) standard.</p>
+<p>One of the keys in the success of XML is interoperability.<br />
+When different legacy systems talk to each other, they usually<br />
+speak in XML. Any data can be mapped to XML, but XML is the<br />
+most natural for representing hierarchical data.</p>
+<p>Another important side of XML is the plenty of standards.<br />
+They cover most of issues related to data presentation,<br />
+validation, transformation and exchange.</p>
+<p>There are tools designed to work with XML, and sometimes<br />
+instead of processing data inside an application itself,<br />
+it's simplier to export data to XML, process them using<br />
+XML tools and import the result back.</p>
+<p>One of such tools are those which implement XPath (<em>ref</em>) and<br />
+XSLT (<em>ref</em>) standards. XPath is a language for navigation over<br />
+XML trees, and XSLT is a template language for XML tree<br />
+transformations.</p>
+<p>In this paper we concentrate mainly on XPath and leave<br />
+XSLT for future work.</p>
+</div>
+<div class="section" id="xpath">
+<h2>XPath</h2>
+<p>XPath(<em>ref</em>) is a language for navigating, matching and querying<br />
+on XML data.</p>
+<p>An XPath expression is a series of location steps divided by<br />
+the slash symbol (<em>/</em>). A location step has three parts:</p>
+<ul class="simple">
+<li>an axis, which specifies the tree relationship,</li>
+<li>a node test, which specifies the node type, and</li>
+<li>zero or more predicates, which use arbitrary expressions to filter nodes.</li>
+</ul>
+<p>Example of an XPath expression:</p>
+<pre class="literal-block">
+/child::article[attribute::id='hw']/child::para
+</pre>
+<p>This XPath consist of two location steps. The first step uses<br />
+<em>child</em> axis to select all children of the root node, the node<br />
+test filters those which are named <em>article</em>, and the predicate<br />
+filters those which have an attribute <em>id</em> set to the value <em>hw</em>.<br />
+The second step selects all the paragraphs (elements <em>para</em>) of<br />
+the article selected.</p>
+<p>There are also a number of syntactic abbreviations that allow common<br />
+cases to be expressed concisely. For example, the previous XPath<br />
+can be also written as:</p>
+<pre class="literal-block">
+/article[&#64;id='hw']/para
+</pre>
+<p>A remarkable feature about XPath is that bloating tree-walking<br />
+code in conventional languages can be replaced by short<br />
+expressive XPath expressions.</p>
+</div>
+<div class="section" id="lisp-approaches">
+<h2>Lisp approaches</h2>
+<p>Lisp is a family of computer languages. The most popular<br />
+dialects are Common Lisp (<em>ref</em>) and Scheme(<em>ref</em>).<br />
+In Lisp, data is representing in so-called S-expressions(<em>ref</em>),<br />
+or Symbolic Expressions, or &quot;sexps&quot;, defined recursively.</p>
+<p>Just as XML, S-expressions can represent any data structures,<br />
+including hierarchical, and Lisp is good in processing them.<br />
+There are a lot of discussions on comparing S-expressions,<br />
+Lisp and XML (for example, see <em>ref</em> and <em>ref</em>). In our work<br />
+we use a combination of useful features of XML and Lisp worlds.</p>
+</div>

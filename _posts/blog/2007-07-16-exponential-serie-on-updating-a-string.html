@@ -1,0 +1,44 @@
+---
+layout: post
+title: exponential serie on updating a string
+date: 2007-07-16 19:07:03.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/07/16/exponential-serie-on-updating-a-string/"
+---
+<p>First, I was going to increment a string using this construction:<br />
+<code>
+<pre style="color:#000000;background:#ffffff;">s <span style="color:#808030; ">=</span> s <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"xx...xxx"</span>
+</pre>
+<p></code><br />
+Then the addition became more complex, and I decided to re-write updating as:<br />
+<code>
+<pre style="color:#000000;background:#ffffff;">s <span style="color:#808030; ">=</span> <span style="color:#0000e6; ">"%sxx...xxx"</span> <span style="color:#808030; ">%</span> <span style="color:#808030; ">(</span>s<span style="color:#808030; ">,</span> <span style="color:#808030; ">.</span><span style="color:#808030; ">.</span><span style="color:#808030; ">.</span><span style="color:#808030; ">)</span>
+</pre>
+<p></code><br />
+I run the program and found my Linux in a deep swap freeze. Fortunately, the system recovered, and I had a chance to find what happened.</p>
+<p><!--more--></p>
+<p>The problem was that I was tired and actually wrote:<br />
+<code>
+<pre style="color:#000000;background:#ffffff;">s <span style="color:#808030; ">=</span> s <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"%sxx...xxx"</span> <span style="color:#808030; ">%</span> <span style="color:#808030; ">(</span>s<span style="color:#808030; ">,</span> <span style="color:#808030; ">.</span><span style="color:#808030; ">.</span><span style="color:#808030; ">.</span><span style="color:#808030; ">)</span>
+</pre>
+<p></code><br />
+Have you ever heard about <a href="http://en.wikipedia.org/wiki/Wheat_and_Chessboard_Problem">Wheat and Chessboard</a>?</p>
+<blockquote><p>
+"What?! Just a grain of wheat! Are you insulting my wealth?" yelled the prince.</p>
+<p>"No! Your majesty!" The Vizier explained. "You have to promise to double that grain of wheat until the chess board is full, so in the first day you give me one grain of wheat on the bottom right square of the chess board, on the second day you double it on the square next to it (giving me two grains), on the third, you double what is on the previous square (giving me four grains), and so on, until the Sixty Fourth square on the chess board."</p>
+<p>"I would thought you being so smart", the young prince said. "You would ask for something more substantial. Anyway, if this is your wish I will grant you that.
+</p></blockquote>
+<p>Never though this story can affect me.</p>

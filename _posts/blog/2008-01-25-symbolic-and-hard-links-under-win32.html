@@ -1,0 +1,30 @@
+---
+layout: post
+title: symbolic and hard links under win32
+date: 2008-01-25 13:47:42.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/01/25/symbolic-and-hard-links-under-win32/"
+---
+<p>To my surprise, symbolic and hard links are partially supported even by windows 2000. Here is a small summary:</p>
+<p><!--more--></p>
+<p>``<a href="http://answers.google.com/answers/threadview?id=341355">How to create a symbolic link under Win2K, WinXP, and above?</a>'' -- this google-answers document was my starting point.</p>
+<p>My notes:</p>
+<p><b>CreateHardLink</b> function establishes a hard link between an existing file and a new file. This function is only supported on the NTFS file system, and only for files, not directories.</p>
+<p><b>CreateSymbolicLink</b> function creates a symbolic link. Requires Windows Vista or Windows Server 2008.</p>
+<p>And finally, <b>junctions</b> or <b>reparse points</b> (from <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/fileio/fs/reparse_points.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/fileio/fs/reparse_points.asp</a>):</p>
+<blockquote><p>A file or directory can contain a reparse point, which is a collection of user-defined data. The format of this data is understood by the application which stores the data, and a file system filter, which you install to interpret the data and process the file. </p></blockquote>
+<p>This feature can be used to create links to directories. It is exactly what I need!</p>
+<p>The tool to exploit the feature: <a href="http://www.microsoft.com/technet/sysinternals/FileAndDisk/Junction.mspx">Junction v1.05</a>.</p>

@@ -1,0 +1,46 @@
+---
+layout: post
+title: using a local copy of a file instead of downloading it in macports
+date: 2011-04-20 13:18:24.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Mac
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/04/20/using-a-local-copy-of-a-file-instead-of-downloading-it-in-macports/"
+---
+<p>In some cases, macports can't or should not download a file from internet. Instead, it should use an already downloaded local copy. Unfortunately, this use case is not supported, and a workaround is required.</p>
+<p><!--more--></p>
+<p>Step 1:</p>
+<p>Make a copy of the directory with <tt>Portfile</tt> (located somewhere in <tt>/opt/local/var/macports/sources/rsync.macports.org/release/ports</tt>)</p>
+<p>Step 2:</p>
+<p>Put the file into the directory</p>
+<p>Step 3:</p>
+<p>Modify <tt>Portfile</tt>, add:</p>
+<p><code>
+<pre>
+set orig_dir [pwd]
+fetch {
+  set file "PyICU-0.8.1.tar.gz"
+  file mkdir $distpath
+  file copy -force ${orig_dir}/$file ${distpath}/${file}
+}</pre>
+<p></code></p>
+<p>Instead of "PyICU-0.8.1.tar.gz" write the name of your file.</p>
+<p>Step 4:</p>
+<p>Install</p>
+<p><code>
+<pre>
+$ sudo port install -d -v
+</pre>
+<p></code></p>

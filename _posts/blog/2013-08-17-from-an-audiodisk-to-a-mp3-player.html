@@ -1,0 +1,34 @@
+---
+layout: post
+title: from an audiodisk to a mp3 player
+date: 2013-08-17 02:08:03.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2013/08/17/from-an-audiodisk-to-a-mp3-player/"
+---
+<p>My sequence to grab audiobooks from a cd to hear later on a mp3 player. Grab as mp3:</p>
+<pre><code>abcde -o mp3</code></pre>
+<p><!--more--></p>
+<p>The program makes the job perfectly.</p>
+<p>But the mp3 player (Samsa Clip+, I like it) is not much smart, or I don't read manuals carefully. When I return to the folder with an audiobook, the player can't remember which track to play. And I neither.</p>
+<p>Fortunately, the position inside an mp3 file is saved, and the player suggests to resume play. Therefore, on the step2 I make one big mp3 from tracks.</p>
+<pre><code>mp3wrap file.mp3 tracks_folder/*3</code></pre>
+<p>The last finement is to update mp3 tags, which are filled by controlinformation for mp3wrap and which I don't need.</p>
+<pre><code>
+id3tag -Atitle -stitle file.mp3
+or
+id3tag -Atitle -stitle -tX -TY file.mp3
+</code></pre>

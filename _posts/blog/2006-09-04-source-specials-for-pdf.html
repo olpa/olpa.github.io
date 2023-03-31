@@ -1,0 +1,31 @@
+---
+layout: post
+title: source specials for PDF
+date: 2006-09-04 07:01:23.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/09/04/source-specials-for-pdf/"
+---
+<p>Some TeX implementations or macro packages provide the facility to automatically include so-called  "source specials"  into  a  .dvi  file. These  contain  the  line  number,  eventually a column number, and the filename of the .tex source. This makes it possible to jump from a .dvi file  to  the  corresponding  place  in  the .tex source and back (also called "reverse search" and "forward search"). I've asked for the same for .pdf files, and have got an <a href="http://groups.google.com/group/comp.text.tex/msg/6d683b6b14394a95">answer</a> from  Will Robertson in comp.text.tex:</p>
+<p><!--more--></p>
+<p>There have been two such attempts that I know of.<br />
+Heiko Oberdiek's vpe:<br />
+  &lt;<a href="http://www.tug.org/tex-archive/macros/latex/contrib/vpe/">http://www.tug.org/tex-archive/macros/latex/contrib/vpe/</a>><br />
+Haven't used it, but his reputation precedes him.</p>
+<p>Jerome Laurens' pdfsync is more unofficial (not on CTAN, grrr), but I<br />
+believe it's supported in AucTeX these days:<br />
+  &lt;<a href="http://itexmac.sourceforge.net/pdfsync.html">http://itexmac.sourceforge.net/pdfsync.html</a>><br />
+(It's also got support in a couple of Mac OS X editor/frontends.)</p>

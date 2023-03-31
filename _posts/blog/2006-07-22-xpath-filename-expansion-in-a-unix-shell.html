@@ -1,0 +1,24 @@
+---
+layout: post
+title: XPath Filename Expansion in a Unix Shell
+date: 2006-07-22 08:26:15.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/07/22/xpath-filename-expansion-in-a-unix-shell/"
+---
+<p>Recently I found the paper "XPath Filename Expansion in a Unix Shell" (<a href="http://dret.net/netdret/docs/wilde-www2006-xpath-shell/">HTML</a>, <a href="http://dret.net/netdret/docs/wilde-www2006-xpath-shell.pdf">PDF</a>) by Kaspar Giger and Erik Wilde. I'm pleased the authors have referenced my developments ("<a href="http://uucode.com/texts/xfind/index.html">find with XPath over file system</a>").<br />
+<!--more--><br />
+Unfortunately, my writings sometimes aren't clear, and therefore misleading. In particular, the authors concluded that my implementation limits the depth. Actually, there is no limit, my implementation is lazy, and internal structures are created on the fly. Possibility to limit depth is the inheritance of the original utility "<tt>find</tt>".</p>

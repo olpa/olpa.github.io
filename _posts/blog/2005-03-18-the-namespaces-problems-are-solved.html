@@ -1,0 +1,25 @@
+---
+layout: post
+title: the namespaces problems are solved
+date: 2005-03-18 00:11:18.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/18/the-namespaces-problems-are-solved/"
+---
+<p>In the <a href="/blog/2005/03/17/first-attempt-on-namespaces-conversion/">previous entry</a> I wrote about the two faults in the conversion code. Now they are fixed. And the code have became a bit better.</p>
+<p>Attributes are now also namespace aware.</p>
+<p>I'm afraid of PIs, entities and other similar things be namespace aware. I hope not. Looking at the Namespaces in XML Specification... Well, all is ok. Namespaces are only for elements and attributes.</p>
+<p>While coding, I looked into the file "tree.c" from the libxml2. The non-trivial code of "xmlNewProp" and "xmlNewNsProp" are nearly identical, but differ a bit. Going to report to the developers' mailing list.</p>

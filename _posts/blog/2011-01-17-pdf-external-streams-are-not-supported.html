@@ -1,0 +1,22 @@
+---
+layout: post
+title: PDF external streams are not supported
+date: 2011-01-17 15:05:12.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- publishing
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/01/17/pdf-external-streams-are-not-supported/"
+---
+<p>Theoretically, a part of a PDF file is allowed to be stored externally. The "external streams" were introduced already in an ancient PDF specification. But only Acrobat (Reader) 5 supports it. For Acrobat 8, one has to find a hidden security option to activate support. Apple Quartz seems not to support external streams at all. The same for poppler (definitely, the source code is checked) and maybe its ancestor xpdf.</p>

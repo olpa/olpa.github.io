@@ -1,0 +1,75 @@
+---
+layout: post
+title: python libxml2 dita
+date: 2016-01-21 11:29:51.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+- publishing
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2016/01/21/python-libxml2-dita/"
+---
+<p>python libxml2 dita</p>
+<p>For correct transformation of <a href="https://en.wikipedia.org/wiki/Darwin_Information_Typing_Architecture">DITA</a> files (XML-standard for modular documentation), it is necessary to pull information from DTD (document type definition). In my python code, sometimes I did get this information and sometimes not. Now I've tracked the source of instability and corrected the code.</p>
+<p><!--more--></p>
+<p>Sample python code:</p>
+<pre><code><span style="color:#800000; font-weight:bold; ">import</span> libxml2
+<span style="color:#800000; font-weight:bold; ">import</span> libxsltmod
+
+s <span style="color:#808030; ">=</span> <span style="color:#696969; ">"""&lt;!DOCTYPE map PUBLIC "-//OASIS//DTD XDITA Map//EN"</span>
+<span style="color:#696969; ">"file://.../dita-ot-2.2.1/plugins/org.oasis-open.dita.v1</span>
+<span style="color:#696969; ">_2/dtd/technicalContent/dtd/map.dtd"></span>
+<span style="color:#696969; "></span>
+<span style="color:#696969; ">&lt;map title="Empty map"></span>
+<span style="color:#696969; ">&lt;/map>"""</span>
+
+libxml2<span style="color:#808030; ">.</span>substituteEntitiesDefault<span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span>
+xmldoc <span style="color:#808030; ">=</span> libxml2<span style="color:#808030; ">.</span>parseDoc<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">print</span> xmldoc
+</code></pre>
+<p>The result as expected:</p>
+<pre><code><span style="color:#004a43; ">&lt;?</span><span style="color:#800000; font-weight:bold; ">xml</span><span style="color:#004a43; "> </span><span style="color:#074726; ">version</span><span style="color:#808030; ">=</span><span style="color:#800000; ">"</span><span style="color:#7d0045; ">1.0</span><span style="color:#800000; ">"</span><span style="color:#004a43; ">?></span>
+<span style="color:#004a43; ">&lt;!</span><span style="color:#800000; font-weight:bold; ">DOCTYPE</span> <span style="color:#bb7977; font-weight:bold; ">map</span> <span style="color:#004a43; ">PUBLIC</span> <span style="color:#800000; ">"</span><span style="color:#004a43; ">-</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#0000e6; ">OASIS</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#0000e6; ">DTD XDITA Map</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#0000e6; ">EN</span><span style="color:#800000; ">"</span>
+<span style="color:#800000; ">"</span><span style="color:#666616; ">file</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#5555dd; ">...</span><span style="color:#40015a; ">/dita-ot-2.2.1/plugins/org.oasis-open.dita.v1</span><span style="color:#0000e6; "></span>
+<span style="color:#40015a; ">_2/dtd/technicalContent/dtd/map.dtd</span><span style="color:#800000; ">"</span><span style="color:#004a43; ">></span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">map</span> <span style="color:#666616; ">xmlns</span><span style="color:#800080; ">:</span><span style="color:#074726; ">ditaarch</span><span style="color:#808030; ">=</span><span style="color:#800000; ">"</span><span style="color:#666616; ">http</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#5555dd; ">dita.oasis-open.org</span><span style="color:#40015a; ">/architecture/2005/</span><span style="color:#800000; ">"</span>
+  <span style="color:#274796; ">title</span><span style="color:#808030; ">=</span><span style="color:#800000; ">"</span><span style="color:#0000e6; ">Empty map</span><span style="color:#800000; ">"</span> <span style="color:#007997; ">ditaarch</span><span style="color:#800080; ">:</span><span style="color:#274796; ">DITAArchVersion</span><span style="color:#808030; ">=</span><span style="color:#800000; ">"</span><span style="color:#0000e6; ">1.2</span><span style="color:#800000; ">"</span> <span style="color:#274796; ">domains</span><span style="color:#808030; ">=</span><span style="color:#800000; ">"</span><span style="color:#0000e6; ">(topic delay-d)</span>
+<span style="color:#0000e6; ">&#xa0;&#xa0;(map mapgroup-d)                           (topic indexing-d)</span>
+<span style="color:#0000e6; ">&#xa0;&#xa0;(map glossref-d)                          (topic hi-d)</span>
+<span style="color:#0000e6; ">&#xa0;&#xa0;(topic ut-d)                           (topic hazard-d)</span>
+<span style="color:#0000e6; ">&#xa0;&#xa0;(topic abbrev-d)                          (topic pr-d)</span>
+<span style="color:#0000e6; ">&#xa0;&#xa0;(topic sw-d)                          (topic ui-d)</span>
+<span style="color:#0000e6; ">&#xa0;&#xa0;</span><span style="color:#800000; ">"</span> <span style="color:#274796; ">class</span><span style="color:#808030; ">=</span><span style="color:#800000; ">"</span><span style="color:#0000e6; ">- map/map </span><span style="color:#800000; ">"</span><span style="color:#a65700; ">></span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#5f5035; ">map</span><span style="color:#a65700; ">></span>
+</code></pre>
+<p>If I comment-out <tt>import libxsltmod</tt>, the result is wrong for me:</p>
+<pre><code><span style="color:#004a43; ">&lt;?</span><span style="color:#800000; font-weight:bold; ">xml</span><span style="color:#004a43; "> </span><span style="color:#074726; ">version</span><span style="color:#808030; ">=</span><span style="color:#800000; ">"</span><span style="color:#7d0045; ">1.0</span><span style="color:#800000; ">"</span><span style="color:#004a43; ">?></span>
+<span style="color:#004a43; ">&lt;!</span><span style="color:#800000; font-weight:bold; ">DOCTYPE</span> <span style="color:#bb7977; font-weight:bold; ">map</span> <span style="color:#004a43; ">PUBLIC</span> <span style="color:#800000; ">"</span><span style="color:#004a43; ">-</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#0000e6; ">OASIS</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#0000e6; ">DTD XDITA Map</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#0000e6; ">EN</span><span style="color:#800000; ">"</span>
+<span style="color:#800000; ">"</span><span style="color:#666616; ">file</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#5555dd; ">...</span><span style="color:#40015a; ">/dita-ot-2.2.1/plugins/org.oasis-open.dita.v</span><span style="color:#0000e6; "></span>
+<span style="color:#40015a; ">1_2/dtd/technicalContent/dtd/map.dtd</span><span style="color:#800000; ">"</span><span style="color:#004a43; ">></span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">map</span> <span style="color:#274796; ">title</span><span style="color:#808030; ">=</span><span style="color:#800000; ">"</span><span style="color:#0000e6; ">Empty map</span><span style="color:#800000; ">"</span><span style="color:#a65700; ">></span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#5f5035; ">map</span><span style="color:#a65700; ">></span>
+</code></pre>
+<p>The explanation and two solutions is on the stackoverflow site: <a href="http://stackoverflow.com/q/34894664/327725">Expand default (dita) attributes</a>. My verbose solution:</p>
+<pre><code>ctxt <span style="color:#808030; ">=</span> libxml2<span style="color:#808030; ">.</span>createDocParserCtxt<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span>
+opts <span style="color:#808030; ">=</span> libxml2<span style="color:#808030; ">.</span>XML_PARSE_NOENT <span style="color:#44aadd; ">|</span> libxml2<span style="color:#808030; ">.</span>XML_PARSE_DTDATTR
+ctxt<span style="color:#808030; ">.</span>ctxtUseOptions<span style="color:#808030; ">(</span>opts<span style="color:#808030; ">)</span>
+ctxt<span style="color:#808030; ">.</span>parseDocument<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+xmldoc <span style="color:#808030; ">=</span> ctxt<span style="color:#808030; ">.</span>doc<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">del</span> ctxt
+</code></pre>
+<p>The short easy solution:</p>
+<pre><code>xmldoc <span style="color:#808030; ">=</span> libxml2<span style="color:#808030; ">.</span>readDoc<span style="color:#808030; ">(</span>s<span style="color:#808030; ">,</span> <span style="color:#074726; ">None</span><span style="color:#808030; ">,</span> <span style="color:#074726; ">None</span><span style="color:#808030; ">,</span> libxml2<span style="color:#808030; ">.</span>XML_PARSE_NOENT <span style="color:#44aadd; ">|</span> libxml2<span style="color:#808030; ">.</span>XML_PARSE_DTDATTR<span style="color:#808030; ">)</span>
+</code></pre>

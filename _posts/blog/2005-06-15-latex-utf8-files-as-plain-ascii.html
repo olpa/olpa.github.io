@@ -1,0 +1,23 @@
+---
+layout: post
+title: latex utf8 files as plain ascii
+date: 2005-06-15 10:57:20.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: latex,tex,utf8,ascii
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/15/latex-utf8-files-as-plain-ascii/"
+---
+<p>I have problems with non-latin publishing through LaTeX, and I'm going to ask for help in forums. While asking, I should provide a sample LaTeX file, but how to show non-latin characters? Fortunately, I have TeX background and know some tricks. One of them is that combination "^^xx" is interpreted as a character with the hexadecimal code "xx" by the TeX reader before any other processing. So, for example, if I use the symbol "\u9009" which is encoded in utf8 by bytes "e9", "80" and "89", I can write in the source LaTeX file: "^^e9^^80^^89".</p>

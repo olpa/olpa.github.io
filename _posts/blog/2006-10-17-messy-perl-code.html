@@ -1,0 +1,100 @@
+---
+layout: post
+title: messy Perl code
+date: 2006-10-17 08:22:53.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/10/17/messy-perl-code/"
+---
+<p>I download my mail using <tt>fetchmail</tt>. During the process, "<tt>tail -f</tt>" shows the subjects of the incoming letters. Unfortunately, most of them are unreadable, something like "<tt>=?windows-1251?B?0e/g7CDt4CBwaHBCQg==?=</tt>". Finally, I tired of it and decided to make life better.</p>
+<p><!--more--></p>
+<p>I don't remember when I wrote such a bad code last time. Copy/paste from different sources plus fast hacks, but it works. Comments after the code.</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#696969; ">#!/usr/bin/perl -w</span>
+<span style="color:#800000; font-weight:bold; ">use</span> <span style="color:#800000; font-weight:bold; ">strict</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">require</span> <span style="color:#bb7977; font-weight:bold; ">MIME::Base64</span><span style="color:#800080; ">;</span>
+<span style="color:#bb7977; font-weight:bold; ">MIME::Base64</span><span style="color:#808030; ">-></span>import<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'decode_base64'</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">require</span> <span style="color:#bb7977; font-weight:bold; ">MIME::QuotedPrint</span><span style="color:#800080; ">;</span>
+<span style="color:#bb7977; font-weight:bold; ">MIME::QuotedPrint</span><span style="color:#808030; ">-></span>import<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'decode_qp'</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">use</span> Encode<span style="color:#800080; ">;</span>
+
+<span style="color:#696969; ">#seek STDIN, -400, 2;</span>
+
+<span style="color:#800000; font-weight:bold; ">while</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">eof</span><span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">sleep</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+  <span style="color:#800080; ">}</span> <span style="color:#800000; font-weight:bold; ">else</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">while</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">defined</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">my</span> $l <span style="color:#808030; ">=</span> <span style="color:#40015a; ">&lt;></span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+      <span style="color:#800000; font-weight:bold; ">chomp</span><span style="color:#808030; ">(</span>$l<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+      $l <span style="color:#808030; ">=</span> decode_string<span style="color:#808030; ">(</span>$l<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+      <span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">$l</span><span style="color:#0f69ff; ">\n</span><span style="color:#0000e6; ">"</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+  <span style="color:#800080; ">}</span>
+<span style="color:#800080; ">}</span>
+
+<span style="color:#800000; font-weight:bold; ">sub </span>decode_string <span style="color:#800080; ">{</span>
+  <span style="color:#800000; font-weight:bold; ">my</span> $line <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">shift</span><span style="color:#800080; ">;</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span>$line <span style="color:#808030; ">=</span><span style="color:#808030; ">~</span> <span style="color:#800000; font-weight:bold; ">m</span><span style="color:#800000; ">/</span><span style="color:#0000e6; ">=</span><span style="color:#0f69ff; ">\?</span><span style="color:#800000; ">/</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span>$line <span style="color:#808030; ">!</span><span style="color:#808030; ">~</span> <span style="color:#800000; font-weight:bold; ">m</span><span style="color:#800000; ">/</span><span style="color:#0f69ff; ">\?</span><span style="color:#0000e6; ">=</span><span style="color:#808030; ">$</span><span style="color:#800000; ">/</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+      $line <span style="color:#808030; ">=</span> $line <span style="color:#808030; ">.</span> <span style="color:#0000e6; ">'77?='</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+  <span style="color:#800080; ">}</span>
+  <span style="color:#800000; font-weight:bold; ">while</span> <span style="color:#808030; ">(</span>$line <span style="color:#808030; ">=</span><span style="color:#808030; ">~</span> <span style="color:#800000; font-weight:bold; ">m</span><span style="color:#800000; ">/</span><span style="color:#0000e6; ">=</span><span style="color:#0f69ff; ">\?</span><span style="color:#808030; ">(</span><span style="color:#808030; ">[</span><span style="color:#808030; ">^</span><span style="color:#0000e6; ">?</span><span style="color:#808030; ">]</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span><span style="color:#0f69ff; ">\?</span><span style="color:#808030; ">(</span><span style="color:#808030; ">.</span><span style="color:#808030; ">)</span><span style="color:#0f69ff; ">\?</span><span style="color:#808030; ">(</span><span style="color:#808030; ">[</span><span style="color:#808030; ">^</span><span style="color:#0000e6; ">?</span><span style="color:#808030; ">]</span><span style="color:#808030; ">*</span><span style="color:#808030; ">)</span><span style="color:#808030; ">(</span><span style="color:#0f69ff; ">\?</span><span style="color:#0000e6; ">=</span><span style="color:#808030; ">)</span><span style="color:#808030; ">?</span><span style="color:#800000; ">/</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">my</span> $enc        <span style="color:#808030; ">=</span> $1<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">my</span> $encoding   <span style="color:#808030; ">=</span> $2<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">my</span> $txt        <span style="color:#808030; ">=</span> $3<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">my</span> $str_before <span style="color:#808030; ">=</span> $`<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">my</span> $str_after  <span style="color:#808030; ">=</span> $'<span style="color:#800080; ">;</span>
+
+    <span style="color:#696969; ">#print "[$txt]\n";</span>
+    <span style="color:#696969; ">#print "[$enc]\n";</span>
+    <span style="color:#696969; "># Base64</span>
+    <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span>$encoding <span style="color:#808030; ">=</span><span style="color:#808030; ">~</span><span style="color:#0000e6; "> </span><span style="color:#800000; ">/</span><span style="color:#0000e6; ">b</span><span style="color:#800000; ">/</span><span style="color:#800000; font-weight:bold; ">i</span><span style="color:#808030; ">)</span>
+    <span style="color:#800080; ">{</span>
+      <span style="color:#800000; font-weight:bold; ">my</span> $l <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">int</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">length</span><span style="color:#808030; ">(</span>$txt<span style="color:#808030; ">)</span> <span style="color:#808030; ">/</span> <span style="color:#008c00; ">4</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+      <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">4</span> <span style="color:#808030; ">*</span> $l <span style="color:#808030; ">!</span><span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">length</span><span style="color:#808030; ">(</span>$txt<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        $txt <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">substr</span><span style="color:#808030; ">(</span>$txt<span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">4</span><span style="color:#808030; ">*</span>$l<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+      <span style="color:#800080; ">}</span>
+      <span style="color:#800000; font-weight:bold; ">eval</span> <span style="color:#800080; ">{</span>
+        $txt <span style="color:#808030; ">=</span> decode_base6<span style="color:#008c00; ">4</span><span style="color:#808030; ">(</span>$txt<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+      <span style="color:#800080; ">}</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#696969; "># QP</span>
+    <span style="color:#800000; font-weight:bold; ">elsif</span> <span style="color:#808030; ">(</span>$encoding <span style="color:#808030; ">=</span><span style="color:#808030; ">~</span><span style="color:#0000e6; "> </span><span style="color:#800000; ">/</span><span style="color:#0000e6; ">q</span><span style="color:#800000; ">/</span><span style="color:#800000; font-weight:bold; ">i</span><span style="color:#808030; ">)</span>
+    <span style="color:#800080; ">{</span>
+      $txt <span style="color:#808030; ">=</span> decode_qp<span style="color:#808030; ">(</span>$txt<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#bb7977; font-weight:bold; ">Encode</span><span style="color:#808030; ">::</span><span style="color:#bb7977; font-weight:bold; ">from_to</span><span style="color:#808030; ">(</span>$txt<span style="color:#808030; ">,</span> $enc<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'koi8-r'</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+    $line <span style="color:#808030; ">=</span> $str_before <span style="color:#808030; ">.</span> $txt <span style="color:#808030; ">.</span> $str_after<span style="color:#800080; ">;</span>
+  <span style="color:#800080; ">}</span>
+  <span style="color:#696969; ">## The decode above does not do underline-to-space translation:</span>
+  <span style="color:#696969; ">#$line =~ tr/_/ /;</span>
+  <span style="color:#696969; ">#$transheaders .= $line . "\n";</span>
+  <span style="color:#800000; font-weight:bold; ">return</span> $line<span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</code></pre>
+<p>The commented-out seek doesn't work for me. I decided not to investigate why. Instead of</p>
+<pre>tail.pl log_file</pre>
+<p>I now use</p>
+<pre>tail -f log_file | tail.pl</pre>
+<p>The main loop is stolen from Perl FAQ ("How do I do a 'tail -f' in Perl?").</p>
+<p>The original source of "<tt>decode_string</tt>" is lost somewhere in Internet. I don't remember where I found it. There are few improvements over the orignial.</p>
+<p>First, I remember the character encoding of the subject.</p>
+<p>Second, fetchmail cuts the length of the subject string, therefore sometimes base64 data is incomplete. I have to adjust the length of the data to make the base64 decoder happy.</p>
+<p>Finally, the subject is converted to my console encoding.</p>
+<p>The code, surprisingly, works, and I'm glad now.</p>

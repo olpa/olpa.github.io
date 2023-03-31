@@ -1,0 +1,34 @@
+---
+layout: post
+title: converting XML CALS table to LaTeX
+date: 2005-05-25 00:45:09.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: cals,xml,latex
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/25/converting-xml-cals-table-to-latex/"
+---
+<p>It looks there is a need for a converter from CALS tables to LaTeX. Here is <a href="http://www.google.com/groups?selm=d61n1i%247fh%241%40news1.ewetel.de">yet another ask</a> in <tt>comp.text.tex</tt>. Jonathan Fine <a href="http://www.google.com/groups?selm=4285A77D.6070502%40pytex.org">answers</a> a bit enigmatic, and I <a href="http://www.google.com/groups?selm=de21d442.0505231321.5124cc90%40posting.google.com">answer</a> pessimistic.</p>
+<p><!--more--></p>
+<p>I wrote:</p>
+<p>I harly believe in such a script. First, there are issues with tables support in LaTeX. Second, CALS tables can be very complicated. Even mature tools don't support the standard in full.</p>
+<p>Anyway, such tools exist.</p>
+<p>* Some time ago I wrote an XSLT for CALS to TeXML conversion. It even worked for spanned columns and rows, but I finally have thrown the script off. I'm going to try again with more powerful conversion tools, but I don't know when.</p>
+<p>* An XSLT converter from David Hedley: <a href="http://www.vistair.com/newtbl/XSLTableCode.html">http://www.vistair.com/newtbl/XSLTableCode.html</a></p>
+<p>* I remember a Perl converter from SGML CALS tables, but I don't remember an URL.</p>
+<h2>Update</h2>
+<p>The same day, now in the xsl list: <a href="http://www.biglist.com/lists/xsl-list/archives/200505/msg01077.html">CALS table model to HTML table conversion</a></p>
+<h2>15 Oct 2010, Update</h2>
+<p>CTAN now has the package <a href="http://tug.ctan.org/pkg/cals">cals</a>, which is exactly for CALS tables.</p>

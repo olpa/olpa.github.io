@@ -1,0 +1,39 @@
+---
+layout: post
+title: be carefull with libxml2 in python
+date: 2008-05-27 12:51:03.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/05/27/be-carefull-with-libxml2-in-python/"
+---
+<p>Unpleasant surprise from libxml2 bindings for Python: one must care for encoding conversion.</p>
+<p><!--more--></p>
+<p>test.xml:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">&lt;</span>text<span style="color:#808030; ">></span>Grüß<span style="color:#808030; ">&lt;</span><span style="color:#808030; ">/</span>text<span style="color:#808030; ">></span></code></pre>
+<p>test.py:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> libxml2
+doc  <span style="color:#808030; ">=</span> libxml2<span style="color:#808030; ">.</span>parseFile<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'test.xml'</span><span style="color:#808030; ">)</span>
+node <span style="color:#808030; ">=</span> doc<span style="color:#808030; ">.</span>getRootElement<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>children
+s <span style="color:#808030; ">=</span> node<span style="color:#808030; ">.</span>getContent<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#e34adc; ">repr</span><span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span></code></pre>
+<p>The code outputs:</p>
+<pre><code>'Gr\xc3\xbc\xc3\x9f'</code></pre>
+<p>Instead of a unicode string we get a sequence of 6 bytes, which represents the text in the UTF-8 encoding. To get a correct unicode string, use the following:</p>
+<pre style="color:#000000;background:#ffffff;"><code>s <span style="color:#808030; ">=</span> unicode<span style="color:#808030; ">(</span>s<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'UTF-8'</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#e34adc; ">repr</span><span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span></code></pre>
+<p>This gives the expected result:</p>
+<pre><code>u'Gr\xfc\xdf'</code></pre>
+<p>Correspondingly, to add an unicode string to a libxml2 XML tree, one uses the following magic: <code>s.encode('UTF-8')</code>.</p>

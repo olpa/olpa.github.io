@@ -1,0 +1,77 @@
+---
+layout: post
+title: bugfixing 1, NULLs
+date: 2005-03-29 23:20:22.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/29/bugfixing-1-nulls/"
+---
+<p>In the <a href="/blog/2005/03/29/xml-to-sxml-coredumped/">previous entry</a> I mentioned three bugs to be fixed. In this post I describe the second issue.</p>
+<p><!--more--></p>
+<p>To remind:</p>
+<blockquote><p>The second issue is definitely not a bug, but it still worth checking. Is it possible to create comment or PI with NULL (not empty string!) content using SXML to XML conversion?</p></blockquote>
+<p>The first attempt was to use the following stylesheet:</p>
+<pre>
+&lt;x:variable name="xx">
+  &lt;s:scheme>
+    '(E (*PI* mypi))
+  &lt;/s:scheme>
+&lt;/x:variable>
+&lt;x:for-each select="e:node-set($xx)" xmlns:e="http://exslt.org/common">
+  &lt;w>
+    &lt;s:scheme>
+      (define x (x:current-node))
+      (display "From nodeset: ")
+      (display x)
+      (newline)
+    &lt;/s:scheme>
+  &lt;/w>
+&lt;/x:for-each>
+</pre>
+<p>Variable "xx" is created by conversion from SXML "<tt>(E (*PI* mypi))</tt>" to XML. A correspsoniding PI node has a NULL content. At the moment, the only way to execute XML to SXML conversion is to use the function "<tt>x:current-node</tt>" which returns the context node. I make "xx" the context node by using "<tt>for-each</tt>" and "<tt>node-set</tt>".</p>
+<p>I tested the stylesheet and got the correct answer:</p>
+<p><tt>(*TOP* (E (*PI* mypi)))</tt></p>
+<p>I was surprised because I hardly believed that this correct answer was produced by a weak C code. After some <tt>printf</tt>-testing I made sure that actually C code wasn't executing at all.</p>
+<p>How could it happen?</p>
+<p>If you have been reading my notes for a some time, you know the answer.</p>
+<p>Yes, it's the internal map between SXML and XML nodes. While creating the variable "xx", a new pair was added to the map. While starting <tt>for-each</tt>, the context node was found in the map, so the corresponding SXML was returned immediately without any conversion.</p>
+<p>I modified the stylesheet a bit. Note that we make a copy of xx's XML and assign it to the variable "yy". Then we make <tt>for-each</tt> over "yy" that is not in the map.</p>
+<pre>
+&lt;x:variable name="xx">
+  &lt;s:scheme>
+    '(E (*PI* mypi))
+  &lt;/s:scheme>
+&lt;/x:variable>
+&lt;x:variable name="yy">
+  &lt;x:copy-of select="$xx"/>
+&lt;/x:variable>
+&lt;x:for-each select="e:node-set($yy)" xmlns:e="http://exslt.org/common">
+  &lt;w>
+    &lt;s:scheme>
+      (define x (x:current-node))
+      (display "From nodeset: ")
+      (display x)
+      (newline)
+    &lt;/s:scheme>
+  &lt;/w>
+&lt;/x:for-each>
+</pre>
+<p>After running the modified stylesheet I got the incorrect answer:</p>
+<p><tt>(*TOP* (E (*PI* mypi #f)))</tt></p>
+<p>"#f" shouldn't present here.</p>
+<p>So, the answer on the question is: yes, it's possible to create NULL content. More, in XML to SXML conversion we handled NULLs incorrectly.</p>
+<p>Now this feature is fixed and conversion gives the correct result again:</p>
+<p><tt>(*TOP* (E (*PI* mypi)))</tt></p>

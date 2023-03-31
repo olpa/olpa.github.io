@@ -1,0 +1,53 @@
+---
+layout: post
+title: ripping a dvd
+date: 2008-06-16 07:11:28.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/06/16/ripping-a-dvd/"
+---
+<p>In the most cases, people use <tt>mplayer</tt> and <tt>mencoder</tt> (under Linux). For my goals, <tt>ffmpeg</tt> is enough.</p>
+<p><!--more--></p>
+<p>Sample sh-file:<br />
+<code>
+<pre>for i in 01 02 03 ... NN; do
+  ffmpeg -i /x/VIDEO_TS/VTS_${i}_1.VOB -s qvga ff/file${i}.avi;
+done</pre>
+<p></code></p>
+<p>As I reencode chess training video, I don't need high quality. The size "qvga" (320x240) is optimal.</p>
+<p>In case of problems with sound (occured once to me), one needs to check if the channel is right. And if not, use a correct one:</p>
+<p><code>
+<pre>ffmpeg -i /x/VIDEO_TS/VTS_10_1.VOB -map 0:0 -map 0:2 -s qvga xxx.avi</pre>
+<p></code></p>
+<p>To join chunks of video to a continuous video, use <tt>avimerge</tt>.</p>
+<p>Initially, I was going also to hardcode subtitles to video. The action sequence was:</p>
+<p>* Extract a subtitle channel<br />
+* Join a video channel with a subtitle channel<br />
+* Extract an audio channel<br />
+* Join the two new channels</p>
+<p>The first step can be done in different ways. For example (not the best):</p>
+<p><code>
+<pre>
+tccat -i ~/Najdorf.iso -T 1 >eee 2>rrr
+cat eee | tcextract -x ps1 -t vob -a 0x20 >subs
+subtitle2vobsub -o english -i /x/VIDEO_TS/VTS_01_0.IFO < subs 
+</pre>
+<p></code></p>
+<p>Hardcode subtitles to video:</p>
+<p><code>
+<pre>mplayer ffch1.vob -sub english -nosound -noframedrop -dumpvideo</pre>
+<p></code></p>
+<p>Unfortunately, my mplayer gets some internal error in this mode. Therefore, I gave up the idea of hardcoding subtitles.</p>

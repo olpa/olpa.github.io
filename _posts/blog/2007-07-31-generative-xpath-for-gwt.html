@@ -1,0 +1,36 @@
+---
+layout: post
+title: Generative XPath for GWT
+date: 2007-07-31 19:44:21.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/07/31/generative-xpath-for-gwt/"
+---
+<p><a href="http://code.google.com/webtoolkit/">Google Web Toolkit</a> (GWT) allows developers to use the Java programming language to build no-compromise AJAX applications. After announcing my project in its discussion group, I got a reasonable question: "Can you explain how this could be used within the GWT client code?"</p>
+<p><!--more--></p>
+<p>From <a href="http://groups.google.com/group/Google-Web-Toolkit/msg/51a19d11152f08da">my reply</a>:</p>
+<p>Unfortunately, I have no answer. My experience with GWT is limited to Scott Blum's presentation. The goal of my posting was to raise interest in my work. Hopefully someone can decide it's cool and port Generative XPath to GWT. A good diploma, by the way.</p>
+<blockquote><p>These seem to be scripts requiring guile (admittedly, I'm no expert; I haven't Common Lisp since grad school over 15 years ago).</p></blockquote>
+<p>In my approach, to execute XPath, one needs</p>
+<p>1) Compile an XPath expression to a Virtual Machine code using some command-line scripts,<br />
+2) From an application, interpret/run the VM code.</p>
+<p>The most cool way for (2) is to convert the VM code to the AST tree, used internally by GWT compiler. In this case you get XPath, compiled to JavaScript, without additional levels of interpretation. But it's something for very very far future.</p>
+<p>The practical way for (2) is to use SICP as the interpreter of the VM code:</p>
+<p><a href="http://sourceforge.net/projects/sisc/">http://sourceforge.net/projects/sisc/</a></p>
+<p>But again, I can't suggest the details.</p>
+<blockquote><p>I'm currently using jaxen4gwt and would love to find something else.  I need to process a lot of XML.  jaxen4gwt is very big</p></blockquote>
+<p>If the cool way were implemented, you'd get very little overhead. But that's only dreams, unfortunately.</p>
+<blockquote><p>and has at least one untrapped exception that I have to code around.</p></blockquote>

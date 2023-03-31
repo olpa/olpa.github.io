@@ -1,0 +1,32 @@
+---
+layout: post
+title: Lexmark isn't printing
+date: 2007-01-16 07:30:35.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/01/16/lexmark-isnt-printing/"
+---
+<p>After returning from holidays, I found that printer doesn't print anymore. After some investigation, I found that <tt>dmesg</tt> contains:</p>
+<pre>usb 2-1: new full speed USB device using uhci_hcd and address 7
+usb 2-1: device not accepting address 7, error -71
+usb 2-1: new full speed USB device using uhci_hcd and address 8
+usb 2-1: device descriptor read/64, error -71</pre>
+<p><!--more--></p>
+<p>Possible reasons and solutions:</p>
+<p>* Linux USB Frequently Asked Questions. <a href="http://www.linux-usb.org/FAQ.html#ts6">Why doesn't USB work at all? I get "device not accepting address".</a><br />
+* <a href="http://www.linux-usb.org/notAcceptFeedback.html">Various users have had success with some specific strategy.</a></p>
+<p>It seems I need a Windows friend to come and attach the printer to his notebook. This way I'll know where is the source of the problem:</p>
+<p>* the USB system is broken on my notebook, or<br />
+* the USB connection with the printer is bad.</p>

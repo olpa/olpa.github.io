@@ -1,0 +1,29 @@
+---
+layout: post
+title: webcam under linux
+date: 2007-07-24 20:26:18.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/07/24/webcam-under-linux/"
+---
+<p>After lots of trials and errors, found: to capture from webcam:</p>
+<pre>spcaview</pre>
+<p>To get a video:</p>
+<pre><code>mencoder -fps 6 tv:// -tv driver=v4l:width=320:height=240:\
+fps=6:device=/dev/video0:hue=-40:saturation=-40:contrast=-40 \
+-ovc lavc -o test.mpg</code></pre>
+<p>To view the result:</p>
+<pre>mplayer -fps 3 test.mpg</pre>
+<p>I still have to find how to set correct fps on input and output, and to tune brightness parameters.</p>

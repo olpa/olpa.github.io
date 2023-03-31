@@ -1,0 +1,30 @@
+---
+layout: post
+title: casting WPAds to a widget
+date: 2007-09-28 07:29:59.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/09/28/casting-wpads-to-a-widget/"
+---
+<p>Some time ago I discovered that the WordPress blog sidebar can be<br />
+* completely dynamic and<br />
+* configured through the admin interface.<br />
+It's very convenient, and I switched to the dynamic sidebar. Or, in another words, started to use widgets. Unfortunately, one important plugin, <a href="http://thesandbox.wordpress.com/wpads/">WPAds</a> doesn't support widgeting. Here is how to fix the issue:<br />
+<!--more--><br />
+Download and install yet another plugin, <a href="http://ottodestruct.com/blog/2006/04/09/fun-with-widgets/">Executable PHP widget</a>. Then create a PHP block for the sidebar, and put as the content something like:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#a65700; background:#ffffe8; ">&lt;?php</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#800000; background:#ffffe8; font-weight:bold; ">if</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#400000; background:#ffffe8; ">function_exists</span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#0000e6; background:#ffffe8; ">'wpads'</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#800080; background:#ffffe8; ">{</span><span style="color:#000000; background:#ffffe8; "> wpads</span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#0000e6; background:#ffffe8; ">'sidebar'</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#800080; background:#ffffe8; ">}</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#a65700; background:#ffffe8; ">?></span>
+</code></pre>
+<p>Don't forget to save the changes!</p>

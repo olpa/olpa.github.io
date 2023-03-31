@@ -1,0 +1,31 @@
+---
+layout: post
+title: Format dvd+rw before writing data
+date: 2017-08-13 17:28:08.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta:
+  _edit_last: '1'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2017/08/13/format-dvdrw-before-writing-data/"
+---
+<p>Writing a DWD+RW under Linux should be simple, something like:</p>
+<pre><code>$ wodim speed=2 dev=/dev/sr0 -v -data ubuntu-16.04.3-desktop-i386.iso</code></pre>
+<p>However, in my case it fails. Some background knowledge suggests to format the disc first, but blanking the disc fails too.</p>
+<p><!--more--></p>
+<p>Solution is: format the disc with another utility:</p>
+<pre><code>$ dvd+rw-format -blank /dev/sr0</code></pre>
+<p>After this step, writing does work.</p>

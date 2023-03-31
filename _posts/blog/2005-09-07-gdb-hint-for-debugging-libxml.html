@@ -1,0 +1,55 @@
+---
+layout: post
+title: gdb hint for debugging libxml
+date: 2005-09-07 00:47:02.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: libxml2,libxslt,debug,gdb
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/07/gdb-hint-for-debugging-libxml/"
+---
+<p>From a letter to the libxml mailing list. Probably it's well known, but I'd like to share useful gdb settings. From my ~/.gdbinit:</p>
+<p><!--more--></p>
+<pre>
+&lt;code>
+define xp
+call xmlDebugDumpNode(stdout, $arg0, 0)
+end
+document xp
+Executes xmlDebugDumpNode(stdout, arg, 0).
+Use also:
+xmlDebugDumpOneNode
+xmlDebugDumpNodeList
+xmlDebugDumpDocument
+end
+&lt;/code>
+</pre>
+<p>Now, debugging in gdb, it's possible to dump a variable as an XML node:</p>
+<pre>
+&lt;screen>
+(gdb) cont
+Breakpoint 2, xmlFreeNode (cur=0x8051760) at tree.c:3333
+3333        xmlDictPtr dict = NULL;
+(gdb) help xp
+Executes xmlDebugDumpNode(stdout, arg, 0).
+Use also:
+xmlDebugDumpOneNode
+xmlDebugDumpNodeList
+xmlDebugDumpDocument
+(gdb) xp cur
+TEXT
+  content= 
+test.xsl:0: error : Node has no parent
+&lt;/screen>
+</pre>

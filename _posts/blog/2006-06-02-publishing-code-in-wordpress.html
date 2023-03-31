@@ -1,0 +1,42 @@
+---
+layout: post
+title: publishing code in WordPress
+date: 2006-06-02 07:48:48.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+- PHP
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/06/02/publishing-code-in-wordpress/"
+---
+<p>WordPress blog engine automatically adds typography to postings. For example, it changes two dashes to the long dash, changes the usual quotes to different sorts of quotes. And yes, code listings are affected.</p>
+<p><!--more--></p>
+<p>You understand how it's annoying. Finally, I decided to fix it. Before doing it myself, I looked into WordPress plugin repository, and, surprise, I found what I need.</p>
+<p>Plugin: <a href="http://priyadi.net/archives/2005/09/27/wordpress-plugin-code-autoescape/">Code Auto Escape</a><br />
+Description: Automatically escape code within &lt;code&gt;...&lt;/code&gt; tag</p>
+<p>Description misses very important notice: "and hides content from WordPress text filters".</p>
+<p>And I don't need escaping, so I've modified the code a bit:</p>
+<pre><code>
+<font color="#2e8b57"><b>--- codeautoescape.php      2006-06-02 08:30:45 +0400</b></font>
+<font color="#2e8b57"><b>+++ codeautoescape.php.orig 2006-06-02 08:30:38 +0400</b></font>
+<font color="#a52a2a"><b>@@ -67,7 +67,7 @@</b></font>
+ add_filter('content_save_pre', 'pri_cae_mask', 28);
+ add_filter('content_save_pre', 'pri_cae_unmask', 72);
+ add_filter('the_content', 'pri_cae_mask', 1);
+<font color="#6a5acd">-add_filter('the_content', 'pri_cae_unmask', 99);</font>
+<font color="#008b8b">+add_filter('the_content', 'pri_cae_unmask_replace', 99);</font>
+
+ add_filter('excerpt_save_pre', 'pri_cae_mask', 28);
+ add_filter('excerpt_save_pre', 'pri_cae_unmask', 72);
+</code></pre>

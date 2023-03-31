@@ -1,0 +1,34 @@
+---
+layout: post
+title: retiring a wordpress blog
+date: 2010-10-19 14:53:14.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/10/19/retiring-a-wordpress-blog/"
+---
+<p>I wanted to retire a <a href="http://wordpress.org/">WordPress</a>-based site, converting everything to static HTML. My first idea was to mirror the site with wget (or any other web downloader), but I decided to search if a better solution was available. Not found, but instead a ready wget recipe was found: <a href="http://www.suodatin.com/fathom/How-to-retire-a-wordpress-blog-(make-wordpress-a-static-site)">How to retire a Wordpress blog (make Wordpress a static site)</a>. My addition:</p>
+<p><!--more--></p>
+<p>1) Instead of the command line</p>
+<pre><code>$ wget -r -E -T 2 -np -R xmlrpc.php,trackback -k http://[BLOG URL]</code></pre>
+<p>I used a version with more flags:</p>
+<pre><code>$ wget -r -E -T 2 -np -R xmlrpc.php,trackback -k
+  -p --wait=5 -o log http://[BLOG URL]</code></pre>
+<p>* <b>-p</b>: get all images, etc. needed to display HTML page.<br />
+* <b>--wait=SECONDS</b>: wait SECONDS between retrievals<br />
+* <b>-o</b>: log messages to FILE.</p>
+<p>2) WordPress creates URLs from the titles of the posts. It leads to non-ASCII symbols in the addresses and (in my case) errors due to multiplce conversion-reconversion to-from unicode. To find such posts (after mirroring):</p>
+<pre>$ find . -type f |  grep %</pre>
+<p>I had only a few bad posts and fixed the problem manually, visiting the control panel, managing the posts, changing the "Post Slug". Then re-mirrored the pages.Probably a better, automatic solution exists.</p>

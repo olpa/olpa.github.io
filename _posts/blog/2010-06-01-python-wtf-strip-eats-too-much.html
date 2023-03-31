@@ -1,0 +1,44 @@
+---
+layout: post
+title: 'python wtf: strip() eats too much'
+date: 2010-06-01 13:04:20.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/06/01/python-wtf-strip-eats-too-much/"
+---
+<p>Many of python-xml code is probably wrong. Tracing a bug, I found an interesting WTF. A minimal example:</p>
+<p><code>
+<pre>
+import string
+s1 =  "\xa0x\xa0"
+s2 = u"\xa0x\xa0"
+print repr(s1.strip())
+print repr(s2.strip())
+print repr(s2.strip(string.whitespace))
+</pre>
+<p></code></p>
+<p>And what we see in the output?</p>
+<p><!--more--></p>
+<p><code>
+<pre>
+'\ xa0x\ xa0'
+u'x'
+u'\ xa0x\ xa0'
+</pre>
+<p></code></p>
+<p>The second line is different from the others two, and a programmer 99.99% expects that all the three lines should be the same.</p>
+<p>Formally, Python is correct. The unicode class of whitespace includes also the unbreakable space. But let's think further. We can split the whitespace class on two further subclasses, (in TeX terms) droppable glue and undroppable kern. And <tt>split()</tt> shouldn't touch the latter.</p>
+<p>Fortunately, there is a workaround by specifying <tt>string.whitespace</tt> explicitly.</p>

@@ -1,0 +1,31 @@
+---
+layout: post
+title: drafting "x:value-of"
+date: 2005-03-31 23:53:27.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/31/drafting-xvalue-of/"
+---
+<p>Thinking about testing XML to SXML conversion to pass the <a href="/blog/2005/03/31/xml-to-sxml-is-probably-works/">second milestone</a>, I found out that I need functionality that was planned for the future. So I temporary switched to the phase three.</p>
+<p><!--more--></p>
+<p>I hope the only 3rd phase functionality I need at the moment is the function "<tt>x:value-of</tt>". It should run an XPath-query and convert result to SXML. Here are some steps:</p>
+<p>* create a new XPath context using <tt>xmlXPathNewContext</tt>,<br />
+* set a context node (I forget about it, so I don't know a name yet),<br />
+* execute XPath using <tt>xmlXPathEvalExpression</tt>,<br />
+* convert to SXML using <tt>node_to_scm</tt> over values in <tt>xpathObj->nodesetval</tt>.</p>
+<p>While revising the libxml2 types, I stumbled upon a comment to <tt>xmlNodeSet->nodeTab</tt>:</p>
+<blockquote><p>array of nodes in no particular order</p></blockquote>
+<p>Contrary to this statement, I expect that <tt>xmlXPathEvalExpression</tt> should return nodes in the document order, but it isn't mentioned in the libxml documentation. Going to ask in the libxml mailing list.</p>

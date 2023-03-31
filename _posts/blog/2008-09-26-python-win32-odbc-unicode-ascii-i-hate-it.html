@@ -1,0 +1,35 @@
+---
+layout: post
+title: python, win32, odbc, unicode, ascii, I hate it
+date: 2008-09-26 12:32:39.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  _oembed_3f4a55cf9993f73fad8aab6fe0f11f8b: "{{unknown}}"
+  _oembed_d0d821ac989f6fc7b0757984508e5cc7: "{{unknown}}"
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/09/26/python-win32-odbc-unicode-ascii-i-hate-it/"
+---
+<p>I need to get utf-8 (unicode) data instead of 8-bit from a Microsoft Access database (ODBC connection). It seems I've finally found the answer:</p>
+<p>It's impossible.</p>
+<p><!--more--></p>
+<p>From the odbc module of <a href="http://starship.python.net/crew/mhammond/win32/Downloads.html">Python Win32 Extensions</a> source code:</p>
+<pre><code>
+SQLBindParameter(..., <b><i>SQL_C_CHAR</i></b>, ...)
+</code></pre>
+<p>If I understand the MSDN documentation right (<a href="http://msdn.microsoft.com/en-us/library/ms710990(VS.85).aspx">Unicode Drivers</a>), this <i>forces</i> 8-bit instead of any unicode.</p>
+<p>Should I find another ODBC driver (if any) or fix this (thanks open source, it's possible)? Time will show.</p>
+<p><b>Update</b></p>
+<p>Following the rumour, pyodbc might be a solution:<br />
+http://hamakor.org.il/pipermail/python-il/2007-December/000012.html<br />
+http://pyodbc.sourceforge.net/</p>

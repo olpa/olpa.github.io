@@ -1,0 +1,79 @@
+---
+layout: post
+title: namespace collision with namespace-alias
+date: 2005-08-17 14:31:06.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: bug libxslt xsltproc
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/17/namespace-collision-with-namespace-alias/"
+---
+<p>I'm trying to write a sort of generative XSLT: an XSLT stylesheet which creates another XSLT stylesheet. Unfortunately, I've confused xsltproc.</p>
+<p><!--more--></p>
+<p>The simplest example if the following. I copy content of "xsl:stylesheet" as is and added a dummy template.</p>
+<p>[code]</p>
+<pre>
+&lt;xsl:stylesheet
+  xmlns:xsl  = &quot;http://www.w3.org/1999/XSL/Transform&quot;
+  xmlns:axsl = &quot;http://www.w3.org/1999/XSL/TransformAlias&quot;
+  version    = &quot;1.0&quot;&gt;
+&lt;xsl:namespace-alias stylesheet-prefix=&quot;axsl&quot; result-prefix=&quot;xsl&quot;/&gt;
+
+&lt;xsl:template match=&quot;xsl:stylesheet&quot;&gt;
+  &lt;xsl:copy&gt;
+    &lt;xsl:copy-of select=&quot;node()|@*&quot;/&gt;
+    &lt;axsl:template match=&quot;none&quot;/&gt;
+  &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+</pre>
+<p>[/code]</p>
+<p>Note that "xsl:copy-of" and "axsl:template" are in different namespaces. Now apply this stylesheet to itself. Result is the following.</p>
+<p>[code]</p>
+<pre>
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;axsl:stylesheet xmlns:axsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;
+&lt;axsl:namespace-alias xmlns:axsl=&quot;http://www.w3.org/1999/XSL/TransformAlias&quot; stylesheet-prefix=&quot;axsl&quot; result-prefix=&quot;xsl&quot;/&gt;
+
+&lt;axsl:template xmlns:axsl=&quot;http://www.w3.org/1999/XSL/TransformAlias&quot; match=&quot;xsl:stylesheet&quot;&gt;
+  &lt;axsl:copy&gt;
+    &lt;axsl:copy-of select=&quot;node()|@*&quot;/&gt;
+    &lt;axsl:template match=&quot;none&quot;/&gt;
+  &lt;/axsl:copy&gt;
+&lt;/axsl:template&gt;
+
+&lt;axsl:template match=&quot;none&quot;/&gt;&lt;/axsl:stylesheet&gt;
+</pre>
+<p>[/code]</p>
+<p>Now "axsl:copy-of" and "axml:template" are in the same namespace. It is incorrect.</p>
+<p>By the way:</p>
+<p>1) I expected that output prefix should be "xsl", not "axsl" (despite the specification doesn't require it).</p>
+<p>2) Here is output from Saxon:</p>
+<p>[code]</p>
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:axsl=&quot;http://www.w3.org/1999/XSL/TransformAlias&quot; version=&quot;1.0&quot;&gt;
+&lt;xsl:namespace-alias stylesheet-prefix=&quot;axsl&quot; result-prefix=&quot;xsl&quot;/&gt;
+
+&lt;xsl:template match=&quot;xsl:stylesheet&quot;&gt;
+  &lt;xsl:copy&gt;
+    &lt;xsl:copy-of select=&quot;node()|@*&quot;/&gt;
+    &lt;axsl:template match=&quot;none&quot;/&gt;
+  &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;
+
+&lt;axsl:template xmlns:axsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; match=&quot;none&quot;/&gt;&lt;/xsl:stylesheet&gt;
+</pre>
+<p>[/code]</p>
+<p><a href="http://bugzilla.gnome.org/show_bug.cgi?id=313711">Bug is submitted</a>.</p>

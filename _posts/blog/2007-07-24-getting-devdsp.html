@@ -1,0 +1,22 @@
+---
+layout: post
+title: getting /dev/dsp
+date: 2007-07-24 09:15:12.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/07/24/getting-devdsp/"
+---
+<p>After spending a lot of time to make sound working, I found how to create <tt>/dev/dsp</tt>. In my case (00:1b.0 Audio device: Intel Corporation 82801H (ICH8 Family) HD Audio Controller (rev 02)), it's just:</p>
+<pre>modprobe snd-hda-intel</pre>

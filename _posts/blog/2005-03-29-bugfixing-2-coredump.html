@@ -1,0 +1,42 @@
+---
+layout: post
+title: bugfixing 2, coredump
+date: 2005-03-29 23:50:42.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/29/bugfixing-2-coredump/"
+---
+<p>Other two bugs (see "<a href="/blog/2005/03/29/xml-to-sxml-coredumped/">bug list</a>" and "<a href="/blog/2005/03/29/bugfixing-1-nulls/">bugfixing 1</a>") are interrelated. Use of the map is powerful, but dangerous.</p>
+<p><!--more--></p>
+<p>To remind:</p>
+<blockquote><p>1) ... but I want to check that I did't forget to use the map in the reverse (SXML to XML) conversion.</p></blockquote>
+<p>No, I didn't forget.</p>
+<blockquote><p>3) The real bug is coredumping on a certain construction. I stopped programming when I got coredump and can't say for sure, but I think I know the reason and solution in advance.</p></blockquote>
+<p>The idea was wrong, but not very much wrong.</p>
+<p>It was easy to make a test case:</p>
+<pre>
+&lt;s:scheme>
+  (define x (x:current-node))
+  x
+&lt;/s:scheme>
+</pre>
+<p>I even did not debug this case. The problem is obvious. I'm inserting a subtree to the output document by reference. So I have the same subtree in the different trees. This is not supported by libxml2, it segfaults somewhere, probably when freeing the same block of memory once again.</p>
+<p>After thinking some time I realized that code mustn't insert node by reference and there were only two solutions:<br />
+* skip a node which is in the map,<br />
+* make a copy of the node and add the copy.</p>
+<p>I decided to follow the second way. I can't explain why, but it seems more reasonable for me.</p>
+<p>By the way, code prints a warning message:</p>
+<blockquote><p>scm_to_node: bounded node can't be added to tree, adding a free copy</p></blockquote>

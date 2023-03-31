@@ -1,0 +1,42 @@
+---
+layout: post
+title: fast throw-away git repository
+date: 2016-08-22 22:42:51.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2016/08/22/fast-throw-away-git-repository/"
+---
+<p>Based on the article <a href="http://www.linux.com/learn/how-run-your-own-git-server">How to Run Your Own Git Server</a>, I've constructed a small list for fast git setup for temporary projects.</p>
+<p><!--more--></p>
+<p>Server:</p>
+<pre><code>
+$ mkdir -p /the/server/repository/dir
+$ cd /the/server/repository/dir
+$ git init --bare
+</code></pre>
+<p>Client:</p>
+<pre><code>
+$ cd /my/project/directory
+$ git init    # Note: without --bare
+$ git add, commit etc
+$ git push --set-upstream origin master
+</code></pre>
+<p>Other client:</p>
+<pre><code>
+$ git clone /the/server/repository/dir
+or
+$ git clone [ssh://]user@host:/the/server/repository/dir
+</code></pre>

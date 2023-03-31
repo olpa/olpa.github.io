@@ -1,0 +1,28 @@
+---
+layout: post
+title: debugging memory problems
+date: 2005-08-27 16:18:46.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/27/debugging-memory-problems/"
+---
+<p>I should feel lucky. I've debugged and fixed program crashes, which were induced by <i>garbage collection</i>. It have taken only 4 days. I've added 5 lines to the program, and 8 problem issues go away, and more issues will be closed after testing.</p>
+<p><!--more--></p>
+<p>The main problem during debug was to identify the source of the bugs. I managed to find the reason on the third day. It was Guile garbage collection.</p>
+<p>For those who is using Guile and getting</p>
+<pre>freed cell %p; GC missed a reference</pre>
+<p>You are lucky to find this note.</p>
+<p>If you store Guile values in heap, make sure that the garbage collector can find them. If not, use the function "<tt>scm_gc_protect_object</tt>".</p>

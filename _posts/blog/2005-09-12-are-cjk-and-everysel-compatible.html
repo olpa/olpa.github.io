@@ -1,0 +1,41 @@
+---
+layout: post
+title: Are CJK and everysel compatible?
+date: 2005-09-12 17:38:21.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: CJK,everysel,ragged2e,bug,error,problem
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/12/are-cjk-and-everysel-compatible/"
+---
+<p>CJK and everysel seems not compatible. If a CJK document loads "everysel" package (or "ragged2e", which loads "everysel"), the result has artefacts.</p>
+<p><!--more--></p>
+<p>A sample document:</p>
+<pre>
+\\documentclass{article}
+\\usepackage[encapsulated]{CJK}
+\\usepackage{ucs}
+\\usepackage[utf8x]{inputenc}
+%\\usepackage{ragged2e}
+\\usepackage{everysel}
+\\begin{document}
+\\begin{CJK}{UTF8}{cyberbit}
+^^e4^^b8^^96 \\textbf{^^e4^^b8^^96} ^^e4^^b8^^96
+\\end{CJK}
+\\end{document}
+</pre>
+<p>The first symbol is normal. The second symbol is bold. The third symbol should be normal, but it is bold.</p>
+<p>Commenting out loading of "everysel" gives the correct result: the third symbol is normal.</p>
+<p>I use quite old tetex 2.0 and can't install a newer version to check if the problem is fixed. Would anyone please test the example on a newer system and report results?</p>

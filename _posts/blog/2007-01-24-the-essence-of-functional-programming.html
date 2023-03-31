@@ -1,0 +1,33 @@
+---
+layout: post
+title: the essence of functional programming
+date: 2007-01-24 06:53:56.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/01/24/the-essence-of-functional-programming/"
+---
+<p>I've transcripted the code examples from the paper "The essence of functional programming" by Philip Wadler.</p>
+<p><!--more--></p>
+<p>Invited talk, 19'th Symposium on Principles of Programming Languages,<br />
+ACM Press, Albuquerque, January 1992.<br />
+<a href="http://homepages.inf.ed.ac.uk/wadler/papers/essence/essence.ps">http://homepages.inf.ed.ac.uk/wadler/papers/essence/essence.ps</a></p>
+<p><a href="http://homepages.inf.ed.ac.uk/wadler/topics/monads.html">http://homepages.inf.ed.ac.uk/wadler/topics/monads.html</a></p>
+<blockquote><p>
+This paper explores the use monads to structure functional programs. No prior knowledge of monads or category theory is required.</p>
+<p>Monads increase the ease with which programs may be modified. They can mimic the effect of impure features such as exceptions, state, and continuations; and also provide effects not easily achieved with such features. The types of a program reflect which effects occur.</p>
+<p>The first section is an extended example of the use of monads. A simple interpreter is modified to support various extra features: error messages, state, output, and non-deterministic choice. The second section describes the relation between monads and continuation-passing style. The third section sketches how monads are used in a compiler for Haskell that is written in Haskell.
+</p></blockquote>
+<p><a href="http://uucode.com/blog/wp-content/uploads/2007/01/fp-essense-examples.tar.gz">Download the code examples</a>.</p>
+<p><a href="http://community.livejournal.com/ru_declarative/46202.html">Review</a> of the paper in Russian.</p>

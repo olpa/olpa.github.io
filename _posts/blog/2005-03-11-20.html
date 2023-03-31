@@ -1,0 +1,26 @@
+---
+layout: post
+title: Making FM menus
+date: 2005-03-11 19:52:45.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- FrameMaker
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/11/20/"
+---
+<p>It's hard to create menu scripts for FrameMaker, even with help of FrameScript because there are a lot of details. So several months ago I wrote a generator of FrameScript (<b>fslgen</b>). Now I create XML-file with description of desired menu structure, describe handlers and properties, and the generator does all the dirty work.</p>
+<p>When the software appeared first, it was a kind of experiment and just a tool to simplify my work. But now the generator is so essential part of the development process, that I can't understand how I programmed without it.</p>
+<p>Right now I've finished alpha version of a maker of folios. There are a lot of PDFs possible which differ only in variants. In my solution, the possible variants and the differences are described in FrameMaker itself. <b>fslgen</b> takes the description and produces appropriate menus and scripts. A screenshot (<a href="/blog/wp-content/generatemenu.png">click here for better view</a>):</p>
+<p><img src="{{ site.baseurl }}/assets/2005/03/generatemenu.png" alt="generated FrameMaker menu" /></p>
+<p>Quite impressive, isn't it? And what's the more important -- users can change the menu structure without a programmer!</p>

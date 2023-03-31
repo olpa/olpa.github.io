@@ -1,0 +1,29 @@
+---
+layout: post
+title: PerlTeX references sTeXme
+date: 2005-09-05 22:38:43.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- sTeXme
+tags: []
+meta:
+  keywords: stexme,perltex
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/05/perltex-references-stexme/"
+---
+<p>I've just found an article <a href="http://www.tug.org/TUGboat/Articles/tb25-2/tb81pakin.pdf">PerlTeX: Defining LaTeX macros using Perl</a> by Scott Pakin, published in <a href="http://www.tug.org/TUGboat/Articles/tb25-2/">TUGboat 25(2) 2004</a>.</p>
+<p><!--more--></p>
+<p>In the section "Related work", the author writes about sTeXme:</p>
+<blockquote><p>
+... sTeXme, which uses Scheme rather than Perl as the TeX extension language. sTeXme adds a single command to TeX: \stexme, which works like \input but accepts the name of a Scheme file rather than a TeX or LaTeX file. When the Scheme interpreter evaluates the given file, output procedures such as newline and display write into the TeX input stream. Two new procedures, pool-string and get-cmd, provide access to TeX internal state. As with Shibakov's PerlTeX, sTeXme's tight integration with TeX comes at the cost of having to recompile TeX and re-dump all of the format files before the extension language can be used.</p></blockquote>
+<p>He is right about the problem with tight integration. Unfortunately, it is not correct to say that Scheme output procedures write into the TeX input stream. The author was too optimistic about features of sTeXme. At that moment, I wasn't able to put anything into the TeX input stream.</p>
+<p>In any case, it's not important. The new version will change a lot. I hope.</p>

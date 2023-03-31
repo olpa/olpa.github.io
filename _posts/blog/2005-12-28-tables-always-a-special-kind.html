@@ -1,0 +1,22 @@
+---
+layout: post
+title: tables always a special kind
+date: 2005-12-28 19:12:00.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- FrameMaker
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/12/28/tables-always-a-special-kind/"
+---
+<p>I though I need several minutes to write a FrameMaker script. Script had to change font size in a block of text. What could be simplier? Unfortunately, global apply doesn't work: text in tables isn't affected. The only solution I found is to walk over all table cells and re-apply new properties. I dislike the solution, but it at least work.</p>

@@ -1,0 +1,145 @@
+---
+layout: post
+title: why to bother with namespaces
+date: 2005-05-03 23:50:58.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta:
+  keywords: namespaces,xsltproc,saxon,attribute
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/03/why-to-bother-with-namespaces/"
+---
+<p>I found a non-obvious issue in the Namespace Recommendation and fixed my converter. Then I decided to look at other popular de-facto stanadrd tools. They are buggy. So I don't understand why I work so hard to make my program as correct as possible.</p>
+<p><!--more--></p>
+<p><i>I've written total nonsense. See the "Update" section below.</i></p>
+<p>Back to the issue. As I understand the specification, if an attribute has no ns prefix and its element has a ns prefix, then the attribute inherits the ns from the elements. So the following XML examples are identical. An attribute has prefix:</p>
+<pre>&lt;ns:elem xmlns:ns="ns:ns:ns" <b>ns:attr</b>="smth" /></pre>
+<p>Now the attribute has no prefix, but it still in the same namespace URI:</p>
+<pre>&lt;ns:elem xmlns:ns="ns:ns:ns" <b>attr</b>="smth" /></pre>
+<p>Using the <a href="http://jclark.com/xml/xmlns.htm">James Clark notation</a>, the both examples defines the following XML:</p>
+<pre>&lt;{ns:ns:ns}elem {ns:ns:ns}attr="smth" /></pre>
+<p>It was theory. Now let switch to practice. Let apply XSLT stylesheet to itself ysing saxon 8.5.3 and xsltproc CVS version of 3 May 2005.</p>
+<h2>attribute is prefixed in XML and in XPath</h2>
+<p>XSLT:</p>
+<pre>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" <b>xsl:version</b>="1.0">
+
+&lt;xsl:template match="/">
+  &lt;x>
+    &lt;xsl:copy-of select="/xsl:stylesheet/<b>@xsl:version</b>"/>
+  &lt;/x>
+&lt;/xsl:template>
+
+&lt;/xsl:stylesheet>
+</pre>
+<p>Expected result:</p>
+<pre>
+&lt;x xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xsl:version="1.0"/>
+</pre>
+<p>saxon (failed):</p>
+<pre>
+Error at xsl:stylesheet on line 1 of file:/home/prof/tmp/xml/20050503/test11.xsl:
+  Attribute xsl:version is not allowed on this element
+Transformation failed: Failed to compile stylesheet. 1 error detected.
+</pre>
+<p>xsltproc (ok):</p>
+<pre>
+&lt;?xml version="1.0"?>
+&lt;x xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xsl:version="1.0"/>
+</pre>
+<h2>attribute is prefixed in XML and not prefixed in XPath</h2>
+<p>XSLT:</p>
+<pre>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" <b>xsl:version</b>="1.0">
+
+&lt;xsl:template match="/">
+  &lt;x>
+    &lt;xsl:copy-of select="/xsl:stylesheet/<b>@version</b>"/>
+  &lt;/x>
+&lt;/xsl:template>
+
+&lt;/xsl:stylesheet>
+</pre>
+<p>Expected result:</p>
+<pre>
+&lt;x/>
+</pre>
+<p>saxon (failed):</p>
+<pre>
+Error at xsl:stylesheet on line 1 of file:/home/prof/tmp/xml/20050503/test01.xsl:
+  Attribute xsl:version is not allowed on this element
+Transformation failed: Failed to compile stylesheet. 1 error detected.
+</pre>
+<p>xsltproc (ok):</p>
+<pre>
+&lt;?xml version="1.0"?>
+&lt;x/>
+</pre>
+<h2>attribute is not prefixed in XML and is prefixed in XPath</h2>
+<p>XSLT:</p>
+<pre>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" <b>version</b>="1.0">
+
+&lt;xsl:template match="/">
+  &lt;x>
+    &lt;xsl:copy-of select="/xsl:stylesheet/<b>@xsl:version</b>"/>
+  &lt;/x>
+&lt;/xsl:template>
+
+&lt;/xsl:stylesheet>
+</pre>
+<p>Expected result:</p>
+<pre>
+&lt;x xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xsl:version="1.0"/>
+</pre>
+<p>saxon (failed):</p>
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?>&lt;x/>
+</pre>
+<p>xsltproc (failed):</p>
+<pre>
+&lt;?xml version="1.0"?>
+&lt;x/>
+</pre>
+<h2>attribute is not prefixed both in XML and XPath</h2>
+<p>XSLT:</p>
+<pre>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" <b>version</b>="1.0">
+
+&lt;xsl:template match="/">
+  &lt;x>
+    &lt;xsl:copy-of select="/xsl:stylesheet/<b>@version</b>"/>
+  &lt;/x>
+&lt;/xsl:template>
+
+&lt;/xsl:stylesheet>
+</pre>
+<p>Expected result:</p>
+<pre>
+&lt;x/>
+</pre>
+<p>saxon (failed):</p>
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?>&lt;x version="1.0"/>
+</pre>
+<p>xsltproc (failed):</p>
+<pre>
+&lt;?xml version="1.0"?>
+&lt;x version="1.0"/>
+</pre>
+<h2>5 May 2005, Update</h2>
+<p>Before submitting bugs to XSLT processors, I <a href="http://lists.xml.org/archives/xml-dev/200505/msg00091.html">asked in xml-dev</a> if my understanding is correct. Fortunately, I <a href="http://lists.xml.org/archives/xml-dev/200505/msg00092.html">was answered</a> that I'm wrong. The only I could do is to <a href="http://lists.xml.org/archives/xml-dev/200505/msg00093.html">say thank you</a> and note:</p>
+<blockquote><p>I've re-read the Recommendation and found the phrase that misled me: "the interpretation of unprefixed attributes is determined by the element on which they appear." I must have read more attentive and found the phrase which is similar to what you said: "The namespace name for an unprefixed attribute name always has no value."</p></blockquote>
+<h2>25 May 2005, Update</h2>
+<p>Now it's my turn to answer on a similar question: <a href="http://lists.w3.org/Archives/Public/www-ql/2005AprJun/0060.html">Re: Clarification needed on attribute names without namespace prefix</a>.</p>

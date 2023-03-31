@@ -1,0 +1,30 @@
+---
+layout: post
+title: vi editing mode set global
+date: 2016-10-18 08:19:02.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta:
+  _edit_last: '1'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2016/10/18/vi-editing-mode-set-global/"
+---
+<p>The Linux command line and other software based on <tt>readline</tt> library support <a href="http://www.catonmat.net/blog/bash-vi-editing-mode-cheat-sheet">vi editing mode</a>. After I worked on a new system with the default settings for a while, I noticed that I miss this mode very much.</p>
+<p><!--more--></p>
+<p>It took some time to remember how I setup it on the main system. Grepping files for the line "<tt>set -o vi</tt>" has given nothing. Finally, I found that the solution is very nice and probably not described anywhere.</p>
+<p>The file "<tt>/etc/inputrc</tt>" should contain the line:</p>
+<pre><code>C-[: vi-movement-mode</code></pre>
+<p>Now, initially, the input works as usual. But when I press the button <tt>ESC</tt>, the input switches to the vi mode.</p>

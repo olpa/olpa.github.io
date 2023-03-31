@@ -1,0 +1,43 @@
+---
+layout: post
+title: let a bug be a feature
+date: 2005-04-19 23:56:22.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/19/let-a-bug-be-a-feature/"
+---
+<p>Adding variables to XPath was a simple task. But when I was testing it, I had to switch to testing the Scheme function "x:current" (former name "x:current-node") and then found an essential problem with the namespaces.</p>
+<p><!--more--></p>
+<p>It was easy to predict this sort of problems, but subconsciously I was ignoring it until stumbled upon it.</p>
+<p>Consider the XML:</p>
+<pre>
+&lt;root xmlns:z="http://z">
+  &lt;z:part>text&lt;/z:part>
+&lt;/root>
+</pre>
+<p>The corresponding SXML is:</p>
+<pre>
+(root (@ (@ (*NAMESPACES* (z "http://z"))))
+  (z:part "text")
+</pre>
+<p>After making "cddr" on the SXML, the result is:</p>
+<pre>(z:part "text")</pre>
+<p>The prefix "z" is unbound now. I though it was not a problem because I have a map between the Scheme nodes and the libxml tree, and it is easy to get a libxml node which corresponds to "z:part" and look up the "z" definition in the ancestors.</p>
+<p>Now I see the problem. If we make a deep code of the SXML above, we have nothing to look up, and the prefix "z" is now really unbound.</p>
+<p>And we really need to deep copy as a method to eliminate the "scm_to_node: bounded node can't be added to tree, adding a free copy" warning. (See <a href="http://uucode.com/blog/2005/03/29/bugfixing-2-coredump/">explanations</a>.)</p>
+<p>The only solution I see is to document this problem, so making it a feature, not a bug. That's what I'm doing by this post.</p>
+<p>User-side solution is: let the same prefixes in XML and XSLT point to same URIs, and define the prefix in the "xsl:stylesheet" element. Then all will be ok.</p>
+<p>Technical explanation. XSLT processor (at least, xsltproc) copies all prefixes from "xsl:stylesheet" to the output tree. When our code inserts a node with a lost prefix, the lost prefix will be coincidely matched to the top-level prefix. As the URIs are the same, result is correct.</p>

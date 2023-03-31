@@ -1,0 +1,34 @@
+---
+layout: post
+title: if I were writing an XML editor
+date: 2008-07-10 06:59:26.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- publishing
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/07/10/if-i-were-writing-an-xml-editor/"
+---
+<p>There is a number of XML-editors, but there are no user-friendly ones (except FraemMaker). A standard XML editor is a tool for programmers, to play with XML. But technical writers need an user-centric XML editor, to play with a document, not with XML.</p>
+<p><!--more--></p>
+<p>If I were writing an user-friendly XML editor, my specification would cover the following.</p>
+<p>WYSIWYG, real or pseudo.</p>
+<p>CALS tables support.</p>
+<p>Entities support: if an XML document contains entities, the editor must retain them. More, the editor should easily fold/unfold/edit nested entities on demand:</p>
+<p>* an entity can appear as some visual symbol<br />
+* an entity content can be diplayed in full<br />
+* an user can edit an entity separately</p>
+<p>Implicit transformations: for editing and formatting purposes, it could be useful to modify the document's structure while loading XML.</p>
+<p>Advanced, hidden from an usual user: support of concurrent markup (multiple overlapping XML trees in one document).</p>
+<p>Only basic DTD/Schema support, no need for an XSLT debugger and other programmer-centric tools.</p>
+<p>Structure islands: allow to write as in Word, without any structure. Allow using XML only in parts of the document.</p>

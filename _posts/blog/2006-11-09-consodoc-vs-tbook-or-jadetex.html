@@ -1,0 +1,38 @@
+---
+layout: post
+title: Consodoc vs tbook or jadetex
+date: 2006-11-09 07:12:29.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- consodoc
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/11/09/consodoc-vs-tbook-or-jadetex/"
+---
+<p>In comp.text.xml, I was asked to compare Consodoc with tbook and jadetex. <a href="http://groups.google.com/group/comp.text.xml/msg/fa93cf4e2bafb64f">My answer</a>.</p>
+<p><!--more--></p>
+<p>thanks for asking. It's hard to compare Consodoc with tbook or jadetex, they are different things. Consodoc is a framework which unites several technologies to the whole.</p>
+<p>Being a framework, it automates the gory details, but you still need to write some code. It's the main and I hope the only cons. More precisely, you need to write:</p>
+<p>* an XSLT program to convert XML to LaTeX, and<br />
+* (optionally) a LaTeX class file.</p>
+<p>On the pros side: Thanks to TeXML, you need only the basics of XSLT to rewrite XML tags to LaTeX environments. And writing a class file is an easy task for an experienced LaTeX developer.</p>
+<p>For more pros, see the column "Benefits": http://consodoc.com/</p>
+<p>Now let's try to compare the tools.</p>
+<p>tbook:</p>
+<p>* Source XML should be in the gives DTD, but the program for converting XML to LaTeX already exists.<br />
+* Consodoc doesn't restrict the format of the source XML, but you have to write a conversion program.</p>
+<p>jadetex:</p>
+<p>* A Jade program should be written by you. The same is for the conversion program in Consodoc.<br />
+* The TeX code, produced by Jade, isn't for a human.<br />
+* In Consodoc, the intermediate LaTeX code is actually a first-class citizen. Consodoc encourages manual tuning of the LaTeX code to produce beautiful PDFs.</p>
+<p>Don't hesitate to ask further questions!</p>

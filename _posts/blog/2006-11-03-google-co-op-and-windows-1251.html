@@ -1,0 +1,50 @@
+---
+layout: post
+title: Google Co-op and windows-1251
+date: 2006-11-03 08:49:50.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/11/03/google-co-op-and-windows-1251/"
+---
+<p><a href="http://www.google.com/coop/">Google Co-op</a> is a service that allows to create custom search engines. At the moment, it officially supports only English, but it seems other languages work as well.</p>
+<p><!--more--></p>
+<p>To workaround the ASCII limit for a Custom Search Engine (CSE) name and description, one can use the XML interface. Download the XML description, add the utf8-encoded text to XML and upload back the XML.</p>
+<p>Another problem is search directly from a site. My site works in the cp1251 encoding, therefore browsers submit search requests in this encoding, but Goggle Co-op doesn't understand it.</p>
+<p>Fortunately, I found a workaround. Instead of submitting the query directly to Google, the search request is submitted to a PHP script. The scripts converts the query text from cp1251 to utf8 and redirects the browser to the CSE:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#a65700; background:#ffffe8; ">&lt;?php</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#000000; background:#ffffe8; ">$pre</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">=</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#0000e6; background:#ffffe8; ">'http://google.com/cse?cx=016263988511596419578:cpl03_53a24&amp;sa=Search&amp;cof=FORID:1&amp;q='</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#000000; background:#ffffe8; ">$q</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">=</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#800080; background:#ffffe8; ">@</span><span style="color:#400000; background:#ffffe8; ">iconv</span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#0000e6; background:#ffffe8; ">'cp1251'</span><span style="color:#808030; background:#ffffe8; ">,</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#0000e6; background:#ffffe8; ">'UTF-8'</span><span style="color:#808030; background:#ffffe8; ">,</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#000000; background:#ffffe8; ">$_GET</span><span style="color:#808030; background:#ffffe8; ">[</span><span style="color:#0000e6; background:#ffffe8; ">'q'</span><span style="color:#808030; background:#ffffe8; ">]</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#800000; background:#ffffe8; font-weight:bold; ">if</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#800000; background:#ffffe8; font-weight:bold; ">FALSE</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">=</span><span style="color:#808030; background:#ffffe8; ">=</span><span style="color:#808030; background:#ffffe8; ">=</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#000000; background:#ffffe8; ">$q</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#800080; background:#ffffe8; ">{</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#000000; background:#ffffe8; ">  </span><span style="color:#000000; background:#ffffe8; ">$q</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">=</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#000000; background:#ffffe8; ">$_GET</span><span style="color:#808030; background:#ffffe8; ">[</span><span style="color:#0000e6; background:#ffffe8; ">'q'</span><span style="color:#808030; background:#ffffe8; ">]</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#800080; background:#ffffe8; ">}</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#000000; background:#ffffe8; ">$url</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">=</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#000000; background:#ffffe8; ">$pre</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">.</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#400000; background:#ffffe8; ">urlencode</span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#000000; background:#ffffe8; ">$q</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#000000; background:#ffffe8; ">$redir</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">=</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#0000e6; background:#ffffe8; ">'Location: '</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">.</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#000000; background:#ffffe8; ">$url</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#400000; background:#ffffe8; ">header</span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#000000; background:#ffffe8; ">$redir</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#800000; background:#ffffe8; font-weight:bold; ">exit</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "></span>
+<span style="color:#a65700; background:#ffffe8; ">?></span>
+</code></pre>
+<h2>5 November 2006, update</h2>
+<p>My addition to the discussion "<a href="http://groups.google.com/group/google-co-op/browse_frm/thread/b7fd614e91b5fc9d/c09bdb5d3f8c09ac?#c09bdb5d3f8c09ac">Placing CSE Code to page with Windows-1251 encoding</a>":</p>
+<p>I suggest to play with the attributes "accept" and "accept-charset" of the tag "form". I have no idea if the browsers support them, but HTML 4 specification says:</p>
+<p>accept-charset = charset list [CI]</p>
+<p>This attribute specifies the list of character encodings for input data that is accepted by the server processing this form. The value is a space- and/or comma-delimited list of charset values. The client must interpret this list as an exclusive-or list, i.e., the server is able to accept any single character encoding per entity received.</p>
+<p>The default value for this attribute is the reserved string "UNKNOWN". User agents may interpret this value as the character encoding that was used to transmit the document containing this FORM element.</p>
+<p>accept = content-type-list [CI]</p>
+<p>This attribute specifies a comma-separated list of content types that a server processing this form will handle correctly. User agents may use this information to filter out non-conforming files when prompting a user to select files to be sent to the server (cf. the INPUT element when type="file"). </p>
+<h2>7 Novermber 2006, update</h2>
+<p>yet another suggestion:</p>
+<pre><code>
+&lt;input name="lr" type="hidden" value="lang_ru">
+</code></pre>

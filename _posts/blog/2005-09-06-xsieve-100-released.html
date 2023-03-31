@@ -1,0 +1,40 @@
+---
+layout: post
+title: XSieve 1.0.0 released
+date: 2005-09-06 22:22:06.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/06/xsieve-100-released/"
+---
+<p>XSieve was released 1 September 2005, but I started to send announces only recently. Here is an example of announce for the xml-dev mailing list and the comp.text.xml newsgroup.</p>
+<p><!--more--></p>
+<p>XSieve, an XML transformation language based on combination of XSLT and Scheme (a Lisp dialect). XSieve make XSLT to be a general-purpose language. Personally for me, XSieve is an alternative to XSLT 2.0. For objectives, read</p>
+<p>* <a href="http://xsieve.sourceforge.net/index.html#preface">http://xsieve.sourceforge.net/index.html#preface</a><br />
+* <a href="http://xsieve.sourceforge.net/background.html">http://xsieve.sourceforge.net/background.html</a></p>
+<p>XSieve allows to use Scheme for writing XSLT extensions. The special features, which differentiate it from extensions in Java/JavaScript/Python/etc, are the following.</p>
+<p>* Scheme is a functional languages, while other extension languages are imperative.</p>
+<p>* XSieve doesn't have XML API. Instead, XML nodes are automatically represented using Scheme lists (SXML format), and Scheme code works with the lists.</p>
+<p>* It's possible to say "apply-templates" in Scheme code.</p>
+<p>* Controversal: XSieve supports entities in output.</p>
+<p>Everyone isn't the audience of XSieve. To use XSLT, one should be very skilled. To use Scheme, one should be very skilled. Therefore, to use XSieve, one should be very very skilled.</p>
+<p>One of the simplest use cases for XSieve is running an external program. For example, when making HTML from DocBook, it's possible to filter "programlisting"s through a syntax highlighting program.</p>
+<p>An example of a real use case is conversion of CALS tables. In the past I wrote an XSLT stylesheet for CALS tables. Providing only a basic support, the stylesheet was a complete mess. I'm sure that an XSieve version will be much better.</p>
+<p>XSieve passed the DocBook stylesheets test. Therefore, XSieve is considered to be stable:</p>
+<p><a href="http://xsieve.sourceforge.net/ex-docbook.html">http://xsieve.sourceforge.net/ex-docbook.html</a></p>
+<p>At the momemt, Xsieve is based on xsltproc (an XSLT processor) and Guile (a Scheme interpreter). It should work everywhere xsltproc and Guile work, but I've tested it only on Linux.</p>
+<p>XSieve home page: <a href="http://xsieve.sourceforge.net/index.html">http://xsieve.sourceforge.net/index.html</a><br />
+Project page: <a href="http://sourceforge.net/projects/xsieve/">http://sourceforge.net/projects/xsieve/</a></p>
+<p>Comments are welcome!</p>

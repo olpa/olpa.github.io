@@ -1,0 +1,32 @@
+---
+layout: post
+title: "\\AddFontFeature in plain XeTeX"
+date: 2011-01-18 15:15:40.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/01/18/addfontfeature-in-plain-xetex/"
+---
+<p>XeLaTeX package "fontspec" provides an useful command "AddFontFeature" to add an effect to the curently selected font. Unfortunately, it works only if fontspec is used. Otherwise, a workaround is required. So far here is a draft to make text narrow:</p>
+<p><!--more--></p>
+<p>Somewhere in .tex-file define the command:</p>
+<pre style="color:#000000;background:#ffffff;"><code>\newcommand\ForceNarrowText<span style="color:#800080; ">{</span><span style="color:#808030; ">%</span>
+\def\addtoname<span style="color:#800000; ">"</span><span style="color:#0000e6; ">##1</span><span style="color:#800000; ">"</span><span style="color:#800080; ">{</span>\def\NarrowFontName<span style="color:#800080; ">{</span><span style="color:#800000; ">"</span><span style="color:#0000e6; ">##1:extend=0.8</span><span style="color:#800000; ">"</span><span style="color:#800080; ">}</span><span style="color:#800080; ">}</span><span style="color:#808030; ">%</span>
+\expandafter\addtoname\fontname\font<span style="color:#808030; ">%</span>
+<span style="color:#808030; ">%</span>\show\NarrowFontName
+\font\NarrowFont<span style="color:#808030; ">=</span>\NarrowFontName\relax \NarrowFont<span style="color:#800080; ">}</span>
+</code></pre>
+<p>and then use it:</p>
+<pre style="color:#000000;background:#ffffff;"><code>hello <span style="color:#800080; ">{</span>\ForceNarrowText hello<span style="color:#800080; ">}</span> hello</code></pre>

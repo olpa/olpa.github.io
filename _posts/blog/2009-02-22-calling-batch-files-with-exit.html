@@ -1,0 +1,39 @@
+---
+layout: post
+title: calling batch files with 'exit'
+date: 2009-02-22 18:07:40.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- windows
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2009/02/22/calling-batch-files-with-exit/"
+---
+<p>Consider '<tt>main.bat</tt>'</p>
+<pre><code>
+call child1.bat
+call child2.bat
+</code></pre>
+<p>What happens after '<tt>child1.bat</tt>' is finished?</p>
+<p><!--more--></p>
+<p>I reasonably expected that '<tt>child2.bat</tt>' is executed. In a ideal world, yes.</p>
+<p>In the real world, the first script contains the command '<tt>exit</tt>', and this commands not only exists from '<tt>child1.bat</tt>', but also terminates '<tt>main.bat</tt>'. Therefore, '<tt>child2.bat</tt>' isn't executed. I don't have words to comment this behavior.</p>
+<p>As a workaround, I constructed the following. Not sure it's correct, but right now it works for me.</p>
+<pre><code>
+start /B /wait child1.bat
+start /B /wait child2.bat
+</code></pre>
+<p>And the order of the arguments is important. "<tt>/B wait</tt>" makes the trick, "<tt>/wait /B</tt>" doesn't.</p>
+<p>From documentation:</p>
+<p>* /B: Start application without creating a new window. The application has ^C handling ignored. Unless the application enables ^C processing, ^Break is the only way to interrupt the application<br />
+* /WAIT: Start application and wait for it to terminate</p>

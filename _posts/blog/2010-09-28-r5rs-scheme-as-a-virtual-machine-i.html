@@ -1,0 +1,51 @@
+---
+layout: post
+title: r5rs scheme as a virtual machine - I
+date: 2010-09-28 15:32:26.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- scheme
+- science
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/09/28/r5rs-scheme-as-a-virtual-machine-i/"
+---
+<p>Some time ago I advocated that the programming language Scheme is a new portable assembler. We can code something in Scheme and then compile it to PHP or Python. Now I want to try this idea. First, an explanation why Scheme:</p>
+<p><!--more--></p>
+<p>I used to convert data in different languages. Similar approaches, similar code, repeating myself. I wanted to code once and get something universal, and even started to think about it. Fortunately, somehow I found that I was re-inventing Lisp. It was a big surprise, to find that my former approach was wrong, namely: "lots of idiotic stupid parentheses" or "academical exercise".</p>
+<p>List vs Scheme. Lisp is big with a few implementations. Scheme: small core, a lot of experimental implementations. The final switch happened after I found XML research on top of Scheme (SXML libraries).</p>
+<p>Back to the topic. I've made a small research (part 1) to get a general idea what is already done (current answer: nothing). I searched for "scheme virtual machine" in the newsgroup "comp.lang.scheme", in Google, in Scholar.</p>
+<p>Actually, implementing Scheme is not so easy. One has to consider at least:</p>
+<p>* the garbage collector<br />
+* the full numerical tower<br />
+* call/cc<br />
+* tail-call<br />
+* macros<br />
+* compiling tricks: lambda lifting, cps transformation</p>
+<p>It is hard to implement everything from the beginning. Let's use an existing tool.</p>
+<p>Every Scheme is implemented through an intermediate VM. We'd like to try those which compile to a languages like C or Java or PHP or Python etc. If there is no such feature, the VM is probably of no use for us because even the author failed to do it.</p>
+<p>Instead of the buzzwords "virtual machine" I should search by the word "backend".</p>
+<p>The step 2 (TODO) of the research: check all the implementations listed at <a href="http://community.schemewiki.org/?scheme-faq-standards#implementations">http://community.schemewiki.org/?scheme-faq-standards#implementations</a> and find which allow to create backends.</p>
+<p>Meanwhile, here are some references which I written out into the notebook.</p>
+<p>I've read and enjoyed these 3 papers:</p>
+<p>* The 90 minute Scheme to C compiler.<br />
+* CONS Should Not CONS Its Arguments, Part II: Cheney on the M.T.A. (A super trick of using the stack as the newest generation of GC. Chicken Scheme is based on it.)<br />
+* A parallel virtual machine for efficient Scheme compilation</p>
+<p>There are more papers at <a href="http://library.readscheme.org/page8.html">http://library.readscheme.org/page8.html</a>.</p>
+<p>Books:</p>
+<p>Christian Queinnec, Lisp in Small Pieces</p>
+<p>Samual N. Kamin, "Programming Languages, An Interpreter-Based Approach", Addison-Wesley, Reading, Mass., 1990.</p>
+<p>"The Anatomy of Lisp" by John Allen. (McGraw-Hill ISBN 0-07-001115-X)</p>
+<h2>Further ports</h2>
+<p>* <a href="http://uucode.com/blog/2010/10/04/scheme-as-a-virtual-machine-ii/">Part 2</a><br />
+* <a href="http://uucode.com/blog/2010/11/12/scheme-as-a-virtual-machine-iii/">Part 3</a></p>

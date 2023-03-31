@@ -1,0 +1,43 @@
+---
+layout: post
+title: 'running Fritz&Fertig (eng: Fritz and Chesster) in the parental control mode
+  (Mac OS X)'
+date: 2009-09-24 07:27:16.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- chess
+- Mac
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2009/09/24/running-fritzfertig-eng-fritz-and-chesster-in-the-parental-control-mode-mac-os-x/"
+---
+<p>I purchased "<a href="http://www.chessbase.com/shopd/product.asp?pid=558">Fritz und Fertig: Schach lernen und trainieren</a> ("<a href="http://www.chessbase.com/shop/product.asp?pid=165">Fritz and Chesster: learn to play chess</a>", other languages also available). My opinion is simple: it's a masterpiece and the best ever computer game for children.</p>
+<p>Unfortunately, I got technical problems. Fortunately, solved them.</p>
+<p><!--more--></p>
+<p>The main issue is that my Mac Mini can't read the CD. Therefore, I tried to rip the disk and use the image. To my big surprise, it worked. No idiotic anti-copy protection.</p>
+<p>Ripping a CD. Probably user-friendly tools exist, but I used something like this:</p>
+<pre><code>
+$ sudo umount /Volumes/Fritz\ und\ Fertig
+$ sudo dd if=/dev/disk1s1s2 of=ff.iso
+</code></pre>
+<p>To mount the image, just click on "<tt>ff.iso</tt>" in Finder.</p>
+<p>But can you click on the image in Simplified Finder (parental control works)? Probably yes, but I don't know how. Therefore, I wrote a wrapper script "<tt>FritzUndFertiz.command</tt>":</p>
+<pre><code>
+#!/bin/sh
+
+open /Users/.....path.to.../ff.iso
+sleep 5
+open '/Volumes/Fritz und Fertig/Fritz - OS X/Fritz und Fertig'
+</code></pre>
+<p>To run the script, set the executable flag ("<tt>chmod +x FritzUndFertiz.command</tt>" in the console). Move the script to "MyApplications", try to run, allow all the required programs, and --</p>
+<p>The child can run Fritz&Fertig without assistance.</p>

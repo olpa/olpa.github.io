@@ -1,0 +1,52 @@
+---
+layout: post
+title: 'xsltproc: nodeset sort fails on a namespace node'
+date: 2005-08-29 23:15:36.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/29/xsltproc-nodeset-sort-fails-on-a-namespace-node/"
+---
+<p>Another libxml2/libxslt <a href="http://bugzilla.gnome.org/show_bug.cgi?id=314788">bug</a> is found and reported by me.</p>
+<p><!--more--></p>
+<p>Consider the following code:</p>
+<pre>[code]
+&lt;x:stylesheet
+  xmlns:x = &quot;http://www.w3.org/1999/XSL/Transform&quot;
+  version = &quot;1.0&quot;&gt;
+&lt;!-- --&gt;
+
+&lt;x:template match=&quot;/&quot;&gt;
+  &lt;data aname=&quot;aval&quot; xmlns:ns=&quot;ns:ns:ns&quot;&gt;
+    &lt;t1&gt;&lt;x:value-of select=&quot;string(//data/namespace::ns)&quot;/&gt;&lt;/t1&gt;
+    &lt;t2&gt;&lt;x:value-of select=&quot;string(//data/@aname)&quot;/&gt;&lt;/t2&gt;
+    &lt;t3&gt;&lt;x:value-of select=&quot;string(//data/@aname | //data/namespace::ns)&quot;/&gt;&lt;/t3&gt;
+  &lt;/data&gt;
+&lt;/x:template&gt;
+
+&lt;/x:stylesheet&gt;
+[/code]</pre>
+<p>xsltproc produces:</p>
+<pre>[code]
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;data xmlns:ns=&quot;ns:ns:ns&quot;
+aname=&quot;aval&quot;&gt;&lt;t1&gt;ns:ns:ns&lt;/t1&gt;&lt;t2&gt;aval&lt;/t2&gt;&lt;t3&gt;aval&lt;/t3&gt;&lt;/data&gt;
+[/code]</pre>
+<p>but expected result is:</p>
+<pre>[code]
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;data xmlns:ns=&quot;ns:ns:ns&quot;
+aname=&quot;aval&quot;&gt;&lt;t1&gt;ns:ns:ns&lt;/t1&gt;&lt;t2&gt;aval&lt;/t2&gt;&lt;t3&gt;ns:ns:ns&lt;/t3&gt;&lt;/data&gt;
+[/code]</pre>
+<p>&lt;t3&gt;ns:ns:ns&lt;/t3&gt; instead of &lt;t3&gt;aval&lt;/t3&gt; is expected because namespace nodes come before attribute nodes in the document order.</p>

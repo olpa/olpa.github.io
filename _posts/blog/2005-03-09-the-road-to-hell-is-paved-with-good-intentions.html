@@ -1,0 +1,27 @@
+---
+layout: post
+title: the road to hell is paved with good intentions
+date: 2005-03-09 01:14:57.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/09/the-road-to-hell-is-paved-with-good-intentions/"
+---
+<p>I've spent the evening investigating why I was getting a core dump. It was not an easy task because the code was in a plugin (so it was hard to set a breakpoint) and the data structures were full of links (libxml) or the mess (Guile).</p>
+<p>Well, suppose you have the empty element node <tt>par</tt> and two text nodes <tt>node1</tt> and <tt>node2</tt> with the content <tt>text1</tt> and <tt>text1</tt>. You adds nodes <tt>node1</tt> and <tt>node2</tt> as children to the node <tt>par</tt>. What the structure do you get? A node with two text children? No, it's too boring. Excerpt from the <tt>xmlAddChild</tt> description:</p>
+<blockquote><p>Add a new node to @parent, at the end of the child (or property) list merging adjacent TEXT nodes (in which case @cur is freed)</p></blockquote>
+<p>It was my problem. I was reusing a freed node. It was a big problem because I had to reuse it, and the automatical merging broke the mapping between SCM values and xml nodes. Well, the solution is trivial: I don't map text nodes anymore, and now I see that it is the right way.</p>
+<p>Conclusion: sometimes even the road to hell is useful.</p>
+<p>By the way, I've implemented conversion of Scheme lists to XML nodesets. The problem above arose while working on the conversion.</p>

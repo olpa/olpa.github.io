@@ -1,0 +1,50 @@
+---
+layout: post
+title: 'Solved: unable to enumerate USB device on port 1'
+date: 2011-01-18 11:19:59.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta:
+  _oembed_fe934da07e8ec306e1bb9fd95fb9d6ab: "{{unknown}}"
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/01/18/solved-unable-to-enumerate-usb-device-on-port-1/"
+---
+<p>At some moment, my USB WLAN stick stopped working, and the log was polluted by messages like:</p>
+<pre>
+usb 6-1: new high speed USB device using ehci_hcd and address 62
+hub 6-0:1.0: unable to enumerate USB device on port 1
+hub 6-0:1.0: unable to enumerate USB device on port 1
+</pre>
+<p>At first, I decided that the stick had broken after years of work, but out of curiousity tried to connect it to every USB port I found. It worked. The stick worked again when plugged into the keyboard, which in term was connected to the KVM.</p>
+<p><!--more--></p>
+<p>What is funny, I did nothing, but after a few days the stick worked again correctly in its original port. I forgot about the problem. But after yet another vacations, the problem appeared again, and again disappeared in a few days.</p>
+<p>I have no idea why.</p>
+<p>But I finally found a solution here: <a href="http://www.absolutelytech.com/2010/04/18/solved-unable-to-enumerate-usb-device-disabling-ehci_hcd/">[Solved] Unable to enumerate USB device (Disabling ehci_hcd)</a>. I need to disable <tt>ehci_hcd</tt>. In my case, the commands is:</p>
+<pre>
+# cd /sys/bus/pci/drivers/ehci_hcd
+# echo -n "0000:00:1a.7" > unbind
+</pre>
+<p>As a side effect, I do not have USB 2.0 on this bus anymore, but it is not a problem.</p>
+<h2>24.02.2010, update</h2>
+<p>To issue the command automatically on boot, one could edit <tt>/etc/rc.local</tt>, but in my case I need to have network loaded before. The best solution (I hope) is based on advice here:</p>
+<p>https://bugs.launchpad.net/ubuntu/+source/linux/+bug/354832</p>
+<blockquote><p>
+You can disable this on boot by creating a /etc/udev/rules.d/disable-ehci.rules file containing:</p>
+<p><code />
+<pre>
+ACTION=="add", SUBSYSTEM=="pci", DRIVER=="ehci_hcd", \
+        RUN+="/bin/sh -c 'echo -n %k > %S%p/driver/unbind'"
+</pre>
+</blockquote>
+<blockquote></blockquote>

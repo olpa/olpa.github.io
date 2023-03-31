@@ -1,0 +1,43 @@
+---
+layout: post
+title: Word to HTML
+date: 2006-11-24 09:21:37.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/11/24/word-to-html/"
+---
+<p>I got an HTML export from Word. The HTML code was very ugly and, what's worse, confused the site where I wanted to submit the text. I failed to refine the code with <a href="http://tidy.sourceforge.net/">tidy</a>, therefore wrote a quick Perl hack.</p>
+<p><!--more--></p>
+<p>The hack removes most of the garbage:</p>
+<p>* The tags "p" and "b": attributes are removed.<br />
+* The tags "span", "font" and "o:p" are removed completely.<br />
+* Additionally, line feeds are removed from &lt;p>...&lt;/p>.</p>
+<p>The result of the running the script isn't ideal, and the manual work is required. But it isn't an issue.</p>
+<pre style="color:#000000;background:#ffffff;"><code>$/ <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">undef</span><span style="color:#800080; ">;</span>
+$l <span style="color:#808030; ">=</span> <span style="color:#40015a; ">&lt;></span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">foreach</span> $tname <span style="color:#808030; ">(</span><span style="color:#0000e6; ">'p'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'b'</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+  $l <span style="color:#808030; ">=</span><span style="color:#808030; ">~</span> <span style="color:#800000; font-weight:bold; ">s</span><span style="color:#800000; ">/</span><span style="color:#0000e6; ">&lt;</span><span style="color:#0000e6; ">$tname</span><span style="color:#808030; ">[</span><span style="color:#808030; ">^</span><span style="color:#0000e6; ">></span><span style="color:#808030; ">]</span><span style="color:#808030; ">*</span><span style="color:#0000e6; ">></span><span style="color:#800000; ">/</span><span style="color:#0000e6; ">&lt;</span><span style="color:#0000e6; ">$tname</span><span style="color:#0000e6; ">></span><span style="color:#800000; ">/</span><span style="color:#800000; font-weight:bold; ">gsmi</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+<span style="color:#800000; font-weight:bold; ">foreach</span> $tname <span style="color:#808030; ">(</span><span style="color:#0000e6; ">'span'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'font'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'o:p'</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+  $l <span style="color:#808030; ">=</span><span style="color:#808030; ">~</span> <span style="color:#800000; font-weight:bold; ">s</span><span style="color:#800000; ">/</span><span style="color:#0000e6; ">&lt;</span><span style="color:#0000e6; ">$tname</span><span style="color:#808030; ">[</span><span style="color:#808030; ">^</span><span style="color:#0000e6; ">></span><span style="color:#808030; ">]</span><span style="color:#808030; ">*</span><span style="color:#0000e6; ">></span><span style="color:#800000; ">/</span><span style="color:#800000; ">/</span><span style="color:#800000; font-weight:bold; ">gsmi</span><span style="color:#800080; ">;</span>
+  $l <span style="color:#808030; ">=</span><span style="color:#808030; ">~</span> <span style="color:#800000; font-weight:bold; ">s</span><span style="color:#800000; ">/</span><span style="color:#0000e6; ">&lt;</span><span style="color:#0f69ff; ">\/</span><span style="color:#0000e6; ">$tname</span><span style="color:#0000e6; ">></span><span style="color:#800000; ">/</span><span style="color:#800000; ">/</span><span style="color:#800000; font-weight:bold; ">gsmi</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+$s <span style="color:#808030; ">=</span> <span style="color:#0000e6; ">''</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">foreach</span> $i <span style="color:#808030; ">(</span> <span style="color:#808030; ">split</span><span style="color:#0000e6; "> </span><span style="color:#800000; ">/</span><span style="color:#0000e6; ">&lt;</span><span style="color:#0f69ff; ">\/</span><span style="color:#0000e6; ">p></span><span style="color:#800000; ">/</span><span style="color:#800000; font-weight:bold; ">i</span><span style="color:#808030; ">,</span> $l<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+  $i <span style="color:#808030; ">=</span><span style="color:#808030; ">~</span> <span style="color:#800000; font-weight:bold; ">s</span><span style="color:#800000; ">/</span><span style="color:#808030; ">[</span><span style="color:#0f69ff; ">\r</span><span style="color:#0f69ff; ">\n</span><span style="color:#808030; ">]</span><span style="color:#800000; ">/</span><span style="color:#800000; ">/</span><span style="color:#800000; font-weight:bold; ">g</span><span style="color:#800080; ">;</span>
+  $s <span style="color:#808030; ">.</span><span style="color:#808030; ">=</span> $i <span style="color:#808030; ">.</span> <span style="color:#0000e6; ">"&lt;/p></span><span style="color:#0f69ff; ">\n</span><span style="color:#0000e6; ">"</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+<span style="color:#800000; font-weight:bold; ">print</span> $s<span style="color:#800080; ">;</span>
+</code></pre>

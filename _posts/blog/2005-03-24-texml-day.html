@@ -1,0 +1,31 @@
+---
+layout: post
+title: TeXML day
+date: 2005-03-24 00:25:54.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeXML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/24/texml-day/"
+---
+<p>I wanted to work on generative XML, but I had to answer a letter from Paul Tremblay about new release of TeXML. Answering developed into working on TeXML.</p>
+<p><!--more--></p>
+<p>First of all, I'd like summarize most important new features introduced by Paul:</p>
+<p>* support of standard Pythonic installation of modules,<br />
+* namespaces,<br />
+* better error handling.</p>
+<p>Unfortunately, some Makefiles didn't survive the changes, so I decided to updated them.</p>
+<p>I introduced the script "texml_local" to use TeXML without installing it. It is not only convinient to casual users, but also essential to testing new changes.</p>
+<p>Having "texml_local", it was easy to update "Makefile" for tests. Surprisingly, all tests were passed. And the "Makefile" for builing distribuition packages is quite generalized to allow simple changes. No problems.</p>
+<p>And I submited a pair of bugs: "<a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1169416&amp;group_id=102261&amp;atid=631460">print to stdout instead of stderr</a>" and "<a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1169422&amp;group_id=102261&amp;atid=631460">setup.py corrections</a>".</p>

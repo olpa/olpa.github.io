@@ -1,0 +1,66 @@
+---
+layout: post
+title: printing djvu books under Linux
+date: 2008-01-24 06:55:32.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- publishing
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/01/24/printing-djvu-books-under-linux/"
+---
+<p>When I print books, I prefer to have two pages per sheet. With PostScript or PDF books it's easy, I just use <a href="http://consodoc.com/psnup2/">psnup2.pl</a>. But for djvu format, the procedure is complicated.</p>
+<p><!--more--></p>
+<p>The straightforward way -- convert to PostScript and the rest is known -- doesn't work:</p>
+<pre>
+$ djvups book.djvu book.ps
+$ psnup2.pl book.ps >book2.ps
+</pre>
+<p>Unfortunately, <tt>gv</tt> can't read the output PostScript file. The tool <tt>psnup</tt> works correctly only for a subset of PostScript, and <tt>djvups</tt> generates the code outside this subset.</p>
+<p>An usual workaround is to use <tt>ps2pdf</tt> and <tt>pdftops</tt> -- we first convert PostScript to PDF and then convert back from PDF to PostScript. But in this case, the workaround works only partially. The output PostScript is very, very big, and <tt>gv</tt> needs eternity to load it.</p>
+<p>After trials and errors, I decided to try TIFF as an intermediate format. And it is the solution.</p>
+<p>Well, the simplest way again doesn't work:</p>
+<pre>
+$ ddjvu -format=tiff book.djvu book.tiff
+Core dump
+</pre>
+<p>Instead, I extract page-by-page, ignoring the coredumped ones (fortunately, these pages are not important).</p>
+<p>Step 1: get the number of pages</p>
+<pre>
+$ djvudump book.djvu | head
+...
+    DIRM [2733]       Document directory (bundled, 354 files <b>350 pages</b>)
+...
+</pre>
+<p>Step 2: write the page extraction script <tt>gen.pl</tt>.</p>
+<pre><code>
+foreach my $i (1...<b>350</b>) {
+  printf "ddjvu -format=tiff --page=%i book.djvu pages/p%03i.tif\n", $i, $i;
+}
+</code></pre>
+<p>Step 3: extract pages</p>
+<pre>
+$ mkdir pages
+$ perl gen.pl >x.sh
+$ sh x.sh
+.. ignore core dumps ...
+</pre>
+<p>Step 4: create PostScript from TIFF</p>
+<pre><code>
+$ tiff2ps -w 8.27 -h 11.69 -c pages/p???.tif >print.ps
+</code></pre>
+<p>Step 5: make two pages per sheet:</p>
+<pre>
+$ psnup2.pl print.ps >print2.ps
+</pre>
+<p>Step 6: print!</p>

@@ -1,0 +1,72 @@
+---
+layout: post
+title: custom tex in rpm/apt distributions
+date: 2012-01-06 14:43:00.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2012/01/06/custom-tex-in-rpmapt-distributions/"
+---
+<p>I prefer to use TeX from TeXlive distribution, not the default TeX bundled with an operating system. The problem is that rpm and apt tools check dependencies and insist on installing the wrong TeX. To trick the system, a fake package should be made and installed.</p>
+<p><!--more--></p>
+<p>The next commands are for <a href="http://www.altlinux.org/">ALT Linux</a>, maybe they are not correct for other distributions.</p>
+<p>1) Find what a package needs:</p>
+<pre><code>
+$ apt-cache show lyx | grep 'Depends:'
+... texlive-latex-recommended ...
+... /user/share/texmf ...
+</code></pre>
+<p>2) Create a fake spec-file "<tt>/home/rpmer/RPM/SPECS/dummy-provides.spec</tt>", which "provides" the required facilities:</p>
+<pre><code>
+Name: dummy-provides
+Version: 0
+Release: alt2
+
+Summary: Trick apt/rpm dependencies
+License: Public domain
+Group: Toys
+
+Packager: Oleg Parashchenko <olpa uucode com>
+BuildArch: noarch
+Provides: /usr/bin/dvips dvipng texlive-latex-recommended /user/share/texmf
+
+%description
+%summary
+
+%prep
+
+%build
+
+%install
+mkdir -p %buildroot
+
+%files
+
+%changelog
+* Fri Apr 01 2011 Oleg Parashchenko <olpa uucode com>
+- initial list
+</olpa></olpa></code></pre>
+<p>3) Create a rpm-package:</p>
+<pre><code>
+$ rpm -bb dummy-provides.spec
+...
+Wrote: /home/rpmer/RPM/RPMS/noarch/dummy-provides-0-alt2.noarch.rpm
+</code></pre>
+<p>4) Install the package ("-ihv" to install, "-Uhv" to upgrade):</p>
+<pre><code>
+$ sudo rpm -Uhv /home/rpmer/RPM/RPMS/noarch/dummy-provides-0-alt2.noarch.rpm
+</code></pre>
+<p>Based on the <a href="http://thread.gmane.org/gmane.linux.altlinux.sisyphus/89715/focus=89840">discussion in the mailing list</a>, thanks everyone for help.</p>

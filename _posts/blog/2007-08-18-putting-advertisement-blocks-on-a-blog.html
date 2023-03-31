@@ -1,0 +1,37 @@
+---
+layout: post
+title: putting advertisement blocks on a blog
+date: 2007-08-18 10:28:54.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/08/18/putting-advertisement-blocks-on-a-blog/"
+---
+<p>Earlier, my AdSense ads were hardcoded into my WP template files. But now I want to experiment with other ads. I need to rotate the ads often, and the old solution isn't satisfactory. Here is a short list of the requirements:</p>
+<p><!--more--></p>
+<p>* admin interface to define HTML code of ads<br />
+* define ad areas<br />
+* assign ads to the ad areas<br />
+* optionally: assign a probability to each ad</p>
+<p>Surprisingly, the solution is exists: <a href="http://thesandbox.wordpress.com/wpads/">WPAds</a> is a simple, but powerful tool. It has everything what I need. Installed.</p>
+<p>I defined three ad areas on my blog:</p>
+<p>* sidebar<br />
+* after post<br />
+* inside the post, after the target for the link "Read the rest of this entry"</p>
+<p>The placement of the first area is defined in the file "<tt>sidebar.php</tt>":</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#a65700; background:#ffffe8; ">&lt;?php</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#800000; background:#ffffe8; font-weight:bold; ">if</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#400000; background:#ffffe8; ">function_exists</span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#0000e6; background:#ffffe8; ">'wpads'</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#800080; background:#ffffe8; ">{</span><span style="color:#000000; background:#ffffe8; "> wpads</span><span style="color:#808030; background:#ffffe8; ">(</span><span style="color:#0000e6; background:#ffffe8; ">'sidebar'</span><span style="color:#808030; background:#ffffe8; ">)</span><span style="color:#800080; background:#ffffe8; ">;</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#800080; background:#ffffe8; ">}</span><span style="color:#000000; background:#ffffe8; "> </span><span style="color:#a65700; background:#ffffe8; ">?></span>
+</code></pre>
+<p>In the same way, the second area is placed in the file "<tt>single.php</tt>".</p>
+<p>Placing the third area is more tricky. I'll talk about it later.</p>

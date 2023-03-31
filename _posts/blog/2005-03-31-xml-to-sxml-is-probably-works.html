@@ -1,0 +1,27 @@
+---
+layout: post
+title: XML to SXML is probably works
+date: 2005-03-31 21:34:44.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/31/xml-to-sxml-is-probably-works/"
+---
+<p>(This post was written yesterday, but due to internet outage I'm posting it only now.) Exactly as I expected, implementation of conversion of attributes and namespace definitions has taken one working block. The second milestone is now near.</p>
+<p><!--more--></p>
+<p>Work can't be considered finished unless automatic tests are written. Now I'm thiking how I can reuse the tests of SXML to XML conversion.</p>
+<p>I'm also going to add some new tests. At least, I'd like to test all combinations of "has attributes or not" and "has namespace definitions or not".</p>
+<p>Another (I hope small) issue is that I've got the warning "lookup_or_mk_ns: xmlNewNs failed" followed by "scm_to_node: namespace declaration for '' is not complete". I expect it's not a bug but a feature, but anyway should check for the reason.</p>
+<p>By the way, while programming, at some moment I started to get coredumps. After some investigation I found that the problem is due to "<tt>xmlStrcat</tt>". This function reallocates its first parameter, but documentation doesn't say about it. I'm going to submit a bug.</p>

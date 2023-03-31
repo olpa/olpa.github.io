@@ -1,0 +1,38 @@
+---
+layout: post
+title: image color inconsistency by pdfLaTeX and dvipdf
+date: 2005-09-15 15:30:54.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: latex,pdflatex,color,image
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/15/image-color-inconsistency-by-pdflatex-and-dvipdf/"
+---
+<p>I've noticed that results of pdfLaTeX and LaTeX plus dvipdf sometimes differ. One case is the color of an image.</p>
+<p><!--more--></p>
+<p>Sample TeX file:</p>
+<pre>
+\\documentclass{article}
+\\usepackage{graphicx}
+\\usepackage{color}
+\\begin{document}
+\\textcolor{red}{Red Image? \\includegraphics{image} (end).}
+\\end{document}
+</pre>
+<p>Files "image.eps" and "image.pdf" are black-white images. The results are the following:</p>
+<p>pdfLaTeX: the image is red-white<br />
+LaTeX+dvipdf: the image is black-white</p>
+<p>I use quite old teTeX 2.0, and can't install a newer version to check if the inconsistency is fixed.</p>
+<p>Is it a bug? If yes, where should I report it? Who is right, pdfLaTeX or LaTeX+dvipdf?</p>

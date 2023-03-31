@@ -1,0 +1,26 @@
+---
+layout: post
+title: delta debugging for latex
+date: 2011-04-27 15:36:50.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- science
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/04/27/delta-debugging-for-latex/"
+---
+<p>From the <a href="http://www.st.cs.uni-saarland.de/dd/">delta debugging homepage</a>: "With Delta Debugging, we can find failure-inducing circumstances automatically—circumstances such as the program input, changes to the program code, or program executions." I tried to apply this technique to LaTeX, and surprisingly it worked. The code and samples of the experiment are <a href="http://github.com/olpa/tex/tree/86e556822effc63a3fa8630899b2ac47200bdd9a/delta_debugging">uploaded on github</a>.</p>
+<p>The tools are:</p>
+<p>* diffdelta.py: Finding which diff chunk causes an error.<br />
+* latexdd.py: Finding a minimal failing example<br />
+* stydd.py: sty-bug hunting</p>

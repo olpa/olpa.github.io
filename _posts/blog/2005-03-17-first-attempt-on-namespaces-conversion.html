@@ -1,0 +1,33 @@
+---
+layout: post
+title: first attempt on namespaces conversion
+date: 2005-03-17 01:06:39.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/17/first-attempt-on-namespaces-conversion/"
+---
+<p>The code splits an element's full name on two parts, looks up in the tree for ns prefix or ns URI and creates a ns definition if not found. There is also a draft code to check that ns definitions are complete.</p>
+<p>I specified the algorithm of conversion in previous entries, but the simplest example have revealed two weak points.</p>
+<p>Error 1.</p>
+<pre>SXML: ... (a:b:c:d:doc "data") ...
+XML: &lt;x>&lt;a:b:c:d:doc>data&lt;/a:b:c:d:doc>&lt;/x></pre>
+<p>There is no namespace definition in the result and no any warning on the console. The error is that I check for ns completeness on returning from the attributes processing. In this case I have no attributes at all, and so have got no any warning.</p>
+<p>Error 2.</p>
+<p>The fake attributes set is added.</p>
+<pre>SXML: ... (a:b:c:d:doc (@) "data") ...
+XML: &lt;x xmlns:a:b:c:d="">&lt;a:b:c:d:doc>data&lt;/a:b:c:d:doc>&lt;/x></pre>
+<p>The "xmlns" is attached to "x", not to "a:b:c:d". The reason is that ns definition can be created only together with attaching it to some node. I attach it to a context node, and at the moment when I'm going to create "doc", the context node is "x.</p>
+<p>The funny thing is that "xmlNewNode" expects an already created ns definition, and "xmlNewNs" expects an already created node. Just a sort of circular reference. Fortunately, it seems that this loop can be broken by using "xmlSetNs" a posteriori. Will see later.</p>

@@ -1,0 +1,35 @@
+---
+layout: post
+title: using Helvetica symbols in LaTeX
+date: 2005-09-22 16:26:34.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/22/using-helvetica-symbols-in-latex/"
+---
+<p>A LaTeX document sets Helvetica as the main font, but some special symbols (like "copyright") look strange. After detailed look at PDF, I found that the symbols aren't taken from the font, but assembled from different items.</p>
+<p><!--more--></p>
+<p>After some time, I found that it's not a bug, but a documented behaviour. To activate the symbols from fonts, I should use the package "textcomp". This package should be used with care if a document uses fonts without required glyphs.</p>
+<p>Write reading description of "textcomp", I found another good package "tracefnt". The package allows to trace selection of fonts.</p>
+<p>The last note is about superscript and subscript. Some time ago I didn't found them and implemented commands "sups" and "subs". Now I've found that the "superscript" command actually exists. But "subscript" is missed. I've found the definition of "superscript" in "latex.ltx", and defined "subscript" by analogue:</p>
+<pre>
+\\DeclareRobustCommand*\\textsubscript[1]{ %
+  \\@textsubscript{\\selectfont#1}}
+\\def\\@textsubscript#1{ %
+  {\\m@th\\ensuremath{_{\\mbox{\\fontsize\\sf@size\\z@#1}}}}}
+</pre>
+<h2>29 September 2005, update</h2>
+<p>To generate a font table, one can use "nfssfont.tex". Usage is trivial: just run (latex nfssfont), answer questions and give the command "\table".</p>
+<p>My old teTeX distribution contains a very old version of the program which doesn't support font selection scheme. As a solution, use a copy of "nfssfont.tex" from a recent TeXLive CD.</p>

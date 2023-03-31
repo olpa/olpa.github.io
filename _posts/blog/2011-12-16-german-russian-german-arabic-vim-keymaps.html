@@ -1,0 +1,41 @@
+---
+layout: post
+title: german-russian, german-arabic vim keymaps
+date: 2011-12-16 16:01:43.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- vim
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2011/12/16/german-russian-german-arabic-vim-keymaps/"
+---
+<p><a href="http://vim.org/">vim</a> includes many keyboard layouts, defined as mappings for symbols of the english layout. Unfortunately, these maps are not useful when the base layout is german. QWERTZ vs QWERTY is not the only difference. Now, deutsch-russisch und deutsch-arabisch vim keymaps sind da.</p>
+<p><!--more--></p>
+<p>Download: <a href="http://uucode.com/download/2011/12/vim-keymap-de-nn.tar.gz">http://uucode.com/download/2011/12/vim-keymap-de-nn.tar.gz</a></p>
+<h3>keymap switch</h3>
+<p>I have no idea how to press "<tt>CTRL-^</tt>", therefore decided to use another combination: "<tt>Shift-F1</tt>". Add to vimrc:</p>
+<pre><code>
+map! &lt;S-F1> &lt;C-^>
+</code></pre>
+<h3>German-Russian</h3>
+<p>Put the file "<tt>russian-jcuken-z.vim</tt>" to the directory "<tt>~/.vim/keymap</tt>". Add to vimrc:</p>
+<pre><code>
+set keymap=russian-jcuken-z
+set imsearch=-1
+set iminsert=0
+</code></pre>
+<p>Only the first line is important, the rest is my preferences.</p>
+<h3>German-Arabic</h3>
+<p>Put the file "<tt>arabic_utf-8.vim</tt>" to the directory "<tt>~/.vim/keymap</tt>".</p>
+<h3>German-something</h3>
+<p>Modify Python script "<tt>keymap-de-nn.py</tt>" to your needs.</p>

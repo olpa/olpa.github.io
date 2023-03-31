@@ -1,0 +1,44 @@
+---
+layout: post
+title: LaTeX to EPS
+date: 2007-10-09 14:12:54.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/10/09/latex-to-eps/"
+---
+<p>I'm a bit furious. I spent a lot of time on getting EPS from LaTeX. Portability of PostScript and PDF is a great myth. This idea works only in theory. But in practice, one has to struggle with buggy software.</p>
+<p>Finally, I've found a working sequence of conversion commands.</p>
+<p><!--more--></p>
+<pre><code>
+cp latex/312nn081.tex tmp/312nn081.tex
+
+cd tmp; latex 312nn081.tex
+
+dvips -E -o tmp/312nn081.eps tmp/312nn081.dvi
+
+pstoedit -f ps -dt tmp/312nn081.eps tmp/312nn081.ps
+
+ps2epsi tmp/312nn081.ps tmp/312nn081_2.eps
+
+../pictures_converter/bin/epstosmth --gsdev=tifflzw \
+       tmp/312nn081.eps --outfile=tmp/312nn081.tif
+
+epstool --add-user-preview tmp/312nn081.tif tmp/312nn081_2.eps \
+       eps/312nn081.eps
+</code></pre>
+<p>I already wrote about "epstosmth": <a href="http://uucode.com/blog/2005/09/29/eps-to-something/">http://uucode.com/blog/2005/09/29/eps-to-something/</a></p>
+<p>The main feature of EPS files produced this way:</p>
+<p>Both Adobe Illustrator and Adobe FrameMaker open the EPS files without complaints.</p>

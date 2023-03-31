@@ -1,0 +1,99 @@
+---
+layout: post
+title: testing SCons processes
+date: 2006-07-17 08:37:57.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- consodoc
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/07/17/testing-scons-processes/"
+---
+<p><a href="http://consodoc.com/">Consodoc</a> is (at the moment) vaporware for XML publishing as PDF. It has passed unit tests, and now I'm going to test the program as the whole.</p>
+<p><!--more--></p>
+<p>Consodoc is based on the software build system <a href="http://scons.org/">SCons</a>. From the user perspective, he uses an usual <tt>SConstruct</tt> with additional calls to consodoc code.</p>
+<p>Each functional test for consodoc has the following layout:</p>
+<pre>
+before/
+after/
+stdout
+stderr
+retcode
+</pre>
+<p>The folder <tt>before</tt> contains data for test run, including the file <tt>SConstruct</tt>. After running SCons, the content of the folder <tt>before</tt> should be equal to the content of the folder <tt>after</tt>. Also, files <tt>stdout</tt>, <tt>stderr</tt> and <tt>retcode</tt> contain expected output from <tt>scons</tt>: standard output, standard error and exit code, respectively.</p>
+<p>Each test <tt>SConstruct</tt> finishes with:</p>
+<pre style="color:#000000;background:#ffffff;"><code>Default<span style="color:#808030; ">(</span>...<span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">import</span> os
+check <span style="color:#808030; ">=</span> os<span style="color:#808030; ">.</span>getenv<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'cdoc_testtest_sconscript'</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">if</span> check<span style="color:#808030; ">:</span>
+  SConscript<span style="color:#808030; ">(</span>check<span style="color:#808030; ">)</span>
+</code></pre>
+<p>If the environment variable is set, SCons interprets additional script, which defines the target <tt>check</tt>:</p>
+<pre style="color:#000000;background:#ffffff;"><code>node <span style="color:#808030; ">=</span> Local<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'check'</span><span style="color:#808030; ">)</span>
+env<span style="color:#808030; ">[</span><span style="color:#0000e6; ">'BUILDERS'</span><span style="color:#808030; ">]</span><span style="color:#808030; ">[</span><span style="color:#0000e6; ">'test'</span><span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> Builder<span style="color:#808030; ">(</span>action <span style="color:#808030; ">=</span> run_check<span style="color:#808030; ">)</span>
+env<span style="color:#808030; ">.</span>test<span style="color:#808030; ">(</span>node<span style="color:#808030; ">,</span> <span style="color:#e34adc; ">None</span><span style="color:#808030; ">)</span>
+env<span style="color:#808030; ">.</span>Alias<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'check'</span><span style="color:#808030; ">,</span> node<span style="color:#808030; ">)</span>
+</code></pre>
+<p>Code of <tt>run_check</tt> is straightforward. It uses the class <tt>Popen3</tt> from the Python module <tt>popen2</tt> to re-run SCons to build the default target. Then is compares the output with the expected data.</p>
+<p>Ok, an individual test case is described. Now, a script to run all the test cases is required. This script is very project-dependent. In my project, it executes the following steps:</p>
+<p>1. delete temporary folder and re-create it again,<br />
+2. unpack the test cases to the temporary folder,<br />
+3. execute the tests.</p>
+<p>For the last step, I decided to re-use functionality of the module <tt>unittest</tt>. I had to inject test cases to the <tt>TestCase</tt> class dynamically. I thought it would be very easy, but due to lack of closures in Python (more precisely, closures do exist, but they are counter-intuitive for lisp programmers), I failed. Finally, I found a way using a global variable. I exploit the fact that <tt>unittest</tt> uses <tt>cmp</tt> to arrange test cases. Therefore, if we have an array of test names and sequential number of running the common function, we know the name of the current test. Here is a sample code:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> sys<span style="color:#808030; ">,</span> unittest
+test_names <span style="color:#808030; ">=</span> <span style="color:#808030; ">[</span><span style="color:#0000e6; ">'aaa'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'ddd'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'bbb'</span><span style="color:#808030; ">]</span>
+test_names<span style="color:#808030; ">.</span>sort<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+test_index <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span>
+
+<span style="color:#800000; font-weight:bold; ">class</span> DynamicTestCase<span style="color:#808030; ">(</span>unittest<span style="color:#808030; ">.</span>TestCase<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#800000; font-weight:bold; ">def</span> one_test<span style="color:#808030; ">(</span>self<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">global</span> test_index
+    test_name  <span style="color:#808030; ">=</span> test_names<span style="color:#808030; ">[</span>test_index<span style="color:#808030; ">]</span>
+    test_index <span style="color:#808030; ">=</span> test_index <span style="color:#808030; ">+</span> <span style="color:#008c00; ">1</span>
+    <span style="color:#696969; "># Ok for 'aaa' and 'bbb', failure for 'ddd'</span>
+    <span style="color:#800000; font-weight:bold; ">assert</span> test_name <span style="color:#800000; font-weight:bold; ">in</span> <span style="color:#808030; ">[</span><span style="color:#0000e6; ">'aaa'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'bbb'</span><span style="color:#808030; ">]</span>
+
+<span style="color:#800000; font-weight:bold; ">for</span> test_name <span style="color:#800000; font-weight:bold; ">in</span> test_names<span style="color:#808030; ">:</span>
+  func_name <span style="color:#808030; ">=</span> <span style="color:#0000e6; ">'test_'</span> <span style="color:#808030; ">+</span> test_name
+  <span style="color:#e34adc; ">setattr</span><span style="color:#808030; ">(</span>DynamicTestCase<span style="color:#808030; ">,</span> func_name<span style="color:#808030; ">,</span> DynamicTestCase<span style="color:#808030; ">.</span>one_test<span style="color:#808030; ">)</span>
+
+suite <span style="color:#808030; ">=</span> unittest<span style="color:#808030; ">.</span>makeSuite<span style="color:#808030; ">(</span>DynamicTestCase<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'test_'</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#800000; font-weight:bold; ">not</span> unittest<span style="color:#808030; ">.</span>TextTestRunner<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>run<span style="color:#808030; ">(</span>suite<span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>wasSuccessful<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  sys<span style="color:#808030; ">.</span><span style="color:#e34adc; ">exit</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span>
+</code></pre>
+<h3>Update</h3>
+<p>I've overlooked a simple way to make the right closures. Peter Otten <a href="http://groups.google.com/group/comp.lang.python/tree/browse_frm/thread/665dc562dd315092/12cb732ab3d01b55?rnum=1&_done=%2Fgroup%2Fcomp.lang.python%2Fbrowse_frm%2Fthread%2F665dc562dd315092%2F12cb732ab3d01b55%3F#doc_538a2cb8f998f125">suggested</a> a better way:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> sys
+<span style="color:#800000; font-weight:bold; ">import</span> unittest
+
+test_names <span style="color:#808030; ">=</span> <span style="color:#808030; ">[</span><span style="color:#0000e6; ">'aaa'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'ddd'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'bbb'</span><span style="color:#808030; ">]</span>
+test_names<span style="color:#808030; ">.</span>sort<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">class</span> DynamicTestCase<span style="color:#808030; ">(</span>unittest<span style="color:#808030; ">.</span>TestCase<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">pass</span>
+
+<span style="color:#800000; font-weight:bold; ">def</span> make_test<span style="color:#808030; ">(</span>test_name<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">def</span> one_test<span style="color:#808030; ">(</span>self<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+        self<span style="color:#808030; ">.</span>assert_<span style="color:#808030; ">(</span>test_name <span style="color:#800000; font-weight:bold; ">in</span> <span style="color:#808030; ">[</span><span style="color:#0000e6; ">'aaa'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'bbb'</span><span style="color:#808030; ">]</span><span style="color:#808030; ">)</span>
+    <span style="color:#800000; font-weight:bold; ">return</span> one_test
+
+<span style="color:#800000; font-weight:bold; ">for</span> test_name <span style="color:#800000; font-weight:bold; ">in</span> test_names<span style="color:#808030; ">:</span>
+    <span style="color:#e34adc; ">setattr</span><span style="color:#808030; ">(</span>DynamicTestCase<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'test_'</span> <span style="color:#808030; ">+</span> test_name<span style="color:#808030; ">,</span> make_test<span style="color:#808030; ">(</span>test_name<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#e34adc; ">__name__</span> <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> <span style="color:#0000e6; ">"__main__"</span><span style="color:#808030; ">:</span>
+    unittest<span style="color:#808030; ">.</span>main<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+</code></pre>
+<h2>26 July 2006, update</h2>
+<p>I don't use packed tests anymore. It's too much complication without benefits. Instead, the code recursively walk down the current directory. If some folder contains the the subfolders "before" and "after", then the folder contains a test case.</p>
+<p>I also found that it's better to run scons with the parameter "<tt>--debug=stree --debug=explain</tt>". This parameter reveals more scons thinkings and therefore makes testing more accurate.</p>

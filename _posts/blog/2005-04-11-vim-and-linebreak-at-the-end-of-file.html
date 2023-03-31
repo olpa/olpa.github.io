@@ -1,0 +1,26 @@
+---
+layout: post
+title: vim and linebreak at the end of file
+date: 2005-04-11 23:44:46.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- vim
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/11/vim-and-linebreak-at-the-end-of-file/"
+---
+<p>Sometimes it's very unhelpful when vim automatically adds a linebreak at the end of file. Finally, I've became so irritated to switch to joe each time to correct the file, that I've found a solution.</p>
+<p><!--more--></p>
+<p>It's very simple. It's enough to say:</p>
+<pre>:set noeol bin</pre>
+<p>After this the <tt>:w</tt> command writes the file without the last linebreak. But generally do not do this because a linebreak should normally always be at the end of a text file.</p>

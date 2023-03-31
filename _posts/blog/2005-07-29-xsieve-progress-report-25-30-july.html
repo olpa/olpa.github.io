@@ -1,0 +1,29 @@
+---
+layout: post
+title: xsieve progress report, 25-30 July
+date: 2005-07-29 23:23:26.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta:
+  keywords: xsieve,guile
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/07/29/xsieve-progress-report-25-30-july/"
+---
+<p>Here is a sort of report on progress in XSieve development. I'm working on making the installation procedure easier.</p>
+<p><!--more--></p>
+<p>The XSieve uses a special version of Guile. Untill now the distribution package was bad. Actually, it was a set of new and modified Guile source files plus an instruction how to modify more files.  Now the whole patch is in CVS and the good distribution packages are in the download area. More details:</p>
+<p>The lazy pairs patch for Guile is updated<br />
+<a href="http://sourceforge.net/forum/forum.php?forum_id=484725">http://sourceforge.net/forum/forum.php?forum_id=484725</a></p>
+<p>I tried to make a distribution package for win32, and I spent a lot of time on compiling Guile with gcc/mingw, but failed. If I will have time, I try again.</p>
+<p>I've read documentation about autoconf, automake and other auto-tools and I'm go ing to create a good tar.gz for XSieve during the next week.</p>

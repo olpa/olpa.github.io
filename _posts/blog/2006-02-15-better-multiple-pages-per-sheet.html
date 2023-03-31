@@ -1,0 +1,23 @@
+---
+layout: post
+title: better multiple pages per sheet
+date: 2006-02-15 11:54:16.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/02/15/better-multiple-pages-per-sheet/"
+---
+<p>The utility <tt>psnup</tt> puts multiple logical PostScript pages onto each physical sheet of paper. Unfortunately, I've found that I don't like result. I've got a better result after playing with <tt>pstops</tt>:</p>
+<pre><code>cat ~/print.ps | \\
+pstops '2:0L@.6(19.5cm,1cm)+1L@.6(19.5cm,14cm)' -pa4 >out.ps</code></pre>

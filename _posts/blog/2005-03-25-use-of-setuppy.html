@@ -1,0 +1,30 @@
+---
+layout: post
+title: use of setup.py
+date: 2005-03-25 00:11:02.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeXML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/25/use-of-setuppy/"
+---
+<p>While communicating about making TeXML distribution archives, I've got examples of powerful use of "setup.py".</p>
+<p><!--more--></p>
+<p>Using "setup.py" is a standard Pythonic way to install Python packages. Here is a bit of documentation: "<a href="http://docs.python.org/lib/module-distutils.html">distutils -- Building and installing Python modules</a>".</p>
+<p>And the new knowledge I've got is the commands</p>
+<pre>python setup.py bdist_rpm
+python setup.py sdist --formats zip,gztar</pre>
+<p>The former command should create a RPM archive, and the latter -- zip and tar.gz archives.</p>
+<p>I think there are more powerful uses of "setup.py".</p>
+<p>But at the moment I have a problem. Copying files to archives is not enough. I need also some modifications made on the fly. Hope it is possible.</p>

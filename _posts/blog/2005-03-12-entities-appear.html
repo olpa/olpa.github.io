@@ -1,0 +1,61 @@
+---
+layout: post
+title: entities appear
+date: 2005-03-12 00:39:39.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/12/entities-appear/"
+---
+<p>The SXML specification allows only one sort of entities, namely, unexpanded entities. I can't find how to map them to the libxml2 tree, so converter just throws away *ENTITIES* nodes.</p>
+<p>On the other side, there is not support for "normal" entities. So I decided to extend SXML specification, invented *REF* node, but finally switched to the Neil W. Van Dyke's form:</p>
+<blockquote><p>The second element of the "&amp;" form can be a string, symbol, or (for character ordinal values) a nonnegative integer:</p>
+<p>(&amp; "rArr")<br />
+(&amp; rArr)<br />
+(&amp; 151)
+</p></blockquote>
+<p>I don't think that allowing a symbol is a good idea, but decided to accept it too.</p>
+<p>Conversion from SXML to XML for entities works now. Example:</p>
+<pre>
+&lt;x:stylesheet
+  xmlns:x = "http://www.w3.org/1999/XSL/Transform"
+  xmlns:s = "http://uucode.com/xslt/scheme"
+  x:extension-element-prefixes="s"
+  version = "1.0">
+	
+&lt;x:output indent="yes"/>
+	
+&lt;x:template match="/">
+  &lt;s:scheme>
+    '(article  (@ (id "hw" <b>(&amp;amp; 777)</b>))
+      (title "Hello")
+      (para
+        "Hello, "
+        <b>(&amp;amp; entityI)</b>
+        (object "World")
+        <b>(&amp;amp; entutyII)</b>
+        "!"))
+  &lt;/s:scheme>
+&lt;/x:template>
+	
+&lt;/x:stylesheet>
+</pre>
+<p>This stylesheet produces:</p>
+<pre>
+&lt;article id="hw<b>&#777;</b>">
+  &lt;title>Hello&lt;/title>
+  &lt;para>Hello, <b>&entityI;</b>&lt;object>World&lt;/object><b>&entutyII;</b>!&lt;/para>
+&lt;/article>
+</pre>

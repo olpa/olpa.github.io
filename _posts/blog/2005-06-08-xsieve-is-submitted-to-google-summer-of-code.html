@@ -1,0 +1,60 @@
+---
+layout: post
+title: XSieve is submitted to Google Summer of Code
+date: 2005-06-08 22:28:06.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+- XSieve
+tags: []
+meta:
+  keywords: summer of code
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/08/xsieve-is-submitted-to-google-summer-of-code/"
+---
+<p>I've submitted my new project <a href="http://sourceforge.net/projects/xsieve/">XSieve</a> to the Google's <a href="http://code.google.com/summerofcode.html">Summer of Code</a> program.</p>
+<p><!--more--></p>
+<p>Project Title<br />
+-------------</p>
+<p>XSieve, an alternative to XSLT 2.0</p>
+<p>Synopsis (a short description)<br />
+------------------------------</p>
+<p>XSieve is an XML transformation language based on combination of XSLT 1.0 and Scheme. XSieve is an alternative to XSLT 2.0.</p>
+<p>Benefits to the Community<br />
+-------------------------</p>
+<p>The processing model of XSLT suites well for semistructured data (XML) processing. Unfortunately, XSLT is very limited as a general-purpose programming language, and sometimes even the simplest tasks become a pain.</p>
+<p>There are several attempts to make XSLT better. The leading are:</p>
+<p>* XSLT 2.0, new version of XSLT,<br />
+* EXSLT, a community initiative to provide extensions to XSLT,<br />
+* FSXLT, a functional programming library for XSLT, and<br />
+* processor-specific scripting using JavaScript, Python and some other.</p>
+<p>In my opinion, the best approach is to extend XLST with such a language which has small but practical core and is compatible with XSLT in ideology. Scheme, a Lisp dialect, is a good candidate.</p>
+<p>Interweaving XSLT and Scheme is a silver bullet for some data conversion tasks.</p>
+<p>Deliverables<br />
+------------</p>
+<p>Version 0.1 should be ready to use in a production environment for batch processing. Deliverables include:</p>
+<p>* Documentation<br />
+* Set of examples<br />
+* Traditional source tarball<br />
+* RPM-package for some Linux system<br />
+* Precompiled binaries for Windows</p>
+<p>More Details<br />
+---------------</p>
+<p>The project was started two month ago. The project is registered at SourceForge, a domain for the project is registered.</p>
+<p>I've already got first results, but they are not released yet. I'm going to move my local CVS repository to SourceForge in the near future. Before starting the project, I had finished the following:</p>
+<p>* Pysch, Scheme runtime environment in Python. http://pysch.sourceforge.net/<br />
+* Python AST as XML. http://pysch.sourceforge.net/ast.html<br />
+* GNU find with XPath over the file system. http://uucode.com/texts/xfind/index.html<br />
+* Reusing XML processing code in non-XML applications. http://uucode.com/texts/genxml/genxml.html</p>
+<p>I use customized version of Guile as Scheme implementation and libxslt as XSLT processor. Other combinations of Scheme implementations and XSLT processors are possible, but it is left for the future work.</p>
+<p>I have more than 5 years of experience in the areas of SGML/XML and data conversion, have ideas how to make XML processing more efficient and have enough skills to implement the ideas. At the moment, I'm a PhD student in the Saint-Petersburg State University, Russia.</p>
+<p>I've chosen Google as mentor because others seem limited by their specializations, and Google ready to accept non-Google projects.</p>

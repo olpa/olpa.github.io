@@ -1,0 +1,21 @@
+---
+layout: post
+title: surprises from windows
+date: 2007-06-27 13:51:31.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/06/27/surprises-from-windows/"
+---
+<p>I've spent at least an hour tracking down an error in integration of my software with another software. Finally, I've found that Windows (ok, <tt>command.com/cmd.exe</tt>) command <tt>chdir</tt> isn't so easy. If one wants to go to a directory on another drive, the flag <tt>/D</tt> must be used, otherwise nothing happens. Did you know it?</p>

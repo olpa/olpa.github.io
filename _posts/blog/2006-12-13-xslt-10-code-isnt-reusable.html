@@ -1,0 +1,57 @@
+---
+layout: post
+title: xslt 1.0 code isn't reusable
+date: 2006-12-13 09:44:10.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/12/13/xslt-10-code-isnt-reusable/"
+---
+<p>I'm building an XML site. One of the common tasks is to get a book by isbn. I needed 4(!) attempts to get it working!</p>
+<p><!--more--></p>
+<p>The first attempt was obvious. I created an template:</p>
+<pre style="color:#000000;background:#ffffff;"><code>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">template</span> <span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">find-book</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">></span>
+ <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">param</span> <span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">isbn</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">/></span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">template</span><span style="color:#a65700; ">></span>
+</code>
+</pre>
+<p>The supposed use was like:</p>
+<pre style="color:#000000;background:#ffffff;"><code>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">variable</span> <span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">book</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">></span>
+ <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">call-template</span> <span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">find-book</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">></span>
+  <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">with-param</span> <span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">isbn</span><span style="color:#0000e6; ">"</span> <span style="color:#074726; ">select</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#800000; font-weight:bold; ">@</span><span style="color:#0000e6; ">isbn</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">/></span>
+ <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">call-template</span><span style="color:#a65700; ">></span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">variable</span><span style="color:#a65700; ">></span>
+</code>
+</pre>
+<p>Unfortunately, this solution fails when I want something like:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">value-of</span> <span style="color:#074726; ">select</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0f69ff; ">$book</span><span style="color:#44aadd; ">/</span><span style="color:#0000e6; ">title</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">/></span></code>
+</pre>
+<p>The variable <tt>book</tt> is a result tree fragment (RTF), not a node set. One can't apply XPath to a RTF.</p>
+<p>Second attempt.</p>
+<p>Let use <tt>node-set</tt>:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">value-of</span> <span style="color:#074726; ">select</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">exsl:node-set</span><span style="color:#0000e6; ">(</span><span style="color:#0f69ff; ">$book</span><span style="color:#0000e6; ">)</span><span style="color:#44aadd; ">/</span><span style="color:#0000e6; ">title</span><span style="color:#0000e6; ">"</span> <span style="color:#666616; ">xmlns</span><span style="color:#800080; ">:</span><span style="color:#074726; ">exsl</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#666616; ">http</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#5555dd; ">exslt.org</span><span style="color:#40015a; ">/common</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">/></span></code>
+</pre>
+<p>Mistake. The right way is (note the root node):</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">value-of</span> <span style="color:#074726; ">select</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">exsl:node-set</span><span style="color:#0000e6; ">(</span><span style="color:#0f69ff; ">$book</span><span style="color:#0000e6; ">)</span><span style="color:#44aadd; ">/</span><span style="color:#0000e6; ">book</span><span style="color:#44aadd; ">/</span><span style="color:#0000e6; ">title</span><span style="color:#0000e6; ">"</span> <span style="color:#666616; ">xmlns</span><span style="color:#800080; ">:</span><span style="color:#074726; ">exsl</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#666616; ">http</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">//</span><span style="color:#5555dd; ">exslt.org</span><span style="color:#40015a; ">/common</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">/></span></code></pre>
+<p>Unfortunately, it doesn't work when I need the parent node. Nodeset created by exsl-node isn't connected to the original tree.</p>
+<p>Third attempt.</p>
+<p>Instead of returning a book tree, I return <tt>generate-id()</tt> for the node. Also I defined a key to get a book by its generated ID.</p>
+<p>Again failed. I load the XML database using the <tt>document()</tt> function, function <tt>key()</tt> lookups only in the current document, and switching the current document isn't good for me.</p>
+<p>Final solution.</p>
+<p>First, I get an generated ID. Then I manually search for a book in the database:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">xsl</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">variable</span> <span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0000e6; ">book</span><span style="color:#0000e6; ">"</span> <span style="color:#074726; ">select</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"</span><span style="color:#0f69ff; ">$xmldb</span><span style="color:#44aadd; ">//</span><span style="color:#0000e6; ">book</span><span style="color:#44aadd; ">[</span><span style="color:#400000; ">generate-id</span><span style="color:#44aadd; ">()</span><span style="color:#44aadd; ">=</span><span style="color:#0f69ff; ">$book-genid</span><span style="color:#44aadd; ">]</span><span style="color:#0000e6; ">"</span><span style="color:#a65700; ">/></span></code>
+</pre>
+<p>Ugly, but works.</p>

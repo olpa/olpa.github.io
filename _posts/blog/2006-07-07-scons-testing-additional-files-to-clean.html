@@ -1,0 +1,36 @@
+---
+layout: post
+title: SCons, testing additional files to clean
+date: 2006-07-07 05:52:06.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- consodoc
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/07/07/scons-testing-additional-files-to-clean/"
+---
+<p>SCons supports a list of files to be also deleted on "<tt>scons -c</tt>" (cleaning). Here is a code example how to check that a file is in the list.<br />
+<!--more--><br />
+Actually, it not the list, but an associative array. Keys are the targets, values are the lists.</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#696969; "># 'env' is the SCons environment</span>
+<span style="color:#696969; "># 'node' is a SCons node for the target</span>
+<span style="color:#696969; "># --</span>
+<span style="color:#696969; "># Check that the target has a cleaning list</span>
+<span style="color:#800000; font-weight:bold; ">assert</span> SCons<span style="color:#808030; ">.</span>Environment<span style="color:#808030; ">.</span>CleanTargets<span style="color:#808030; ">.</span>has_key<span style="color:#808030; ">(</span>node<span style="color:#808030; ">)</span>
+<span style="color:#696969; "># Get the cleaning list</span>
+clist <span style="color:#808030; ">=</span> SCons<span style="color:#808030; ">.</span>Environment<span style="color:#808030; ">.</span>CleanTargets<span style="color:#808030; ">[</span>node<span style="color:#808030; ">]</span>
+<span style="color:#696969; "># Create a list of nodes from the list of files</span>
+rej_node <span style="color:#808030; ">=</span> env<span style="color:#808030; ">.</span>arg2nodes<span style="color:#808030; ">(</span>os<span style="color:#808030; ">.</span>path<span style="color:#808030; ">.</span>join<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'tmp'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'file.tex.rej'</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+<span style="color:#696969; "># Check that the cleaning list is as expected</span>
+<span style="color:#800000; font-weight:bold; ">assert</span> clist <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> rej_node
+</code></pre>

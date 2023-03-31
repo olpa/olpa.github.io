@@ -1,0 +1,53 @@
+---
+layout: post
+title: my wrappers around "includegraphics"
+date: 2009-07-20 07:33:23.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+- TeXML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2009/07/20/my-wrappers-around-includegraphics/"
+---
+<p>To put an image to a document, LaTeX provides the command "<tt>\includegraphics</tt>". As it often happens, due to LaTeX was designed for manual typesetting, this command is a nightmare for automatic generation. For a long time, I use a wrapper to solve 99% of the problems.</p>
+<p><!--more--></p>
+<h3>I.</h3>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">RequirePackage</span><span style="color:#808030; ">{</span>grffile<span style="color:#808030; ">}</span></code></pre>
+<p>Without this package, code</p>
+<pre><code>\includegraphics{ANSIboat.v1.pdf}</code></pre>
+<p>raises the dummy error:</p>
+<pre><code>! LaTeX Error: Unknown graphics extension: .boat.v1.pdf.</code></pre>
+<h3>II.</h3>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">def</span><span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">includegraphicsII</span><span style="color:#808030; ">[</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">{</span><span style="color:#696969; ">%</span>
+<span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">IfFileExists</span><span style="color:#808030; ">{</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">}</span><span style="color:#808030; ">{</span><span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">includegraphics</span><span style="color:#808030; ">[</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span><span style="color:#808030; ">{</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">}</span><span style="color:#808030; ">}</span><span style="color:#808030; ">{</span><span style="color:#696969; ">%</span>
+<span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">typeout</span><span style="color:#808030; ">{</span>! LaTeX warning: File `<span style="color:#808030; ">#</span><span style="color:#008c00; ">2</span>' not found.<span style="color:#808030; ">}</span><span style="color:#696969; ">%</span>
+<span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">includegraphics</span><span style="color:#808030; ">[</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span><span style="color:#808030; ">{</span>dummy.pdf<span style="color:#808030; ">}</span><span style="color:#808030; ">}</span><span style="color:#808030; ">}</span>
+</code></pre>
+<p>If there is no image file, LaTeX</p>
+<p>* annonces this problem to the console and the log file,<br />
+* uses the image "dummy.pdf" instead</p>
+<h3>III.</h3>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">catcode</span>`<span style="color:#808030; ">\</span><span style="color:#808030; ">_</span>=<span style="color:#008c00; ">11</span>
+<span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">edef</span><span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">ImageUnderscore</span><span style="color:#808030; ">{</span><span style="color:#808030; ">_</span><span style="color:#808030; ">}</span>
+<span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">catcode</span>`<span style="color:#808030; ">\</span><span style="color:#808030; ">_</span>=<span style="color:#008c00; ">8</span>
+<span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">def</span><span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">Image</span><span style="color:#808030; ">[</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">{</span><span style="color:#808030; ">{</span><span style="color:#696969; ">%</span>
+<span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">let</span><span style="color:#808030; ">\</span><span style="color:#808030; ">_</span>=<span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">ImageUnderscore</span>
+<span style="color:#808030; ">\</span><span style="color:#800000; font-weight:bold; ">includegraphicsII</span><span style="color:#808030; ">[</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span><span style="color:#808030; ">{</span><span style="color:#808030; ">#</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">}</span><span style="color:#808030; ">}</span><span style="color:#808030; ">}</span>
+</code></pre>
+<p>This allows to specify a file name with the underscore symbol using the standard LaTeX escaping rules:</p>
+<pre><code>\Image{ANSI\_boat.pdf}</code></pre>
+<p>instead of</p>
+<pre><code>\includegraphicsII{ANSI_boat.pdf}</code></pre>
+<p>Benefit: no need for special escaping rules in an automatic XML to LaTeX converter.</p>
+<p>Actually, the code must be extended, to include "<code>\{</code>", "<code>\textless</code>" and other special symbols, but it's TODO.</p>

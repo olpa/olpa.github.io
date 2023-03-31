@@ -1,0 +1,51 @@
+---
+layout: post
+title: Converting to 3gp
+date: 2006-02-15 09:13:47.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/02/15/converting-to-3gp/"
+---
+<p>I wanted to play video on my Siemens M75. After some research, I found that the format is 3gp. Video files can be converted to this format using the Linux utility "<a href="http://ffmpeg.sourceforge.net/index.php">ffmpeg</a>".</p>
+<p><!--more--></p>
+<p>Some notes on preparing ffmpeg:<br />
+* the utility should be downloaded from CVS,<br />
+* <tt>--enable-amr_nb</tt> should be given to the configure script,<br />
+* additional code should be downloaded to support <tt>--enable-amr_nb</tt> (Makefile prints details).</p>
+<p>I spent much time choosing options for the best quality. Unfortunately, I haven't succeeded: sometimes video isn't smooth. The best options for me are:<br />
+* size: 176x144,<br />
+* bit rate: 30kbps,<br />
+* frame rate: 12fps.</p>
+<p>The page "<a href="http://excamera.com/articles/24/movie.html">Watching movies on your phone</a>" suggest improvements, and I followed them. It seems preprocessing by mencoder and mplayer gives better results.</p>
+<p>The improved method is hard to use for a set of files, so I decided to write a wrapper script. To my disappointment, I forget how to write bash scripts. As solution, I decided to write a Makefile:</p>
+<pre><code>
+%.track.avi: %.avi
+  mencoder '$< ' -nosound \\
+    -ovc lavc -lavcopts vcodec=h263 \\
+    -vop expand=176:144,scale=176:-2 -o '$@' -ofps 12
+
+%.track.wav: %.avi
+  mplayer -vo null \\
+    -ao pcm -af resample=8000,volume=+16db:sc '$<'
+  mv audiodump.wav '$@'
+
+%.3gp: %.track.avi %.track.wav
+  ~/opt/ffmpeg/bin/ffmpeg -i '$(word 1,$+)' -i '$(word 2,$+)' \\
+    -vcodec h263 -b 30 -r 12 \\
+    -acodec amr_nb -ac 1 -ab 12 \\
+    -map 0.0 -map 1.0  '$@'
+</code></pre>
+<p>Usage is simple:</p>
+<pre><code>$ make -f ~/bin/Makefile-3gp.mk `ls *avi | sed 's/avi$/3gp/'`</code></pre>

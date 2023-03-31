@@ -1,0 +1,66 @@
+---
+layout: post
+title: Cleaning the signal from EEG-SMT
+date: 2017-09-30 18:07:41.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- bci
+tags: []
+meta:
+  _edit_last: '1'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2017/09/30/cleaning-the-signal-from-eeg-smt/"
+---
+<p>An disappointment after getting EEG-SMT working: the resulting measurement is just a noice. It is a challenging task for a beginner to understand what is going wrong.</p>
+<p><!--more--></p>
+<p><img src="{{ site.baseurl }}/assets/2017/09/signal-is-bad.png" alt="signal-is-bad" width="500" height="368" class="alignnone size-full wp-image-528" /></p>
+<h2>Check software</h2>
+<p>First I made sure that the signal isn't modified somehow on the way.</p>
+<p>EEG-SMT uses the version P2 of the firmware for ModularEEG, which is available here: <a href="http://openeeg.sourceforge.net/doc/modeeg/firmware/modeeg-p2.c">modeeg-p2.c</a>. The code just dumps to outside what it has as signal inputs.</p>
+<p>The plugin for OpenVIBE also forwards the data further from EEG-SMT to the main software.</p>
+<h2>How to attach electrodes</h2>
+<p>The device provides 2 channels and has 5 electrodes. It is confusing.</p>
+<p>Now I know for sure for the passive electrode:</p>
+<p>* it is plugged into "DRL" socket,<br />
+* the sensor is attached somewhere on the body: one can hold it in a hand, or attach it to a leg, an ear or a cheek.</p>
+<p>The letters "DRL" stay for <a href="https://en.wikipedia.org/wiki/Driven_right_leg_circuit">Driven right leg circuit</a>. The explanations in the wikipedia article are sufficient.</p>
+<p>At the moment, I do use the right leg, because the hands hold other electrodes.</p>
+<p>I still don't understand the need to have _two_ electrodes for one channel. Even after reading <a href="http://openeeg.sourceforge.net/doc/modeeg/modeeg_design.html">The ModularEEG Design</a> document, I can't get it.</p>
+<p>What I'd expect is that there is one and only one electrode pro channel, and additionally there is a "base" electrode, to be used as a zero potential.</p>
+<p>The clear thing is that when two electrodes are connected together, the signal should be zero. Surprisingly, it is not so in my case. Initially it is so, but with time the noice starts again. TODO: ask in the mailing list what happens.</p>
+<p>For futher investigation:</p>
+<p>Maybe a contact gel is useful.</p>
+<p><a href="https://en.wikipedia.org/wiki/10%E2%80%9320_system_(EEG)">The 10–20 system</a> or International 10–20 system is an internationally recognized method to describe and apply the location of scalp electrodes in the context of an EEG test or experiment.</p>
+<h2>OpenVIBE with noice filter</h2>
+<p>The background knowledge suggested to play with FFT (<a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">fast fourier transform</a>). And anyway spectrum analysis is required later to see which waves sends the brain.</p>
+<p>The task was easy in OpenVIBE. The result is that I have a very big peak around 50 Hz. This is the frequence of the electrical supply. So I need separate the frequences which I need and frequences which is noice.</p>
+<p>The frequences above 60 Hz are filtered out by OpenEEG circuit self. And I need only brain waves frequences, which are up to ~30 Hz (<a href="https://en.wikipedia.org/wiki/Beta_wave">Beta wave</a>, with the references to other waves).</p>
+<p>OpenVIBE provides an example "neurofeedback" with an advanced data flow. I've learned from this example how to apply a filter and implemented it in a simple script.</p>
+<p><img src="{{ site.baseurl }}/assets/2017/09/program-to-filter-signal.png" alt="program-to-filter-signal" width="559" height="328" class="alignnone size-full wp-image-533" /></p>
+<h2>Getting help</h2>
+<p>I suspect I'm not the first who has the noice problem.</p>
+<p>The first try was to search in the <a href="https://sourceforge.net/p/openeeg/mailman/openeeg-list/">mailing list of OpenEEG</a> project. Unfortunately, sourceforge now is very out-of-date, it the searching is a bad experience, one can find anything useful only with luck.</p>
+<p>The advices in the mailing list are centered about re-checking the circuit and using shilded wires. All that is already have done in SMT-EEG device.</p>
+<p>A better help source is the forum <a href="https://www.olimex.com/forum/index.php?board=25.0">Biofeedback - EEG, ECG, EKG</a> on Olimex site. In particular, the following threads helped me to start doing something reasonable: <a href="https://www.olimex.com/forum/index.php?topic=5245.0">Persistent noise with EKG-EMG shield</a> and <a href="https://www.olimex.com/forum/index.php?topic=2350.0">EEG- SMT EEG Signal Acquisition</a>.</p>
+<h2>Reproducing feedback</h2>
+<p>After software filtering is setup, it is time to get some results. The bad new is that I don't know with which measurements to start and which result should I expect.</p>
+<p>An already mentioned thread "EEG- SMT EEG Signal Acquisition" in Olimex forum suggests the following setup:</p>
+<blockquote><p>Please place the electrodes of one channel a bit over both temples and then hold the DRL firmly in hand. Then after you start the monitoring roll your eyes right and left and check the readings.</p></blockquote>
+<p>I tried, but was not very successful, maybe because I don't know where exact temlpes are. Instead, I found a position where I get stable reproducable reaction on strong blinking.</p>
+<p>Unfortunately, while writing this post, I've lost the position. Also, I've got no noice on the channel 1. The channel 2 was doing nothing.</p>
+<p><img src="{{ site.baseurl }}/assets/2017/09/with-filtered-channel-1.png" alt="with-filtered-channel-1" width="497" height="1027" class="alignnone size-full wp-image-534" /></p>
+<p>Now I think that peek in the signal is caused not by brain but by eye muscles, but anyway it is good to have anything stable.</p>
+<p>The next tasks are:</p>
+<p>* make an EEG cap to use 10-20 system,<br />
+* find stable reproducable eeg signal patters for brain activity.</p>

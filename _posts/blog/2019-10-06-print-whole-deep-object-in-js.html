@@ -1,0 +1,29 @@
+---
+layout: post
+title: Print whole deep object in JS
+date: 2019-10-06 16:31:03.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- bookmarks
+tags: []
+meta:
+  _edit_last: '1'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2019/10/06/print-whole-deep-object-in-js/"
+---
+<p>The functions `<code>console.log</code>` or `<code>JSON.stringify</code>` in JavaScript do not print deep nested structures. To workaround, use `<code>util.inspect</code>`:</p>
+<pre><code>
+const util = require('util')
+console.log(util.inspect(object_to_dump, { depth: 100, compact: false }))
+</code></pre>

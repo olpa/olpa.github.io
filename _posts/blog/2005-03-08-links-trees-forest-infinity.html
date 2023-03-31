@@ -1,0 +1,53 @@
+---
+layout: post
+title: links, trees, forest, infinity
+date: 2005-03-08 02:20:55.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/08/links-trees-forest-infinity/"
+---
+<p>On mapping from Scheme values to libxml nodes. It is reasonable to map the same physical values to the same physical nodes. But it causes unexpected results. Consider the stylesheet:</p>
+<pre>
+&lt;x:stylesheet
+  xmlns:x = "http://www.w3.org/1999/XSL/Transform"
+  xmlns:s = "http://uucode.com/xslt/scheme"
+  x:extension-element-prefixes="s"
+  version     = "1.0">
+
+&lt;s:init>
+  (define foo 777)
+&lt;/s:init>
+
+&lt;x:template match="/">
+  &lt;x>
+    &lt;s:scheme>foo&lt;/s:scheme>
+    &lt;s:scheme>foo&lt;/s:scheme>
+    &lt;!-- &lt;y>&lt;s:scheme>foo&lt;/s:scheme>&lt;/y> -->
+  &lt;/x>
+&lt;/x:template>
+
+&lt;/x:stylesheet>
+</pre>
+<p>One can expect to get the following result:</p>
+<pre>
+&lt;x>777777&lt;/x>
+</pre>
+<p>But the right answer is:</p>
+<pre>
+&lt;x>777&lt;/x>
+</pre>
+<p>As I found, libxml performs a set of checks while adding a child. One of the checks is that the same node isn't inserted twice.</p>
+<p>And what happens when the part of stylesheet is uncommented? It produces such a tree structure which isn't expected by libxml. As result, serializer enters infinitive loop till core dump.</p>

@@ -1,0 +1,27 @@
+---
+layout: post
+title: before updating the system
+date: 2006-01-24 09:37:22.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/01/24/before-updating-the-system/"
+---
+<p>Just a note to myself what to do before "apt-get dist-upgrade":</p>
+<pre>
+apt-get clean
+apt-get check
+apt-get update
+apt-get install gnupg bzlib apt rpm
+</pre>

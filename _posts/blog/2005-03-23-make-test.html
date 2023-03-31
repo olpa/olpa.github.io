@@ -1,0 +1,29 @@
+---
+layout: post
+title: make test
+date: 2005-03-23 00:37:11.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/23/make-test/"
+---
+<p>Before starting fixing the <a href="/blog/2005/03/21/default-namespaces-force-new-changes/">default namespace problem</a>, I've created a test framework and added several tests. The results are as usual.</p>
+<p><!--more--></p>
+<p>1) I found an error in my code (well, it's just a redundant warning, but anyway it should be fixed).<br />
+2) I found that an example in the SXML specification looks wrong (TODO: ask in the mailing list).<br />
+3) I found that libxml2 rejects such XML: "<tt>&lt;doc>]]>&lt;/doc></tt>" (TODO: figure out if it is right or not).</p>
+<p>The testing framework is trivial. Test code is contained in XSLT-files which are applied to themselves. The code is written in such a way that it generates a lot of elements "<tt>test</tt>" with children "<tt>native</tt>" and "<tt>scheme</tt>". Content of "<tt>native</tt>" is an XML produced by xsltproc, content of "<tt>scheme</tt>" is a result of execution of Scheme code with further conversion to XML. The both contents should be exactly the same. This condition is checked by a Python script.</p>
+<p>Unfortunately, this approach doesn't allow testing of handling of error conditions. Maybe I'll invent something later.</p>
+<p>I added several tests which should cover all the SXML structures except namespaces. Testing of namespaces is a task of the next few days.</p>

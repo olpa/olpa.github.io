@@ -1,0 +1,25 @@
+---
+layout: post
+title: how to start vmware
+date: 2014-03-17 14:51:04.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- linux
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2014/03/17/how-to-start-vmware/"
+---
+<p>By me, vmware doesn't start without twicks. A normal rum produces something like:</p>
+<p><tt>process 3954: Attempt to remove filter function 0xb6ad0690 user data 0xb7896048, but no such filter has been added<br />
+D-Bus not built with -rdynamic so unable to print a backtrace</tt></p>
+<p>In my case the solution is to start HAL daemon before running vmware.</p>

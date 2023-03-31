@@ -1,0 +1,25 @@
+---
+layout: post
+title: one year of a bug
+date: 2005-03-17 01:02:07.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- FrameMaker
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/17/one-year-of-a-bug/"
+---
+<p>A year ago I wrote a script for managing reusable components in FrameMaker. It has being expensively used. Saying more, it's a core of a new workflow.</p>
+<p>Recently users reported a bug. Their comments for components where not displaying.</p>
+<p>After some exploration, I realized that comments <i>never</i> were used by the code. At the time of writing the script there were no comments and even no agreement on how to make comments, so I implemented a fallback behaviour (using the first paragraph of a component as the comment).</p>
+<p>All the year the users were getting the fallback behavior, and it was right!</p>

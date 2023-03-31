@@ -1,0 +1,23 @@
+---
+layout: post
+title: recursive sync of only html files
+date: 2006-09-17 07:51:21.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/09/17/recursive-syn-of-only-html-files/"
+---
+<p>I've figured out how to combine include/exclude options of rsync to upload only HTML files:</p>
+<pre><code>rsync -n -a -v --exclude '.svn/' --include '*/' \
+--include '*.html' --exclude '*' src_path dest_path</code></pre>

@@ -1,0 +1,62 @@
+---
+layout: post
+title: LNCS LaTeX style works
+date: 2005-04-08 23:41:03.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/08/lncs-latex-style-works/"
+---
+<p>I'm writing a paper for a conference. It should be written with conformance to the <a href="http://www.springer.de/comp/lncs/index.html">Lecture Notes in Computer Science</a> style. After visiting the page with <a href="http://www.springeronline.com/sgw/cda/frontpage/0,11855,5-164-2-72376-0,00.html">information for LNCS authors</a>) I though that it might be a sort of magic for many people.</p>
+<p><!--more--></p>
+<p>Springer encourages authors to use LaTeX2e, provides a style file for LaTeX, documentation and samples. The samples and instructions are quite good to start writing a paper immediately if</p>
+<ul>
+<li>you know LaTeX, and</li>
+<li>the <tt>llncs</tt> style is installed.</li>
+</ul>
+<p>Springer can't help with the first issue. But it isn't important.</p>
+<p>The problem is that they don't provide (or I haven't found) help on installing the style. The number of people that can do it is much smaller of those who know LaTeX.</p>
+<p>Fortunately, I'm one from that small group. Here is my way to use the style locally without putting it into the core LaTeX directories.</p>
+<p>The style files are stored in the file <tt>llncs2e.zip</tt>. I unpacked them into the folder "<tt>~/univer/gpce05/springer/texmf/tex/latex/llncs2e</tt>". In fact, the path before "<tt>texmf</tt>" is not important.</p>
+<p>First of all, I decided to check the sample file <tt>llncs.dem</tt>. As dvi-file already exists, I generated pdf:</p>
+<pre>
+$ pdflatex llncs.dem
+$ pdflatex llncs.dem
+</pre>
+<p>The command was given twice to get correct links. On the first run, the database of links is created, and on the next runs the database is used.</p>
+<p>Now goes local installation of the style. I'm not going to comment it. Consider it as magic:</p>
+<pre>
+$ export TEXMFLOCAL=~/univer/gpce05/springer/texmf
+$ texconfig rehash
+$ file ~/univer/gpce05/springer/texmf/ls-R
+</pre>
+<p>The first command specifies location of the local TeX repository. The second commands indexes the repository, and the last one just makes sure that the index is created.</p>
+<p>To check, use the sample from the file <tt>typeinst.zip</tt>. Let me demonstrate a failure first. Open a new window and try to compile the TeX-file:</p>
+<pre>
+$ latex typeinst.tex
+</pre>
+<p>You get an error like:</p>
+<pre>
+LaTeX Error: File `llncs.cls' not found.
+</pre>
+<p>The right way is to specify the location of the repository first:</p>
+<pre>
+$ export TEXMFLOCAL=~/univer/gpce05/springer/texmf
+$ latex typeinst.tex
+$ latex typeinst.tex
+</pre>
+<p>Again, I'm running LaTeX twice to get correct links.</p>
+<h2>1 October 2005, update</h2>
+<p>There is an easier way. Just copy "llncs.cls" to the same folder were your LaTeX file is located.</p>

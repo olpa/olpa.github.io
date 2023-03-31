@@ -1,0 +1,81 @@
+---
+layout: post
+title: rsync server on mac os x
+date: 2008-11-11 13:01:54.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Mac
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2008/11/11/rsync-server-on-mac-os-x/"
+---
+<p>For development purposes, I'd like to run a rsync server on a Mac.</p>
+<p>People in forums recommend to avoid the default system <tt>rsync</tt>, which is accused of being buggy. Instead, they recommend <a href="http://www.apfelwiki.de/Main/RsyncX">RSyncX</a>.</p>
+<p><!--more--></p>
+<p>Unfortunately, I failed to get the tool. Its home page (temporary) disappeared. I've downloaded a .sit-distro from some other server. How can I unpack a .sit? No way except using StuffIt tools. To download the expander, I had to register. I even did it, but something went wrong and I didn't get a download URL.</p>
+<p>Finally, I decided to go with the system <tt>rsync</tt>. Maybe it's not ideal, but it should be enough for development. The production server will work under Linux.</p>
+<p>The rest is easy. Google search by "rsync.plist" immediately gives the desired page: "<a href="http://www.designsolution.co.uk/resources/rsync/">Launching rsync daemon via launchd on Mac OS X 10.4 Tiger</a>" (I run 10.5, but it's not importtant).</p>
+<p>Additional steps:</p>
+<p>1) Change ownership for the installed file:</p>
+<pre>$ sudo chown root:wheel /Library/LaunchDaemons/rsync.plist</pre>
+<p>2) It's a good idea to create the file <tt>/etc/rsyncd.conf</tt>.</p>
+<p>3) No need to reboot the machine to get the rsync daemon up and running. Enough to say:</p>
+<pre>$ sudo launchctl load -w /Library/LaunchDaemons/rsync.plist</pre>
+<p>Backup of <tt>rsync.plist</tt>:</p>
+<p><code>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+        &lt;key&gt;Disabled&lt;/key&gt;
+        &lt;false/&gt;
+        &lt;key&gt;Label&lt;/key&gt;
+
+        &lt;string&gt;rsync&lt;/string&gt;
+        &lt;key&gt;Program&lt;/key&gt;
+        &lt;string&gt;/usr/bin/rsync&lt;/string&gt;
+        &lt;key&gt;ProgramArguments&lt;/key&gt;
+
+        &lt;array&gt;
+                &lt;string&gt;/usr/bin/rsync&lt;/string&gt;
+                &lt;string&gt;--daemon&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;inetdCompatibility&lt;/key&gt;
+
+        &lt;dict&gt;
+                &lt;key&gt;Wait&lt;/key&gt;
+                &lt;false/&gt;
+        &lt;/dict&gt;
+                &lt;key&gt;Sockets&lt;/key&gt;
+
+                &lt;dict&gt;
+                        &lt;key&gt;Listeners&lt;/key&gt;
+                        &lt;dict&gt;
+                                &lt;key&gt;SockServiceName&lt;/key&gt;
+                                &lt;string&gt;rsync&lt;/string&gt;
+
+                                &lt;key&gt;SockType&lt;/key&gt;
+                                &lt;string&gt;stream&lt;/string&gt;
+                        &lt;/dict&gt;
+                &lt;/dict&gt;
+&lt;/dict&gt;
+
+&lt;/plist&gt;
+</pre>
+<p></code></p>
+<h3>Useful config option</h3>
+<p>For <i>my</i> needs, it's useful to add (per each module (?)) the following to <tt>rsyncd.conf</tt>:</p>
+<p><code>
+<pre>exclude = .** **~</pre>
+<p></code></p>
+<p>This disables transfer of files like "<tt>.svn</tt>", "<tt>.filename.swp</tt>" (the first pattern) or "<tt>filename~</tt>" (the second pattern).</p>

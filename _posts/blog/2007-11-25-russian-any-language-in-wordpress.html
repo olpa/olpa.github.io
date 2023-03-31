@@ -1,0 +1,28 @@
+---
+layout: post
+title: russian (any) language in wordpress
+date: 2007-11-25 09:46:31.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/11/25/russian-any-language-in-wordpress/"
+---
+<p>I tried to setup a new wordpress blog. To my unpleasant surprise, I got a problem with cyrillic letters. They just didn't work, being displayed as junk or as question marks. I spent some time to find out how to correctly setup WordPress for the utf8 environment. Actually, it's very easy:</p>
+<p><!--more--></p>
+<p>The Mysql database should be created this way:</p>
+<pre><code>CREATE DATABASE <i>name</i> CHARACTER SET utf8 COLLATE utf8_general_ci;</code></pre>
+<p>The file <tt>wp-config.php</tt> should contain:</p>
+<pre><code>define('DB_CHARSET','utf8');</code></pre>
+<p>In case of troubles, the database must be revised first. Check the UTF8 options and texts using phpMyAdmin.</p>

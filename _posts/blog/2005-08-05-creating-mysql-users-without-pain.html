@@ -1,0 +1,31 @@
+---
+layout: post
+title: creating mysql users without pain
+date: 2005-08-05 01:22:36.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/05/creating-mysql-users-without-pain/"
+---
+<p>On my computer, I often install web-applications which use a mysql database. I prefer to run different applications under different database accounts. Till now I used boring manual manipulations to create accounts, but now I worked out a better way.</p>
+<p><!--more--></p>
+<p>
+CREATE DATABASE <i>database</i>;<br />
+GRANT ALL ON <i>database</i>.* TO <i>user</i>@localhost IDENTIFIED BY '<i>password</i>';</p>
+<p>New user is automatically created during executing "GRANT". Testing access:</p>
+<p>$ mysql -u <i>user</i> -p <i>database</i></p>
+<h2>18 April 2006, update</h2>
+<p>In a new hosting, mysql_connect failed, and mysql_error() said "Client does not support authentication protocol requested by server. Consider upgrading MySQL client in..."</p>
+<p>This can be fixed by</p>
+<p>SET PASSWORD FOR <i>user</i>@localhost = OLD_PASSWORD('<i>password</i>');</p>

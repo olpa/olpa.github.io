@@ -1,0 +1,32 @@
+---
+layout: post
+title: recording audio under Linux
+date: 2007-11-11 17:44:10.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/11/11/recording-audio-under-linux/"
+---
+<p>The blog is the place to remember what I always forget. Here is a note how to record a mp3 on my system.</p>
+<p><!--more--></p>
+<p>0. Plug the microphone jack into the socket on the back side, not on the front panel.</p>
+<p>1. Load all the required drivers</p>
+<pre># modprobe snd-hda-intel
+# modprobe snd_pcm_oss
+# modprobe snd_seq_oss</pre>
+<p>1b. Setup mixer. (<tt>aumix</tt>)</p>
+<p>2. Record</p>
+<pre>arecord -f cd test.wav</pre>
+<p>3. Convert to mp3</p>
+<pre>ffmpeg -i test.wav test.mp3</pre>

@@ -1,0 +1,52 @@
+---
+layout: post
+title: entities in SXML
+date: 2005-03-11 03:02:17.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/11/entities-in-sxml/"
+---
+<p>My letter to the ssax-sxml mailing list:</p>
+<p>Hello,</p>
+<p>the SXML specification allows only one sort of entities, namely, unexpanded entities. The only use for them is in XMLs like this:</p>
+<pre>
+[code]
+&lt;!DOCTYPE zzz [
+...
+&lt;!ENTITY figure1 SYSTEM "image1.cgm" NDATA CGM>
+...
+]>
+&lt;img entity="figure1"/>
+[/code]
+</pre>
+<p>But I want to use "normal" entities:</p>
+<pre>
+[code]
+&amp;product;&amp;nbsp;&amp;mdash; AAA
+[/code]
+</pre>
+<p>Unfortunately, this sort of entities doesn't fit to SXML specification. So I'm going to use my SXML dialect for them (*REF* is for "reference"):</p>
+<pre>
+[code]
+... (*REF* "product") (*REF* "nbsp") (*REF* "mdash") " AAA" ...
+[/code]
+</pre>
+<p>Any objection to the approach? Will you use the same method if you will need such entities?</p>
+<p>Notes.</p>
+<p>1. I found a letter in archives:</p>
+<p><a href="http://sourceforge.net/mailarchive/message.php?msg_id=7743681">http://sourceforge.net/mailarchive/message.php?msg_id=7743681</a></p>
+<p>It suggests trying a the existing SXML notation *ENTITY*. But, in my opinion, it's just an ugly workaround, not a clean solution.</p>
+<p>2. Please look at the sample XML above. One can't convert it to SXML tree without losing information that the entity name was "figure1" (but I don't know if it is a problem or not).</p>

@@ -1,0 +1,29 @@
+---
+layout: post
+title: Printing unusually sized PDFs
+date: 2015-12-21 19:02:04.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- publishing
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2015/12/21/printing-unusually-sized-pdfs/"
+---
+<p>The PDF is of some non-standard landscape layout, the printer is an usual A4 printer, the software can't handle the mix correctly. The solution is to tune the dimensions of the PDF pages manually.</p>
+<p><!--more--></p>
+<p>First, rotate to the portrain orientation:</p>
+<p><code>pdftk non-standard-landscape.pdf cat 2-85E output rotated.pdf</code></p>
+<p>I wanted only a few pages (from 2 to 85), the rotation flag <tt>E</tt> was choosen by experimenting (there are also <tt>N</tt>, <tt>S</tt> and others).</p>
+<p>Second, fit to A4:</p>
+<p><code>pdfjam --paper a4 rotated.pdf --outfile a4.pdf</code></p>
+<p><tt>pdfjam</tt> has lot of options (through the LaTeX package <tt>pdfpages</tt>), I'm sure an option for rotating is also present, but I was lazy to find it.</p>

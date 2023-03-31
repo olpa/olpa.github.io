@@ -1,0 +1,61 @@
+---
+layout: post
+title: 'article section: SXML, the Lisp approach'
+date: 2005-04-04 22:57:57.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+- science
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/04/04/article-section-sxml-the-lisp-approach/"
+---
+<p>Article isn't writing. Although, in general, I have ideas what to write, the actual writing is painfully slow. Today I've only finish a section, and I feel I'll rewrite it somewhen.</p>
+<p><!--more--></p>
+<h2>SXML, the Lisp approach</h2>
+<p>Lisp is a family of computer languages. The most popular<br />
+dialects are Common Lisp (<em>ref</em>) and Scheme(<em>ref</em>).<br />
+In Lisp, data is representing in so-called S-expressions(<em>ref</em>),<br />
+or Symbolic Expressions, or &quot;sexps&quot;, defined recursively.</p>
+<p>Just as XML, S-expressions can represent any data structures,<br />
+including hierarchical, and Lisp is good in processing them.<br />
+There are a lot of discussions on comparing S-expressions,<br />
+Lisp and XML (for example, see <em>ref</em> and <em>ref</em>). In our work<br />
+we use a combination of useful features of XML and Lisp worlds.</p>
+<p>The most developed Lisp approach for XML processing is the<br />
+SXML(<em>ref</em>) library for Scheme. It defines an XML representation<br />
+in terms of S-expressions and provides a growing number of tools.</p>
+<p>The SXML format uses lists to represent an XML tree. In each list,<br />
+the first symbol is the name of an XML element node, and other<br />
+list items are the children of the node. There is a set of<br />
+special symbols to specify non-element XML nodes. For example,<br />
+list of attributes is stored under the special symbol &quot;&#64;&quot;.</p>
+<p>Here is the SXML representation of the sample XML document:</p>
+<pre class="literal-block">
+(article (&#64; (id &quot;hw&quot;))
+ (title &quot;Hello&quot;)
+ (para  &quot;Hello &quot; (object &quot;World&quot;) &quot;!&quot;))
+</pre>
+<p>Some XML standards are adopted for SXML. For example, there is<br />
+SSAX(<em>ref</em>), an XML parser in Scheme with SAX(<em>ref</em>) interface,<br />
+SXPath(<em>ref</em>), an analogue of XPath, STX(<em>ref</em>), a compiler for a subset<br />
+of XSLT, and there is possibility for (X)Querying XML in Scheme(<em>ref</em>).</p>
+<p>A useful feature of SXML tools is possibility to mix processing<br />
+enforced by a standard with procesing in Scheme. It can be used<br />
+to write more expressive programs. For example, the paper &quot;SXSLT,<br />
+manipulation language for SXML&quot;(<em>ref</em>) demonstrated practical<br />
+tasks for which SXSLT suits better than XSLT.</p>
+<p>While most of the SXML tools are just analogues of XML standards,<br />
+some core XML standards are implemented without deviations. Among<br />
+these tools are an XML parser and the txpath(<em>ref</em>) library for<br />
+XPath processing.</p>

@@ -1,0 +1,53 @@
+---
+layout: post
+title: use "perl -w"!
+date: 2006-10-14 06:34:46.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/10/14/use-perl-w/"
+---
+<p>I thought "use strict" is enough and didn't try to run an application with the "-w" flag. (Don't blame me, it was under Windows.) As result, I played ping-pong with an user trying to identify an error instead of preventing the error.</p>
+<p><!--more--></p>
+<p>Here is a minimal test case:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">use</span> <span style="color:#800000; font-weight:bold; ">strict</span><span style="color:#800080; ">;</span>
+
+<span style="color:#808030; ">&amp;</span>test<span style="color:#808030; ">(</span><span style="color:#008c00; ">3</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#808030; ">&amp;</span>test<span style="color:#808030; ">(</span><span style="color:#008c00; ">4</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#808030; ">&amp;</span>test<span style="color:#808030; ">(</span><span style="color:#008c00; ">5</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">sub </span>test <span style="color:#800080; ">{</span>
+  <span style="color:#800000; font-weight:bold; ">my</span> $param <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">shift</span><span style="color:#800080; ">;</span>
+  <span style="color:#800000; font-weight:bold; ">my</span> $local<span style="color:#800080; ">;</span>
+  <span style="color:#800000; font-weight:bold; ">sub </span>print_local <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#0000e6; ">"local = </span><span style="color:#0000e6; ">$local</span><span style="color:#0f69ff; ">\n</span><span style="color:#0000e6; ">"</span><span style="color:#800080; ">;</span>
+  <span style="color:#800080; ">}</span>
+  $local <span style="color:#808030; ">=</span> $param<span style="color:#800080; ">;</span>
+  <span style="color:#808030; ">&amp;</span>print_local<span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</code></pre>
+<p>I expected to get:</p>
+<pre>
+local = 3
+local = 4
+local = 5
+</pre>
+<p>Actually I got:</p>
+<pre>
+local = 3
+local = 3
+local = 3
+</pre>
+<p>It's very counter-intuitive. If I used "-w", I'd get the warning:</p>
+<pre>Variable "$local" will not stay shared at closure.pl line 11.</pre>

@@ -1,0 +1,26 @@
+---
+layout: post
+title: x:call for XSieve
+date: 2007-02-25 08:39:49.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- XSieve
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/02/25/xcall-for-xsieve/"
+---
+<p>Small, but pleasant functionality is added to XSieve. Now it's possible to call arbitrary XPath functions:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">write</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">x:call</span> <span style="color:#0000e6; ">"concat"</span> <span style="color:#0000e6; ">"ab"</span> <span style="color:#0000e6; ">"cde"</span> <span style="color:#0000e6; ">"fgh"</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">write</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">x:call</span> <span style="color:#0000e6; ">"generate-id"</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">write</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">x:call</span> <span style="color:#0000e6; ">"generate-id"</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">x:current</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+</code></pre>

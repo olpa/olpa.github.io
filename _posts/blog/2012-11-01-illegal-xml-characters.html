@@ -1,0 +1,23 @@
+---
+layout: post
+title: illegal XML characters
+date: 2012-11-01 16:20:03.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2012/11/01/illegal-xml-characters/"
+---
+<p>Sometimes I dump binary data into XML. Being aware of illegal bytes (0-8,B-C,F-1F), I encode everything in base64. But there is a nice alernative way, just <a href="http://lists.xml.org/archives/xml-dev/201210/msg00159.html">revealed by Roger Costello in the xml-dev maillist</a>:</p>
+<p>Move any illegal characters into the Private Use Area: for each illegal character add hex E000.</p>

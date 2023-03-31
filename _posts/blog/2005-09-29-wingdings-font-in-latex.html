@@ -1,0 +1,59 @@
+---
+layout: post
+title: WingDings font in LaTeX
+date: 2005-09-29 14:43:02.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta:
+  keywords: wingdings,latex,webdings
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/09/29/wingdings-font-in-latex/"
+---
+<p>My documents should use WingDings font, so I've added the font to LaTeX. It wasn't easy task because (1) the font is True Type (2) the font encoding is non-standard.</p>
+<p><!--more--></p>
+<p>During work on the task, I was logging my actions. I think my notes can help to install other special True Type fonts, such as WebDings and similar. The text implies that a reader has experience of installing Type1 fonts.</p>
+<p><b>wingding.ttf</b></p>
+<p>From WINGDING.TTF (standard Windows font)</p>
+<p><b>wingding.afm, wingding.pfb</b></p>
+<p>(from <a href="http://ttf2pt1.sourceforge.net/">http://ttf2pt1.sourceforge.net/</a>)</p>
+<pre>$ ttf2pt1 -a -b wingding.ttf</pre>
+<p><b>wingding.enc</b>:</p>
+<pre>$ ttf2afm -c xx wingdings.ttf
+$ mv xx.e10 wingding.enc</pre>
+<p>plus manual correction: <tt>/Encoding1</tt> to <tt>/WingdingEncoding</tt></p>
+<p><b>wingding.tfm</b></p>
+<p>afm2tfm wingding.afm -T wingding.enc wingding.tfm</p>
+<p><b>Installing</b></p>
+<p>In usual places. Use the names "pwdr.pfb", "pwdr.tfm", "wingding.enc"</p>
+<p>In the map file:</p>
+<pre>pwdr Wingdings-Regular " WingdingEncoding ReEncodeFont " &lt;wingding.enc &lt;pwdr.pfb</pre>
+<p>"upwd.fd":</p>
+<pre>
+\\ProvidesFile{upwd.fd}[2005/09/23 font definitions for U/pwd.]
+\\DeclareFontFamily{U}{pwd}{}
+\\DeclareFontShape{U}{pwd}{m}{n}{< ->pwdr}{}
+\\endinput
+</pre>
+<p>Don't forget to run:</p>
+<pre>$ texconfig rehash</pre>
+<p><b>Usage</b></p>
+<pre>
+\\documentclass{article}
+\\usepackage{pifont}
+\\begin{document}
+Windows logo: \\Pisymbol{pwd}{255}
+\\end{document}
+</pre>
+<p><b>Font table</b></p>
+<p>Use "nfssfont.tex".</p>

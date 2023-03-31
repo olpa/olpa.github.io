@@ -1,0 +1,35 @@
+---
+layout: post
+title: comparing two similar strings
+date: 2005-05-25 00:26:05.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: similarity,comparing,similar,string
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/25/comparing-two-similar-strings/"
+---
+<p>I've advertised <a href="http://getreuse.com/">GetReuse</a> once again in response to the <a href="http://www.google.com/groups?selm=24a6d%24428b9c10%24d1b717f8%242300%40PRIMUS.CA">following question</a>:</p>
+<blockquote><p>How do you compare 2 strings, and determine how much they are "close" to each other?</p></blockquote>
+<p><!--more--></p>
+<p>Here is <a href="http://www.google.com/groups?selm=de21d442.0505231257.140e2a1c%40posting.google.com">my answer</a>:</p>
+<blockquote><p>
+If your strings are between 1 and 16 Kb, look at GetReuse SDK:</p>
+<p><a href="http://getreuse.com/sdk/">http://getreuse.com/sdk/</a></p>
+<p>It has Perl and Python bindings. You might be interested in the latter as you posted to comp.lang.python.</p>
+<p>I can't disclosure the algorithm. Here is an excerpt from the home page: The formula for the calculation of the similarity is based on the scientific research. Any other "good" method of calculations should produce results that are equivalent in some terms to the GetReuse results.
+</p></blockquote>
+<p>I also commented the <a href="http://www.google.com/groups?selm=428c0d21%241%40nntp0.pdx.net">following message</a>:</p>
+<blockquote><p>Here's a really weird idea:  Measure the size difference between the pair of strings compressed together and compressed separately.</p></blockquote>
+<p><a href="http://www.google.com/groups?selm=de21d442.0505231304.60fc6da5%40posting.google.com">My answer</a>:</p>
+<blockquote><p>The idea isn't weird. The only problem is that naive approach failed. compress(a,b) != compress(b,a). Having an assumption that compressing is a good approximation for the Kolmogorov complexity, the correct formula is a bit more complicated.</p></blockquote>

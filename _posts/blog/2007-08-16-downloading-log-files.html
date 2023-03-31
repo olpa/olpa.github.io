@@ -1,0 +1,54 @@
+---
+layout: post
+title: downloading log files
+date: 2007-08-16 07:08:16.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/08/16/downloading-log-files/"
+---
+<p>The best place to analyze log files is the local computer, not the server:<br />
+1) Log files grow fast, taking all the server space<br />
+2) Queries might be CPU-intensite<br />
+If you like me, you prefer that the log files appear on the local computer automatically.</p>
+<p><!--more--></p>
+<h2>Server setup</h2>
+<p>At the moment "X-1", the server logs are truncated, and the collected data is put to a separate file.</p>
+<p>Note that the setup consists of two parts, one is "at the moment..." and another one is "the server logs...". The both tasks are solved using the standard tools.</p>
+<p>The latter task is called "log rotation", and the usual tool is "<tt>logrotate</tt>". In the easiest case, you already have the config file "<tt>/etc/logrotate.d/httpd</tt>", which defines how to rotate web server logs and has an entry for the default web server.</p>
+<p>By analogue, add entries for your sites. You'll get something like this:</p>
+<pre><code>/home/uucode/logs/*log ...other sites... {
+    daily
+    missingok
+    notifempty
+    sharedscripts
+    postrotate
+        /bin/kill -USR1 `cat /var/run/httpd.pid 2>/dev/null`
+                         2> /dev/null || true
+    endscript
+}</code></pre>
+<p>Logrotate is executed from <tt>cron</tt>. On modern Linux systems, there is a small infrastructure. Running <tt>logrotate</tt> is the task of <tt>/etc/cron.daily/logrotate</tt>. Running the directory <tt>/etc/cron.daily/</tt> is specified in the file <tt>/etc/crontab</tt>.</p>
+<p>Set the time "X-1" in <tt>/etc/crontab</tt>. Don't forget about timezones!</p>
+<h2>Local setup</h2>
+<p>I haven't found a standard tool, therefore have written a Python script. Here is its functionality:</p>
+<p>* Download the latest rotated log "<tt>xxx.1</tt>" from the server and save it as "<tt>xxx</tt>". (Obviously, I use <tt>rsync</tt> and key authentifications.)</p>
+<p>* If the local files "<tt>xxx</tt>" and "<tt>xxx.1</tt>" are the same, it means that the log was already downloaded, and there is nothing to do. Exit.</p>
+<p>* Otherwise,<br />
+. - rename "<tt>xxx.1</tt>" to something like "<tt>xxx-2007MMDD-HHMM</tt>"<br />
+. - copy "<tt>xxx</tt>" to "<tt>xxx.1</tt>"</p>
+<p>As result, we always have the latest rotated log "<tt>xxx</tt>", a copy of it ("<tt>xxx.1</tt>") to simplify programming and the set of timestamped old logs.</p>
+<p>The script is executed from <tt>cron</tt> at the moment "X-45min".</p>
+<p>At the moment "X" I start to work and can check the new logs.</p>

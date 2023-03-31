@@ -1,0 +1,80 @@
+---
+layout: post
+title: setting up a local macports repository
+date: 2010-02-12 16:20:01.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Mac
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/02/12/setting-up-a-local-macports-repository/"
+---
+<p>Many OSes have port systems, Mac OS X has too. <a href="http://www.macports.org/">Macports</a> provides a lot of useful software, but not all. If a software can't be in the macports for some reason (for example, the software isn't intended for public), one has to setup a local macports repository.</p>
+<p><!--more--></p>
+<h2>Private Portfiles</h2>
+<p>For one-computer use, there is no need for a complete setup. There is enough to say something like "<tt>sudo port install -d -v</tt>" in the directory with a <tt>Portfile</tt>.</p>
+<p>For details, see the official documentation. For introduction, read the book "Mac OS X Tiger for Unix Geeks", the chapter "Creating and Installing Packages", section "Creating DarwinPorts packages".</p>
+<h2>What is required</h2>
+<p>1) I use the following structure for the local repository:</p>
+<pre><code>
+files/
+  ... distribution archives ...
+ports/
+  PortIndex
+  myorg/
+    port1
+    ...
+    portN
+  _resources/
+    port1.0/
+      fetch/
+        mirror_sites.tcl
+      group/
+        syspython25-1.0.tcl
+        syspython26-1.0.tcl
+</code></pre>
+<p>2) Access to the local ports server is available only through rsync (01.02.2010: probably things changed). A possible content of <tt>/etc/rsyncd.conf</tt>:</p>
+<pre><code>
+[orgmacports]
+  path = ....../ports
+  comment = My Organization MacPorts, the port files
+  exclude = .** **~
+</code></pre>
+<p>To check: "<tt>rsync rsync://myhost.mydomain/orgmacports/</tt>". This lists the content of the directory "<tt>ports</tt>".</p>
+<p>3) Unfortunately, macports system can't download files through rsync (01.02.2010: maybe already able to). Therefore, share the content of "<tt>files</tt>" through FTP or HTTP.</p>
+<p>4) Define the repository in "<tt>/opt/local/etc/macports/sources.conf</tt>":</p>
+<pre><code>
+rsync://rsync.macports.org/release/ports/ [default,nosync]
+rsync://myhost.mydomain/orgmacports/
+</code></pre>
+<p>Note that I've added "nosync" to the main macports reposotory: playing with the local repository, one says "sync" often, and no-sync for the main repo safes time.</p>
+<p>To check, execute "<tt>$ sudo port -v sync</tt>". The output should contain a note about synchronitzation with the local repository.</p>
+<h2>Inside _resources</h2>
+<p>I do not remember exactly why I had to add the file "<tt>mirror_sites.tcl</tt>" (nothing worked without this file). Also, I removed a lot of code, so the current version looks so:</p>
+<pre><code>
+# $Id$
+namespace eval portfetch::mirror_sites { }
+
+set portfetch::mirror_sites::sites(macports) {
+    http://svn.macports.org/repository/macports/distfiles/
+    http://svn.macports.org/repository/macports/distfiles/general/:nosubdir
+    http://svn.macports.org/repository/macports/downloads/
+}
+
+set portfetch::mirror_sites::sites(macports_distfiles) {
+    http://distfiles.macports.org/:mirror
+    http://trd.no.distfiles.macports.org/:mirror
+    http://arn.se.distfiles.macports.org/:mirror
+}
+</code></pre>
+<p>The files "syspython25-1.0.tcl" and "syspython26-1.0.tcl" are my private groups, which define the settings to compile modules for the system python.</p>

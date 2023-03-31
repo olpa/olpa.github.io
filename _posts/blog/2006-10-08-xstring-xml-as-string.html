@@ -1,0 +1,64 @@
+---
+layout: post
+title: 'XString: XML as String'
+date: 2006-10-08 05:34:41.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/10/08/xstring-xml-as-string/"
+---
+<p>In xml-dev mailing list, William Gilreath posted an preview <a href="http://lists.xml.org/archives/xml-dev/200610/msg00052.html">announce of XString</a>, an XML technology "XML as a String". I found time to look at the <a href="http://www.fileden.com/files/2006/9/17/221180/XString.pdf">paper</a> and write comments.</p>
+<p><!--more--></p>
+<p><a href="http://lists.xml.org/archives/xml-dev/200610/msg00056.html">My letter</a>:</p>
+<p>Hello William,</p>
+<p>the paper looks interesting. I've looked through the paper. Not very attentive, but reviewing experience have helped to see several issues.</p>
+<p>* I'm lost in the details of encoding the structual depth.<br />
+* I'm not sure that the size of the result does matter.</p>
+<p>The rest of the text is just random notes.</p>
+<p>///</p>
+<p>First of all, welcome to the list of Paul:</p>
+<p>XML Alternatives<br />
+<a href="http://pault.com/xmlalternatives.html">http://pault.com/xmlalternatives.html</a></p>
+<p>///</p>
+<p>Reading the long text in a monospace font isn't fun.</p>
+<p>///</p>
+<p>It made me laugh:</p>
+<p>... Window INI file (btw, correct Window->Windows)</p>
+<pre>
+...
+HOME=/home/jdoe
+</pre>
+<p>///</p>
+<p>> Yet there is no existing technology to supply a solution to the problem addressed by XString, focusing on the problem of concise and compact XML representation.</p>
+<p>I disagree. See the Paul's list.</p>
+<p>///</p>
+<p>It a bit nonsense when an XML paper uses the tag name "XML". Such names are not allowed.</p>
+<p>///</p>
+<p>> The three child nodes CHILD1, CHILD2, CHILD3 are ...</p>
+<p>Actually, the corresponding example has only CHILD1 and CHILD2.</p>
+<p>///</p>
+<p>Encoding the depth level leads to the problem. You can't easily copy and paste an XString subtree from one tree to another tree. It contradicts to the statement in the abstract "... allows for easy manipulation and procesing of XML source".</p>
+<p>///</p>
+<p>You say that the size reduction is idealistically 50%. Compare it with the naive method. I've taken real-life XML file of 1450210 bytes, compressed it with gzip and get the archive of 374339 bytes, only 1/4 of the original size.</p>
+<p>///</p>
+<p>Applying L'Hopital rule for indeterminate ratios is an overkill. And to apply it, you have to give a proof that you can use the rule. A simplier way is to rewrite your expression as</p>
+<pre>(1 + (1/n)) / (2 + (2/n))</pre>
+<p>The limit 1/2 is obvious.</p>
+<p>///</p>
+<p>Byte/binary representation reminded me LZ compression.</p>
+<p>///</p>
+<p>I think the following is a great idea: XML within XML. I recommend you to pay more attention to it and make it one of the main selling points.</p>
+<p>How do you think, is it possible to write an XSLT to decode XString representation? If yes, it would be wonderful alternative to disable-output-encoding.</p>
+<p>///</p>
+<p>Hope it helps.</p>

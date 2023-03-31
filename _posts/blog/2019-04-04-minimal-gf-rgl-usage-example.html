@@ -1,0 +1,55 @@
+---
+layout: post
+title: Minimal GF-RGL usage example
+date: 2019-04-04 15:22:12.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- languages
+tags: []
+meta:
+  _edit_last: '1'
+  _pingme: '1'
+  _encloseme: '1'
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2019/04/04/minimal-gf-rgl-usage-example/"
+---
+<p>I managed to run GF-RGL (see the <a href="http://uucode.com/blog/2019/03/29/running-gf-rgl/">previous post</a>) as a part of a third-party project gf-matrix. Then I modified gf-matrix grammar files to create a minimal working version. Here is the result:</p>
+<p><!--more--></p>
+<pre><code>
+$ cat Wrapper.gf
+abstract Wrapper = Lang
+, Extend ** {
+} ;
+
+$ cat WrapperEng.gf
+concrete WrapperEng of Wrapper =
+  GrammarEng
+  , LexiconEng
+  , ConstructionEng
+  , DocumentationEng --# notpresent
+  , MarkupEng - [stringMark]
+  , ExtendEng
+</code></pre>
+<p>Usage:</p>
+<pre><code>
+export GF_LIB_PATH=/home/my-user-name/opt/gf-rgl/opt
+$ echo 'parse "it goes"' | gf Wrapper.gf WrapperEng.gf
+...
+Languages: WrapperEng
+Wrapper> PredVPS (DetNP (DetQuant DefArt NumSg)) (MkVPS (TTAnt TPres
+ASimul) PPos (UseV go_V))
+PredVPS (UsePron it_Pron) (MkVPS (TTAnt TPres ASimul) PPos (UseV go_V))
+UseCl (TTAnt TPres ASimul) PPos (ImpersCl (UseV go_V))
+UseCl (TTAnt TPres ASimul) PPos (PredVP (DetNP (DetQuant DefArt NumSg))
+(UseV go_V))
+UseCl (TTAnt TPres ASimul) PPos (PredVP (UsePron it_Pron) (UseV go_V))
+</code></pre>

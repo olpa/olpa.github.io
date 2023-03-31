@@ -1,0 +1,38 @@
+---
+layout: post
+title: Chinese publishing
+date: 2005-06-14 18:33:48.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/14/chinese-publishing/"
+---
+<p>Without any knowledge of Chinese, I have to publish a Chinese document. Fortunately, I have a source as an utf8-encoded XML.</p>
+<p><!--more--></p>
+<p>These remarks should help me later on a new computer.</p>
+<p>Two main types of Chinese are:<br />
+* simplified and<br />
+* traditional.</p>
+<p>Simplified is used in the continental China, their encoding is usually "gb2312" (GuoBiao). Traditional is used in Taiwan, their encoding is usually "big5". We should use "simplified".</p>
+<p>Any modern Linux distribution has Chinese fonts. Search keywords are "font", "chinese", "gb". On disks with old RedHat8 I found packages "ttfonts-zh_CN-2.11-29"  (simplified) and "ttfonts-zh_TW-2.11-15" (traditional).</p>
+<p>To view Chinese utf8 files, I use these commands:</p>
+<pre>
+  set enc=utf8
+  set guifont=-misc-zysong18030-medium-r-normal-*-*-140-*-*-c-*-iso10646-1
+</pre>
+<p>I publish through LaTeX. I used the following as the starting point:<br />
+* <a href="http://www.math.nus.edu.sg/aslaksen/cs/cjk.html">http://www.math.nus.edu.sg/aslaksen/cs/cjk.html</a><br />
+* <a href="http://www.ece.uci.edu/~chou/unicode-tex.html">http://www.ece.uci.edu/~chou/unicode-tex.html</a></p>
+<p>To convert XML to LaTeX, I use <a href="http://getfo.sourceforge.net/texml/">TeXML</a>. The conversion script should be improved a lot.</p>

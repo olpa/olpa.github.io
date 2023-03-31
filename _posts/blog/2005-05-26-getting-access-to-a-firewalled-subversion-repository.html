@@ -1,0 +1,90 @@
+---
+layout: post
+title: getting access to a firewalled subversion repository
+date: 2005-05-26 15:40:36.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta:
+  keywords: subversion,tunnel,access,ssh,windows,tortoisesvn
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/05/26/getting-access-to-a-firewalled-subversion-repository/"
+---
+<p>A small firm has a Subversion server located in a local network. The network is secured by a firewall. The task: give access to the Subversion server from the outside, both to Linux and Windows users. The solution should be as secure as possible.</p>
+<p><!--more--></p>
+<p>Initial data:</p>
+<p>* <tt>svnserver</tt>, <tt>192.168.x.yy</tt> -- the Subversion server<br />
+* <tt>repo</tt> -- name of a Subversion repository<br />
+* <tt>svn://svnserver/repo/</tt> -- the repository URL for the local users<br />
+* <tt>fwserver.dyndns.org</tt> -- Internet address of the firewall</p>
+<p>High-level solution description:</p>
+<p>Subversion can work over a tunnel, in particular, over a tunnel created by <tt>ssh</tt>. In my solution, clients think they establish a tunnel to <tt>fwserver.dyndns.org</tt>, but in fact the tunnel continues to <tt>svnserver</tt>.</p>
+<h2>Checking a local tunnel</h2>
+<p>Checking that it's possible to make a tunnel from <tt>fwserver</tt> to <tt>svnserver</tt>:</p>
+<pre>
+$ <b>netcat 192.168.x.yy 3690</b>
+( success ( 1 2 ( ANONYMOUS ) ( edit-pipeline ) ) ) <b>^C</b> punt!
+</pre>
+<h2>Making a special user</h2>
+<p>Let make a special user <tt>svnuser</tt> which will be used only for accessing Subversion. Don't set a password for <tt>svnuser</tt>. Authorization should be performed only through the ssh keys.</p>
+<pre>
+<b># useradd -c 'subversion access for an user' -m svnuser</b>
+</pre>
+<h2>Key authentification</h2>
+<p>It should be possible to login from an Internet computer to <tt>fwserver.dyndns.org</tt> as user <tt>svnuser</tt> without password:</p>
+<pre>
+client:~ $ <b>ssh svnuser@fwserver.dyndns.org</b>
+Last login: Wed May 25 12:10:00 2005 from client.example.com
+Have a lot of fun...
+fwserver:~ $
+</pre>
+<p>Making key authentification work is described in many tutorials.</p>
+<h2>Making a tunnel</h2>
+<p>It's possible to execute a command when an user authentificates using keys. The file <tt>~svnuser/.ssh/authorized_keys2</tt> should contain an entry like this:</p>
+<pre>
+<bb>command="/usr/bin/netcat 192.168.x.yyy 3690"</bb>,no-pty,no-port-forw
+arding,no-X11-forwarding,no-agent-forwarding ssh-rsa AAAAB3NzaC1
+yc2EAAAAB . . . . . . . 8Lw== user@client
+</pre>
+<p>Note the <tt>command</tt> entry. Other options add more security.</p>
+<p>Now it's possible to test the tunnel:</p>
+<pre>$ <b>ssh svnuser@fwserver.dyndns.org</b>
+( success ( 1 2 ( ANONYMOUS ) ( edit-pipeline ) ) )
+<b>^C</b> Connection to fwserver.dyndns.org closed.
+$
+</pre>
+<h2>Testing access</h2>
+<p>The tunnel is established, and now it's possible to use the tunnel:</p>
+<pre>$ svn list svn+ssh://svnuser@fwserver.dyndns.org/repo/
+Folder/
+Catalogue/
+Directory/
+. . .
+</pre>
+<h2>Getting <tt>ssh</tt> for Windows</h2>
+<p>I don't know which <tt>ssh</tt> client should be used with Subversin under Windows. I use <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>. I installed it into the folder <tt>c:\util\putty</tt>.</p>
+<p>To generate keys, run the program <tt>puttygen.exe</tt>. Save the private key as <tt>svnuser.ppk</tt>. On the <tt>fwserver.dyndns.org</tt>, add the public key to the file <tt>~svnuser/.ssh/authorized_keys2</tt>. The data for this file is displayed in the text field "Public key for pasting into OpenSSH authorized_keys file". Use the same set of options as for the Linux key.</p>
+<p>Check that channel works:</p>
+<pre>C:\\&gt; <b>C:\\util\\putty\\plink.exe -i C:\\util\\putty\\svnuser.ppk
+  svnuser@bitplant.dyndns.org</b>
+Using username "svnuser".
+Server refused to allocate pty
+( success ( 1 2 ( ANONYMOUS ) ( edit-pipeline ) ) )
+</pre>
+<h2>Configuring TortoiseSVN</h2>
+<p><a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a> is a Windows GUI to (Sub)Version Control.</p>
+<p>Run <tt>TortoiseSVN</tt>, the menu <tt>Settings</tt>. In the <tt>TortoiseSVN Settings/tt> window, on the </tt><tt>Network</tt> tab, specify the following <tt>SSH client</tt>:</p>
+<pre>C:\\util\\putty\\PLINK.EXE -i C:\\util\\putty\\svnuser.ppk -batch</pre>
+<p>In order to test the connection, run the <tt>Repo-Browser</tt>. The repository URL is the same as under Linux:</p>
+<pre>svn+ssh://svnuser@fwserver.dyndns.org/repo/</pre>
+<p>Unfortunately, black DOS windows appear while working with the repository. But it's better than no access at all.</p>

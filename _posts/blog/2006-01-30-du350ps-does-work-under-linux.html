@@ -1,0 +1,35 @@
+---
+layout: post
+title: DU350PS does work under Linux
+date: 2006-01-30 10:42:49.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/01/30/du350ps-does-work-under-linux/"
+---
+<p>DU350PS is a SATA Hard Drive Mobile Rack with USB 2.0 interface. It seems working under my Linux. No special setup required.</p>
+<p><!--more--></p>
+<p>The corresponding entry in /proc/bus/usb/devices</p>
+<pre>
+T:  Bus=01 Lev=01 Prnt=01 Port=01 Cnt=01 Dev#=  6 Spd=480 MxCh= 0
+D:  Ver= 2.00 Cls=00(>ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
+P:  Vendor=152d ProdID=2338 Rev= 1.00
+S:  Manufacturer=JMicron
+S:  Product=JM20338 SATA, USB Combo
+S:  SerialNumber=888888888888
+C:* #Ifs= 1 Cfg#= 1 Atr=c0 MxPwr=  2mA
+I:  If#= 0 Alt= 0 #EPs= 2 Cls=08(stor.) Sub=06 Prot=50 Driver=usb-storage
+E:  Ad=81(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+</pre>

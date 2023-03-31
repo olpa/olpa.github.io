@@ -1,0 +1,49 @@
+---
+layout: post
+title: fixing /invalidfont in ghostscript
+date: 2006-10-01 05:54:01.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- publishing
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/10/01/fixing-invalidfont-in-ghostscript/"
+---
+<p>Recently I updated ghostscript, and it stopped working even on its own examples:</p>
+<pre><code>
+$ pwd
+/usr/share/ghostscript/8.15/examples
+$ ps2pdf alphabet.ps ~/a.pdf
+ERROR: /invalidfont in findfont
+Operand stack:
+   (Palatino-Italic)   Font   (Palatino-Italic)   228176   (Palatino-
+   Italic)   --nostringval--   (Palatino-Italic)   URWPalladioL-Ital
+   Times-Italic   NimbusRomNo9L-ReguItal
+Execution stack:
+...
+</code></pre>
+<p><!--more--></p>
+<p>It seems there is some problem with fonts and search path. Probably, something is updated in the algorithm. I didn't have a lot of time to find what's wrong, so I implemented a quick fix.</p>
+<p>First I run:</p>
+<pre>strace -o ~/gvtr ps2pdf alphabet.ps ~/a.pdf</pre>
+<p>This command produced a trace file of executing "ps2pdf". I searched for "pfb" (an extension for Type1 fonts), and the first match was "p052023l.pfb". The program was unable to find this file. The file exists on the file system:</p>
+<pre>
+$ find /usr/share/fonts/ -name 'p052023l.pfb'
+/usr/share/fonts/default/Type1/p052023l.pfb
+</pre>
+<p>After thinking on the output from "gs -h", the section "Search path", I made a quick dirty fix, but it works for me:</p>
+<pre>
+# pwd
+/usr/share/ghostscript
+# ln -s /usr/share/fonts/default/Type1 fonts
+</pre>

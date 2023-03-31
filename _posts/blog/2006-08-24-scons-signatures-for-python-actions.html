@@ -1,0 +1,66 @@
+---
+layout: post
+title: scons signatures for Python actions
+date: 2006-08-24 06:46:23.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- consodoc
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/08/24/scons-signatures-for-python-actions/"
+---
+<p>Finally, I traced out why time-to-time my functional tests stop passing.<br />
+* Some steps are associated with Python functions.<br />
+* Signatures of such steps depend on the code of the functions.<br />
+* If the code of a function is changed, the signature is changes, and the step is considered out-of-date.<br />
+Therefore, small changes in code lead to changes in the build process.</p>
+<p><!--more--></p>
+<p>I'm tired of updating tests, so decided to trace out and fix the problem. With the following code, the signature doesn't depend on the code, only on the function name.</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> sys<span style="color:#808030; ">,</span> os<span style="color:#808030; ">,</span> re<span style="color:#808030; ">,</span> <span style="color:#e34adc; ">string</span>
+<span style="color:#800000; font-weight:bold; ">import</span> SCons<span style="color:#808030; ">.</span>Action
+
+<span style="color:#696969; ">#</span>
+<span style="color:#696969; "># When a Python function is changed, SCons signals "the contents</span>
+<span style="color:#696969; "># of the build action changed" and re-builds the target. It breaks</span>
+<span style="color:#696969; "># all the functional tests, so let's use customized signature</span>
+<span style="color:#696969; "># when in the test mode.</span>
+<span style="color:#696969; ">#</span>
+<span style="color:#800000; font-weight:bold; ">def</span> change_function_signature<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#696969; ">#</span>
+  <span style="color:#696969; "># Do nothing when not in the test mode</span>
+  <span style="color:#696969; ">#</span>
+  check <span style="color:#808030; ">=</span> os<span style="color:#808030; ">.</span>getenv<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'cdoc_testtest_sconscript'</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#800000; font-weight:bold; ">not</span> check<span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">return</span>
+  <span style="color:#696969; ">#</span>
+  <span style="color:#696969; "># Customized signature calculation: if "f" is function, return</span>
+  <span style="color:#696969; "># "str(f)" with masked pointers plus something I don't know.</span>
+  <span style="color:#696969; ">#</span>
+  re_drop_pointer <span style="color:#808030; ">=</span> re<span style="color:#808030; ">.</span><span style="color:#e34adc; ">compile</span><span style="color:#808030; ">(</span><span style="color:#0000e6; ">'0x[0123456789ABCDEFabcdef]{8}'</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">def</span> get_contents<span style="color:#808030; ">(</span>self<span style="color:#808030; ">,</span> target<span style="color:#808030; ">,</span> source<span style="color:#808030; ">,</span> env<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    s <span style="color:#808030; ">=</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>self<span style="color:#808030; ">.</span>execfunction<span style="color:#808030; ">)</span>
+    s <span style="color:#808030; ">=</span> re<span style="color:#808030; ">.</span>sub<span style="color:#808030; ">(</span>re_drop_pointer<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'0xXXXXXXXX'</span><span style="color:#808030; ">,</span> s<span style="color:#808030; ">)</span>
+    s <span style="color:#808030; ">=</span> s <span style="color:#808030; ">+</span> env<span style="color:#808030; ">.</span>subst<span style="color:#808030; ">(</span><span style="color:#e34adc; ">string</span><span style="color:#808030; ">.</span>join<span style="color:#808030; ">(</span><span style="color:#e34adc; ">map</span><span style="color:#808030; ">(</span><span style="color:#e34adc; ">lambda</span> v<span style="color:#808030; ">:</span> <span style="color:#0000e6; ">'${'</span><span style="color:#808030; ">+</span>v<span style="color:#808030; ">+</span><span style="color:#0000e6; ">'}'</span><span style="color:#808030; ">,</span> self<span style="color:#808030; ">.</span>varlist<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+    <span style="color:#800000; font-weight:bold; ">return</span> s
+  <span style="color:#696969; ">#</span>
+  <span style="color:#696969; "># Setup the function</span>
+  <span style="color:#696969; ">#</span>
+  SCons<span style="color:#808030; ">.</span>Action<span style="color:#808030; ">.</span>FunctionAction<span style="color:#808030; ">.</span>get_contents <span style="color:#808030; ">=</span> get_contents
+
+<span style="color:#696969; ">#</span>
+<span style="color:#696969; "># Work correctly under different versions of SCons</span>
+<span style="color:#696969; ">#</span>
+<span style="color:#800000; font-weight:bold; ">def</span> tune_scons<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  change_function_signature<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+</code></pre>

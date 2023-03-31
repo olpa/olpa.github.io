@@ -1,0 +1,27 @@
+---
+layout: post
+title: more "bad style" programming
+date: 2005-03-28 23:39:15.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/28/more-bad-style-programming/"
+---
+<p>Using a global variable is a bad programming style, isn't it? But I've just used it, and I'm sure it's a right thing.</p>
+<p><!--more--></p>
+<p>I have a set of recursive functions which use the same variable. Recursion may be quite deep, so use of the global variable saves stack space. It's good.</p>
+<p>One of the functions is a callback function and accepts only one parameter "<tt>hint</tt>". Now this parameter is used to pass a pointer to an information block. If I didn't use the global variable, then I had to pass two parameters through the one parameter "<tt>hint</tt>". It means packing and unpacking of pointers, and so significant complication of a program. Compare it with the current simple code.</p>
+<p>So, global variables sometimes very good.</p>
+<p>The only thing bothers me. Will I have problems in multithreaded applications or not?</p>

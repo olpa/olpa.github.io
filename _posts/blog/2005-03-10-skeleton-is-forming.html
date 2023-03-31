@@ -1,0 +1,53 @@
+---
+layout: post
+title: Skeleton is forming
+date: 2005-03-10 01:04:21.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/10/skeleton-is-forming/"
+---
+<p>Unexpectedly, I've got too little time for programming this evening. Anyway, the new code now can convert elements and attributes.</p>
+<p>XSLT:</p>
+<pre>
+&lt;x:stylesheet
+  xmlns:x = "http://www.w3.org/1999/XSL/Transform"
+  xmlns:s = "http://uucode.com/xslt/scheme"
+  x:extension-element-prefixes="s"
+  version = "1.0">
+
+&lt;x:output indent="yes"/>
+
+&lt;x:template match="/">
+  &lt;s:scheme>
+    '(article  (@ (id "hw"))
+      (title "Hello")
+      (para
+        "Hello, "
+        (object "World")
+        "!"))
+  &lt;/s:scheme>
+&lt;/x:template>
+
+&lt;/x:stylesheet>
+</pre>
+<p>Result:</p>
+<pre>
+&lt;article id="hw">
+  &lt;title>Hello&lt;/title>
+  &lt;para>Hello, &lt;object>World&lt;/object>!&lt;/para>
+&lt;/article>
+</pre>
+<p>It was hard to implement conversion of attributes. I've used a small trick which is not guaranteed to work because I've misused the API a bit. I hope to write about it soon.</p>

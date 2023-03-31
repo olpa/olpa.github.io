@@ -1,0 +1,56 @@
+---
+layout: post
+title: UnsupportedClassVersionError workaround hack
+date: 2010-10-13 15:48:06.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- java
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2010/10/13/unsupportedclassversionerror-workaround-hack/"
+---
+<p>I tried to run an "<a href="http://itextpdf.com/">iText toolbox</a>" tool but got:</p>
+<pre>Exception in thread "main" java.lang.UnsupportedClassVersionError:
+com/lowagie/toolbox/Toolbox (Unsupported major.minor version 49.0)</pre>
+<p>In the target environment, upgrade of Java is out of question. Therefore, I had a choice:</p>
+<p><!--more--></p>
+<p>* recompile the library, or<br />
+* force Java to accept the older version class.</p>
+<p>The second way is more fun. And unexpectedly not hard. The search on "java class format" revealed the specification. A fix is very simple: just two shorts, one is minor version and one is major, and no checksum. A Python program:</p>
+<p><code>
+<pre style="color:#000000;background:#ffffff;">MINOR <span style="color:#808030; ">=</span> <span style="color:#008000; ">0x00</span>
+MAJOR <span style="color:#808030; ">=</span> <span style="color:#008000; ">0x2e00</span> <span style="color:#808030; ">#</span> Not <span style="color:#008000; ">0x2e</span><span style="color:#800080; ">:</span> big<span style="color:#808030; ">-</span>endian Java vs Intel CPU
+
+<span style="color:#800000; font-weight:bold; ">import</span> sys<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">struct</span>
+s_version <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">struct</span><span style="color:#808030; ">.</span>pack<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'2H'</span><span style="color:#808030; ">,</span> MINOR<span style="color:#808030; ">,</span> MAJOR<span style="color:#808030; ">)</span>
+
+def fix_file<span style="color:#808030; ">(</span>fname<span style="color:#808030; ">)</span><span style="color:#800080; ">:</span>
+  h <span style="color:#808030; ">=</span> open<span style="color:#808030; ">(</span>fname<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'r+'</span><span style="color:#808030; ">)</span>
+  h<span style="color:#808030; ">.</span>seek<span style="color:#808030; ">(</span><span style="color:#008c00; ">4</span><span style="color:#808030; ">)</span>
+  h<span style="color:#808030; ">.</span>write<span style="color:#808030; ">(</span>s_version<span style="color:#808030; ">)</span>
+  h<span style="color:#808030; ">.</span>close<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">for</span> fname in sys<span style="color:#808030; ">.</span>argv<span style="color:#808030; ">[</span><span style="color:#008c00; ">1</span><span style="color:#800080; ">:</span><span style="color:#808030; ">]</span><span style="color:#800080; ">:</span>
+  fix_file<span style="color:#808030; ">(</span>fname<span style="color:#808030; ">)</span>
+</pre>
+<p></code></p>
+<p>The not-so-robust program fixes a set of files, which are given as command line arguments.</p>
+<p>To fix classes in jar:</p>
+<pre>
+$ rm -rf com/ META-INF/
+$ jar xf ../iText-toolbox-2.1.7.jar 
+$ find . -name '*.class' -print0 | xargs -0 python set-class-version.py
+$ jar cf iText-toolbox-2.1.7-olpa.jar com/ META-INF/
+</pre>
+<p>It worked!</p>
+<p>Unfortunately, I got a new problem: the toolbox uses <tt>java.awt....Desktop</tt>, which appeared after Java 1.3. Therefore, there was a reason why a more recent version of Java required. And therefore, I had to modify the source code for my needs. But anyway, I liked the experiment.</p>

@@ -1,0 +1,44 @@
+---
+layout: post
+title: preparation for namespaces
+date: 2005-03-15 00:24:49.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Generative XML
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/03/15/preparation-for-namespaces/"
+---
+<p>Namespaces are one of the dark corners of the XML technologies. For SXML to XML conversion, I've investigated technical details on the namespace presentation in libxml2 and SXML. It seems that I'm not going to support all SXML features, and conversion will be a bit cheaty.</p>
+<p>Namespaces in libxml2 is quite a simple thing, and it is <a href="http://xmlsoft.org/namespaces.html">documented</a>.</p>
+<p>There are several pre-docs on namespaces in SXML, with opinions:</p>
+<p>* <a href="http://pair.com/lisovsky/xml/ns/">http://pair.com/lisovsky/xml/ns/</a><br />
+* <a href="http://sourceforge.net/mailarchive/forum.php?thread_id=759249&forum_id=599">http://sourceforge.net/mailarchive/forum.php?thread_id=759249&forum_id=599</a><br />
+* <a href="http://sourceforge.net/mailarchive/forum.php?thread_id=789156&forum_id=599">http://sourceforge.net/mailarchive/forum.php?thread_id=789156&forum_id=599</a></p>
+<p>But the main source of information is the <a href="http://okmij.org/ftp/Scheme/xml.html#SXML-spec">SXML specification</a>. I'm not going to cite it. Instead, I'm going to demonstrate options on a simple example. The document:</p>
+<pre>
+&lt;z:doc xmlns:z="a:b:c:d">data&lt;/z:doc>
+</pre>
+<p>It seems (I can't check at the moment) that SSAX parser should produce:</p>
+<pre>
+(a:b:c:d:doc "data")
+</pre>
+<p>Although such names ("a:b:c:d:doc") make no problem to Scheme, they are not so good for human beings. So it is posible to define a map from IDs to URIs and force parser to return namespace IDs instead of URIs. For example, having ID "w" for URI "a:b:c:d", result is:</p>
+<pre>
+(<b>w</b>:doc (@ (@ <b>w</b> "a:b:c:d")) "data")
+</pre>
+<p>It's much better, but it's not good for reverse transformation because original prefix is lost. So there is a format to save the original prefix:</p>
+<pre>
+(<b>w</b>:doc (@ (@ w "a:b:c:d") <b>z</b>) "data")
+</pre>
+<p>Now it's time to think about algorithm for SXML to libxml2 transformation.</p>

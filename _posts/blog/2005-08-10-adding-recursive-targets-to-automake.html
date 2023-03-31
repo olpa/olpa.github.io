@@ -1,0 +1,47 @@
+---
+layout: post
+title: adding recursive targets to [auto]make
+date: 2005-08-10 17:00:53.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  keywords: make,recursive,automake,autoconf,RECURSIVE_TARGETS
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/08/10/adding-recursive-targets-to-automake/"
+---
+<p>I wanted to add my own recursive target in addition to the recursive targets produced by automake. It was not easy.</p>
+<p><!--more--></p>
+<p>At the first glance, it was an easy task. Generated Makefiles have a variable RECURSIVE_TARGETS with the list of the recursive targets. The only thing to do is to add my target to the list. Unfortunately, I failed.</p>
+<p>Anyway, I found a possible solution. Now all automake files begins the following way:</p>
+<pre>## Makefile.am -- Process this file with automake to produce Makefile.in
+include @top_srcdir@/config/xsieve.mk</pre>
+<p>For my recursive target "html", common file "config/xsieve.mk" defines the following:</p>
+<pre>
+html-recursive:
+
+ifneq ($(RECURSIVE_TARGETS),html-recursive)
+html-recursive:
+	$(MAKE) $(AM_MAKEFLAGS) RECURSIVE_TARGETS=html-recursive html-recursive
+endif
+
+html: html-recursive html-am
+
+html-am: html-local
+
+html-local:
+</pre>
+<p>For the default recursive traversing, all standard targets should be defined: "html", "html-recursive", "html-am", "html-local".</p>
+<p>The target "html" is an entry point.</p>
+<p>I don't know what the target "html-am" is supposed to do. Probably "-am" targets are for internal use of automake. It is called when the variable "SUBDIRS" is not defined.</p>
+<p>I might be wrong, but I think that for user actions should be performed in "html-local".</p>
+<p>The most non-trivial moment is defining "html-recursive". I can't add the target name to the variable "RECURSIVE_TARGETS", but I can re-run make and specify anything what I want.</p>

@@ -1,0 +1,28 @@
+---
+layout: post
+title: search path in LaTeX breaks expectations
+date: 2005-06-21 13:11:54.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TeX
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2005/06/21/search-path-in-latex-breaks-expectations/"
+---
+<p>Some tutorials on non-root installation of LaTeX modules rely on the environment variable <tt>TEXMFLOCAL</tt>. Unfortunately, it doesn't work when the folder "<tt>~/texmf</tt>" contains conflicting files.</p>
+<p><!--more--></p>
+<p>The variable <tt>HOMETEXMF</tt> has precedence of the variable <tt>TEXMFLOCAL</tt>. In order to correct situation, yet another environment variable should be set:</p>
+<pre>
+TEXMF='{!!$TEXMFLOCAL,$HOMETEXMF,!!$TEXFONTSCNF,!!$VARTEXMF,!!$TEXMFMAIN}'
+export TEXMF
+</pre>

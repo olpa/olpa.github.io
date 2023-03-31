@@ -1,0 +1,27 @@
+---
+layout: post
+title: better way to add a plugin
+date: 2007-07-25 07:04:14.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- blogging
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/07/25/better-way-to-add-a-plugin/"
+---
+<p>Installation instructions of many WordPress plugin contains recommendation to add something like this to a theme:</p>
+<pre><code>&lt;?php tla_ads(); ?> </code></pre>
+<p>Actually, the Right Way is:</p>
+<p><!--more--></p>
+<pre><code>&lt;?php if (function_exists(tla_ads)) { tla_ads(); } ?> </code></pre>
+<p>Guess, why.</p>

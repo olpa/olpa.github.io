@@ -1,0 +1,41 @@
+---
+layout: post
+title: unit testing for SCons
+date: 2006-07-05 05:50:57.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- consodoc
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/07/05/unit-testing-for-scons/"
+---
+<p>I'm developing a build process on top of the build system <a href="http://scons.org/">SCons</a>. Some steps are not trivial, so unit and functional testing are required.<br />
+<!--more--><br />
+By trials and errors, I've managed to find how to check dependencies. Here is a typical code:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">def</span> check_generate_patch<span style="color:#808030; ">(</span>env<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#696969; "># Check that the builder is added</span>
+  <span style="color:#800000; font-weight:bold; ">assert</span> env<span style="color:#808030; ">[</span><span style="color:#0000e6; ">'BUILDERS'</span><span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>has_key<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'cdoc_patch_generate'</span><span style="color:#808030; ">)</span>
+  <span style="color:#696969; "># Check that the user-friendly alias is added</span>
+  out <span style="color:#808030; ">=</span> env<span style="color:#808030; ">.</span>ans<span style="color:#808030; ">.</span>lookup<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'patch'</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">assert</span> out
+  <span style="color:#696969; "># From the alias to the target file</span>
+  node <span style="color:#808030; ">=</span> out<span style="color:#808030; ">.</span>sources<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span>
+  <span style="color:#696969; "># Check the source files, the target and the action</span>
+  <span style="color:#800000; font-weight:bold; ">assert</span> <span style="color:#e34adc; ">len</span><span style="color:#808030; ">(</span>node<span style="color:#808030; ">.</span>sources<span style="color:#808030; ">)</span>    <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> <span style="color:#008c00; ">2</span>
+  <span style="color:#800000; font-weight:bold; ">assert</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>node<span style="color:#808030; ">.</span>sources<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> os<span style="color:#808030; ">.</span>path<span style="color:#808030; ">.</span>join<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'tmp'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'file.txt'</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">assert</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>node<span style="color:#808030; ">.</span>sources<span style="color:#808030; ">[</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> os<span style="color:#808030; ">.</span>path<span style="color:#808030; ">.</span>join<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'tmp'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'file.txt.copy'</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">assert</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>node<span style="color:#808030; ">)</span>            <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> os<span style="color:#808030; ">.</span>path<span style="color:#808030; ">.</span>join<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'out'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'file.patch'</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">assert</span> <span style="color:#e34adc; ">str</span><span style="color:#808030; ">(</span>node<span style="color:#808030; ">.</span>get_executor<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">=</span><span style="color:#808030; ">=</span> <span style="color:#0000e6; ">'generate_patch(target, source, env)'</span>
+</code></pre>
+<p>Meanwhile, I've found no way to delete existing targets and dependencies. Looking in the source code, I lost somewhere in the Memoize debris.</p>
+<p>In any case, SCons belongs to the very limited class of applications which I consider near perfect. Kudos to developers!</p>

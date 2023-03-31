@@ -1,0 +1,92 @@
+---
+layout: post
+title: shut up, you dummy 7-bit Python
+date: 2007-03-23 19:38:36.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- python
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2007/03/23/shut-up-you-dummy-7-bit-python/"
+---
+<p>I'm working on an unicode-aware application. I like to use <tt>print</tt> to debug programs, but in this case it was nightmare. The most popular result of <tt>print</tt> was:</p>
+<pre>UnicodeDecodeError: 'ascii' codec can't decode byte 0xXX in position 0: ordinal not in range(128)</pre>
+<p>I spent two hours fixing it, and I hope it's done. The solution is one of the ugliest hack I ever written, but it solves the pain.</p>
+<p><!--more--></p>
+<p>1) First, the most obvious idea was to set another codec, not ascii.</p>
+<p>It was easy to find the function <tt>sys.setdefaultencoding</tt>, but it was bad news to learn that this function doesn't exist.</p>
+<p>Googling, I found discussions of this sad fact and several recommendations:</p>
+<p>* <a href="http://blog.ianbicking.org/illusive-setdefaultencoding.html">The Illusive setdefaultencoding</a><br />
+* <a href="http://www.blueskyonmars.com/2005/01/31/using-unicode-with-elementtidy/">Using Unicode with ElementTidy</a><br />
+* <a href="http://itconnection.ru/pipermail/zopyrus/2004-February/071989.html">[Zopyrus] sys.setdefaultencoding</a></p>
+<p>I continued with the following:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#e34adc; ">reload</span><span style="color:#808030; ">(</span>sys<span style="color:#808030; ">)</span>
+sys<span style="color:#808030; ">.</span>setdefaultencoding<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'utf-8'</span><span style="color:#808030; ">)</span>
+</code></pre>
+<p>2) Fixing one bugs we get another bugs</p>
+<p>Here is an minimal a posteriory example:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> locale
+locale<span style="color:#808030; ">.</span>setlocale<span style="color:#808030; ">(</span>locale<span style="color:#808030; ">.</span>LC_ALL<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">''</span><span style="color:#808030; ">)</span>
+
+file_name <span style="color:#808030; ">=</span> unicode<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'fgdjhkjdfhgjk'</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'UTF-8'</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">try</span><span style="color:#808030; ">:</span>
+    <span style="color:#e34adc; ">open</span><span style="color:#808030; ">(</span>file_name<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">except</span> <span style="color:#e34adc; ">IOError</span><span style="color:#808030; ">,</span> e<span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">print</span> <span style="color:#0000e6; ">"%s: '%s'"</span> <span style="color:#808030; ">%</span> <span style="color:#808030; ">(</span>e<span style="color:#808030; ">.</span>strerror<span style="color:#808030; ">,</span> file_name<span style="color:#808030; ">)</span>
+</code></pre>
+<p>You'll get the familiar message when you run it this way:</p>
+<pre>$ LANG=ru_RU.koi8-r python test3.py</pre>
+<p>(I think you can use any <tt>xx_XX.iso-8859-1</tt>, if the error message "No such file or directory" for this language contains non-ASCII characters.)</p>
+<p>When using the trick with setting the default encoding to utf8, the only change is the name of the codec in the error message ('utf8' instead of 'ascii').</p>
+<p>3) This problem would disappear if the text of the error message were returned in the UTF-8 encoding.</p>
+<p>The simplest way is to set the whole environment to UTF-8. But:</p>
+<p>* I'm not ready for this transition yet, and<br />
+* what's about other people? They'll refuse to change themselves just to satisfy my program.</p>
+<p>The best option is to switch to UTF-8 at the beginning of the program.</p>
+<p>Ok, no problems. I wrote a loop. For each <tt>LC_*</tt>, get the current language/encoding pait, and immediately set language/utf-8.</p>
+<p>I said no problems? No, except <tt>getlocale</tt> returned <tt>None</tt>/<tt>None</tt> for any <tt>LC_*</tt>.</p>
+<p>4) The smart workaround is to call <tt>setlocale(LC_XXX, '')</tt>.</p>
+<p>Setting the empty locale forces the system to look into the user environment and deduce the desired settings. Now <tt>getlocale</tt> return values, not <tt>None</tt>.</p>
+<p>But attempt to set <tt>UTF-8</tt> gives:</p>
+<pre>
+locale.Error: unsupported locale setting
+</pre>
+<p>Just for test I wrote</p>
+<pre>
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+</pre>
+<p>And I got an unexpected error: for some reason, it isn't supported on my system! Then I tried <tt>ru_RU.UTF-8</tt> and got surprised even more. It was not accepted too.</p>
+<p>5) But the error message is in Russian, therefore locale settings somehow work?</p>
+<p>Probably somewhere in the deep dark corners of the system libraries, the environment is inspected, the variable <tt>LANG</tt> is examined, and the corresponding locale is used.</p>
+<p>Therefore, I set up also environment variables. It worked.</p>
+<p>6) After I found Windows, I got the next error. The property <tt>locale.LC_MESSAGES</tt> is absent.</p>
+<p>Well, I added dynamic lookup of the LC-properties.</p>
+<p>The final code:</p>
+<pre style="color:#000000;background:#ffffff;"><code><span style="color:#800000; font-weight:bold; ">import</span> sys<span style="color:#808030; ">,</span> locale<span style="color:#808030; ">,</span> os
+
+<span style="color:#800000; font-weight:bold; ">def</span> force_utf8_hack<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+  <span style="color:#e34adc; ">reload</span><span style="color:#808030; ">(</span>sys<span style="color:#808030; ">)</span>
+  sys<span style="color:#808030; ">.</span>setdefaultencoding<span style="color:#808030; ">(</span><span style="color:#0000e6; ">'utf-8'</span><span style="color:#808030; ">)</span>
+  <span style="color:#800000; font-weight:bold; ">for</span> attr <span style="color:#800000; font-weight:bold; ">in</span> <span style="color:#e34adc; ">dir</span><span style="color:#808030; ">(</span>locale<span style="color:#808030; ">)</span><span style="color:#808030; ">:</span>
+    <span style="color:#800000; font-weight:bold; ">if</span> attr<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">:</span><span style="color:#008c00; ">3</span><span style="color:#808030; ">]</span> <span style="color:#808030; ">!</span><span style="color:#808030; ">=</span> <span style="color:#0000e6; ">'LC_'</span><span style="color:#808030; ">:</span>
+      <span style="color:#800000; font-weight:bold; ">continue</span>
+    aref <span style="color:#808030; ">=</span> <span style="color:#e34adc; ">getattr</span><span style="color:#808030; ">(</span>locale<span style="color:#808030; ">,</span> attr<span style="color:#808030; ">)</span>
+    locale<span style="color:#808030; ">.</span>setlocale<span style="color:#808030; ">(</span>aref<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">''</span><span style="color:#808030; ">)</span>
+    <span style="color:#808030; ">(</span>lang<span style="color:#808030; ">,</span> enc<span style="color:#808030; ">)</span> <span style="color:#808030; ">=</span> locale<span style="color:#808030; ">.</span>getlocale<span style="color:#808030; ">(</span>aref<span style="color:#808030; ">)</span>
+    <span style="color:#800000; font-weight:bold; ">if</span> lang <span style="color:#808030; ">!</span><span style="color:#808030; ">=</span> <span style="color:#e34adc; ">None</span><span style="color:#808030; ">:</span>
+      <span style="color:#800000; font-weight:bold; ">try</span><span style="color:#808030; ">:</span>
+        locale<span style="color:#808030; ">.</span>setlocale<span style="color:#808030; ">(</span>aref<span style="color:#808030; ">,</span> <span style="color:#808030; ">(</span>lang<span style="color:#808030; ">,</span> <span style="color:#0000e6; ">'UTF-8'</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+      <span style="color:#800000; font-weight:bold; ">except</span><span style="color:#808030; ">:</span>
+        os<span style="color:#808030; ">.</span>environ<span style="color:#808030; ">[</span>attr<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> lang <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">'.UTF-8'</span>
+</code></pre>
+<p>The license is public domain.</p>

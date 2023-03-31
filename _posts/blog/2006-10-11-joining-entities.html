@@ -1,0 +1,27 @@
+---
+layout: post
+title: joining entities
+date: 2006-10-11 07:31:18.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/10/11/joining-entities/"
+---
+<p>XML tools are good when the input data is XML. And they are awful when the data is XML-like. As result, instead of using "<tt>xmllint --noent</tt>", I had to write my own entity substitutor "entity.py".</p>
+<p><!--more--></p>
+<p>First, it accepts the DTD file names such as "<tt>C:\Program&#xa0;Files\...</tt>". Xmllint doesn't.</p>
+<p>Then, the tool reads and drops XML declaration, remembering encoding. Then it tries to convert the data to UTF8. In case of failure, the tool doesn't stop, but just prints the error message and returns the empty string.</p>
+<p>Next step is to read DOCTYPE definition and parse the DTD and the internal subset, collecting the entity definitions.</p>
+<p>Entities are substituted with regexps. Fortunately, the data doesn't have CDATA-sections, so it's not hard. If an entity is a system entity, the tool recursively includes the corresponding file.</p>
+<p>It isn't hard, but some accuracy required.</p>

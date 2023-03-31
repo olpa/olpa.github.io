@@ -1,0 +1,40 @@
+---
+layout: post
+title: printing batch of source code
+date: 2006-09-17 08:29:05.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta: {}
+author:
+  login: olpa
+  email: olpa@uucode.com
+  display_name: olpa
+  first_name: Oleg
+  last_name: Paraschenko
+permalink: "/blog/2006/09/17/printing-batch-of-source-code/"
+---
+<p>I want to analyze an open source application by reading its source code. I don't like reading from the screen. Instead, I'd like to print the code and read offline.</p>
+<p><!--more--></p>
+<p>The application is based on a framework, and therefore consists of a lot of small files. It's not reasonable to print file per page. Instead, it's better to print everything at once. Here is my approach.</p>
+<p>First, I visit directories with the source code and issue commands like these:</p>
+<pre><code>
+for i in *rb; do colorer -h -dc  -igrayscale $i >$i.html; done
+for i in *rhtml; do colorer -h -dc -t asp -igrayscale $i >$i.html; done
+</code></pre>
+<p>The commands above produce HTML files with syntax highlighting. Now I want to join the files to one file and separate chunks by headings. The corresponding command is:</p>
+<pre><code>
+find . -name '*.html' | xargs -I _ x.sh _
+</code></pre>
+<p>where <tt>x.sh</tt> is a helper file:</p>
+<pre><code>
+#!/bin/sh
+
+echo '&lt;h4>' $1 '&lt;/h4>' >>s.html
+cat $1 >>s.html
+</code></pre>
+<p>The rest is simple. Open <tt>s.html</tt> in browser, copy/paste text to OpenOffice, massage the text for printing, and finally print.</p>

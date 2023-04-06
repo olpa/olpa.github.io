@@ -4,6 +4,5 @@
 
 layout: home
 ---
-{{ content }}
 
 {% include sidebar-right.html %}

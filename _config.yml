@@ -9,9 +9,12 @@ github_username:  olpa
 
 # Build settings
 theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes"
+
 plugins:
   - jekyll-feed
   - jekyll-archives
+  - jekyll-remote-theme
 
 jekyll-archives:
   enabled:

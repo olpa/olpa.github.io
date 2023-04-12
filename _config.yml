@@ -8,13 +8,13 @@ twitter_username: olparko
 github_username:  olpa
 
 # Build settings
-theme: minimal-mistakes-jekyll
-remote_theme: "mmistakes/minimal-mistakes"
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 plugins:
   - jekyll-feed
   - jekyll-archives
   - jekyll-remote-theme
+  - jekyll-include-cache
 
 jekyll-archives:
   enabled:

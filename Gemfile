@@ -7,7 +7,7 @@ gem "jekyll-include-cache", group: :jekyll_plugins
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 # gem "minimal-mistakes-jekyll"
-gem "jekyll-archives"
+gem "jekyll-archives", group: :jekyll_plugins
 
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and

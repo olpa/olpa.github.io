@@ -12,13 +12,13 @@ remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 plugins:
   - jekyll-feed
-  - jekyll-archives
   - jekyll-remote-theme
   - jekyll-include-cache
+  - jekyll-archives
 
 jekyll-archives:
   enabled:
     - categories
   layout: myarchive
   permalinks:
-    category: '/blog/category/:name.html'
+    category: '/blog/category/:name/'

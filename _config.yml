@@ -6,6 +6,7 @@ baseurl: ""
 url: ""
 twitter_username: olparko
 github_username:  olpa
+repository: olpa/olpa.github.io
 
 # Build settings
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"

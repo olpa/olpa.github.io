@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - lang_tc.php [Spanish]  -  Spanish translation done : )</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=354">lang_tc.php [Spanish]  -  Spanish translation done : )</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1202"></a><b>Zaner Maidana</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon May 14, 2007 6:51 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: lang_tc.php [Spanish]  -  Spanish translation done : )</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">&lt;?php
+<br />
+/***************************************************************************
+<br />
+ *                          lang_tc.php [Spanish]
+<br />
+ *                            -------------------
+<br />
+ *   begin                : Monday, May 14, 2007
+<br />
+ *   copyright            : (C) 2006 bbAntiSpam
+<br />
+ *   email                : <a href="mailto:support@bbantispam.com">support@bbantispam.com</a>
+<br />
+ *   Spanish translation by <a href="http://zanerdesign.com" target="_blank">http://zanerdesign.com</a>
+<br />
+ *   email                : <a href="mailto:zanermn@yahoo.com">zanermn@yahoo.com</a>
+<br />
+ *
+<br />
+ *   $Id: lang_tc.php 1198 2006-10-29 04:31:35Z olpa $
+<br />
+ *
+<br />
+ ***************************************************************************/
+<br />
+
+<br />
+/***************************************************************************
+<br />
+ *
+<br />
+ *   This program is free software; you can redistribute it and/or modify
+<br />
+ *   it under the terms of the GNU General Public License as published by
+<br />
+ *   the Free Software Foundation; either version 2 of the License, or
+<br />
+ *   (at your option) any later version.
+<br />
+ *
+<br />
+ ***************************************************************************/
+<br />
+
+<br />
+$lang['tc_bad_answer']         = 'Respuesta incorrecta a la pregunta: ¿De qué color es la cometa blanca del Kiter.';
+<br />
+$lang['tc_explain']            = 'Responda la pregunta para probar que usted no es un spambot.';
+<br />
+$lang['tc_mail_subject']       = 'Registración de spam phpBB';
+<br />
+$lang['Textual_Confirmation']  = 'Confirmación Textual';
+<br />
+$lang['tc_admin_dup_question'] = &quot;&lt;p&gt;Pregunta duplicada: '%s'.&lt;/p&gt;\n&quot;;
+<br />
+$lang['tc_admin_cant_parse']   = &quot;&lt;p&gt;Can't parse the question/answers pair: '%s'.&lt;/p&gt;\n&quot;;
+<br />
+$lang['tc_admin_question_saved']   = &quot;&lt;p&gt;Pregunta Salvada: '%s'.&lt;/p&gt;\n&quot;;
+<br />
+$lang['tc_admin_question_deleted'] = &quot;&lt;p&gt;Pregunta(s) antigua eliminada:%s&lt;/p&gt;\n&quot;;
+<br />
+$lang['tc_admin_database_updated'] = &quot;&lt;p&gt;Base de datos actualizada.&lt;/p&gt;\n&quot;;
+<br />
+$lang['tc_admin_explanation']      = &quot;&lt;p&gt;Separar bloques de preguntas con una línea en blanco. En cada block, la primera pregunta es la primera línea, y el resto de las líneas son las respuestas correctas. El texto debe cumplir las reglas de HTML válido. Las respuestas son sensibles a las mayúsuculas y minúsculas.&lt;/p&gt;\n&quot;;
+<br />
+
+<br />
+// The following variables would be used by TC2
+<br />
+$lang['tc_admin_back']                    = &quot;Retroceder a Descripción&quot;;
+<br />
+$lang['tc_admin_edit']                    = &quot;Editar&quot;;
+<br />
+$lang['tc_admin_edit_question']           = &quot;Editar pregunta&quot;;
+<br />
+$lang['tc_admin_delete']                  = &quot;Eliminar&quot;;
+<br />
+$lang['tc_admin_id']                      = &quot;ID&quot;;
+<br />
+$lang['tc_admin_question']                = &quot;Pregunta&quot;;
+<br />
+$lang['tc_admin_answers']                 = &quot;Respuesta(s)&quot;;
+<br />
+$lang['tc_admin_add_question']            = &quot;Agregar nueva pregunta&quot;;
+<br />
+$lang['tc_admin_addEdit_intro']           = &quot;La pregunta debe contener HTML válido. Cada línea de la caja de respuestas representa una respuesta correcta. Las respuestas son sensibles a las mayúsuculas y minúsculas.. Asegúrese de que no quede ninguna línea vacía (excepto a propósito) en el área de texto.&quot;;
+<br />
+$lang['tc_admin_question_added']          = &quot;Pregunta agregada exitosamente.&quot;;
+<br />
+$lang['tc_admin_empty_fields']            = &quot;Ninguna pregunta o respuesta ingresada. Los 2 campos estaban vacíos.&quot;;
+<br />
+$lang['tc_admin_question_edited']         = &quot;Pregunta editada exitosamente.&quot;;
+<br />
+$lang['tc_admin_tc_table_inexistent']     = &quot;La tabla de la base de datos '%s' parece no existir. ¿Quisiera crearla ahora?&quot;;
+<br />
+$lang['tc_admin_tc_table_created']        = &quot;La tabla de la base de datos '%s' fue creada exitosamente.&quot;;
+<br />
+$lang['tc_admin_confirm_delete_question'] = &quot;¿Está seguro de que desea borrar la pregunta de confirmación textual?&quot;;
+<br />
+$lang['tc_admin_action']                  = &quot;Acción&quot;;
+<br />
+$lang['tc_admin_question_deleted']        = &quot;Pregunta borrada exitosamente.&quot;;
+<br />
+$lang['tc_admin_intro']                   = &quot;Desde este panel de control, usted puede agregar, editar y borrar las preguntas usadas para la Pregunta Contextual. Esta página muestra una lista de todos los pares de preguntas y respuestas hasta el momento. Si esta lista está vacía, no se realizará nincuna pregunta contextual.&quot;;
+<br />
+
+<br />
+?&gt;</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1204"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue May 15, 2007 5:06 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks a lot! But have you noticed that TC has some Spanish translation? Would you please revise it and make a joint version?<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

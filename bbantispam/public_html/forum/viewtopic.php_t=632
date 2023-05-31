@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Question about the questions :D</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=632">Question about the questions :D</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2251"></a><b>Artarious</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Oct 23, 2008 4:33 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Question about the questions :D</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">No pun intended.
+<br />
+
+<br />
+
+<br />
+Any way the problem I am having is when I add new questions and answers into the bbas_config.php file the page goes white.  If I reupload the file from the original zip file it works again.
+<br />
+
+<br />
+$questions = array(
+<br />
+  'Are you human?' =&gt; array ('yes', 'ja', 'oui'),
+<br />
+  'Say &quot;AppleFun&quot;'    =&gt; array ('AppleFun', 'AppleFun', 'AppleFun')
+<br />
+'Say &quot;George Bush&quot;'    =&gt; array ('George Bush', 'George Bush', 'George Bush')
+<br />
+
+<br />
+That is what I am working with.  I tried it with no spaces and with dashes etc but it didn't work.
+<br />
+
+<br />
+Is there a limit to how many questions I can play with?
+<br />
+
+<br />
+Thanks for your help</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2252"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Oct 24, 2008 4:03 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello,
+<br />
+
+<br />
+there is no limit for the number of questions. The only important thing is to follow the PHP syntax. Try the following:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+$questions = array&#40;
+<br />
+'Are you human?' =&gt; array &#40;'yes', 'ja', 'oui'&#41;,
+<br />
+'Say &quot;AppleFun&quot;' =&gt; array &#40;'AppleFun', 'AppleFun', 'AppleFun'&#41;,
+<br />
+'Say &quot;George Bush&quot;' =&gt; array &#40;'George Bush', 'George Bush', 'George Bush'&#41;
+<br />
+&#41;;
+<br />
+</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2253"></a><b>Artarious</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Oct 24, 2008 4:59 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Same damn thing happened when I tried to add a new line to your group you posted.
+<br />
+
+<br />
+When I just used yours that you just posted it worked fine.......
+<br />
+
+<br />
+Any ideas?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2255"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Oct 25, 2008 9:37 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Note the difference between our versions:
+<br />
+
+<br />
+* I use the comma (&quot;,&quot;) to separate question-answer pairs
+<br />
+* The whole question array is finished with &quot;);&quot;<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

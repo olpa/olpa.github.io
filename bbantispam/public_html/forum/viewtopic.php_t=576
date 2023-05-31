@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Blank Registration Page</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=576">Blank Registration Page</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2035"></a><b>cmenl</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Apr 2008<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Apr 28, 2008 7:57 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Blank Registration Page</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I have installed the mods as outlined in the install.txt file.  I've copied the correct files into the correct directories, run the SQL, but I am getting a blank registration page.
+<br />
+
+<br />
+I have searched the forum and tried suggestions posted previously for this problem.  I've checked the tpl and php file edits three times - they appear to be right.
+<br />
+
+<br />
+I am still getting a blank registration page at <a href="http://www.cmenl.ca/forum" target="_blank">www.cmenl.ca/forum</a>
+<br />
+
+<br />
+It worked before I installed bbantispam Textual Confirmation.  Any thoughts?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2036"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Apr 29, 2008 3:21 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'd re-check once again the edits in the php-files. Especially, the location of curly braces.
+<br />
+
+<br />
+If it doesn't help, restore the original files and <a href="http://bbantispam.com/forum/viewtopic.php?t=284" target="_blank" class="postlink">install</a> instead another tool, <a href="http://bbantispam.com/atc/" target="_blank" class="postlink">Advanced Textual Confirmation</a>.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2041"></a><b>cmenl</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Apr 2008<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 02, 2008 1:24 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Works with ATC</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I restored the original files, downloaded Advanced TC (edited profile.php to required confimation on registration page).  Works perfectly. Thanks</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2044"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat May 03, 2008 2:42 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm happy to hear it. Best luck!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

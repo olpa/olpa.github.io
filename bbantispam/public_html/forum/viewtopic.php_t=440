@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - FAQ: easyMod find failed, or can't find in usercp_register</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=440">FAQ: easyMod find failed, or can't find in usercp_register</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1506"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Jul 23, 2007 2:49 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: FAQ: easyMod find failed, or can't find in usercp_register</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"><span style="font-weight: bold">Question</span>: With easyMod, I have tried to install Textual Confirmation and it installed some of it, but I got this at the top:
+<br />
+
+<br />
+<span style="color: red">Critical Error
+<br />
+
+<br />
+FIND FAILED: In file [includes/usercp_register.php] could not find:
+<br />
+
+<br />
+$template-&gt;assign_vars(array(
+<br />
+'USERNAME' =&gt; isset($username) ? $username : '',
+<br />
+'CUR_PASSWORD' =&gt; isset($cur_password) ? $cur_password : '',
+<br />
+
+<br />
+MOD script line #162 :: FAQ :: Report</span>
+<br />
+
+<br />
+<span style="font-weight: bold">Answer</span>: Your version of phpBB is old, it's very recommended to upgrade it.
+<br />
+
+<br />
+For the old version, the code fragment to find is:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&nbsp; &nbsp;$template-&gt;assign_vars&#40;array&#40;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'USERNAME' =&gt; $username,
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'CUR_PASSWORD' =&gt; $cur_password,
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Therefore, before installing the MOD, change the file &quot;install.txt&quot;:
+<br />
+
+<br />
+Change
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'USERNAME' =&gt; isset&#40;$username&#41; ? $username &#58; '',</td>	</tr></table><span class="postbody">
+<br />
+to
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'USERNAME' =&gt; $username,</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+and change </span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'CUR_PASSWORD' =&gt; isset&#40;$cur_password&#41; ? $cur_password &#58; '',</td>	</tr></table><span class="postbody">
+<br />
+to
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'CUR_PASSWORD' =&gt; $cur_password,</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

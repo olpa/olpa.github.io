@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - License</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=1">Links Rejector</a> - <a href="viewtopic.php?t=41">License</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="222"></a><b>rajaram</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 21 Aug 2006<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Aug 21, 2006 5:40 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: License</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Can i make any changes with the unregistered version. Will you give the details about the license. Just eager to know.
+<br />
+
+<br />
+ps: The MOD rocks</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="223"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Aug 22, 2006 1:47 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi rajaram, yes, you can make any changes in code.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="226"></a><b>rajaram</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 21 Aug 2006<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Aug 24, 2006 5:25 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for response.
+<br />
+
+<br />
+Kindly help me in this regard:
+<br />
+
+<br />
+Currently no url is allowed to post.
+<br />
+But in my case, a guest should not post more than 2 urls. help me to handle this.
+<br />
+
+<br />
+Thanks in advance.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="227"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Aug 25, 2006 1:49 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">In &quot;includes/funcions_bbas.php&quot;, find the following fragment:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&nbsp; &nbsp;// No contact information -- no more work
+<br />
+&nbsp; &nbsp;//
+<br />
+&nbsp; &nbsp;if &#40;! count&#40;$contacts&#41;&#41; &#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;return;
+<br />
+&nbsp; &nbsp;&#125;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+and change it to:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&nbsp; &nbsp;// Not more than 2 links -- no more work
+<br />
+&nbsp; &nbsp;//
+<br />
+&nbsp; &nbsp;if &#40;count&#40;$contacts&#41; &lt;= 2&#41; &#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;return;
+<br />
+&nbsp; &nbsp;&#125;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+I haven't tested this change, but I think it should work. Drop me a  note on results.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="228"></a><b>rajaram</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 21 Aug 2006<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Aug 25, 2006 11:42 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">That works fine. Thanks for your help.
+<br />
+
+<br />
+But it fails in a situation:
+<br />
+
+<br />
+when i  submit <a href="http://abc.com," target="_blank">http://abc.com,</a> <a href="http://dec.com," target="_blank">http://dec.com,</a> <a href="http://sdsd.com," target="_blank">http://sdsd.com,</a> this works very fine.
+<br />
+
+<br />
+But when i give <a href="http://abc.com," target="_blank">http://abc.com,</a> <a href="http://abc.com," target="_blank">http://abc.com,</a> <a href="http://abc.com," target="_blank">http://abc.com,</a> it fails. The mod considers it as single count. Kindly look into it.
+<br />
+
+<br />
+This is the best mod, i 've found.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="229"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Aug 26, 2006 2:18 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi!
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">But when i give <a href="http://abc.com," target="_blank">http://abc.com,</a> <a href="http://abc.com," target="_blank">http://abc.com,</a> <a href="http://abc.com," target="_blank">http://abc.com,</a> it fails. The mod considers it as single count.</td>	</tr></table><span class="postbody">
+<br />
+Yes, it is so, it's made intentionally, and I think it's the right way. If you prefer calculate it as 3 links, edit &quot;&quot;includes/funcions_bbas.php&quot; again, replacing
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">return array_unique&#40;$ret&#41;;</td>	</tr></table><span class="postbody">
+<br />
+by just
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">return $ret;</td>	</tr></table><span class="postbody"></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="254"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Aug 29, 2006 6:14 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">How'd I do?
+<br />
+<span style="color: blue"><span style="text-decoration: underline">h<span style="font-weight: bold"></span>ttp://ww<span style="font-weight: bold"></span>w.anyurl.<span style="font-weight: bold"></span>com</span></span></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="255"></a><b>rajaram</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 21 Aug 2006<br />Posts: 6<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Aug 29, 2006 9:22 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi!
+<br />
+
+<br />
+when i made the changes (mentioned above) , even if i enter a url <a href="http://abc.com" target="_blank">http://abc.com</a> &amp; try preview,  it says that you are not allowed. since the single entry imade is considered as 3 entry. I even tried by giving 5 different links, it showed me 15 links to be removed.
+<br />
+
+<br />
+Similar issue:
+<br />
+when i give a ? or &amp; after my url, a single entry (http://abc.com/cgi-bin/ubb/ultimatebb.cgi?ubb=get_topic&amp;amp;f=1) is changed to 3 url entries.
+<br />
+
+<br />
+ <a href="http://abc.com/cgi-bin/ubb/ultimatebb.cgi?ubb=get_topic&amp;amp;f=1&quot;" target="_blank">http://abc.com/cgi-bin/ubb/ultimatebb.cgi?ubb=get_topic&amp;amp;f=1&quot;</a>
+<br />
+ <a href="http://abc.com/cgi-bin/ubb/ultimatebb.cgi?ubb=get_topic&amp;amp;f=1&lt;/a&gt;" target="_blank">http://abc.com/cgi-bin/ubb/ultimatebb.cgi?ubb=get_topic&amp;amp;f=1&lt;/a&gt;</a>
+<br />
+ <a href="http://abc.com/cgi-bin/ubb/ultimatebb.cgi?ubb=get_topic&amp;amp;f=1" target="_blank">http://abc.com/cgi-bin/ubb/ultimatebb.cgi?ubb=get_topic&amp;amp;f=1</a> 
+<br />
+
+<br />
+and i'm prevented from posting. Is there problem with special characters?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="256"></a><b>rajaram</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 21 Aug 2006<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Aug 29, 2006 1:40 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">HI!
+<br />
+
+<br />
+ONE MORE.
+<br />
+
+<br />
+when a guest posts a reply by quotting the previous post(posted by registered user) which contains three links, the mod prevents him from posting, as it considers those links into count. This shouldn't happen. links inside quote tag has to be ignored.(this could be added as a feature with the mod....just my thought....ignore if i'm wrong)..
+<br />
+
+<br />
+kindly help in this regard.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="259"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Aug 30, 2006 4:11 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">bbAntiSpam tries to find links as aggressively as possible using several methods, therefore the same link can be calculated as several links. In additional to the previous changes, find in the &quot;includes/funcions_bbas.php&quot;
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+$str = bbencode_second_pass&#40;$str, 0&#41;;
+<br />
+$str = make_clickable&#40;$str&#41;;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+and comment it out:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+//$str = bbencode_second_pass&#40;$str, 0&#41;;
+<br />
+//$str = make_clickable&#40;$str&#41;;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+I hope it works. If not, then the feature &quot;not more than N urls&quot; can't be implemented with the current version of bbAntiSpam.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Links inside quote tag has to be ignored</td>	</tr></table><span class="postbody">
+<br />
+I thought about it, but decided it's not good. If it were implemented, spammers would put spam links inside the &quot;QUOTE&quot; tag.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="260"></a><b>rajaram</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 21 Aug 2006<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Aug 30, 2006 4:58 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thank you. That works fine.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

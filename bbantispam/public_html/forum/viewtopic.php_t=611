@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Need help...again</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=611">Need help...again</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2171"></a><b>Lindsay</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 29 Jul 2008<br />Posts: 3<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 29, 2008 5:11 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Need help...again</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Ok I'm completely new at this, so sorry ahead of time with my noobish question.
+<br />
+
+<br />
+Installation:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">#-----[ OPEN ]------------------------------------------
+<br />
+#
+<br />
+templates/subSilver/profile_add_body.tpl</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Ok when I go into my file manager (I'm using Omnis), when I try to open the above, I get an error message that says &quot;Cannot Edit Binary Files&quot;
+<br />
+
+<br />
+I'm not sure where I can open this file to make the change.</span><span class="gensmall"><br /><br />Last edited by Lindsay on Tue Jul 29, 2008 7:05 pm; edited 1 time in total</span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2172"></a><b>Lindsay</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 29 Jul 2008<br />Posts: 3<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 29, 2008 6:54 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Nevermind, I figured out that renaming the file as .txt will allow me to edit and then afterwards renaming it to the original name.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2173"></a><b>Lindsay</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 29 Jul 2008<br />Posts: 3<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 29, 2008 7:04 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">/sigh....ok I'm stuck again
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">#-----[ SQL ]------------------------------------------
+<br />
+#
+<br />
+CREATE TABLE phpbb_textual_confirmation (
+<br />
+ id       INTEGER NOT NULL AUTO_INCREMENT,
+<br />
+ question TEXT    NOT NULL,
+<br />
+ answers  TEXT    NOT NULL,
+<br />
+ PRIMARY KEY (id)
+<br />
+);
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES ('Are you human?', 'yes\nja\noui');
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES ('Say hello', 'hello\nhi\nhallo');</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Where exactly am I supposed to put this? I don't where to look.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2344"></a><b>tom</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Feb 12, 2009 1:30 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: test</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">test</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2345"></a><b>tom</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Feb 12, 2009 1:30 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Re: test</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>tom wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">test</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+It don't work</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2371"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Mar 10, 2009 5:17 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Any text editor should be good to edit the tpl-files. I think even notepad.
+<br />
+
+<br />
+Possible solutions to the problem with SQL: <a href="http://bbantispam.com/forum/viewtopic.php?t=69" target="_blank">http://bbantispam.com/forum/viewtopic.php?t=69</a><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

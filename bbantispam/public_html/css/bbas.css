@@ -1,0 +1,226 @@
+/* bbAntiSpam.com CSS */
+
+*{
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:100%;
+}
+
+#page{min-width: 920px;}
+
+* html .minwidth {
+    border-left: 920px solid #fff;
+    position: relative; 
+    float: left; 
+}
+* html .container {
+    margin-left: -920px;
+    position: relative; 
+    float: left;
+	background: no-repeat url("/images/logo.gif");
+}
+
+body{
+	background: no-repeat url("/images/logo.gif");
+}
+
+p.center{text-align: center;}
+
+#header{
+	height: 74px;
+	background: repeat-x bottom url("/images/header_gradient.png");
+	padding: 75px 0 0 110px;
+	text-align: center;
+	margin-left: 110px;
+}
+
+#header h1{
+	font-weight: bold;
+	font-size: 26px;
+	color: #6699cc;
+	text-align:left;
+}
+
+#top_buttons{
+	position: absolute;
+	top: 0;
+	left: 440px;
+	width: 200px;
+	padding-top: 5px;
+}
+
+#top_buttons img{
+	margin-right: 20px;
+}
+
+#logo{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 110px;
+	height: 149px;
+}
+
+#logo a{
+	display: block;
+	line-height: 149px;
+}
+
+#content{
+	padding: 30px 50px;
+}
+
+#content div.footer{
+	padding: 15px 0 5px;
+}
+
+#content .btn{
+	width: 100px;
+	height: 25px;
+}
+
+#left{
+	float: left;
+	width: 45%;
+}
+
+#left p{
+	margin-bottom: 20px;
+}
+
+#main{
+	padding-right: 50px;
+}
+
+#resources{
+	padding-right: 50px;
+}
+
+#big_picture{
+	float: left;
+	width: 55%;
+	text-align: center;
+}
+
+#footer{
+	width: 100%;
+}
+
+#footer p{
+	float: left;
+	width: 100%;
+	padding: 15px 0;
+	font-style: italic;
+	background: #cde4f1;
+	text-indent: 25px;
+}
+/* Actually, an address entry in feedbacks */
+div.feedbackauthor {
+	background-color:#cde4f1;
+	font-family:Verdana, Arial, Helvetica, sans-serif; 
+	font-size:100%; 
+	vertical-align:middle;
+	text-align:left;
+	text-indent:20px;
+	padding:2px;
+	margin:5px 0px 5px 0px;
+	width:100%;
+	top:auto;
+	right:0px;
+	bottom:0px;
+	left:0px; }
+
+/* Low-level details */
+
+p {	
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:100%; 
+	color:#000000;
+	margin:0px; 
+	padding:3px 10px 5px 10px; }
+
+table {
+	border:0px; 
+	border-collapse:collapse; 
+	margin:0px; 
+	padding:0px; 
+	border-spacing:0px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:100%; 
+	width:100%;
+	height:auto; }
+table td { 
+	border:0px; 
+	margin:0px; 
+	padding:0px; 
+	vertical-align:top; }
+
+h2 { 
+	font-size:140%; 
+	color:#6699cc; 
+	text-align:left; 
+	font-weight:bold; 
+	margin:15px 0px 10px 0px; }
+h3 { 
+	font-family:Verdana, Arial, Helvetica, sans-serif; 
+	font-size:120%; 
+	color:#6699cc; 
+	text-align:left; 
+	font-weight:bold; 
+	margin:10px 0px 10px 0px; }
+li { 
+	list-style-type:disc; 
+	font-family:Verdana, Arial, Helvetica, sans-serif; 
+	font-size:100%; 
+	margin-top:3px; 
+	margin-bottom:3px;
+	margin-left:2em;}
+form {
+	margin:0px;
+	padding:0px; }
+
+a{color: #6699ff;}
+
+a:link { 
+	color:#6699FF; }
+a:visited { 
+	color:#6699cc; }
+a:hover { 
+	color:#d67900;
+	text-decoration:underline; }
+a:active { 
+	color:#d67900;
+	text-decoration:underline; }
+
+img {
+	border:none; 
+	margin:0px; 
+	padding:0px; }
+tt {
+	font-family:"Courier New", Courier, monospace;
+	font-size:110%; 
+	color:#000000; }
+/* class */
+.highlight { 
+	background-color:#FCD141; }
+a:hover.highlight {
+	background-color:#cde4f1; }
+
+.sidebar { 
+	background-color:#ffffcc; 
+	font-family:Verdana, Arial, Helvetica, sans-serif; 
+	font-size:100%; 
+	float:right; 
+	width:40%; 
+	margin:10px 10px 30px 30px; 
+	padding:10px; }
+.example { 
+	background-color:#cde4f1;
+	font-family:Verdana, Arial, Helvetica, sans-serif; 
+	font-size:100%; }
+.caption { 
+	font-family:Verdana, Arial, Helvetica, sans-serif; 
+	font-size:100%; }
+.indent {
+ 	text-indent:20px; }

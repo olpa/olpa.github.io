@@ -1,0 +1,452 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Textual Confirmation for Joomla</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=636">Textual Confirmation for Joomla</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2264"></a><b>Phil</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Nov 01, 2008 8:51 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Textual Confirmation for Joomla</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi,
+<br />
+
+<br />
+Been using your excellent Textual confirmation mod for several years now on a phpBB 2 forum and am now moving my site to Joomla...
+<br />
+
+<br />
+Was wondering whether you could kind of easily port this to Joomla where the spambot issue exists too...Not enough expert in php to do it and don't know how tough this would be but I bet everyone would benefit from your talents on this...
+<br />
+
+<br />
+Cheers
+<br />
+
+<br />
+Phil</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2269"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Nov 02, 2008 5:45 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Phil,
+<br />
+
+<br />
+for Joomla you can try <a href="http://bbantispam.com/atc/" target="_blank" class="postlink">Advanced Textual Confirmation</a>. The installation is similar to how it is installed for other tools:
+<br />
+
+<br />
+<a href="http://bbantispam.com/forum/viewtopic.php?t=283" target="_blank">http://bbantispam.com/forum/viewtopic.php?t=283</a>
+<br />
+
+<br />
+I think that the file to edit is &quot;includes/defines.php&quot;.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2270"></a><b>Phil</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Nov 02, 2008 2:05 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Oleg,
+<br />
+
+<br />
+Hacked the file defines.php to include bbantispam.php and it does work...once...
+<br />
+
+<br />
+I mean, I get the question, tried wrong answers then the right one and got successfully connected...BUT, if I stay in the same session and try to create another account, the question does not come up again!
+<br />
+
+<br />
+Does this mean that it's somehow taking care of the session id, does it need to re-read defines.php or else?
+<br />
+
+<br />
+Since I'm not a real php professional, I can't really dig into what has to be done...
+<br />
+
+<br />
+Any ideas?
+<br />
+
+<br />
+Thanks a lot...
+<br />
+
+<br />
+Phil</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2271"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Nov 03, 2008 4:26 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Phil,
+<br />
+
+<br />
+I think everything is in order. After an user answered a question, the tool remembers it and doesn't bother the user anymore. It's a small usability trick to make your visitors happy.
+<br />
+
+<br />
+If you want to see the question-answer form once again, you can: 1) change questions, or 2) clear browser cookies for the site.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2273"></a><b>phil91</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 02 Nov 2008<br />Posts: 1<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Nov 05, 2008 8:51 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Oleg,
+<br />
+
+<br />
+You're right...Nice trick...It does work the way you indicate and that is cool...Thanks very much indeed for this. I am sure this will be highly publicized. By far the best way to protect against spambots...
+<br />
+
+<br />
+Phil</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2274"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Nov 06, 2008 4:35 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Phil,
+<br />
+
+<br />
+I'm happy to know that everything works fine now. And thanks for the nice words!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2583"></a><b>Martin</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 05, 2010 8:18 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm trying to put ATC into my Joomla 1.5. 
+<br />
+This is my includes/defines.php file: 
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;?php
+<br />
+/**
+<br />
+* @version&nbsp; &nbsp;&nbsp; &nbsp;$Id&#58; defines.php 10381 2008-06-01 03&#58;35&#58;53Z pasamio $
+<br />
+* @package&nbsp; &nbsp;&nbsp; &nbsp;Joomla
+<br />
+* @copyright&nbsp; &nbsp;Copyright &#40;C&#41; 2005 - 2008 Open Source Matters. All rights reserved.
+<br />
+* @license&nbsp; &nbsp;&nbsp; &nbsp;GNU/GPL, see LICENSE.php
+<br />
+* Joomla! is free software. This version may have been modified pursuant
+<br />
+* to the GNU General Public License, and as distributed it includes or
+<br />
+* is derivative of works licensed under the GNU General Public License or
+<br />
+* other free or open source software licenses.
+<br />
+* See COPYRIGHT.php for copyright notices and details.
+<br />
+*/
+<br />
+
+<br />
+// no direct access
+<br />
+defined&#40; '_JEXEC' &#41; or die&#40; 'Restricted access' &#41;;
+<br />
+
+<br />
+/**
+<br />
+* Joomla! Application define
+<br />
+*/
+<br />
+
+<br />
+//Global definitions
+<br />
+//Joomla framework path definitions
+<br />
+$parts = explode&#40; DS, JPATH_BASE &#41;;
+<br />
+
+<br />
+//Defines
+<br />
+define&#40; 'JPATH_ROOT',&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;implode&#40; DS, $parts &#41; &#41;;
+<br />
+
+<br />
+define&#40; 'JPATH_SITE',&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;JPATH_ROOT &#41;;
+<br />
+define&#40; 'JPATH_CONFIGURATION', &nbsp; &nbsp;JPATH_ROOT &#41;;
+<br />
+define&#40; 'JPATH_ADMINISTRATOR', &nbsp; &nbsp;JPATH_ROOT.DS.'administrator' &#41;;
+<br />
+define&#40; 'JPATH_XMLRPC', &nbsp; &nbsp;&nbsp; &nbsp;JPATH_ROOT.DS.'xmlrpc' &#41;;
+<br />
+define&#40; 'JPATH_LIBRARIES',&nbsp; &nbsp; &nbsp; &nbsp;JPATH_ROOT.DS.'libraries' &#41;;
+<br />
+define&#40; 'JPATH_PLUGINS',&nbsp; &nbsp;&nbsp; &nbsp;JPATH_ROOT.DS.'plugins'&nbsp; &nbsp;&#41;;
+<br />
+define&#40; 'JPATH_INSTALLATION',&nbsp; &nbsp;JPATH_ROOT.DS.'installation' &#41;;
+<br />
+define&#40; 'JPATH_THEMES'&nbsp; &nbsp;&nbsp; &nbsp;,&nbsp; &nbsp;JPATH_BASE.DS.'templates' &#41;;
+<br />
+define&#40; 'JPATH_CACHE',&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;JPATH_BASE.DS.'cache'&#41;;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Where and which string should I add to defines.php file? 
+<br />
+Help me please <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2584"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 06, 2010 4:36 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I think if you insert this as the first like, it should be ok:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;?php include_once 'bbantispam.php'; ?&gt;</td>	</tr></table><span class="postbody">
+<br />
+Probably you also need to specify the path to bbantispam.php in full.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2585"></a><b>Martin</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 06, 2010 9:22 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thank you very, very much Oleg. It works like a charm  <img src="images/smiles/icon_lol.gif" alt="Laughing" border="0" /> 
+<br />
+
+<br />
+I've tried with:
+<br />
+
+<br />
+&lt;?php require_once 'bbantispam.php'; ?&gt;
+<br />
+
+<br />
+but if you wrote it should be &quot;include&quot;, I'm sure it will be the better way in this case.
+<br />
+
+<br />
+Once again - Thank you  <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2587"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Mar 08, 2010 4:22 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm glad it worked. Best luck!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2590"></a><b>Martin</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 11, 2010 8:18 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Another issue ...
+<br />
+
+<br />
+I've tested ATC in my Joomla 1.5 site. As I wrote before, I have 
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;?php include_once 'bbantispam.php'; ?&gt;</td>	</tr></table><span class="postbody"> in my includes/defines.php file. Everythig works but ...
+<br />
+
+<br />
+When I clear browser cookies for my site, I get ATC screen also f.e. after trying to add photo in some &quot;add image&quot; form. 
+<br />
+
+<br />
+I try to implement ATC only as the verification after complete the registry form. How can I solve this problem?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2591"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 12, 2010 3:25 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">To implement only in the registration form, someone has to investigate the internals of Joomla -- not very hard, but anyway requires some effort. I'm not ready to do it. Therefore, I'd suggest to have all as it is.
+<br />
+
+<br />
+But I'm curious why the verification form appeared during &quot;add image&quot; and not during re-login to Joomla.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

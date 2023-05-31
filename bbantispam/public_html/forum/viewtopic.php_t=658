@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - phpbb3 is hacked!</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=658">phpbb3 is hacked!</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2340"></a><b>Garry</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Feb 07, 2009 6:45 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: phpbb3 is hacked!</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">First of all, thank you so much to Oleg for his wonderful plugin that protected my phpbb2 forums for a long time.
+<br />
+
+<br />
+Sadly last week, phpbb3 was also broken by the spammers.  The whole phpbb site is offline and has apparantly had all it's user accounts stolen!  It's a bit of a disaster for them, and users around the world have no idea what's going to happen.
+<br />
+
+<br />
+Luckily I found that I can use Advanced Textual Confirmation with phpbb3, so I installed it and it has once again saved my forums, thank you Oleg!!!
+<br />
+
+<br />
+Also I want to ask, Oleg ae you still active here?  Your blog hasn't been updated in months and I thought you might have some things to say about the current phpbb situation!  Please keep us up-to-date with developments as you are the one who is protecting us better than the phpBB authors themselves, who are so naieve as to rely on silly unreadable Captchas that are unreadable for humans, but no barrier to spambots!  Have you thought about making a deal with them to incorporate your code into phpbb itself?  That's what really needs to happen, so that forums can be secure by default, not relying on pure hope!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2368"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Mar 10, 2009 5:08 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello Garry,
+<br />
+
+<br />
+thanks for the message!
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Also I want to ask, Oleg ae you still active here?</td>	</tr></table><span class="postbody">
+<br />
+Not much. The tools (Textual Confirmation and Advanced Textual Confirmation) are still so good that no update required. Therefore, I pay less and less attention to the project.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Have you thought about making a deal with them to incorporate your code into phpbb itself?</td>	</tr></table><span class="postbody">
+<br />
+The phpBB developers have theirs own ideas how to implement spam protection. No way for Textual Confirmation.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2414"></a><b>DickS</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 08 Aug 2006<br />Posts: 13<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Apr 16, 2009 9:07 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi,
+<br />
+
+<br />
+For those on PHPBB3 there are some MODs I can recommend. I've listed them here: <a href="http://www.phpbb.com/community/viewtopic.php?f=64&amp;t=1547715" target="_blank">http://www.phpbb.com/community/viewtopic.php?f=64&amp;t=1547715</a>
+<br />
+
+<br />
+Cheers!
+<br />
+
+<br />
+DickS</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

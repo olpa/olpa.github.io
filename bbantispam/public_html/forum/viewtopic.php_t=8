@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Links Rejector, beta2 to beta3</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=6">Announces</a> - <a href="viewtopic.php?t=8">Links Rejector, beta2 to beta3</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="13"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Apr 24, 2006 1:38 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Links Rejector, beta2 to beta3</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Unbelievable! My code can contain bugs! Actually, I think it's not my fault, but fault of combination of a phpBB internal function and preg_replace. But who cares? In any case, I'm who is under blame.
+<br />
+
+<br />
+I forget the rule of successfull programming: never, never trust someone else's code. Do expect that third-party functions return garbage instead of empty values if source data is empty.
+<br />
+
+<br />
+As result, beta2 has a bug. bbAntiSpam doesn't work if phpBB censor list is empty.
+<br />
+
+<br />
+I recommend to upgrade to beta3.
+<br />
+
+<br />
+<a href="http://bbantispam.com/news.rss" target="_blank" class="postlink"><img src="http://bbantispam.com/images/rss.gif" border="0" /> Subscribe to news</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

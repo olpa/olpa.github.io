@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>How does Advanced Textual Confirmation work | Spam Bots and CAPTCHAs</title>
+
+<meta name="generator" content="WordPress 2.2.3" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../../../../wp-content/themes/default/style.css" type="text/css" media="screen" />
+
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://bbspam.com/xmlrpc.php?rsd" />
+</head>
+<body>
+<div id="page">
+
+
+<div id="header">
+	<div id="headerimg">
+		<h1><a href="../../../../index.html">Spam Bots and CAPTCHAs</a></h1>
+		<div class="description">Stories from the web spam fighters</div>
+	</div>
+</div>
+<hr />
+<p style="background-color:yellow"><font size="7"><b>This blog is retired.</b></font></p>
+<hr />
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../../16/evil-idea-make-money-from-spammers/index.html">Evil Idea: Make money from spammers!</a></div>
+			<div class="alignright"><a href="../../26/too-bad-you-cant-look-spammers-up-in-the-telephone-book/index.html">Too Bad You Can’t Look Spammers Up In The Telephone Book</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-34">
+			<h2><a href="index.html" rel="bookmark" title="Permanent Link: How does Advanced Textual Confirmation work">How does Advanced Textual Confirmation work</a></h2>
+
+			<div class="entry">
+				<div class="KonaBody"><p>Many people, including me, believe that security by obscurity gives a false sense of security. Any security tool must be available in source code, even to bad guys. But <a href="http://bbantispam.com/atc/">Advanced Textual Confirmation</a> (ATC) is encoded. Why?</p>
+<p>It&#8217;s all about the business. If I deliver the tool as is, some &#8220;alternatively smart&#8221; programmer can copy/paste the code in a few minutes and start selling the clone. This is my worry: &#8220;alternatively smart&#8221; programmers.</p>
+<p>To satisfy those who are against security by obscurity, I&#8217;m diclosing the ATC internals is this post. Warning: to understand the text in full, you have to be a web programmer.</p>
+<p><span id="more-34"></span></p>
+<p>The second step of the script is to decrypt its code. I said second? Yes! The first step is to check what is the request method. If it isn&#8217;t <tt>POST</tt>, it means the user doesn&#8217;t modify the data on the server, and therefore there is nothing to protect. Small, but useful optimization.</p>
+<p>From the high level point of view, the ATC functionality is:</p>
+<p>* Get the value of the cookie <tt>bbas_pass_code</tt><br />
+* Calculate the expected value<br />
+* If the both values are the same, accept the request,<br />
+* &#xa0; &#xa0;otherwise, suspend the request and display the confirmation form.</p>
+<p>The alternative work flow is processing of an answer:</p>
+<p>* If the user answered correctly, give him the cookie and resume the request,<br />
+* &#xa0; &#xa0;otherwise, display the form again, probably with a new question.</p>
+<p>Everything seems quite logical, the only question is how &#8220;the expected value&#8221; is calculated. This pass code is a cryptographic cash of the client/server data:</p>
+<p>* <tt>SERVER_NAME</tt>, <tt>SERVER_ADMIN</tt>,<br />
+* <tt>HTTP_USER_AGENT</tt><br />
+* <tt>REMOTE_ADDR</tt>, <tt>HTTP_VIA</tt>, <tt>HTTP_X_FORWARDED_FOR</tt> (Actually, only the first three digits are used. It&#8217;s an usability trick for users behind the balancing proxies.)<br />
+* The questions and answers.</p>
+<p>Thanks to cryptography, the only way to get a correct pass code is to really answer a question.</p>
+<p>It worth mentioning that all the ATC identifiers in the confirmation form are also cryptographic dynamic. A spammer can&#8217;t use a simple database &#8220;fill this form elements with such values&#8221; like for other protectors, he has to really load the form and parse it.</p>
+<p>The rest isn&#8217;t so important. There are some neat tricks and workarounds which make the script a piece of art, but that&#8217;s not about the security.</p>
+<p>Do you see how the spammers can bypass the protection? I see two methods:</p>
+<p>* database of answers, and<br />
+* pass code theft.</p>
+<p>The first method is the most obvious, many people think it compromises the protection, but I (and practice) disagree. The arguments are in this blog post: &#8220;<a href="../../../08/12/are-your-sneakers-tied/index.html">Are your sneakers tied?</a>&#8221;</p>
+<p>The second method is a bit tricky, bit somehow more effective. A spammer answers a question in browser, gets a pass code and gives the identification information to a spam bot. After that, ATC considers the spam bot to be a legitimate user. Fortunately, this attack doesn&#8217;t scale:</p>
+<p>* Spammers use botnets and proxies to send spam, but the pass code is bound to the original spammer&#8217;s IP.<br />
+* Spamming from the same IP is a flood attack. Any good modern forum or blog has protection against it. In the worst case, just ban the IP.</p>
+<p>As you see, even if the spammers know how are you protected, they can&#8217;t convert the knowledge to actions.</p>
+</div>
+
+							
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						by <a href="http://bbantispam.com/" title="Visit olpa's website" rel="external">olpa</a>												on Sunday, September 23rd, 2007 at 12:41 am						and is filed under <a href="../../../../category/defeat/index.html" title="View all posts in Defeating protection" rel="category tag">Defeating protection</a>,  <a href="../../../../category/bbantispam/index.html" title="View all posts in bbAntiSpam" rel="category tag">bbAntiSpam</a>,  <a href="../../../../category/explain/index.html" title="View all posts in Explanations" rel="category tag">Explanations</a>,  <a href="../../../../category/tools/index.html" title="View all posts in Tools" rel="category tag">Tools</a>.
+
+
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+
+	<h3 id="comments">2 Responses to &#8220;How does Advanced Textual Confirmation work&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-318">
+			<cite><a href='http://www.lawfirms911.com' rel='external nofollow'>Philip Franckel</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-318" title="">July 23rd, 2009 at 1:18 am</a> </small>
+
+			<p>Can you provide instructions to place Advanced Textual Confirmation on both the Submit Link and Submit Article registration pages of phpLD (phpLinkDirectory), but not for any other page?</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-319">
+			<cite>Oleg</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-319" title="">July 24th, 2009 at 12:11 am</a> </small>
+
+			<p>I can&#8217;t say anything new comparing to <a href="http://bbantispam.com/forum/viewtopic.php?t=696" rel="nofollow">http://bbantispam.com/forum/viewtopic.php?t=696</a></p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+	
+	</div>
+
+
+<hr />
+<div id="footer">
+</div>
+
+</body>
+</html>

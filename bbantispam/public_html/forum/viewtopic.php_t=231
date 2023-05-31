@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Visual confirm off, textual off. Anyway around it?</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=231">Visual confirm off, textual off. Anyway around it?</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="819"></a><b>ArcticCat</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 17 Feb 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Feb 17, 2007 4:03 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Visual confirm off, textual off. Anyway around it?</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">First, thanks for a great creation.
+<br />
+
+<br />
+Is there a way to turn off the visual confirm and keep the textual confirm on? Right now if I check no to the visual confirm in the admin config page, the textual goes bye bye as well. 
+<br />
+
+<br />
+Thanks for the help, I'll check back often for answers and for replies. 
+<br />
+
+<br />
+
+<br />
+Ken - ArcticCat</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="822"></a><b>gbr1918</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 17 Feb 2007<br />Posts: 5<br />Location: England</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Feb 17, 2007 10:36 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Sounds like there's a misplaced &quot;if...&quot; in your php somewhere.  I don't have the same problem.  I'm using 20.0.22, minimal mods (except for TC, which is totally the cat's pyjamas).
+<br />
+Dave
+<br />
+
+<br />
+Umm. 'cat's pyjamas' = 'really, really good'  Possibly not a universal phrase! <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" /><br />_________________<br />Always tack on a header.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="828"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Feb 19, 2007 2:51 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Please re-check the file &quot;templates/subSilver/profile_add_body.tpl&quot;. The correct order of strings:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&lt;!-- Visual Confirmation --&gt;
+<br />
+&lt;!-- BEGIN switch_confirm --&gt;
+<br />
+...
+<br />
+&lt;!-- END switch_confirm --&gt;
+<br />
+&lt;!-- BEGIN switch_textual_confirm --&gt;
+<br />
+...
+<br />
+&lt;!-- END switch_textual_confirm --&gt;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+I suppose in your case the order is a bit different, something like
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&lt;!-- Visual Confirmation --&gt;
+<br />
+&lt;!-- BEGIN switch_confirm --&gt;
+<br />
+...
+<br />
+&lt;!-- BEGIN switch_textual_confirm --&gt;
+<br />
+...
+<br />
+&lt;!-- END switch_textual_confirm --&gt;
+<br />
+&lt;!-- END switch_confirm --&gt;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+Please check.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="850"></a><b>ArcticCat</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 17 Feb 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Feb 21, 2007 8:58 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Looks like I did cross it up, any takers on how to straighten it out...
+<br />
+
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&lt;!-- Visual Confirmation --&gt;
+<br />
+&nbsp; &nbsp;&lt;!-- BEGIN switch_confirm --&gt;
+<br />
+&nbsp; &nbsp;&lt;tr&gt;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&lt;td class=&quot;row1&quot; colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;span class=&quot;gensmall&quot;&gt;&#123;L_CONFIRM_CODE_IMPAIRED&#125;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&#123;CONFIRM_IMG&#125;&lt;br /&gt;&lt;br /&gt;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&lt;/tr&gt;
+<br />
+&nbsp; &nbsp;&lt;tr&gt; 
+<br />
+&nbsp; &nbsp;&nbsp; &lt;td class=&quot;row1&quot;&gt;&lt;span class=&quot;gen&quot;&gt;&#123;L_CONFIRM_CODE&#125;&#58; * &lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;gensmall&quot;&gt;&#123;L_CONFIRM_CODE_EXPLAIN&#125;&lt;/span&gt;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&nbsp; &lt;td class=&quot;row2&quot;&gt;&lt;input type=&quot;text&quot; class=&quot;post&quot; style=&quot;width&#58; 200px&quot; name=&quot;confirm_code&quot; size=&quot;6&quot; maxlength=&quot;6&quot; value=&quot;&quot; /&gt;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&lt;/tr&gt;
+<br />
+&nbsp; &nbsp;&lt;!-- END switch_confirm --&gt;&lt;!-- BEGIN switch_textual_confirm --&gt;
+<br />
+&nbsp; &nbsp;&lt;tr&gt; 
+<br />
+&nbsp; &nbsp;&nbsp; &lt;td class=&quot;row1&quot;&gt;&lt;span class=&quot;gen&quot;&gt;&#123;TEXTUAL_CONFIRMATION_QUESTION&#125; * &lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;gensmall&quot;&gt;&#123;L_TEXTUAL_CONFIRMATION_EXPLAIN&#125;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&nbsp; &lt;td class=&quot;row2&quot;&gt;&lt;input type=&quot;text&quot; class=&quot;post&quot; style=&quot;width&#58; 200px&quot; name=&quot;tc_answer&quot; size=&quot;25&quot; value=&quot;&quot; /&gt;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&lt;/tr&gt;
+<br />
+&nbsp; &nbsp;&lt;!-- END switch_textual_confirm --&gt;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Thanks, 
+<br />
+
+<br />
+Ken</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="851"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Feb 22, 2007 3:11 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi!
+<br />
+
+<br />
+Change
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;!-- END switch_confirm --&gt;&lt;!-- BEGIN switch_textual_confirm --&gt;</td>	</tr></table><span class="postbody">
+<br />
+to
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;!-- END switch_confirm --&gt;
+<br />
+&lt;!-- BEGIN switch_textual_confirm --&gt;</td>	</tr></table><span class="postbody">
+<br />
+(From everything on one line to two lines.)<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

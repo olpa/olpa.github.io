@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - anti-spam questions</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=736">anti-spam questions</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2593"></a><b>azdolfan</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Mar 16, 2010 11:21 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: anti-spam questions</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I have both files bbantispam.php and bbasconfig.php in the root of my forum.  I have include_once($phpbb_root_path . 'bbantispam.' . $phpEx); in common.php right after &lt;?php 
+<br />
+
+<br />
+1) However, when logging on I don't always get the spam message.  I have a couple of different user accounts and if I log into one, type anti-spam msg, then log out and login as another profile, it does not ask.  Is that because it doesn't go with username but with cookie?
+<br />
+
+<br />
+2) If someone types an incorrect username or password when logging in, instead of going to the error message saying you can't log in, it goes to the anti-spam msg first, then back to the error msg.  How can I have them finish logging in correctly before giving them this msg?
+<br />
+
+<br />
+3) Lastly, I have mChat mod.  When I log on as an the highest permission my admin/ACP username, the spam question shows up in the actual chat message. I know I installed mChat correctly because I did it with the automod and had no problems.  I have screenshots if needed!  I worry that it might log other people on to my board and put the question there as well.
+<br />
+
+<br />
+Thanks!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2594"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 17, 2010 3:28 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello,
+<br />
+
+<br />
+thanks for the questions!
+<br />
+
+<br />
+For (1), you've correctly identified the reason: the pass code is in a cookie. And I think that there is no reason to re-ask a question when re-logging.
+<br />
+
+<br />
+As for (2) and (3), it's all about compromises: a specialized tool vs a generic tool suitable in 99.99% cases. Unfortunately, you have the rest 0.01%. The only solution is to make the tool a bit specialized. In particular, the code of forum should be modified to avoid running bbAntiSpam in some situations. How to do it? Sorry, I can't help with it. But any friend with basic web programming skills could help you.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2595"></a><b>azdolfan</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 24, 2010 7:04 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Spam Question Before Forum Password Retry Error</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">That's great about #1.  #3 I think will only be for me because so far I believe this is only happening with 2 login requests.  If that's the case, it's no big deal.  But #2, I'd like to fix.  I'll see if the people at phpbb can help me with #2.  Thanks for you help!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

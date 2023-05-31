@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Where to install TC</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=578">Where to install TC</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2043"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 02, 2008 10:42 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Where to install TC</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm sorry for being dense, but I'm not an expert in these things. I have installed easymod to the correct directory etc and it tells me it has installed sucessfully. I have read the install.php file re TC and I understand that I will have to add/amend code to relevant forum files for TC to work.
+<br />
+
+<br />
+My simple question is, where should I upload the unzipped TC files to? To within easymod, to the mods folder, to the admin folder? Where please?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2046"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat May 03, 2008 2:56 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">As far as I remember, you need to upload the unpacked folder &quot;TextualConfirmation-1.0.x&quot; to the directory &quot;admin/mods&quot;.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2047"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat May 03, 2008 7:42 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2048"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat May 03, 2008 5:21 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Bit stuck here. Have changed/added text so far from the install instructions, which are quite clear as to what to open, what to find and what to copy in. This last tranche kust says &quot;COPY&quot; then &quot;SQL&quot; but I can't find where that goes. Is it meant to be in the Sub Silver file?
+<br />
+
+<br />
+#-----[ OPEN ]------------------------------------------
+<br />
+#
+<br />
+templates/subSilver/profile_add_body.tpl
+<br />
+
+<br />
+#
+<br />
+#-----[ FIND ]------------------------------------------
+<br />
+#
+<br />
+&lt;!-- END switch_confirm --&gt;
+<br />
+
+<br />
+#
+<br />
+#-----[ AFTER, ADD ]------------------------------------------
+<br />
+#
+<br />
+	&lt;!-- BEGIN switch_textual_confirm --&gt;
+<br />
+	&lt;tr&gt; 
+<br />
+	  &lt;td class=&quot;row1&quot;&gt;&lt;span class=&quot;gen&quot;&gt;{TEXTUAL_CONFIRMATION_QUESTION} * &lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;gensmall&quot;&gt;{L_TEXTUAL_CONFIRMATION_EXPLAIN}&lt;/td&gt;
+<br />
+	  &lt;td class=&quot;row2&quot;&gt;&lt;input type=&quot;text&quot; class=&quot;post&quot; style=&quot;width: 200px&quot; name=&quot;tc_answer&quot; size=&quot;25&quot; value=&quot;&quot; /&gt;&lt;/td&gt;
+<br />
+	&lt;/tr&gt;
+<br />
+	&lt;!-- END switch_textual_confirm --&gt;
+<br />
+
+<br />
+#
+<br />
+#-----[ COPY ]------------------------------------------
+<br />
+#
+<br />
+copy includes/functions_tc.php to includes/functions_tc.php
+<br />
+copy admin/admin_tc.php to admin/admin_tc.php
+<br />
+copy language/lang_english/lang_tc.php to language/lang_english/lang_tc.php
+<br />
+copy language/lang_english/email/textual_confirmation.tpl to language/lang_english/email/textual_confirmation.tpl
+<br />
+copy templates/subSilver/admin/textual_confirmation.tpl to templates/subSilver/admin/textual_confirmation.tpl
+<br />
+
+<br />
+#
+<br />
+#-----[ SQL ]------------------------------------------
+<br />
+#
+<br />
+CREATE TABLE phpbb_textual_confirmation (
+<br />
+ id       INTEGER NOT NULL AUTO_INCREMENT,
+<br />
+ question TEXT    NOT NULL,
+<br />
+ answers  TEXT    NOT NULL,
+<br />
+ PRIMARY KEY (id)
+<br />
+);
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES ('Are you human?', 'yes\nja\noui');
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES ('Say hello', 'hello\nhi\nhallo');</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2051"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon May 05, 2008 3:18 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">If you install Textual Confirmation through EasyMOD, you don't need to execute actions described in install.txt -- EasyMOD executes them for you. However, if you want to install Textual Confirmation manually, here are explanations what to do:
+<br />
+* <a href="http://www.phpbb.com/community/viewtopic.php?t=61611" target="_blank" class="postlink">How to install a MOD</a>
+<br />
+* <a href="http://bbantispam.com/forum/viewtopic.php?t=69" target="_blank" class="postlink">Executing SQL</a><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2053"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon May 05, 2008 7:02 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thank you very much for your help - I have now installed the MOD using EasyMOD as I can now see what is required etc. Thanks again.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2057"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue May 06, 2008 2:50 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm glad to hear it. Best luck!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

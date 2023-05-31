@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Allowing wildcards in TC answers</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=329">Allowing wildcards in TC answers</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1127"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 15, 2007 8:39 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Allowing wildcards in TC answers</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">is this supported yet?  the wildcards would be entered on the admin side
+<br />
+
+<br />
+so, instead of:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote"><span style="font-weight: bold">What is the best country in the world?</span>
+<br />
+usa
+<br />
+u.s.a.
+<br />
+united states of america</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+you could do something like
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote"><span style="font-weight: bold">What is the best country in the world?</span>
+<br />
+u*s*a
+<br />
+united*states*america</td>	</tr></table><span class="postbody">
+<br />
+where the *'s are wildcards that can be anything (.'s, in this case).</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1131"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Apr 18, 2007 4:02 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for suggestion, but I'm afraid I don't like implementing it. Wilcards complicate the code, but I want to keep it as simple as possible.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1142"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 22, 2007 12:28 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">in tc_hook_register(), in functions_tc.php:
+<br />
+
+<br />
+Original
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&nbsp; &nbsp;//
+<br />
+&nbsp; &nbsp;// Check if the answer is correct
+<br />
+&nbsp; &nbsp;//
+<br />
+&nbsp; &nbsp;$as = preg_split&#40;&quot;/\n/&quot;, $answers, -1, PREG_SPLIT_NO_EMPTY&#41;;
+<br />
+&nbsp; &nbsp;foreach &#40;$as as $a&#41; &#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;$a = trim&#40;$a&#41;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;if &#40;strtolower&#40;$a&#41; == strtolower&#40;$answer&#41;&#41; &#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;return;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;tc_bad_answer&#40;&#41;;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+New, supports wildcards
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&nbsp; &nbsp;//
+<br />
+&nbsp; &nbsp;// Check if the answer is correct
+<br />
+&nbsp; &nbsp;//
+<br />
+&nbsp; &nbsp;$as = preg_split&#40;&quot;/\n/&quot;, $answers, -1, PREG_SPLIT_NO_EMPTY&#41;;
+<br />
+&nbsp; &nbsp;foreach &#40;$as as $a&#41; &#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;$regexp=$a;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;// add code to filter out chars used by regexp?
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;// such as &quot;&#40;&#41;\/+?&quot;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;//&nbsp; &nbsp;well, most *normal* admins are never going to use those types of chars
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;//&nbsp; &nbsp;in their answers anyway...but str_replace's/etc are easily added ;&#41;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;$re2=explode&#40;&quot;*&quot;,$regexp&#41;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;$regexp=&quot;&quot;; $i=0;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;foreach &#40;$re2 as $re1&#41; &#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if &#40;$i&gt;0&#41; $regexp.=&quot;.*?&quot;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$regexp.=&quot;&#40;&quot;.trim&#40;$re1&#41;.&quot;&#41;&quot;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$i++;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;if &#40;preg_match &#40;&quot;/&quot;.$regexp.&quot;/is&quot;, $answer&#41;&#41;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;return;
+<br />
+&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;tc_bad_answer&#40;&#41;;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+all the ~6 extra lines do is build a simple regular expression (the regexp equivalent of * is .*?, lol), then test to see if the user's answer matches that regexp provided by the admin (which can just be a plain old string, as well)
+<br />
+
+<br />
+most intelligent admins aren't going to have regexp-style chars as part of their answers anyway, but it would still be good to filter them anyhow.
+<br />
+
+<br />
+i'm currently testing it out on my site...ideally, it turns an answer sheet from this
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">&lt;b&gt;Who is Captain Kirk's Vulcan companion?&lt;/b&gt;
+<br />
+spock
+<br />
+mr spock
+<br />
+mr. spock
+<br />
+mister spock
+<br />
+
+<br />
+&lt;b&gt;Enter the name of one nation that qualifies as a superpower&lt;/b&gt;
+<br />
+usa
+<br />
+u.s.a.
+<br />
+america
+<br />
+united states
+<br />
+united states of america
+<br />
+
+<br />
+&lt;b&gt;Finish the sentence:&lt;/b&gt;&lt;ul&gt;Captain Jean-Luc __________&lt;/ul&gt;
+<br />
+picard
+<br />
+piccard
+<br />
+
+<br />
+&lt;b&gt;Name one Star Wars droid&lt;/b&gt;
+<br />
+r2d2
+<br />
+r2-d2
+<br />
+r2 d2
+<br />
+artoo deetoo
+<br />
+artoo-deetoo
+<br />
+C-3p0
+<br />
+c3p0
+<br />
+threepio</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+to this
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+&lt;b&gt;Who is Captain Kirk's Vulcan companion?&lt;/b&gt;
+<br />
+*spock
+<br />
+
+<br />
+&lt;b&gt;Enter the name of one nation that qualifies as a superpower&lt;/b&gt;
+<br />
+*america
+<br />
+u*s*a*
+<br />
+
+<br />
+&lt;b&gt;Finish the sentence:&lt;/b&gt;&lt;ul&gt;Captain Jean-Luc __________&lt;/ul&gt;
+<br />
+pic*ard
+<br />
+
+<br />
+&lt;b&gt;Name one Star Wars droid&lt;/b&gt;
+<br />
+r2*d2
+<br />
+artoo*
+<br />
+c*3p0
+<br />
+*three*p*o*</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+the bottom line, is that wildcards will allow admins to give the users the slightest bit of increased flexibility in answering TC questions.  If you were asked &quot;Name One Star Wars Droid&quot;, and you had to get a correct answer on the first try, what would you try?  R2D2?  R2-D2? R2 D2? C3P0? C-3P0?
+<br />
+
+<br />
+i think wildcards could help reduce confusion for users, because even if they slightly mispell a word, it will still be &quot;right&quot;, as long as the admin was smart about having a decent wildcard answer for them.  especially for the users who will say to their admins &quot;WTF?  i answered the question right!&quot;, which I know has happened more than once
+<br />
+
+<br />
+and heck, people may not even use it to begin with.  but those admins who get tired of typing in all 15 different variations and common misspellings of their answers may thank you for it.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1147"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Apr 25, 2007 4:24 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Well, seems easy. Yet another condidate to the folder &quot;contrib&quot;. By the way, I'd rewrite regexp construction in this way:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+$tmp = explode&#40;'*', $a&#41;;
+<br />
+$tmp = array_map&#40;preg_quote, $tmp&#41;;
+<br />
+$regexp = implode&#40;'.*', $tmp&#41;;
+<br />
+</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1156"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Apr 27, 2007 12:45 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">glad I could help, let me know if you need any assistance with anything else related to php
+<br />
+
+<br />
+at the other voters:
+<br />
+
+<br />
+if I may, can I lol @ the people (aside from oleg) who voted &quot;no&quot; to wildcards.  Oleg has an excuse (he is busy out the ass, supporting TC/ATC), you other people don't.  It's like saying &quot;no, don't make my life easier&quot;.  i don't understand it.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

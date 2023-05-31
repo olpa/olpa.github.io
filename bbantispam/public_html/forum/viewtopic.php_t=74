@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Modifying the profile_add_body.tpl</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=74">Modifying the profile_add_body.tpl</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="424"></a><b>yexusbeliever</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Nov 2006<br />Posts: 1<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Nov 28, 2006 1:44 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Modifying the profile_add_body.tpl</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+If you've installed additional forum templates, then, for each template&#58;
+<br />
+* modify the file &quot;profile_add_body.tpl&quot;, and
+<br />
+* create the file &quot;admin/textual_confirmation.tpl&quot;.
+<br />
+
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I have My Space Profile (MPS mod) installed, do I need to do some modification to the profile_add_body.tpl?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="426"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Nov 28, 2006 1:10 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">You need to change profile_add_body.tpl as described in the Textual Confirmation install.txt:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+#
+<br />
+#-----[ OPEN ]------------------------------------------
+<br />
+#
+<br />
+templates/subSilver/profile_add_body.tpl
+<br />
+
+<br />
+#
+<br />
+#-----[ FIND ]------------------------------------------
+<br />
+#
+<br />
+&lt;!-- END switch_confirm --&gt;
+<br />
+
+<br />
+#
+<br />
+#-----[ AFTER, ADD ]------------------------------------------
+<br />
+#
+<br />
+	&lt;!-- BEGIN switch_textual_confirm --&gt;
+<br />
+	&lt;tr&gt; 
+<br />
+	  &lt;td class=&quot;row1&quot;&gt;&lt;span class=&quot;gen&quot;&gt;{TEXTUAL_CONFIRMATION_QUESTION} * &lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;gensmall&quot;&gt;{L_TEXTUAL_CONFIRMATION_EXPLAIN}&lt;/td&gt;
+<br />
+	  &lt;td class=&quot;row2&quot;&gt;&lt;input type=&quot;text&quot; class=&quot;post&quot; style=&quot;width: 200px&quot; name=&quot;tc_answer&quot; size=&quot;25&quot; value=&quot;&quot; /&gt;&lt;/td&gt;
+<br />
+	&lt;/tr&gt;
+<br />
+	&lt;!-- END switch_textual_confirm --&gt;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+for this file, no other changes required.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

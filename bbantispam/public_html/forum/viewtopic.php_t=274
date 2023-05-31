@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - could not install textual confirmation</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=274">could not install textual confirmation</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="925"></a><b>Anh</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Mar 13, 2007 5:10 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: could not install textual confirmation</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I manually edited the php files and copied them to my server. However, I didn't know how to SQL this part. 
+<br />
+#
+<br />
+#-----[ SQL ]------------------------------------------
+<br />
+#
+<br />
+CREATE TABLE phpbb_textual_confirmation (
+<br />
+ id       INTEGER NOT NULL AUTO_INCREMENT,
+<br />
+ question TEXT    NOT NULL,
+<br />
+ answers  TEXT    NOT NULL,
+<br />
+ PRIMARY KEY (id)
+<br />
+);
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES ('Are you human?', 'yes\nja\noui');
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES ('Say hello', 'hello\nhi\nhallo');
+<br />
+
+<br />
+This is the reason that the table doesn't exist. I had to do everything manually because I couldn't install easyMOD. Is there a way to create that table and put it on the server? Id so, could you show me how to do it and show me the directory to put it?
+<br />
+
+<br />
+Below is my error message.
+<br />
+
+<br />
+------------------
+<br />
+Could not insert question/answer pair!
+<br />
+
+<br />
+DEBUG MODE
+<br />
+
+<br />
+SQL Error : 1146 Table 'phpbb_3.TEXTUAL_CONFIRMATION_TABLE' doesn't exist
+<br />
+
+<br />
+INSERT INTO TEXTUAL_CONFIRMATION_TABLE(question,answers) VALUES('Spell 10?','Ten')
+<br />
+
+<br />
+Line : 113
+<br />
+File : admin_tc.php
+<br />
+-------------------
+<br />
+
+<br />
+
+<br />
+
+<br />
+Thank you very much.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="926"></a><b>Anh</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 14, 2007 3:13 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I got this error message when executing the SQL.
+<br />
+
+<br />
+CREATE TABLE phpbb_textual_confirmation ( id INTEGER NOT NULL AUTO_INCREMENT, question TEXT NOT NULL, answers TEXT NOT NULL, PRIMARY KEY (id) );
+<br />
+
+<br />
+Error: Access denied for user 'yscr_bbC_cT'@'localhost' to database 'phpbb_3' 
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES('Are you human?','yes\nja\noui');
+<br />
+
+<br />
+Error: Table 'phpbb_3.phpbb_textual_confirmation' doesn't exist 
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES('Say hello','hello\nhi\nhallo');
+<br />
+
+<br />
+Error: Table 'phpbb_3.phpbb_textual_confirmation' doesn't exist</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="927"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 14, 2007 3:33 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello, I think this will help: <a href="http://bbantispam.com/forum/viewtopic.php?t=69" target="_blank">http://bbantispam.com/forum/viewtopic.php?t=69</a><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="933"></a><b>Anh</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 14, 2007 1:07 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks. But that's the error message I got after running SQL using the db_update.php trick.
+<br />
+
+<br />
+I don't know what is wrong with the &quot;user&quot; thing. I logged on as admin.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="939"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 15, 2007 3:15 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Do you mean that running &quot;db_update.php&quot; produces following error messages?
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+Error: Access denied for user 'yscr_bbC_cT'@'localhost' to database 'phpbb_3' 
+<br />
+...
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+It's very strange, and I have no idea how it could be so.
+<br />
+
+<br />
+The best way is to contact your hoster support and ask to execute the SQL on your behalf.
+<br />
+
+<br />
+As an alternative, you can try to install the New Administration Version: <a href="http://bbantispam.com/forum/viewtopic.php?t=271" target="_blank">http://bbantispam.com/forum/viewtopic.php?t=271</a><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

@@ -1,0 +1,592 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Textual Confirmation working, but spambots still spamming</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=358&amp;start=15">Textual Confirmation working, but spambots still spamming</a></p>
+<p>Goto page  <a href="viewtopic.php?t=358&amp;&amp;start=0">Previous</a>&nbsp;&nbsp;<a href="viewtopic.php?t=358&amp;&amp;start=0">1</a>, <b>2</b></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1251"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 25, 2007 11:38 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Centurion, where did you get that log from?  is it from the sniffer thingy?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1252"></a><b>Centurion</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 25 May 2007<br />Posts: 5<br />Location: Poland</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 25, 2007 12:27 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Ares wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Centurion, where did you get that log from?  is it from the sniffer thingy?</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+yes it's a sniffer from this topic, but a little bit modified by me eg: for adding the entries not override <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1253"></a><b>Andres</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun May 27, 2007 7:30 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I've sent Oleg sniffer data from the past few days from 2 of my sites.
+<br />
+
+<br />
+Hopefully we'll get to the bottom of this soon, figure out what the problem is, and have it fixed ASAP.
+<br />
+
+<br />
+Thanks guys,
+<br />
+Andres</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1254"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun May 27, 2007 7:36 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">i'll restate my guess, only 'cuz we're on a new page here:
+<br />
+
+<br />
+I think the bots can solve simple problems now, the sky/grass/type &quot;this&quot;/human yesno problems, and perhaps the simple arithmetic - automating the finding of numbers and doing simple operations on them has to be pretty easy.
+<br />
+
+<br />
+Centurion's post leads me to believe they may have humans working behind the scenes as well - unless cent's question was &quot;type paris&quot;, of course.  the next stage for TC, is for us admins to start using image captchas within TC?
+<br />
+
+<br />
+Is this chick hot, yes/no: <img src="http://x7i.net/nothing.jpg" border="0" />
+<br />
+
+<br />
+...you get the idea</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1255"></a><b>Centurion</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 25 May 2007<br />Posts: 5<br />Location: Poland</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun May 27, 2007 11:00 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello
+<br />
+
+<br />
+My question was &quot;The name of the city with Eiffel Tower&quot; <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />
+<br />
+
+<br />
+now I have 10 questions and I modified TC to add 10-minutes ban after typing wrong answer - no bot registration for last 2 days
+<br />
+
+<br />
+I think I had discouraged the man who was upgrading his spambot
+<br />
+
+<br />
+also, there were no bots' registrations on the forum where the questions are in Polish</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1256"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun May 27, 2007 11:48 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">these guys might be trying to do individual, hard-coded attacks on our forums - they manually figure out what some of the correct answers are, then their bots do the rest.
+<br />
+
+<br />
+it is theoretically possible to put all your TC questions in polish - but then the only person who would understand them would be Larry the Cucumber  <img src="images/smiles/icon_lol.gif" alt="Laughing" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1257"></a><b>Centurion</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 25 May 2007<br />Posts: 5<br />Location: Poland</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun May 27, 2007 2:23 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Ares wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">it is theoretically possible to put all your TC questions in polish - but then the only person who would understand them would be Larry the Cucumber  <img src="images/smiles/icon_lol.gif" alt="Laughing" border="0" /></td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+well I use polish questions on polish forums only <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />
+<br />
+
+<br />
+but my main forum is in english, so I have to fight spam attackers
+<br />
+
+<br />
+however with 10 TC questions and 10-minutes bans I feel more safe ;]</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1262"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon May 28, 2007 4:50 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I think I know the answer.
+<br />
+
+<br />
+There <span style="font-weight: bold">is</span> a small hole in Textual Confirmation. For spammer, it is enough to know only one correct question/answer pair. When registering, he can pretend that he answers this compromised question. In other words, getting the registration form and parsing it in search for the question isn't required!
+<br />
+
+<br />
+For 99% of forums, it's not a problem due to economical reasons. But high-rated forums (for example, AAcomplaints.com has pagerank 5, unitedcomplaints.com -- 4) are another thing. For such forum, spammers are ready to hire real people to spam.
+<br />
+
+<br />
+All we can do is to make spamming as hard as possible. In particular, this easy way of passing TC should be stopped.
+<br />
+
+<br />
+At the moment, the solution is Advanced Textual Confirmation (ATC), which uses dynamic identifiers and makes strict checks. Soon, I'll backport these techniques to Textual Confirmation.
+<br />
+
+<br />
+By the way, I really like ATC and recommend to install it. You see it in action on this forum.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1263"></a><b>Centurion</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 25 May 2007<br />Posts: 5<br />Location: Poland</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon May 28, 2007 8:38 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">I think I know the answer.
+<br />
+
+<br />
+There <span style="font-weight: bold">is</span> a small hole in Textual Confirmation. For spammer, it is enough to know only one correct question/answer pair. When registering, he can pretend that he answers this compromised question. In other words, getting the registration form and parsing it in search for the question isn't required!
+<br />
+
+<br />
+For 99% of forums, it's not a problem due to economical reasons. But high-rated forums (for example, AAcomplaints.com has pagerank 5, unitedcomplaints.com -- 4) are another thing. For such forum, spammers are ready to hire real people to spam.
+<br />
+
+<br />
+All we can do is to make spamming as hard as possible. In particular, this easy way of passing TC should be stopped.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+There is a simple way to stop them
+<br />
+- creating at least 10-15 different questions
+<br />
+- adding temporary bans to TC script after typing wrong answer
+<br />
+(insert IP to ban table, expiring current session)
+<br />
+
+<br />
+this works really fine for me</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1275"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed May 30, 2007 3:12 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Re: penis enlargement</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>penis enlargement wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">http://www.medsherbal.net - &lt;a href=&quot;http://www.medsherbal.net&quot;&gt;penis enlargement&lt;/a&gt;
+<br />
+<a href="http://www.medsherbal.net" target="_blank" class="postlink">penis enlargement</a>
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+all for one, and none for manual spam entries! lol</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1299"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jun 05, 2007 2:12 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Just wanted to report back that since I changed my TC question to one less obvous (an animal question), I've had <span style="font-weight: bold">0</span> spambots get through (it's been over a week now).
+<br />
+
+<br />
+That seems to have solved the problem...for now. <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+Oleg, is their anyway to have all my forums point to only 1 TC database so that I don't have to update the question for each individual forum?  In other words, I would like to be able to update 1 TC database and have the changes reflected in all my forums (they're all in the same server under the same account).
+<br />
+
+<br />
+Please let me know if that's possible and what I would have to do.
+<br />
+
+<br />
+Thanks again,
+<br />
+Andres</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1303"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jun 05, 2007 2:47 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I've had <span style="font-weight: bold">0</span> spambots get through</td>	</tr></table><span class="postbody">
+<br />
+Thanks, it's good news!
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">is their anyway to have all my forums point to only 1 TC database so that I don't have to update the question for each individual forum? In other words, I would like to be able to update 1 TC database and have the changes reflected in all my forums (they're all in the same server under the same account).</td>	</tr></table><span class="postbody">
+<br />
+In case your forums use the same database (the value of the variable &quot;$dbname&quot; in the file &quot;config.php&quot; is the same for all forum installations), then it is possible. In the file &quot;includes/constants.php&quot;, find
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">define&#40;'TEXTUAL_CONFIRMATION_TABLE', $table_prefix.'textual_confirmation'&#41;;</td>	</tr></table><span class="postbody">
+<br />
+and replace the variable &quot;$table_prefix&quot; by a string with the table prefix of some of the installations.
+<br />
+
+<br />
+Sorry if the answer is a bit obscure, I can try to re-formulate it if required.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1384"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jun 27, 2007 7:28 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">We're now getting several bots a day getting through - after having TC working brilliantly for months. I've changed the questions and some of the language file entries, but it doesn't seem to be having an effect.
+<br />
+
+<br />
+One thing I have noticed is that in the entries from the bots that are getting through the order of the variables is different, TC_Answer is always at the bottom of the list.  
+<br />
+
+<br />
+Is there any way this could be used to trap the bots?
+<br />
+
+<br />
+<span style="font-weight: bold">Example 1 - My test</span>
+<br />
+
+<br />
+    [username] =&gt; paul_testing
+<br />
+    [email] =&gt; <a href="mailto:paul_testing@paul_testing.co.uk">paul_testing@paul_testing.co.uk</a>
+<br />
+    [new_password] =&gt; paul_testing
+<br />
+    [password_confirm] =&gt; paul_testing
+<br />
+<span style="font-weight: bold"><span style="font-style: italic">    [tc_answer] =&gt; deliberate wrong answer</span></span>
+<br />
+    [icq] =&gt; 
+<br />
+    [aim] =&gt; 
+<br />
+    [msn] =&gt; 
+<br />
+    [yim] =&gt; 
+<br />
+    [website] =&gt; 
+<br />
+    [location] =&gt; 
+<br />
+    [occupation] =&gt; 
+<br />
+    [interests] =&gt; 
+<br />
+    [signature] =&gt; 
+<br />
+    [viewemail] =&gt; 0
+<br />
+    [hideonline] =&gt; 0
+<br />
+    [notifyreply] =&gt; 0
+<br />
+    [notifypm] =&gt; 1
+<br />
+    [popup_pm] =&gt; 1
+<br />
+    [attachsig] =&gt; 1
+<br />
+    [allowbbcode] =&gt; 1
+<br />
+    [allowhtml] =&gt; 1
+<br />
+    [allowsmilies] =&gt; 1
+<br />
+    [language] =&gt; english
+<br />
+    [style] =&gt; 1
+<br />
+    [timezone] =&gt; 0
+<br />
+    [dateformat] =&gt; D M d, Y g:i a
+<br />
+    [mode] =&gt; register
+<br />
+    [agreed] =&gt; true
+<br />
+    [coppa] =&gt; 0
+<br />
+    [sid] =&gt; b375557a6614fc2a07719cfe7622f98b
+<br />
+    [tc_question_id] =&gt; 1
+<br />
+    [submit] =&gt; Submit
+<br />
+
+<br />
+Example 2 - Bot
+<br />
+
+<br />
+    [username] =&gt; ShellyFew
+<br />
+    [email] =&gt; <a href="mailto:shellyfe_vh1@xsecurity.org">shellyfe_vh1@xsecurity.org</a>
+<br />
+    [new_password] =&gt; YhcOB7m962
+<br />
+    [password_confirm] =&gt; YhcOB7m962
+<br />
+    [icq] =&gt; 694315
+<br />
+    [website] =&gt; 	REMOVED
+<br />
+    [location] =&gt; USA
+<br />
+    [occupation] =&gt;    Executive managert on VH1
+<br />
+    [interests] =&gt;  Dancing
+<br />
+    [signature] =&gt;  REMOVED
+<br />
+    [viewemail] =&gt; 0
+<br />
+    [hideonline] =&gt; 0
+<br />
+    [notifyreply] =&gt; 0
+<br />
+    [notifypm] =&gt; 1
+<br />
+    [popup_pm] =&gt; 1
+<br />
+    [attachsig] =&gt; 1
+<br />
+    [allowbbcode] =&gt; 1
+<br />
+    [allowhtml] =&gt; 1
+<br />
+    [allowsmilies] =&gt; 1
+<br />
+    [language] =&gt; english
+<br />
+    [style] =&gt; 1
+<br />
+    [timezone] =&gt; -12
+<br />
+    [dateformat] =&gt; D M d, Y g:i a
+<br />
+    [mode] =&gt; register
+<br />
+    [agreed] =&gt; true
+<br />
+    [coppa] =&gt; 0
+<br />
+    [sid] =&gt; 96a6ca7e6a2a8bd6af3854b116cbb144
+<br />
+    [tc_question_id] =&gt; 8
+<br />
+    [submit] =&gt; Submit
+<br />
+    <span style="font-weight: bold"><span style="font-style: italic">[tc_answer] =&gt; green</span></span>
+<br />
+
+<br />
+ Paul.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1390"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jun 28, 2007 1:32 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Unfortunately, this feature is too fragile to rely upon.
+<br />
+
+<br />
+I wonder which questions do you use. Probably I can suggest which ones are weak. For example, the names of colours seem better not to be used.
+<br />
+
+<br />
+Also, as the last resort, I recommend to upgrade to Advanced Textual Confirmation. It has more layers of protection and under active development of new layers.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p>Goto page  <a href="viewtopic.php?t=358&amp;&amp;start=0">Previous</a>&nbsp;&nbsp;<a href="viewtopic.php?t=358&amp;&amp;start=0">1</a>, <b>2</b></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

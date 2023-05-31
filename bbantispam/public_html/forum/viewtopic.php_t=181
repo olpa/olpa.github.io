@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - FAQ: Textual Confirmation doesn't work</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=181">FAQ: Textual Confirmation doesn't work</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="722"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Jan 29, 2007 4:31 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: FAQ: Textual Confirmation doesn't work</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"><span style="font-weight: bold">Question</span>: I've installed Textual Confirmation. However, any answer is accepted. What is wrong?
+<br />
+
+<br />
+<span style="font-weight: bold">Answer</span>: Most likely, the problem is that the string &quot;tc_hook_register();&quot; was inserted to a wrong position in the file &quot;includes/usercp_register.php&quot;. There are a lot of curly braces, which sometimes cause confusion.
+<br />
+
+<br />
+For example, you might have the tc_hook_register(); before the end brackets:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$error = TRUE;
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$error_msg .= &#40; &#40; isset&#40;$error_msg&#41; &#41; ? '&lt;br /&gt;' &#58; '' &#41; . $lang&#91;'Fields_empty'&#93;;
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;tc_hook_register&#40;&#41;;
+<br />
+&nbsp; &nbsp; &nbsp; &#125;
+<br />
+&nbsp; &nbsp;&#125;</td>	</tr></table><span class="postbody">
+<br />
+Instead of after:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$error = TRUE;
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$error_msg .= &#40; &#40; isset&#40;$error_msg&#41; &#41; ? '&lt;br /&gt;' &#58; '' &#41; . $lang&#91;'Fields_empty'&#93;;
+<br />
+&nbsp; &nbsp; &nbsp; &#125;
+<br />
+&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;tc_hook_register&#40;&#41;;</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1320"></a><b>bionichead</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 08, 2007 3:59 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Very Good</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">You're really good. That is exactly what I did wrong and this isn't even my post. Thanks a lot!!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1321"></a><b>bionichead</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 08, 2007 4:03 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: That's great.</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Sorry about posting again, but I love how you did that with the text confirmation for guests. Is that a separate mod or the advanced version?
+<br />
+
+<br />
+I do have one concern though with &quot;yes&quot; and &quot;no&quot; questions. It seems to me that it would be quite easy to program a spambot to say &quot;yes&quot; to all unkown questions. Even if the answer was &quot;no&quot;, you would still have a 50-50 chance of getting it right.
+<br />
+
+<br />
+Thanks again for the cool mod.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1332"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Jun 10, 2007 1:59 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I love how you did that with the text confirmation for guests. Is that a separate mod or the advanced version?</td>	</tr></table><span class="postbody">
+<br />
+It's the advanced version, here is how it is attached to phpBB2: <a href="http://bbantispam.com/forum/viewtopic.php?t=284" target="_blank" class="postlink">http://bbantispam.com/forum/viewtopic.php?t=284</a>.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I do have one concern though with &quot;yes&quot; and &quot;no&quot; questions. It seems to me that it would be quite easy to program a spambot to say &quot;yes&quot; to all unkown questions. Even if the answer was &quot;no&quot;, you would still have a 50-50 chance of getting it right.</td>	</tr></table><span class="postbody">
+<br />
+It is supposed that forum administrators change the default questions.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1909"></a><b>Geri</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 23 Jan 2008<br />Posts: 1<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jan 23, 2008 9:58 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello
+<br />
+
+<br />
+I exactly had the same problem.
+<br />
+
+<br />
+Now the mod is working fine. Thank you very much!
+<br />
+
+<br />
+Best regards
+<br />
+
+<br />
+Geri</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1912"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jan 24, 2008 4:16 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm happy it helped!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

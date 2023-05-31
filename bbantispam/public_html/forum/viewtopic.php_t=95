@@ -1,0 +1,372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - what do the bots answer?</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=95">what do the bots answer?</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="506"></a><b>carolyn81</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 22 Dec 2006<br />Posts: 2<br />Location: Washington, D.C.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Dec 23, 2006 2:31 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: what do the bots answer?</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm curious to see what the spam bots are entering in the textual confirmation field.  Might there be a way to include that information in the spam registration email?  It might help give us better ideas for more effective questions.
+<br />
+
+<br />
+I love this mod!  At least five spam bots tried to register today, and all failed.  I also had one real registration, and it worked!  I'll post a testimonial thread. <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" /><br />_________________<br /><a href="http://forum.annieverse.com" target="_blank" class="postlink">Come Together</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="507"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Dec 23, 2006 5:31 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I'm curious to see what the spam bots are entering in the textual confirmation field. Might there be a way to include that information in the spam registration email?</td>	</tr></table><span class="postbody">
+<br />
+I think that bots write nothing to the field. However, if you are curious, you can edit the code. (Warning: do it only if you know PHP.)
+<br />
+
+<br />
+Find
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">function tc_bad_answer&#40;&#41; &#123;</td>	</tr></table><span class="postbody">
+<br />
+After, add:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">global tc_answer;</td>	</tr></table><span class="postbody">
+<br />
+Find
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'NAME'&nbsp; &nbsp; &nbsp; =&gt; $username,</td>	</tr></table><span class="postbody">
+<br />
+Change to:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'NAME'&nbsp; &nbsp; &nbsp; =&gt; $username . &quot;\nTC answer&#58; &quot; . tc_answer,</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I love this mod! At least five spam bots tried to register today, and all failed. I also had one real registration, and it worked!</td>	</tr></table><span class="postbody">
+<br />
+I'm very happy to hear it!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="562"></a><b>mezmorizing</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Jan 2007<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jan 03, 2007 8:00 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I'm curious to see what the spam bots are entering in the textual confirmation field. Might there be a way to include that information in the spam registration email?</td>	</tr></table><span class="postbody">
+<br />
+I think that bots write nothing to the field. However, if you are curious, you can edit the code. (Warning: do it only if you know PHP.)
+<br />
+
+<br />
+Find
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">function tc_bad_answer&#40;&#41; &#123;</td>	</tr></table><span class="postbody">
+<br />
+After, add:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">global tc_answer;</td>	</tr></table><span class="postbody">
+<br />
+Find
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'NAME'&nbsp; &nbsp; &nbsp; =&gt; $username,</td>	</tr></table><span class="postbody">
+<br />
+Change to:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'NAME'&nbsp; &nbsp; &nbsp; =&gt; $username . &quot;\nTC answer&#58; &quot; . tc_answer,</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I love this mod! At least five spam bots tried to register today, and all failed. I also had one real registration, and it worked!</td>	</tr></table><span class="postbody">
+<br />
+I'm very happy to hear it!</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Hmmm, that code does not work.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Find
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">function tc_bad_answer&#40;&#41; &#123;</td>	</tr></table><span class="postbody">
+<br />
+After, add:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">global tc_answer;</td>	</tr></table><span class="postbody"></td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+This will bring an error. The following code will not create an error...
+<br />
+
+<br />
+Find
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">function tc_bad_answer&#40;&#41; &#123;</td>	</tr></table><span class="postbody">
+<br />
+After, add:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">global $tc_answer;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+However, the email recieved says the imputed answer is <span style="font-weight: bold">TC answer: tc_answer</span> even when the question was not answered.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="574"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jan 05, 2007 4:16 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Sorry for delay, I had a nice offtime time.
+<br />
+
+<br />
+You are right that the correct string is not
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">global tc_answer;</td>	</tr></table><span class="postbody">
+<br />
+but
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">global $tc_answer;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+By analogue, instead of
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'NAME'&nbsp; &nbsp; &nbsp; =&gt; $username . &quot;\nTC answer&#58; &quot; . tc_answer,</td>	</tr></table><span class="postbody">
+<br />
+the correct code is
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'NAME'&nbsp; &nbsp; &nbsp; =&gt; $username . &quot;\nTC answer&#58; &quot; . $tc_answer,</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Please notify if this change works.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="896"></a><b>SuperHebbe</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 08 Mar 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 08, 2007 9:31 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi
+<br />
+
+<br />
+I just tested this code, but it returns nothing.. Maybe you need to make a new variable and then copy $tc_answer and $answer to the new variable  before calling the tc_bad_answer function...<br />_________________<br /><img src="http://www.superhebbe.com/forum/images/smiles/icon_cheers.gif" border="0" />
+<br />
+
+<br />
+SuperHebbe</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="898"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 09, 2007 5:15 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'll look at it, but not now. I'll drop a note here when ready.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="909"></a><b>asuter</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 29 Nov 2006<br />Posts: 9<br />Location: Fribourg, Switzerland</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 10, 2007 4:47 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: How to get the entered answer...</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello everybody
+<br />
+
+<br />
+I think, that the answer is very easy. Instead of
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">global $tc_answer;</td>	</tr></table><span class="postbody">
+<br />
+add the following
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">global $HTTP_POST_VARS;
+<br />
+$tc_answer = $HTTP_POST_VARS&#91;'tc_answer'&#93;;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+All the post variables of the register form should be available. So you could also get the id of the TC question that had been asked, using
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$tc_question_id = $HTTP_POST_VARS&#91;'tc_question_id'&#93;;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Clearly, most of the spam bots wouldn't post these TC specific variables (yet). But a human would - so you could see, whether or not the notification came because of a spam bot or because of a wrong answer!
+<br />
+
+<br />
+By the way, the other line of code
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">'NAME'&nbsp; &nbsp; &nbsp; =&gt; $username . &quot;\nTC answer&#58; &quot; . $tc_answer,</td>	</tr></table><span class="postbody">
+<br />
+is okay.
+<br />
+
+<br />
+That should work. Please let me know, if it does so.
+<br />
+
+<br />
+TC is great....</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="913"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Mar 11, 2007 5:25 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks! I haven't checked yet, but it seems working.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="921"></a><b>asuter</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 29 Nov 2006<br />Posts: 9<br />Location: Fribourg, Switzerland</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Mar 12, 2007 10:21 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Non-empty answers</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Most of the time, the bots send nothing as TC answer. Today my forum received two non-empty answers from spambots (Sureness of spambot: 99%).
+<br />
+<ul>
+<br />
+69.50.164.10-custblock.intercage.com (69.50.164.10)
+<br />
+69.50.164.14-custblock.intercage.com (69.50.164.14)
+<br />
+</ul>
+<br />
+Both have sent within 1 second the answer &quot;0&quot;.
+<br />
+
+<br />
+One should have given the result of three plus three and the other the name of the capital city of Switzerland. Well, 0 is clearly wrong in both cases.
+<br />
+
+<br />
+Best regards
+<br />
+Adrian</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Great app, but a false positive</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=1">Links Rejector</a> - <a href="viewtopic.php?t=30">Great app, but a false positive</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="142"></a><b>DickS</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jul 19, 2006 5:54 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Great app, but a false positive</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi,
+<br />
+
+<br />
+This is a great app. Installed it and works fine. One question though with following post which was emailed as blocked but still appeared in the forum:
+<br />
+
+<br />
+---------------------------------------------------------------------------------
+<br />
+
+<br />
+* callto: / / (/ / lines in original post are together, same as below)
+<br />
+
+<br />
+Text of the message
+<br />
+===================
+<br />
+
+<br />
+User name: , subject: 
+<br />
+
+<br />
+[quote:da8c37e3e1=&quot;peter&quot;]Hi,  Yes, that is correct.[/quote:da8c37e3e1]  hi hi, please correct me if am wrong but software can only cast just the ONE single file??? it cant read the folder or ftp and make a playlist???  secondly what does callto: / / refer to???
+<br />
+
+<br />
+-----------------------------------------------------------------------------------
+<br />
+
+<br />
+This is a correct post (callto:-tags are OK), any idea why bbAntiSpam sent a notification on it and the message did get posted?
+<br />
+
+<br />
+Keep up the great work, we'll get a license key for this product soon <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+Cheers!
+<br />
+
+<br />
+DickS</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="144"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jul 20, 2006 4:36 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi! Thanks for reporting the issue. But I can interpret it in different ways:
+<br />
+* bug report: bbAntiSpam nofitied that a posting was rejected, but actually the posting appeared in the forum;
+<br />
+* usability report: &quot;callto://&quot; pseudo-URLs shouldn't be blocked.
+<br />
+I think you are annoyed by the second. Am I right?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="145"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jul 20, 2006 7:15 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">admin,
+<br />
+
+<br />
+Yes, that is correct. Any way to have these &quot;allowed&quot; without notification emails sent, because it is confusing to get an email that a post has been blocked when it actually has not been blocked.
+<br />
+
+<br />
+Or there can be separate &quot;informative&quot; email sent asking to manually check that post?
+<br />
+
+<br />
+Cheers and great MOD!
+<br />
+
+<br />
+DickS</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="146"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jul 21, 2006 3:43 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">bug report: bbAntiSpam nofitied that a posting was rejected, but actually the posting appeared in the forum</td>	</tr></table><span class="postbody">
+<br />
+I can't reproduce this behaviour. And even can't imagine how it is possible. Most likely, the following have happened:
+<br />
+* your user registered and re-posted the message being registered, or
+<br />
+* the user modified the message a bit (for example, added a whitespace).
+<br />
+Would you please give a link to the user's post? I'll look at it to get an idea.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">usability report: &quot;callto://&quot; pseudo-URLs shouldn't be blocked.</td>	</tr></table><span class="postbody">
+<br />
+I'm still thinking on it. First of all, it is considered as a link by phpBB itslef, and I need to workaround it. Second, it gives a chance of links like &quot;callto://spam.com/&quot;. Anyway, here is a solution. Edit the file &quot;includes/functions_bbas.php&quot;. At the end of file, find
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&nbsp; return array_unique&#40;$ret&#41;;
+<br />
+&#125;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+and replace it by:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&nbsp; $ret = array_unique&#40;$ret&#41;;
+<br />
+&nbsp; $ret = array_filter&#40;$ret, bbas_link_not_allowed&#41;;
+<br />
+&nbsp; return $ret;
+<br />
+&#125;
+<br />
+
+<br />
+//
+<br />
+// Return true if the link is not allowed.
+<br />
+//
+<br />
+function bbas_link_not_allowed&#40;$link&#41; &#123;
+<br />
+&nbsp; //
+<br />
+&nbsp; // Internals of phpBB convert texts like &quot;lalala&#58;//&quot; to links.
+<br />
+&nbsp; // Actually, they are not spam links&#58;
+<br />
+&nbsp; // http&#58;//bbantispam.com/forum/viewtopic.php?t=30
+<br />
+&nbsp; //
+<br />
+&nbsp; if &#40;preg_match&#40;'#&#40;\w+&#41;&#58;//#', $link, $matches&#41;&#41; &#123;
+<br />
+&nbsp; &nbsp; $proto = $matches&#91;1&#93;;
+<br />
+&nbsp; &nbsp; $idx = array_search&#40;$proto, array&#40;'ftp', 'http', 'https', 'mailto', 'news', 'nntp'&#41;&#41;;
+<br />
+&nbsp; &nbsp; if &#40;FALSE === $idx&#41; &#123;
+<br />
+&nbsp; &nbsp; &nbsp; return 0;
+<br />
+&nbsp; &nbsp; &#125;
+<br />
+&nbsp; &#125;
+<br />
+&nbsp; //
+<br />
+&nbsp; // Otherwise, all links are spam
+<br />
+&nbsp; //
+<br />
+&nbsp; return 1;
+<br />
+&#125;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Or there can be separate &quot;informative&quot; email sent asking to manually check that post?</td>	</tr></table><span class="postbody">
+<br />
+In the far future.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="147"></a><b>DickS</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jul 21, 2006 6:54 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Great, have ammended the file and uploaded. Lets see what happens <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+Here the post (by chez): www . pamela-systems . com / forum / viewtopic.php?t=772
+<br />
+
+<br />
+It is near the end of the posts.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="150"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jul 22, 2006 1:50 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for the link. I've looked at the post and now relax.That post is written by a registered user (&quot;chaz&quot;). Why bbAntiSpam sent a letter? Because initially the user tried to post as an unregistered user. After he failed, he logged in and posted succesfully.
+<br />
+
+<br />
+Thanks for reporting and suggestions!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="156"></a><b>DickS</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jul 22, 2006 3:52 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Cool, you guys have made one of the best Mods for phpBB that I have come accross. This saves a webmaster a TON of work!
+<br />
+
+<br />
+A six star rating from me.
+<br />
+
+<br />
+Keep up the great work.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="159"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Jul 23, 2006 1:45 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for kind words! It's the best incentive for me.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

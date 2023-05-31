@@ -1,0 +1,638 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - How to stop phpBB3 spam</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=378">How to stop phpBB3 spam</a></p>
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=378&amp;&amp;start=15">2</a>, <a href="viewtopic.php?t=378&amp;&amp;start=30">3</a>&nbsp;&nbsp;<a href="viewtopic.php?t=378&amp;&amp;start=15">Next</a></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1304"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jun 06, 2007 1:56 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: How to stop phpBB3 spam</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Note: <a href="http://www.phpbb.com/community/viewtopic.php?f=70&amp;t=544007" target="_blank" class="postlink">There is a longer discussion on phpbb.com</a>.
+<br />
+
+<br />
+At the moment, phpBB3 is spam-free. But looking forward, here is a port of Textual Confirmation, one of the most effective antispam mods for phpBB.
+<br />
+
+<br />
+<span style="font-weight: bold">MOD Title</span>: Textual Confirmation for phpBB3
+<br />
+<span style="font-weight: bold">MOD Description</span>: While registering or posting, the user must answer a question to prove the user isn't a spambot.
+<br />
+<span style="font-weight: bold">MOD Version</span>: 1.0.0.beta1
+<br />
+
+<br />
+<span style="font-weight: bold">MOD Download</span>: <a href="http://bbantispam.com/phpbb3.zip" target="_blank">http://bbantispam.com/phpbb3.zip</a>
+<br />
+
+<br />
+The MOD is just of a few steps, and I hope it's ok to show them here:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+... headers are skipped ...
+<br />
+
+<br />
+#
+<br />
+#-----[ DIY INSTRUCTIONS ]-------------------------------------
+<br />
+#
+<br />
+
+<br />
+1. Download Advanced Textual Confirmation from
+<br />
+<a href="http://bbantispam.com/atc/AdvancedTextualConfirmation.zip" target="_blank">http://bbantispam.com/atc/AdvancedTextualConfirmation.zip</a>
+<br />
+
+<br />
+2. Unpack the archive to get the files
+<br />
+&quot;bbantispam.php&quot; and &quot;bbas_config.php&quot;
+<br />
+
+<br />
+3. Change the questions in the file &quot;bbas_config.php&quot;
+<br />
+
+<br />
+#
+<br />
+#-----[ COPY ]------------------------------------------
+<br />
+#
+<br />
+copy bbantispam.php to bbantispam.php
+<br />
+copy bbas_config.php to bbas_config.php
+<br />
+
+<br />
+#
+<br />
+#-----[ OPEN ]------------------------------------------
+<br />
+#
+<br />
+common.php
+<br />
+
+<br />
+#
+<br />
+#-----[ FIND ]------------------------------------------
+<br />
+#
+<br />
+&lt;?php
+<br />
+
+<br />
+#
+<br />
+#-----[ AFTER, ADD ]------------------------------------------
+<br />
+#
+<br />
+include_once($phpbb_root_path . 'bbantispam.' . $phpEx);
+<br />
+
+<br />
+#
+<br />
+#-----[ DIY INSTRUCTIONS ]-------------------------------------
+<br />
+#
+<br />
+Optional:
+<br />
+
+<br />
+Go to the Administration Control Panel, the pane &quot;General&quot;,
+<br />
+the section &quot;Visual confirmation settings&quot; and disable visual
+<br />
+confirmation, as you don't need it anymore.
+<br />
+
+<br />
+#
+<br />
+#-----[ SAVE/CLOSE ALL FILES ]------------------------------------------
+<br />
+#
+<br />
+# EoM
+<br />
+</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2348"></a><b>ton</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Feb 16, 2009 2:46 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi There,
+<br />
+
+<br />
+as soon as I disable visual conformation the textconformation does not show up as well anymore...
+<br />
+
+<br />
+Thanks</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2359"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Mar 01, 2009 11:34 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Spam Help</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi i did this and today i had about 100 people register but never activate there account, so how come i am still getting spammers even though i have used antispam bot
+<br />
+
+<br />
+Cheers
+<br />
+Aaron</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2376"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Mar 10, 2009 5:53 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm afraid you've installed the usual Textual Confirmation following the instructions for installing Advanced Textual Confirmation. It doesn't work.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2401"></a><b>anon</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 25, 2009 12:58 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+#
+<br />
+#-----[ FIND ]------------------------------------------
+<br />
+#
+<br />
+&lt;?php
+<br />
+
+<br />
+#
+<br />
+#-----[ AFTER, ADD ]------------------------------------------
+<br />
+#
+<br />
+include_once($phpbb_root_path . 'bbantispam.' . $phpEx);</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+In my experience the Advanced Textual Confirmation script doesn't work if I follow these instructions, presumably because $phpbb_root_path isn't defined until later in the common.php document.  If I move the include statement down to the section for includes, which is after the definition of $phpbb_root_path, it seems to work correctly.[/quote]</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2422"></a><b>Sam</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu May 07, 2009 7:19 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi I'm new with pbpbb3 and forums in general. I'm having a lot of trouble with spam. I don't quite get the instructions are there step by step instructions available?
+<br />
+
+<br />
+
+<br />
+... headers are skipped ...
+<br />
+
+<br />
+#
+<br />
+#-----[ DIY INSTRUCTIONS ]-------------------------------------
+<br />
+#
+<br />
+
+<br />
+1. Download Advanced Textual Confirmation from
+<br />
+<a href="http://bbantispam.com/atc/AdvancedTextualConfirmation.zip" target="_blank">http://bbantispam.com/atc/AdvancedTextualConfirmation.zip</a>
+<br />
+
+<br />
+2. Unpack the archive to get the files
+<br />
+&quot;bbantispam.php&quot; and &quot;bbas_config.php&quot;
+<br />
+
+<br />
+3. Change the questions in the file &quot;bbas_config.php&quot;
+<br />
+<span style="font-weight: bold"> how do I do this??</span>
+<br />
+
+<br />
+#
+<br />
+#-----[ COPY ]------------------------------------------
+<br />
+#
+<br />
+copy bbantispam.php to bbantispam.php
+<br />
+copy bbas_config.php to bbas_config.php
+<br />
+
+<br />
+#
+<br />
+#-----[ OPEN ]------------------------------------------
+<br />
+#
+<br />
+common.php
+<br />
+
+<br />
+#
+<br />
+#-----[ FIND ]------------------------------------------
+<br />
+#
+<br />
+&lt;?php
+<br />
+
+<br />
+#
+<br />
+#-----[ AFTER, ADD ]------------------------------------------
+<br />
+#
+<br />
+include_once($phpbb_root_path . 'bbantispam.' . $phpEx);
+<br />
+
+<br />
+#
+<br />
+#-----[ DIY INSTRUCTIONS ]-------------------------------------
+<br />
+#
+<br />
+Optional:
+<br />
+
+<br />
+Go to the Administration Control Panel, the pane &quot;General&quot;,
+<br />
+the section &quot;Visual confirmation settings&quot; and disable visual
+<br />
+confirmation, as you don't need it anymore.
+<br />
+
+<br />
+#
+<br />
+#-----[ SAVE/CLOSE ALL FILES ]------------------------------------------
+<br />
+#
+<br />
+# EoM</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2423"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 08, 2009 3:59 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">3. Change the questions in the file &quot;bbas_config.php&quot;
+<br />
+<span style="font-weight: bold">how do I do this??</span></td>	</tr></table><span class="postbody">
+<br />
+Initially, you can skip this step and retain the default questions.
+<br />
+
+<br />
+To change the questions, just open the file &quot;bbas_config.php&quot; in a text editor and edit the questions.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2442"></a><b>anon</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu May 28, 2009 12:03 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Just installed this MOD. Hopefully it takes care of my Spam problem.
+<br />
+
+<br />
+Thanks, as the instructions were super easy to follow and it appears to be working when i test it.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2456"></a><b>Me</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jun 03, 2009 3:17 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">In step 3 you say to change the questions but this isn't allowed in the free version, is that correct? (or can i change the questions in the free version?)
+<br />
+Does this work and is it needed for phpBB 3.0.5 ?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2458"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jun 04, 2009 3:24 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">or can i change the questions in the free version?</td>	</tr></table><span class="postbody">
+<br />
+Yes, you can change the questions in the free version.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Does this work and is it needed for phpBB 3.0.5 ?</td>	</tr></table><span class="postbody">
+<br />
+I didn't test, but I'm 99.99% sure it works for phpBB 3. Is it needed? If you get spam, then yes.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2460"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 05, 2009 7:45 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Does this work and is it needed for phpBB 3.0.5 ?</td>	</tr></table><span class="postbody">
+<br />
+I didn't test, but I'm 99.99% sure it works for phpBB 3. Is it needed? If you get spam, then yes.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I have just upgraded to 3.0.5 and this does not seem to work. Any suggestions?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2464"></a><b>Jonneh</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Jun 08, 2009 12:03 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Doesn't work after phpbb3.0.5 Upgrade</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">The mod simply stops working all together, with no errors.
+<br />
+
+<br />
+Any help?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2465"></a><b>wkmincey</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jun 09, 2009 4:33 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: MOD not working</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I can not seem to get this to work. It may have something to do with me using version number 3.0.5 of phpbb. When I first uploaded the files and logged in to the site, I was asked a security question. I created a test account and was never asked any questions at all. 
+<br />
+
+<br />
+On a side note, will this MOD ask a question only on registration? That is really all I want at this point.
+<br />
+
+<br />
+Thanks in advance for anyone's help.
+<br />
+
+<br />
+Mincey</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2468"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jun 10, 2009 4:06 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Seems instead of
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">include_once&#40;$phpbb_root_path . 'bbantispam.' . $phpEx&#41;;</td>	</tr></table><span class="postbody">
+<br />
+one should use
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">include_once&#40;'/the/full/path/to/bbantispam.php'&#41;;</td>	</tr></table><span class="postbody">
+<br />
+Instead of trying being smart, it's more safe to use the absolute path.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">On a side note, will this MOD ask a question only on registration? That is really all I want at this point. </td>	</tr></table><span class="postbody">
+<br />
+No, in the proposed setup, the MOD can ask a question at any place. But if an user answered a question, the user isn't bothered anymore. As result, it's very near to what you want.
+<br />
+
+<br />
+If you really insist on the your way, see this message of &quot;Thu Jun 07, 2007&quot;:
+<br />
+<a href="http://www.phpbb.com/community/viewtopic.php?p=3025581#p3025581" target="_blank">http://www.phpbb.com/community/viewtopic.php?p=3025581#p3025581</a><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2469"></a><b>Jonneh</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jun 10, 2009 2:18 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">That change you published seemed to make it work for a few minutes before it once again simply stopped working with no errors.
+<br />
+
+<br />
+Any idea why the mod simply keeps stopping?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=378&amp;&amp;start=15">2</a>, <a href="viewtopic.php?t=378&amp;&amp;start=30">3</a>&nbsp;&nbsp;<a href="viewtopic.php?t=378&amp;&amp;start=15">Next</a></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

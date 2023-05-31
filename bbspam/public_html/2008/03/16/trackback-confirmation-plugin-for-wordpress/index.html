@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Trackback Confirmation plugin for WordPress | Spam Bots and CAPTCHAs</title>
+
+<meta name="generator" content="WordPress 2.2.3" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../../../../wp-content/themes/default/style.css" type="text/css" media="screen" />
+
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://bbspam.com/xmlrpc.php?rsd" />
+</head>
+<body>
+<div id="page">
+
+
+<div id="header">
+	<div id="headerimg">
+		<h1><a href="../../../../index.html">Spam Bots and CAPTCHAs</a></h1>
+		<div class="description">Stories from the web spam fighters</div>
+	</div>
+</div>
+<hr />
+<p style="background-color:yellow"><font size="7"><b>This blog is retired.</b></font></p>
+<hr />
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../../04/how-do-you-spell-captcha/index.html">How do you spell &#8220;CAPTCHA&#8221;?</a></div>
+			<div class="alignright"><a href="../../25/raed-taht-doesnt-work/index.html">&#8220;Raed taht&#8221; doesn&#8217;t work</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-64">
+			<h2><a href="index.html" rel="bookmark" title="Permanent Link: Trackback Confirmation plugin for WordPress">Trackback Confirmation plugin for WordPress</a></h2>
+
+			<div class="entry">
+				<div class="KonaBody"><p>Finally, I&#8217;ve released yet another but unique anti-spam plugin for WordPress. The formal description:</p>
+<blockquote><p>Publishing of a trackback or a pingback is postponed till someone, usually a trackback author, approves it. Trackbacks which are not approved in 20 hours are automatically deleted. It stops spam from bots and allows trackbacks from the real humans.</p></blockquote>
+<p>A better description is probably a description by an use case:</p>
+<p>* Alice has Trackback Confirmation installed.<br />
+* Bob has written a blog post with a link to Alice&#8217;s blog post.<br />
+* Bob checks if a trackback appears in the Alice&#8217;s blog.<br />
+* No, the trackback hasn&#8217;t appeared. But Bob notices the link &#8220;approve trackbacks&#8221;.<br />
+* He follows the links, finds his trackback and approves it.<br />
+* Now Alice&#8217;s blog links to the Bob&#8217;s post.</p>
+<p>It&#8217;s just a web 2.0 style of trackback moderation. Comments are approved not by the blog&#8217;s author, but by the blog&#8217;s visitors.</p>
+<p><span id="more-64"></span></p>
+<p>If you like the idea, <a href="http://bbantispam.com/wp/trackback/TrackbackConfirmation.zip">download the plugin Trackback Confirmation</a>. How to install:</p>
+<p>* Unpack the file &#8220;<code>tbconf.php</code>&#8221; and put it into the folder &#8220;<code>wp-plugins</code>&#8221;.<br />
+* Activate the plugin (the admin area, the pane &#8220;Plugins&#8221;).<br />
+* Create a page (the admin area, the pane &#8220;Manage&#8221;, the subpane &#8220;Pages&#8221;). This page will be used as a template page for Trackback Confirmation.<br />
+* Configure the plugin (the admin area, the pane &#8220;Plugins&#8221;, the subpabe &#8220;Trackback Confirmation&#8221;).<br />
+* Now you can assign the status &#8220;private&#8221; to the template page, if you want.</p>
+<h3>Warning</h3>
+<p>The code is unmaintained. I don&#8217;t provide any support. If you have any questions, please ask them in the WordPress support forum.</p>
+<p>Why?</p>
+<p>My blogs are not popular, and are very rarely linked. Therefore, further improvement of the script isn&#8217;t profitable. Meanwhile, I got a better idea how to fight the trackback spam (see &#8220;<a href="http://uucode.com/blog/2008/01/15/decline-and-fall-of-the-trackbacks-rise-and-resurrection-of-the-trackbacks/">decline and fall of the trackbacks; rise and resurrection of the trackbacks</a>&#8221;). As result, I simply disabled trackbacks and deactivated the plugin. Obviously, I don&#8217;t have any incentive to support it.</p>
+<p>But the code is written and works well. I hope someone can take over the code and continue development. Here is the short TODO list:</p>
+<p>* If there are no trackbacks: do not print an empty table, but say something.<br />
+* On the moderation page, add a link to the post from a comment.<br />
+* Make sure that HTML is escaped on the template page.<br />
+* Make sure that there are no SQL injections (shouldn&#8217;t be possible, but it&#8217;s better to audit).<br />
+* Notifications should be sent not using PHP function &#8220;<code>mail</code>&#8221;, but using WordPress function &#8220;<code>wp_notify_postmaster</code>&#8221;.<br />
+* Instead of using SQL to change the trackback status, the code should use something like &#8220;<code>wp_set_comment_status(ID,'approve')</code>&#8221;.<br />
+* Add some design.<br />
+* Submit Trackback Confirmation to WordPress plugin repository.</p>
+</div>
+
+							
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						by <a href="http://bbantispam.com/" title="Visit olpa's website" rel="external">olpa</a>												on Sunday, March 16th, 2008 at 11:35 pm						and is filed under <a href="../../../../category/wordpress/index.html" title="View all posts in WordPress" rel="category tag">WordPress</a>.
+
+
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+
+
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+
+	
+	</div>
+
+
+<hr />
+<div id="footer">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Textual Confirmation errors</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=416">Textual Confirmation errors</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1413"></a><b>David</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Jul 09, 2007 9:54 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Textual Confirmation errors</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Just wanted to let you know that I've been using this tool for several months and it's really worked well. Last night though I got 12 messages saying that your harvesting address was down. Just thought you'd like to know about it. Below is the text from my mail server so you can look into it if you don't already know about the problem.
+<br />
+
+<br />
+Thanks,
+<br />
+David
+<br />
+<a href="mailto:david@technospider.com">david@technospider.com</a>
+<br />
+<a href="http://www.FloridaPets.org" target="_blank">http://www.FloridaPets.org</a>
+<br />
+
+<br />
+The original message was received at Mon, 9 Jul 2007 01:45:44 -0400
+<br />
+from technospider.com [24.227.122.2]
+<br />
+
+<br />
+   ----- The following addresses had permanent fatal errors -----
+<br />
+/home/bbantispam/tc-spam-log
+<br />
+    (reason: Service unavailable)
+<br />
+    (expanded from: &lt;tcsubmit@bbspam.com&gt;)
+<br />
+
+<br />
+   ----- Transcript of session follows -----
+<br />
+554 5.0.0 mailfile: *file*: child died on signal 25
+<br />
+554 5.0.0 Service unavailable
+<br />
+Reporting-MTA: dns; vps15018.safesecureweb.com
+<br />
+Received-From-MTA: DNS; technospider.com
+<br />
+Arrival-Date: Mon, 9 Jul 2007 01:45:44 -0400
+<br />
+
+<br />
+Final-Recipient: RFC822; <a href="mailto:tcsubmit@bbspam.com">tcsubmit@bbspam.com</a>
+<br />
+X-Actual-Recipient: X-Unix; /home/bbantispam/tc-spam-log
+<br />
+Action: failed
+<br />
+Status: 5.5.0
+<br />
+Diagnostic-Code: X-Unix; 69
+<br />
+Last-Attempt-Date: Mon, 9 Jul 2007 01:45:44 -0400
+<br />
+
+<br />
+From: Textual Confirmation &lt;david@technospider.com&gt;
+<br />
+Date: July 8, 2007 12:20:09 AM EDT
+<br />
+To: <a href="mailto:david@technospider.com">david@technospider.com</a>
+<br />
+Subject: phpBB spam registration
+<br />
+Reply-To: Textual Confirmation &lt;david@technospider.com&gt;
+<br />
+
+<br />
+
+<br />
+
+<br />
+User 'Urelktmna' has failed to answer the Textual Confirmation
+<br />
+question correctly. It might be a spambot, therefore the
+<br />
+registration is rejected.
+<br />
+
+<br />
+--
+<br />
+
+<br />
+User:          Urelktmna
+<br />
+E-mail domain: @sexmagnet.com
+<br />
+Website:       <a href="http://www.google.com" target="_blank">http://www.google.com</a>
+<br />
+Signature:
+<br />
+educational
+<br />
+
+<br />
+--
+<br />
+
+<br />
+Data provided by the server:
+<br />
+
+<br />
+REMOTE_ADDR=80.96.191.144
+<br />
+HTTP_USER_AGENT=Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)
+<br />
+ENCODING=iso-8859-1
+<br />
+
+<br />
+--
+<br />
+
+<br />
+You are using the COMMUNITY EDITION of Textual Confirmation. This
+<br />
+message is also SENT TO THE COMMUNITY SPAM DATABASE. If you don't
+<br />
+like it, buy the business edition license:
+<br />
+<a href="http://bbantispam.com/tc/?mode=register" target="_blank">http://bbantispam.com/tc/?mode=register</a>
+<br />
+
+<br />
+-- 
+<br />
+Textual Confirmation, <a href="http://bbantispam.com/tc/" target="_blank">http://bbantispam.com/tc/</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

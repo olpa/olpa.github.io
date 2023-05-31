@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Protecting Perl scripts</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=436">Protecting Perl scripts</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1482"></a><b>beng</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 17, 2007 3:47 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: E-blah bulletin board</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">HI, i would like to use ATC to block spambots from registering on my forum, which is using E-blah software.
+<br />
+<a href="http://www.eblah.com/" target="_blank">http://www.eblah.com/</a>
+<br />
+This software is written in perl. How do i run bbantispam.php from a perl script file?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1483"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 17, 2007 3:53 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Re: E-blah bulletin board</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">PS: I tried the method
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">#!/usr/bin/perl
+<br />
+use LWP&#58;&#58;Simple;
+<br />
+print &quot;Content-type&#58; text/html\n\n&quot;;
+<br />
+$url= &quot;http&#58;//mydomain.com/bbantispam.php&quot;;
+<br />
+getprint&#40;$url&#41;;</td>	</tr></table><span class="postbody">
+<br />
+But it just gave me a page of random characters with something about content-encoding gzip at the top.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1489"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jul 18, 2007 2:28 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Using bbAntiSpam to protect Perl scripts? It's a good question. My first impression that the following process will work:
+<br />
+
+<br />
+* If the request method is POST:
+<br />
+* Make a POST-request to bbantispam.php, with an updated HTTP variable HTTP_X_FORWARDED_FOR.
+<br />
+* If cookies were set, repeat setting from Perl script.
+<br />
+* If the body is empty, then Perl script can continue execution.
+<br />
+* Otherwise, it's a confirmation form. Print the form and exit.
+<br />
+
+<br />
+Can you code it yourself or not?
+<br />
+
+<br />
+P.S. I'm going to split the topic, and move our discussion to a new topic.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1490"></a><b>beng</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jul 18, 2007 8:33 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: calling php from perl</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi, i don't really know perl, i just find perl code on google that i try out.
+<br />
+
+<br />
+If you (or anyone else reading this) know perl could you help me out with this? Finding out how to run php from perl will also be of use to other people trying to use your script to protect theri perl applications. I will also try to do what i can and post any info i can find here.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">* Make a POST-request to bbantispam.php, with an updated HTTP variable HTTP_X_FORWARDED_FOR.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I found some info on perl and HTTP_X_FORWARDED_FOR here:
+<br />
+<a href="http://www.thepcspy.com/articles/programming/getting_the_real_ip_of_your_users" target="_blank">http://www.thepcspy.com/articles/programming/getting_the_real_ip_of_your_users</a>
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$IPAddress = $ENV&#123;HTTP_X_FORWARDED_FOR&#125;;
+<br />
+
+<br />
+if &#40;$IPAddress == &quot;&quot;&#41; &#123;
+<br />
+&nbsp; &nbsp; $IPAddress = $ENV&#123;HTTP_X_FORWARDED_FOR&#125;;
+<br />
+&#125;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">* If cookies were set, repeat setting from Perl script.</td>	</tr></table><span class="postbody">
+<br />
+Sorry i don't know enough about cookies or how the E-blah forum software uses them to find out (i know it does use cookies but i don't know where in the code, or how it sets them).
+<br />
+
+<br />
+But there is some info on using perl to set cookies here:
+<br />
+<a href="http://articles.techrepublic.com.com/5100-22-1045105.html" target="_blank">http://articles.techrepublic.com.com/5100-22-1045105.html</a>
+<br />
+
+<br />
+more can be found by googling &quot;perl cookies&quot;
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">* If the body is empty, then Perl script can continue execution.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Sorry, the body of what?
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">* Otherwise, it's a confirmation form. Print the form and exit.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+You mean if the body (whatever that is) is empty, your php script will print a form and exit? Or you mean i should try and make the perl script print the registration form?
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Can you code it yourself or not?</td>	</tr></table><span class="postbody">
+<br />
+I would like to, but i know hardly any perl
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">P.S. I'm going to split the topic, and move our discussion to a new topic.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Yes this is a topic on its own
+<br />
+
+<br />
+Anyway this is what i tried so far:
+<br />
+
+<br />
+The problem is i need to find a way to execute your bbantispam.php from a perl script since the forum registration form is a perl script. Also, the forum software uses gzip to compress data to save bandwidth.
+<br />
+
+<br />
+There is a perl library of perl modules called LWP which lets perl do things to access WWW data.
+<br />
+
+<br />
+I tried one of the modules, LWP::Simple, but it will not work for this because i don't know if it can allow gzip encoded data, and also it can't do a POST method.
+<br />
+
+<br />
+I am therefore trying to use LWP:UserAgent, which lets perl make it's own virtual browser or user agent, which it uses to access other web files via the Apache server. This looks like it can enable the handling of gzip data, and also it can do POST method of request.
+<br />
+
+<br />
+There is some in fo on LWP here (with info on using it for cookies and posting form data on page 2):
+<br />
+<a href="http://www.perl.com/pub/a/2002/08/20/perlandlwp.html?page=1" target="_blank">http://www.perl.com/pub/a/2002/08/20/perlandlwp.html?page=1</a>
+<br />
+
+<br />
+LWP::UserAgent documentation:
+<br />
+<a href="http://search.cpan.org/~gaas/libwww-perl-5.803/lib/LWP/UserAgent.pm" target="_blank">http://search.cpan.org/~gaas/libwww-perl-5.803/lib/LWP/UserAgent.pm</a>
+<br />
+<a href="http://cpan.uwinnipeg.ca/htdocs/libwww-perl/LWP/UserAgent.html" target="_blank">http://cpan.uwinnipeg.ca/htdocs/libwww-perl/LWP/UserAgent.html</a>
+<br />
+
+<br />
+And some info on how to set up the LWP::UserAgent object to use a header to enable it to handle gzip compressed data here:
+<br />
+<a href="http://pond1.gladstonefamily.net:8080/cgi-bin/shame.pl" target="_blank">http://pond1.gladstonefamily.net:8080/cgi-bin/shame.pl</a>
+<br />
+
+<br />
+An example with code for retrieving Data from POST Scripts using LWP:USerAgent here:
+<br />
+<a href="http://stein.cshl.org/genome_informatics/cgi_s_1/retrieval2.html" target="_blank">http://stein.cshl.org/genome_informatics/cgi_s_1/retrieval2.html</a>
+<br />
+
+<br />
+Another example on using LWP:USerAgent for Post, as well as documentation for LWP:USerAgent:
+<br />
+<a href="http://search.cpan.org/~gaas/libwww-perl-5.805/lib/LWP.pm" target="_blank">http://search.cpan.org/~gaas/libwww-perl-5.805/lib/LWP.pm</a>
+<br />
+
+<br />
+Based on the example in the last link above, i tried putting this at the top of the forum registration perl script&#058;
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">### Advanced Textual Confirmation ###
+<br />
+
+<br />
+# Use the LWP and HTTP modules.
+<br />
+use LWP&#58;&#58;UserAgent;
+<br />
+#use HTTP&#58;&#58;Request&#58;&#58;Common;
+<br />
+
+<br />
+# URL path to the php script
+<br />
+my $ATC_url= &quot;http&#58;//wisdac.org.uk/turingtest/bbantispam.php&quot;;
+<br />
+
+<br />
+# Create a new LWP&#58;&#58;UserAgent object. This is a &quot;virtual browser&quot; that
+<br />
+# knows how to contact remote sites and retreive URLs
+<br />
+$agent = LWP&#58;&#58;UserAgent-&gt;new;
+<br />
+$agent-&gt;default_header&#40;'Accept-Encoding' =&gt; 'gzip'&#41;; #This is line 20 in the error code
+<br />
+#$agent-&gt;default_headers-&gt;push_header&#40;'Accept-Encoding' =&gt; &quot;gzip&quot;&#41;;
+<br />
+
+<br />
+# Create a new HTTP&#58;&#58;Request object. This contains the URL of the thing
+<br />
+# you want to retreive and the method to retrieve it with.
+<br />
+#my $req = POST&#40;$ATC_url, Content_Type =&gt; 'form-data', 'Accept-Encoding' =&gt; 'gzip', Content =&gt; &quot;&quot; &#41;;
+<br />
+my $req = HTTP&#58;&#58;Request-&gt;new&#40;POST =&gt; $ATC_url &#41;;
+<br />
+&nbsp; &nbsp;$req-&gt;content_type&#40;'multipart/form-data'&#41;;
+<br />
+&nbsp; &nbsp;$req-&gt;content&#40;''&#41;;
+<br />
+
+<br />
+# Send the request via the user agent's request&#40;&#41; method, receiving an HTTP&#58;&#58;Response object as the result. 
+<br />
+my $response = $agent-&gt;request&#40;$req&#41;;
+<br />
+
+<br />
+# Check the error code.
+<br />
+&nbsp; if &#40;$response-&gt;is_success&#41; &#123;
+<br />
+&nbsp; &nbsp; &nbsp; print $response-&gt;decoded_content;
+<br />
+&nbsp; &#125;
+<br />
+&nbsp; else &#123;
+<br />
+&nbsp; &nbsp; &nbsp; print $response-&gt;status_line, &quot;\n&quot;;
+<br />
+&nbsp; &#125;
+<br />
+
+<br />
+# Call the response object's content&#40;&#41; method to get the returned page.
+<br />
+#my $record = $response-&gt;decoded_content;
+<br />
+#print $record;
+<br />
+
+<br />
+### End Advanced Textual Confirmation ###</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+The result of this was that when i tried to do a registration, the script did not work but gave this error code:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">./Register.pl
+<br />
+Can't locate object method &quot;default_header&quot; via package &quot;LWP&#58;&#58;UserAgent&quot; at ./Register.pl line 20.
+<br />
+Compilation failed in require at Blah.pl line 111.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+So i guess there is some problem with the part where i try to tell the user agent to put the Accept-Encoding = gzip in the http request header (this is at line 20 i nthe perl code).
+<br />
+
+<br />
+So i commented out line 20 and changed $response-&gt;decoded_content; to $response-&gt;content; to see if i could at least get some gzip data showing up.
+<br />
+
+<br />
+This time, there were no errors, but it worked as though i did not put in any new perl code at all, as if i had left the perl script unchanged. It did not show me the ATC form but just behaved like the normal registration form.
+<br />
+
+<br />
+[/code]</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1491"></a><b>beng</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jul 18, 2007 3:09 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I am wondering if there is another way to do this:
+<br />
+
+<br />
+Is it possible that if i change the reistration link on the forum homepage so that instead of starting the registration script, it just opens a web page (.html or .php), which auto-submits (via a javascript) a post request to bbantispam.php and then if the user passes the test, it then opens the registration perl script?
+<br />
+
+<br />
+The question is how the html or php page will know if the user answered the question correctly?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1492"></a><b>workaround found</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jul 18, 2007 5:52 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi i have now found a simple workaround for the problem of how to use ATC with perl scripts.
+<br />
+
+<br />
+In my case, i modify the link on the forum page that the user will click to register, so that instead of going to the register script, it is a submit button on an empty form that just submits a post request to bbantispam.php:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;form action=&quot;bbantispam.php&quot; method=&quot;post&quot;&gt;
+<br />
+&lt;input type=&quot;submit&quot; value=&quot;Register&quot;&gt;
+<br />
+&lt;/form&gt;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Then i edited bbantismap.php itself, and put some html under the code, like this:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;!doctype html public &quot;-//w3c//dtd html 3.2//en&quot;&gt;
+<br />
+&lt;html&gt;
+<br />
+&lt;head&gt;
+<br />
+&lt;title&gt;Advanced Textual Confirmation&lt;/title&gt;
+<br />
+&lt;/head&gt;
+<br />
+&lt;body bgcolor=&quot;#ffffff&quot; text=&quot;#000000&quot; link=&quot;#0000ff&quot; vlink=&quot;#8000ff&quot; alink=&quot;#ff0000&quot;&gt;
+<br />
+&lt;table height=100% width-100%&gt;
+<br />
+&nbsp; &nbsp;&lt;tr&gt;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&lt;td align=&quot;center&quot; valign=&quot;middle&quot;&gt;
+<br />
+&lt;p align=&quot;center&quot;&gt;Congradulations, you have passed the test! Please &lt;a href=&quot;http&#58;//mysite.com/path-to-registration-script/&quot;&gt;click here&lt;/a&gt; to continue to the registration form.&lt;/p&gt;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&lt;/tr&gt;
+<br />
+&lt;/table&gt;
+<br />
+&lt;/body&gt;
+<br />
+&lt;/html&gt;</td>	</tr></table><span class="postbody">[/code]</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1493"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jul 19, 2007 2:27 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Unfortunately, your simple workaround might fail: if a spammer knows where the Perl script is located, he can go to the Perl script directly.
+<br />
+
+<br />
+I think I'm going to integrate bbAntiSpam and Perl. If you are interested in it, send your e-mail to me &lt;olepar gmail com&gt;, and I'll notify you when ready.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

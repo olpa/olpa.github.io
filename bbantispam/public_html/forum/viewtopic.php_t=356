@@ -1,0 +1,518 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - MANY thanks and Compiling a spammer list.</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=356">MANY thanks and Compiling a spammer list.</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1209"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed May 16, 2007 6:51 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: MANY thanks and Compiling a spammer list.</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I want to thank the creator(s) for TC.  Previously my board had been bombarded by spam bots, where I was removing posts and deleting users at a rate of 25- 100 a day.  It was a horrid nightmare.  
+<br />
+
+<br />
+I tried some of the other PHPBB2 Mods for antispam, and my board crashed.  After recovering the forum and reinstalling some of my more favorite mods, I found TC, installed it easily, and have been happy since.  While occasionally 1 slips through the cracks, the many others that are blocked make up for the small amount of time to remove posts  and delete users that I deal with now.
+<br />
+
+<br />
+As I have read the database has been given up.  While that is sad thing, I have lots of time on my hands at the moment, and would like to ask that admins of other boards email me a .txt file with their current spam block list.
+<br />
+
+<br />
+What I plan to do is check them for duplicates, and compile a complete list of current known spammers, and make it available to other admins so that we could better serve ourselves.
+<br />
+
+<br />
+I am not and <span style="font-weight: bold">WILL NOT</span> ask for compensation for this.  My board is for the betterment of the Filipino / American communities, and I provide it free to all of my users, so why not this too.
+<br />
+
+<br />
+<a href="mailto:masterdecker@yahoo.com">masterdecker@yahoo.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1210"></a><b>MasterDecker</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 16 May 2007<br />Posts: 2<br />Location: Anchorage Alaska</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed May 16, 2007 6:52 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I apologize, I thought I had signed in.<br />_________________<br />Release your fears and live life.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1212"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu May 17, 2007 2:55 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks a lot! Your message is very encouraging. It's plesant to know that TC performs as I wanted: works well and easy to install.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">a rate of 25- 100 a day</td>	</tr></table><span class="postbody">
+<br />
+Very impressive! It's much more than I had before creating TC.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">As I have read the database has been given up. While that is sad thing, I have lots of time on my hands at the moment, and would like to ask that admins of other boards email me a .txt file with their current spam block list.</td>	</tr></table><span class="postbody">
+<br />
+I can't say I'm going to help with it. I've not only given up with the idea of the database, but also disbelieve in it now.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1213"></a><b>MasterDecker</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 16 May 2007<br />Posts: 2<br />Location: Anchorage Alaska</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu May 17, 2007 7:26 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I wouldn't disbelieve in it.  Something to help people keep their boards for actual users, and try our best to keep the spam at bay couldn't hurt, and would be beneficial, especially to new boards.  
+<br />
+
+<br />
+While it is more frustrating that every day more and more spam is being made, and every now and then one gets through even with TC actively working on a board.
+<br />
+
+<br />
+A list of current proven and known spam email and IP addresses would help.
+<br />
+
+<br />
+Prior to installing TC, in 1 day I had enough spam bots sign up, and using the current user list had sent out in excess of 1500 emails.  I know this, because I had received a warning and a bill from my server provider, for over useage.  Not to mention the numerous posts that the bots had created.
+<br />
+
+<br />
+That is what made me start looking for something that would work better then what comes with PHPBB2, and a couple others spam blockers that I had found.  Along comes TC, and now my email gets loaded up with notifications daily of notifications of probable / possible spam bots.  
+<br />
+
+<br />
+Easilly adding the IP and email addresses (with wild cards) to the blocked list in PHPBB2.  My small board stays for my users, and they don't have to deal anything with the spam.
+<br />
+
+<br />
+So as you can see, I greatly appreciate the work you have put in to TC, without any doubt.  I also can understand that the list would be a lot of work, and headaches, and can see why you would want to give up on doing it.  I've started working on a list, even more as TC alerts me to more spam attempts to join my board.  While I can create a list, I don't have a clue aside from using the ACP to ban the bots.  
+<br />
+
+<br />
+Creating the list by me would come in a txt type file, how to get it into phpbb2 as a add-on / mod I would have to find some one that could point me in the way of intigrating it.
+<br />
+
+<br />
+MasterDecker<br />_________________<br />Release your fears and live life.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1218"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 18, 2007 3:08 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">sent out in excess of 1500 emails.</td>	</tr></table><span class="postbody">
+<br />
+Very impressive! And sad.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I also can understand that the list would be a lot of work, and headaches</td>	</tr></table><span class="postbody">
+<br />
+Unfortunately, the things are even worse. Creating the list itself isn't hard. The problem is support. It takes 10x more effort than programming.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Creating the list by me would come in a txt type file, how to get it into phpbb2 as a add-on / mod I would have to find some one that could point me in the way of intigrating it.</td>	</tr></table><span class="postbody">
+<br />
+I'm sure there were some MODs for banning IPs. Unfortunately, I don't remember the names. Try google for &quot;phpbb block ip&quot; and &quot;phpbb ban ip&quot;, this gives a plenty of results.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1393"></a><b>joygoround.com</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 29, 2007 2:12 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: which file holds the ip list</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi, can you tell me which file holds the list that we generate when we're banning IPs in the Admin Control Panel.  I want to look at the list.  Thank you for your useful information on your site.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1394"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 29, 2007 3:10 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">As far as I remember, it's in a file, but in a the database. To see it, go to Admin Control Panel and use the link &quot;Ban Control&quot; in the left frame.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1395"></a><b>joygoround.com</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 29, 2007 3:43 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: thanks!</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks so much! I am very interested in your spam protection project. I have this site bookmarked for my future phpbb installation at an upcoming site. I am hoping to use it fresh with an install of Phpbb 3 when I get my plans all in order.  I am not very experienced in modifying codes, but have done several of the more simple ones. I'll be back for some support in the coming months.  I will register if necessary when the time comes. <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1396"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 29, 2007 4:19 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Installation of my tools is as simple as possible, even non-programmers install them successfully.
+<br />
+
+<br />
+Meanwhile, as you are interested in the project, I recommend to subscribe to our new blog: <a href="http://bbspam.com/" target="_blank">http://bbspam.com/</a><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1397"></a><b>joygoround.com</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 29, 2007 4:57 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Installation of my tools is as simple as possible, even non-programmers install them successfully.
+<br />
+
+<br />
+Meanwhile, as you are interested in the project, I recommend to subscribe to our new blog: <a href="http://bbspam.com/" target="_blank">http://bbspam.com/</a></td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Great I registered at blog and did a bit of reading. I see there is a link for another forum at the blog site too.  I hope I don't get lost in all this  <img src="images/smiles/icon_lol.gif" alt="Laughing" border="0" /> 
+<br />
+
+<br />
+PS. I hate spam. I'm glad you guys turned up on Google search for phrase
+<br />
+<span style="color: red"><span style="font-weight: bold">where to find list of banned ip in phpbb</span></span>
+<br />
+See you again soon!
+<br />
+
+<br />
+PSS. Very interested in this for my PHPBB 2 current board, but I have modded it so many times that I doubt I could get this to work.  Anyway, bye for now.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1398"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jun 30, 2007 2:22 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I hope I don't get lost in all this</td>	</tr></table><span class="postbody">
+<br />
+You will not get lost. One is the blog, another is a RSS feed for official announces.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">but I have modded it so many times that I doubt I could get this to work.</td>	</tr></table><span class="postbody">
+<br />
+All my tools are written with heavy-modded forums in mind. Chances of successful installation are very big.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1399"></a><b>Josh</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jun 30, 2007 6:48 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">To the original poster:
+<br />
+
+<br />
+As mentioned on bbspam.com (this site's blog), I have created such a database of forum spammers. If you want to help support, that would be much appreciated.
+<br />
+
+<br />
+The location: <a href="http://www.fspamlist.com" target="_blank">http://www.fspamlist.com</a>
+<br />
+
+<br />
+Thanks for looking.
+<br />
+
+<br />
+I only post this because I see that a lot of people keep asking for one and I am like LOOK RIGHT HERE lol..</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1939"></a><b>tech</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Feb 18, 2008 5:10 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Re: MANY thanks and Compiling a spammer list.</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>MasterDecker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+As I have read the database has been given up.  While that is sad thing, I have lots of time on my hands at the moment, and would like to ask that admins of other boards email me a .txt file with their current spam block list.
+<br />
+
+<br />
+What I plan to do is check them for duplicates, and compile a complete list of current known spammers, and make it available to other admins so that we could better serve ourselves.
+<br />
+
+<br />
+masterdecker - at - yahoo - dot - com</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Hi
+<br />
+
+<br />
+I have a list from my site (9 phpBB's) which has guest posting so there are many. 
+<br />
+
+<br />
+In fact there are so many that they cannot be loaded into phpBB ban IP administration in one go as the script will time out before it completes. I convert themn and then upload them directly into the mysql database. 
+<br />
+
+<br />
+You asked for text file lists but you didn't mention the format you want. I have to extract these from 9 databases, merge them and remove duplicates. 
+<br />
+
+<br />
+Banned IP's are stored in undotted decimal in the database. 
+<br />
+
+<br />
+Also I cannot garantee that there will be no duplication between IP subnets (ranges) and individual IP's ie - 
+<br />
+
+<br />
+124.124.124.*
+<br />
+124.124.124.37
+<br />
+
+<br />
+If you need these duplicates removed then I will have to write a program detection and deletion of these types of duplicates. 
+<br />
+
+<br />
+I can send the IP list in any combination of the following formats
+<br />
+
+<br />
+227.2.3.0 - 227.2.3.255 IP range
+<br />
+227.2.3.* - IP with wildcards
+<br />
+227.2.3.0/255.255.255.0 Subnet and mask
+<br />
+227.2.3.0/24 CIDR
+<br />
+
+<br />
+xxx.xxx.xxx.xxx dotted decimal
+<br />
+xx.xx.xx.xx dotted hexidecimal
+<br />
+xxxxxxxxxxxx decimal
+<br />
+xxxxxxxx hexidecimal
+<br />
+
+<br />
+Now a little about why I have bothered to contact you. 
+<br />
+
+<br />
+I have a site that has 9 subdomains with phpBB (2.x) on them and it is a pain in the proverbial to manage as they all work from different databases and have there own config etc. 
+<br />
+
+<br />
+I have considered upgrading to phpBB 3.x and moding the script so that all the BB's work from one database so that I don't have to do everything 9 times. The problem with this is - 1) I intend to keep guest posting ability 2) phpBB will always be a target for SPAMers as it is one of the most popular BB's. 
+<br />
+
+<br />
+I have been strugleing with ban lists and CAPTCHA for a while and the result so far is simply NOT acceptable. I have been considering writing a custom BB and this may be the end result. 
+<br />
+
+<br />
+I have one last hope for baned IP lists. I simply not interested in keeping up the effort to do it the way I have. 
+<br />
+
+<br />
+I am willing to write a phpBB mod so that two additional features are addded (to version 3.x) - 
+<br />
+
+<br />
+1) An extra button on the posting page beside QUOTE EDIT DELETE IP for the administartor labeled BANIP. 
+<br />
+
+<br />
+2) Seting up a central data base on a remote server that allows IP's to be added or local Banned IP's to be updated for all those who install the mod (and contribute IP's). 
+<br />
+
+<br />
+I don't believe that any individual is going to make headway with SPAMers, it needs to be a large group effort. 
+<br />
+
+<br />
+If are interested in this concept them please let me know. 
+<br />
+
+<br />
+In any case if you want my ban lists then tell me what format(/s) you want them in. Be warned the file will be large. 
+<br />
+
+<br />
+Thanks. 
+<br />
+
+<br />
+<a href="mailto:listgroups08@ozwebwiz.com">listgroups08@ozwebwiz.com</a>  (I will give my real address when you write me).</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

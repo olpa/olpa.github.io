@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - How to use ATC in elgg?</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=680">How to use ATC in elgg?</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2419"></a><b>elgg</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 06 May 2009<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed May 06, 2009 1:28 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: How to use ATC in elgg?</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Dear Admin,
+<br />
+
+<br />
+elgg is a very popular social network open source,
+<br />
+
+<br />
+but recently also meet spam problem,
+<br />
+
+<br />
+could you please tell us how to install ATC in elgg?
+<br />
+
+<br />
+I tried many times but just can't get the ATC run.
+<br />
+
+<br />
+Thanks!
+<br />
+
+<br />
+p.s.
+<br />
+elgg can be found in <a href="http://www.elgg.org" target="_blank">http://www.elgg.org</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2420"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed May 06, 2009 4:57 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello,
+<br />
+
+<br />
+I think elgg's developers can answer this question better than I.
+<br />
+
+<br />
+As the first step, I'd try the following:
+<br />
+
+<br />
+* Upload the files bbantispam.php and bbas_config.php on the server, near the file &quot;index.php&quot;
+<br />
+* Edit the file &quot;index.php&quot;: insert as the first line:
+<br />
+
+<br />
+&lt;?php include_once 'bbantispam.php'; ?&gt;
+<br />
+
+<br />
+Hint: reset cookies often: if you answered a question. ATC remembers you are a human, and don't displays the question form anymore.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2424"></a><b>elgg</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 06 May 2009<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 08, 2009 10:22 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: the question never appear.</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Hello,
+<br />
+
+<br />
+I think elgg's developers can answer this question better than I.
+<br />
+
+<br />
+As the first step, I'd try the following:
+<br />
+
+<br />
+* Upload the files bbantispam.php and bbas_config.php on the server, near the file &quot;index.php&quot;
+<br />
+* Edit the file &quot;index.php&quot;: insert as the first line:
+<br />
+
+<br />
+&lt;?php include_once 'bbantispam.php'; ?&gt;
+<br />
+
+<br />
+Hint: reset cookies often: if you answered a question. ATC remembers you are a human, and don't displays the question form anymore.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+
+<br />
+Sir, 
+<br />
+thank you for your quick reply, I did so as your above advice, 
+<br />
+but the question never appears even after i clear all the cookies.
+<br />
+
+<br />
+before I use phpbb, the ATC runs very well.
+<br />
+but with elgg, ATC just never pop up.
+<br />
+
+<br />
+I also post my question in elgg community
+<br />
+<a href="http://community.elgg.org/mod/groups/topicposts.php?topic=99068&amp;group_guid=7" target="_blank">http://community.elgg.org/mod/groups/topicposts.php?topic=99068&amp;group_guid=7</a>
+<br />
+
+<br />
+hope can solve this problem since ATC is the only hope I bear.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

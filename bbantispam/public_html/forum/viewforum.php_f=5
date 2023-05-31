@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View Forum - Advanced Textual Confirmation</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a></p>
+<p></p>
+
+  <table border="0" cellpadding="4" cellspacing="1" width="100%" class="forumline">
+	<tr>
+	  <th colspan="1" align="center" height="25" class="thCornerL" nowrap="nowrap">&nbsp;Topics&nbsp;</th>
+	  <th width="50" align="center" class="thTop" nowrap="nowrap">&nbsp;Replies&nbsp;</th>
+	  <th width="100" align="center" class="thTop" nowrap="nowrap">&nbsp;Author&nbsp;</th>
+	  <th width="50" align="center" class="thTop" nowrap="nowrap">&nbsp;Views&nbsp;</th>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><b>Sticky:</b> <a href="viewtopic.php?t=283" class="topictitle">Tool-specific ATC installation</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">8539</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=768" class="topictitle">customising confirmation screen</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">chillbrook</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">166</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=305" class="topictitle">How to stop PHP-Nuke spam</a></span><span class="gensmall"><br />
+		 [ <img src="templates/subSilver/images/icon_minipost.gif" alt="Goto page" title="Goto page" />Goto page: <a href="viewtopic.php?t=305&amp;start=0">1</a> ... <a href="viewtopic.php?t=305&amp;start=45">4</a>, <a href="viewtopic.php?t=305&amp;start=60">5</a>, <a href="viewtopic.php?t=305&amp;start=75">6</a> ] </span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">86</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">65215</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=378" class="topictitle">How to stop phpBB3 spam</a></span><span class="gensmall"><br />
+		 [ <img src="templates/subSilver/images/icon_minipost.gif" alt="Goto page" title="Goto page" />Goto page: <a href="viewtopic.php?t=378&amp;start=0">1</a>, <a href="viewtopic.php?t=378&amp;start=15">2</a>, <a href="viewtopic.php?t=378&amp;start=30">3</a> ] </span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">32</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">37378</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=739" class="topictitle">At Wordpress</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">greenday</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">513</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=714" class="topictitle">Not working with File Field?</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Saran</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">682</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=704" class="topictitle">Common.php or Config.php</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">BryanB</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1353</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=696" class="topictitle">phpLD</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">philesq</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1157</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=691" class="topictitle">Problems Posting</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Bmer</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1105</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=684" class="topictitle">Apply to create account page?</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">9</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">CTerrian</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2319</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=683" class="topictitle">Problem?</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">crazpony</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1077</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=680" class="topictitle">How to use ATC in elgg?</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">elgg</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1459</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=449" class="topictitle">ATC won't work on my site</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">8</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">reanor</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">5925</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=679" class="topictitle">Problems - Questions after every login and posting</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Jonesy</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1389</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=284" class="topictitle">ATC and phpBB2</a></span><span class="gensmall"><br />
+		 [ <img src="templates/subSilver/images/icon_minipost.gif" alt="Goto page" title="Goto page" />Goto page: <a href="viewtopic.php?t=284&amp;start=0">1</a>, <a href="viewtopic.php?t=284&amp;start=15">2</a>, <a href="viewtopic.php?t=284&amp;start=30">3</a>, <a href="viewtopic.php?t=284&amp;start=45">4</a> ] </span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">55</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">41870</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=653" class="topictitle">ATC and PHPNuke 7.9 w/phpbb</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">NJ-Horse</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1952</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=633" class="topictitle">Adding ATC to phpbb3 creates header errors and blocks logins</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">4</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">rossruns</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2869</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=632" class="topictitle">Question about the questions :D</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Artarious</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2024</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=631" class="topictitle">Problem with installing ATC - No forum</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Nick P</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1739</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=620" class="topictitle">Mosets Hot Property</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">builder07</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1933</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=615" class="topictitle">how many questions?</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">bob</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2003</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=613" class="topictitle">Fatal error in my index for your account folder</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Winter_Lion</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1862</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=601" class="topictitle">Not working for PHP Nuke</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">4</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Natalya</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2688</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=600" class="topictitle">Why does ATC ask question after registration???</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">divinity666</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2387</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=596" class="topictitle">PHP-Fusion</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Marcin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2295</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=579" class="topictitle">Quickie Installation Question</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">7</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">adksnowman</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">4247</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=530" class="topictitle">Fatal error: Call to undefined function: str_rot13() in /hom</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">lbk3918</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2927</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=527" class="topictitle">I have problems</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Toni</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2457</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=495" class="topictitle">Installed ATC but spam keep coming :-(</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">tac</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3232</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=474" class="topictitle">Trying to customize the layout</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Ghost</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">4036</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=470" class="topictitle">phpbb2: what is the correct path to bbantispam.php?</a></span><span class="gensmall"><br />
+		 [ <img src="templates/subSilver/images/icon_minipost.gif" alt="Goto page" title="Goto page" />Goto page: <a href="viewtopic.php?t=470&amp;start=0">1</a>, <a href="viewtopic.php?t=470&amp;start=15">2</a> ] </span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">24</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">TNTRide</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">15849</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=445" class="topictitle">Benefits for experienced PHP developers</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">4437</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=439" class="topictitle">&quot; Topic Does not Exist &quot;</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">5</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Sciferas77</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">4608</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=436" class="topictitle">Protecting Perl scripts</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">6</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">beng</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">4618</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=432" class="topictitle">Security of ATC files</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">bengtang</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3629</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=434" class="topictitle">a href link colour in form output</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">bengtang</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2843</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=433" class="topictitle">bbantispam.php will not run on my server</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">bengtang</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3815</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=408" class="topictitle">ATC test</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">ATC test</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3087</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=365" class="topictitle">Activity of spammers</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3352</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=351" class="topictitle">How to stop CMSimple spam</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3845</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=336" class="topictitle">Need more detailed installation instructions+explanations</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">kresten</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3359</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><b>[ Poll ]</b> <a href="viewtopic.php?t=315" class="topictitle">more sexy!</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Ares</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3642</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=313" class="topictitle">How to stop vBulletin spam</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">8512</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=286" class="topictitle">How to stop PhpWiki spam</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">4146</span></td>
+	</tr>
+	<tr>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php?t=285" class="topictitle">How to stop WordPress spam</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">admin</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">5380</span></td>
+	</tr>
+  </table>
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

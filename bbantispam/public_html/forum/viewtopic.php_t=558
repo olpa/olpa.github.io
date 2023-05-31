@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Is it possible to list exceptions in LinkRejector?</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=1">Links Rejector</a> - <a href="viewtopic.php?t=558">Is it possible to list exceptions in LinkRejector?</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1970"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Feb 29, 2008 1:45 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Is it possible to list exceptions in LinkRejector?</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi, ive recently got LR and it works a treat, however, is it possible to set up an &quot;Allow&quot; list for links to the World of Warcraft Armory, as many applicants to the site wish to post that. something like <a href="1http://eu.wowarmory.com/" target="_blank">1http://eu.wowarmory.com/</a>*&quot; with a wildcard to allow different character sheets?
+<br />
+
+<br />
+All the best, Ali</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1971"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Feb 29, 2008 1:46 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Re: Is it possible to list exceptions in LinkRejector?</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Anonymous wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Hi, ive recently got LR and it works a treat, however, is it possible to set up an &quot;Allow&quot; list for links to the World of Warcraft Armory, as many applicants to the site wish to post that. something like <a href="1http://eu.wowarmory.com/" target="_blank">1http://eu.wowarmory.com/</a>*&quot; with a wildcard to allow different character sheets?
+<br />
+
+<br />
+All the best, Ali</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Edit, i made a type.. should be &quot;http://eu.wowarmory.com/*&quot;</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1972"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 01, 2008 2:57 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">No and yes.
+<br />
+
+<br />
+No, because there is no direct support of exceptions. However, you can edit the file &quot;includes/functions_bbas.php&quot;. After
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+if &#40; !defined&#40;'IN_PHPBB'&#41; &#41;
+<br />
+&#123;
+<br />
+&nbsp; die&#40;&quot;Hacking attempt&quot;&#41;;
+<br />
+&#125;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+add:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+function bbas_filter_contacts&#40;$contacts&#41; &#123;
+<br />
+&nbsp; global $board_config;
+<br />
+&nbsp; $x = $board_config&#91;'server_name'&#93;;
+<br />
+&nbsp; $board_config&#91;'server_name'&#93; = 'wowarmory.com';
+<br />
+&nbsp; $contacts = array_filter&#40;$contacts, 'bbas_not_self_reference'&#41;;
+<br />
+&nbsp; $board_config&#91;'server_name'&#93; = $x;
+<br />
+&nbsp; return $contacts;
+<br />
+&#125;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+I haven't tested the code, but hopefully it works.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

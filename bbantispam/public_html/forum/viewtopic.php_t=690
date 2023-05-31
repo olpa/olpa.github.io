@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Help!  Textual Confirmation Mod on phpBB 2</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=690">Help!  Textual Confirmation Mod on phpBB 2</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2459"></a><b>Hollee Saville</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 05, 2009 7:02 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Help!  Textual Confirmation Mod on phpBB 2</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I installed User Shield (works great) and Textual Confirmation on our message board (http://www.wcfcca.org/mb) and cannot get it to work.  It seems to have worked for the most part as the questions show in my admin panel, but new users don't even see the option to answer those questions.  I added the mod myself, manually, so it was incredibly time-consuming and it's very likely that I missed a small character or accidentally replaced something small.  The phpBB forums talked about a sql thing, but I don't know much about SQL and definitely don't want to mess it up.  We're a non-profit and I've spent days working on our site and MB mods (I modded them a year ago!), but I don't have time to do it on my own.  We can pay someone to fix it or at least tell me what the likely problem is, but we don't have TONS of money to spend.  I also would like to upgrade to version 3, but I was worried that I'd lose our colors, forums, avatars, and members.  Does it all change over?  Would the mods get erased?  If that's the case, then I guess I can just install the new version.
+<br />
+
+<br />
+I'll pay you for answering questions <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />  Thanks so much!
+<br />
+
+<br />
+Hollee
+<br />
+<a href="mailto:hollee@wcfcca.org">hollee@wcfcca.org</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2461"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jun 06, 2009 6:14 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello Hollee,
+<br />
+
+<br />
+I'm sad to hear you lost a lot of time trying to install Textual Confirmation. But I hope it will be compensated by no more time lost on deleting spam.
+<br />
+
+<br />
+I think you've successfully installed Textual Confirmation and completed the SQL part. As I understand, you've developed a forum-specific look and feel (template). Then see the step 2 here: <a href="http://bbantispam.com/forum/viewtopic.php?t=480" target="_blank">http://bbantispam.com/forum/viewtopic.php?t=480</a>
+<br />
+
+<br />
+Concerning other questions:
+<br />
+
+<br />
+* One can get a cheap freelancer here: <a href="http://rentacoder.com/" target="_blank">http://rentacoder.com/</a>
+<br />
+
+<br />
+* Upgrade from phpBB2 to phpBB3 should retain all the members and messages, but you'll need to re-create the look and feel.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2466"></a><b>happee</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jun 10, 2009 1:36 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Thank you!</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks, Oleg!  It's not your fault, so please don't feel bad!  You make an awesome mod and it saved me TONS of time going through and deleting thousands of bots.  Thankfully, we only have 40 members, so not too many people were booted <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />  I went ahead and upgraded to version 3.  Now I just need to customize the look of it.  
+<br />
+
+<br />
+You are an angel!  Thanks so much for the perfect answer.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2467"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jun 10, 2009 4:00 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks, and best luck with the forum!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

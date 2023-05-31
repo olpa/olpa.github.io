@@ -1,0 +1,538 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - FAQ: what is being sent to us</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=56">FAQ: what is being sent to us</a></p>
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=56&amp;&amp;start=15">2</a>, <a href="viewtopic.php?t=56&amp;&amp;start=30">3</a>&nbsp;&nbsp;<a href="viewtopic.php?t=56&amp;&amp;start=15">Next</a></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="332"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Oct 23, 2006 2:38 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: FAQ: what is being sent to us</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">A typical notification from Textual Confirmation looks as the following:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+User 'Yfeq' has failed to answer the Textual Confirmation
+<br />
+question correctly. It might be a spambot, therefore the
+<br />
+registration is rejected.
+<br />
+
+<br />
+--
+<br />
+
+<br />
+User:          Yfeq
+<br />
+E-mail domain: @mail.ru
+<br />
+Website:       <a href="http://" target="_blank">http://</a>(censored).com
+<br />
+Signature:
+<br />
+(censored)
+<br />
+
+<br />
+--
+<br />
+
+<br />
+Data provided by the server:
+<br />
+REMOTE_ADDR=125.244.xxx.yyy
+<br />
+HTTP_USER_AGENT=libwww-perl/5.805
+<br />
+HTTP_VIA=1.1 none:8080 (Topproxy-2.0/)
+<br />
+HTTP_X_FORWARDED_FOR=85.255.uuu.vvv
+<br />
+ENCODING=windows-1251 
+<br />
+
+<br />
+--
+<br />
+
+<br />
+You are using the COMMUNITY EDITION of Textual Confirmation. This
+<br />
+message is also SENT TO US to improve our spam database. To avoid
+<br />
+information disclosure, buy the business edition license:
+<br />
+<a href="http://bbantispam.com/tc/?mode=register" target="_blank">http://bbantispam.com/tc/?mode=register</a>
+<br />
+
+<br />
+-- 
+<br />
+Textual Confirmation, <a href="http://bbantispam.com/tc/" target="_blank">http://bbantispam.com/tc/</a>
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I don't want to show the spam words and spam URLs, therefore I replaced them with the word &quot;(censored)&quot;.
+<br />
+
+<br />
+Textual Confirmation regards privacy and sends only the domain part of the e-mail address, not the full address.
+<br />
+
+<br />
+REMOTE_ADDR is an IP address of the spammer. HTTP_VIA and HTTP_X_FORWARDED_FOR give the list of the proxy-servers used by the spammer. HTTP_USER_AGENT contains the name of the browser or software. Finally, ENCODING allows to correctly interpret the non-English text.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="437"></a><b>donjoe</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 30 Nov 2006<br />Posts: 2<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Nov 30, 2006 8:38 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello!
+<br />
+
+<br />
+Where is this &quot;community&quot; database?
+<br />
+
+<br />
+What happens if I want to test the system after I install it and I intentionally give wrong answers? My IP will be sent to the community database and I'll be considered a possible spammer. How do I remove my IP from there? Same question for legitimate users of my forum that happen to joke around or simply not spell the correct answers like I hoped they would. Are they all to be considered possible spammers?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="440"></a><b>bryan</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 30 Nov 2006<br />Posts: 3<br />Location: Spokane, WA</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Dec 01, 2006 12:40 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>donjoe wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">What happens if I want to test the system after I install it and I intentionally give wrong answers? My IP will be sent to the community database and I'll be considered a possible spammer. How do I remove my IP from there? Same question for legitimate users of my forum that happen to joke around or simply not spell the correct answers like I hoped they would. Are they all to be considered possible spammers?</td>	</tr></table><span class="postbody">
+<br />
+Yes, I'd like to know too. If registered users don't have their spammers reported to the community, what's the point in the community?
+<br />
+
+<br />
+--Bryan</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="441"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Dec 01, 2006 6:03 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Where is this &quot;community&quot; database? </td>	</tr></table><span class="postbody">
+<br />
+Sooner or later, will appear on <a href="http://bbspam.com/" target="_blank" class="postlink">bbspam.com</a>. Right now I don't have time to work on this project.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">What happens if I want to test the system after I install it and I intentionally give wrong answers? My IP will be sent to the community database and I'll be considered a possible spammer. How do I remove my IP from there? Same question for legitimate users of my forum that happen to joke around or simply not spell the correct answers like I hoped they would. Are they all to be considered possible spammers?</td>	</tr></table><span class="postbody">
+<br />
+The system will be smart, so you don't need to worry. If the system will not smart, my own sites will be marked as &quot;spammer&quot; in the first place. And in any case, it will be possible to delete wrong decisions.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">If registered users don't have their spammers reported to the community, what's the point in the community?</td>	</tr></table><span class="postbody">
+<br />
+There are too few registered users, therefore they don't affect the database.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="905"></a><b>Memorie</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 09, 2007 8:20 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">It has been since april of 2006 and the community database is not visable yet. Whats going on here?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="906"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 10, 2007 4:29 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm starting to think that the idea of the community database isn't very good and shoudn't work. In the nearest future, I'll either implement it, either give up it completely.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="919"></a><b>asuter</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 29 Nov 2006<br />Posts: 9<br />Location: Fribourg, Switzerland</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Mar 12, 2007 1:28 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Any reasons?</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Oleg
+<br />
+
+<br />
+why do you think, the idea isn't very good? Are there any reasons besides the lack of time?
+<br />
+
+<br />
+Personally I think it would be great to know, what IP addresses we have to deny. Then we could use the .htaccess possiblity to ban these IPs already before they can request anything on the server. Am I wrong?
+<br />
+
+<br />
+And isn't it better to know this information collected by servers all over the world than only by our own server? Clearly, we have to be sure, that there is no server out there that sends false email notifications to the community database. Already thought about that?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="932"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 14, 2007 4:35 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">why do you think, the idea isn't very good? Are there any reasons besides the lack of time?</td>	</tr></table><span class="postbody">
+<br />
+First, there are competitors already, which invested a lot of efforts:
+<br />
+
+<br />
+* <a href="http://bbprotection.net/" target="_blank">http://bbprotection.net/</a>
+<br />
+* <a href="http://akismet.com/" target="_blank">http://akismet.com/</a>
+<br />
+
+<br />
+Second, I've learnt from their errors. There are complaints about Akismet. There are complaints about bbProtection. If I implemented the idea, I'd also get complaints. Actually, I <a href="http://bbantispam.com/forum/viewtopic.php?t=157" target="_blank" class="postlink">do get complaints</a> (<a href="http://bbantispam.com/forum/viewtopic.php?t=170" target="_blank" class="postlink">another one</a>) on behalf of other mods.
+<br />
+
+<br />
+Third, there were similar attempts for e-mail antispam. But nobody uses it.
+<br />
+
+<br />
+Finally, local antispam ([Advanced] Textual Confirmation) works very well and very easy in install and maintenance.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Personally I think it would be great to know, what IP addresses we have to deny. Then we could use the .htaccess possiblity to ban these IPs already before they can request anything on the server. Am I wrong?</td>	</tr></table><span class="postbody">
+<br />
+Unfortunately, false bans are possible.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Clearly, we have to be sure, that there is no server out there that sends false email notifications to the community database. Already thought about that?</td>	</tr></table><span class="postbody">
+<br />
+Yes, it's one of the problems. For the extensive list, see
+<br />
+
+<br />
+<a href="http://www.bbprotection.net/support/forums/viewtopic.php?t=100" target="_blank">http://www.bbprotection.net/support/forums/viewtopic.php?t=100</a>
+<br />
+<a href="http://www.bbprotection.net/support/forums/viewtopic.php?t=116" target="_blank">http://www.bbprotection.net/support/forums/viewtopic.php?t=116</a>
+<br />
+<a href="http://www.bbprotection.net/support/forums/viewtopic.php?t=187" target="_blank">http://www.bbprotection.net/support/forums/viewtopic.php?t=187</a><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="975"></a><b>Ivaylo</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 24, 2007 10:05 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Please excuse me for my bad english. <img src="images/smiles/icon_sad.gif" alt="Sad" border="0" />
+<br />
+
+<br />
+I'm planning to install this MOD in my phpbb 2.0.21 forum, but I was worried what will happen if somebody accidently give a wrong answer to the TC question? I saw that other users asked the same question above. Even if the user is not banned (I don't have any banning mods) he/she will be sent to the database as a potential spammer.
+<br />
+
+<br />
+I know that the admin already told there will be no database for spammers at this moment, but I want to be sure there is no risk of marking &quot;innocent&quot; users as spammers. <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+I haven't tested the MOD yet, but it seems to be the best working MOD of all in the &quot;Preventing SPAM - Bots and Humans&quot; topic in phpbb's support forum. Currently I'm using the Humanizer, but the spam-bots pass it like a fast train. <img src="images/smiles/icon_sad.gif" alt="Sad" border="0" />
+<br />
+
+<br />
+P.S. BTW, I'm from Bulgaria and I'm using the Russian alphabet as well. There are no other laguages installed, I hope it won't be a problem to apply the MOD to this laguage. Well, I'll test it and see how it works. <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+I want to say thanks to the creator of this MOD. <img src="images/smiles/icon_biggrin.gif" alt="Very Happy" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="978"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Mar 26, 2007 2:08 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I know that the admin already told there will be no database for spammers at this moment, but I want to be sure there is no risk of marking &quot;innocent&quot; users as spammers.</td>	</tr></table><span class="postbody">
+<br />
+Be sure. Why? Because I'm going to kill the idea of the database. The reasons are above in the thread.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I haven't tested the MOD yet, but it seems to be the best working MOD of all in the &quot;Preventing SPAM - Bots and Humans&quot; topic in phpbb's support forum.</td>	</tr></table><span class="postbody">
+<br />
+I'm glad to hear it. Very nice!
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">P.S. BTW, I'm from Bulgaria and I'm using the Russian alphabet as well. There are no other laguages installed, I hope it won't be a problem to apply the MOD to this laguage. Well, I'll test it and see how it works.</td>	</tr></table><span class="postbody">
+<br />
+In few days, I'm going to add the <a href="http://www.phpbb.com/community/viewtopic.php?f=15&amp;t=472940&amp;st=0&amp;sk=t&amp;sd=a&amp;start=165#p2901339" target="_blank" class="postlink">Bulgarian translation by diabolic.bg</a>. You can try it right now.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I want to say thanks to the creator of this MOD.</td>	</tr></table><span class="postbody">
+<br />
+Thanks for thanks!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1034"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 31, 2007 10:47 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">the idea of the spam database is being canceled?
+<br />
+
+<br />
+so basically, TC will still BLOCK spam registrations, but it won't block/ban known spammers before they try to register?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1037"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 01, 2007 2:25 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">the idea of the spam database is being canceled?</td>	</tr></table><span class="postbody">
+<br />
+Yes.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">so basically, TC will still BLOCK spam registrations, but it won't block/ban known spammers before they try to register?</td>	</tr></table><span class="postbody">
+<br />
+Yes. TC will stop spam registrations, but it won't use and create a blacklist.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1038"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 01, 2007 2:32 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">the idea of the spam database is being canceled?</td>	</tr></table><span class="postbody">
+<br />
+Yes.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">so basically, TC will still BLOCK spam registrations, but it won't block/ban known spammers before they try to register?</td>	</tr></table><span class="postbody">
+<br />
+Yes. TC will stop spam registrations, but it won't use and create a blacklist.</td>	</tr></table><span class="postbody">
+<br />
+that's okay, as long as you get the statistics/graph page up eventually, that will be just as satisfying <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+You could even get that GeoIP API on your site, and list the top spammer IPs, and resolve spammer IPs to countries.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1039"></a><b>tranquocminh</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 27 Mar 2007<br />Posts: 15<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 01, 2007 10:20 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">May I point out that while the notifications will not be sent anymore to the database it is important to receive them with full email address. Why ? Because some users make mistakes of typing or whatever. So it is important for the forum webmaster to monitor what is going.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1042"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Apr 02, 2007 1:24 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">That's okay, as long as you get the statistics/graph page up eventually, that will be just as satisfying</td>	</tr></table><span class="postbody">
+<br />
+I know it must be done. Nice images are very very useful.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">It is important to receive them with full email address</td>	</tr></table><span class="postbody">
+<br />
+Yes, it will be so.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=56&amp;&amp;start=15">2</a>, <a href="viewtopic.php?t=56&amp;&amp;start=30">3</a>&nbsp;&nbsp;<a href="viewtopic.php?t=56&amp;&amp;start=15">Next</a></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

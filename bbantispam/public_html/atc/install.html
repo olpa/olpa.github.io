@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Installation instructions for Advanced Textual Confirmation</title>
+<meta name="keywords" content="spam,antispam,anti-spam,webspam,web-spam,phpbb,phpbb2,wordpress,blog">
+<meta name="description" content="Installation instructions for Advanced Textual Confirmation.">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/css/bbas.css" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://bbantispam.com/news.rss">
+</head>
+<body>
+<div id="page">
+<!--[if IE 6]>
+<div class='minwidth'>
+<div class='container'>
+<![endif]--><div id="header">
+<h1>bbAntispam: stop spam in forums, blogs, contact forms</h1>
+<div id="top_buttons">
+<a href="/forum/"><img src="/images/top1.gif" border="0" alt="Forum" title="Forum" width="17" height="21"></a><a href="/contacts.html"><img src="/images/top2.gif" border="0" alt="Contacts, abous us" title="Contacts, about us" width="23" height="21"></a><a href="http://bbspam.com/"><img src="/images/top3.gif" border="0" alt="Blog" title="Blog" width="21" height="21"></a>
+</div>
+</div>
+<div id="content">
+<p>Steps:</p>
+<ol>
+<li>
+<a href="#config">Define the questions</a> (optional)</li>
+  <li><a href="#attach">Attach the protection</a></li>
+  <li><a href="#test">Test</a></li>
+  <li><a href="#donate">Donate</a></li>
+</ol>
+<h2>
+<a name="config"></a>Defining the questions</h2>
+<p>You can skip this step, if you want. Advanced Textual Confirmation (ATC) works well with the default settings.</p>
+<p>However, it's better to customize ATC because the future generations of spam bots will know answers to the default questions.</p>
+<p>Open the file <tt>bbas_config.php</tt> in a text editor.</p>
+<p>The variable <tt>questions</tt> is an <a href="http://www.php.net/manual/en/language.types.array.php">associative array</a>. A key of the array is a question, the corresponding value is an array of the correct answers. Write your own questions and answers instead of the default ones.</p>
+<table>
+<tr>
+<td width="100"><b>Note</b></td>
+    <td><p>The questions and answers are printed as is, without escaping. It's your task to escape the special HTML symbols &#8220;<tt>&lt;</tt>&#8221;, &#8220;<tt>&gt;</tt>&#8221; and &#8220;<tt>&amp;</tt>&#8221; as &#8220;<tt>&amp;lt;</tt>&#8221;, &#8220;<tt>&amp;gt;</tt>&#8221; and &#8220;<tt>&amp;amp;</tt>&#8221;. Also, precede each single quote and backslash symbol with the backslash (read about PHP <a href="http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.single">single quoted strings</a> for details).</p></td>
+  </tr>
+<tr>
+<td width="100"><b>Hint</b></td>
+    <td>
+      <p>One of the best questions is something like:</p>
+      <blockquote class="example">What is the site pass code (see &#8220;&lt;a href="/about.html"&gt;About Us&lt;/a&gt;&#8221;)?</blockquote>
+      <p>The question is very easy for users to answer. Also, the answer is unique and easy to change.</p>
+    </td>
+  </tr>
+</table>
+<p>To change the messages from ATC, edit the associative array <tt>lang</tt>.</p>
+<p>If <tt>iso-8859-1</tt> isn't the encoding of your site, you should correct the value of the key <tt>CHARSET</tt>.</p>
+<table><tr>
+<td width="100"><b>Hint</b></td>
+    <td><p>To learn the encoding used by your site, point the Mozilla or Firefox browser to your script. Then go to the menu <tt>View</tt>, then the menu item &#8220;<tt>Page Info</tt>&#8221;. The window &#8220;<tt>Page Info</tt>&#8221; appears, and the tab <tt>General</tt> displays the desired value near the label <tt>Encoding</tt>.</p></td>
+  </tr></table>
+<p>The variable <tt>confirmation_page</tt> contains HTML code of the question-answer form. You shouldn't change the value of this variable, unless the variable <tt>license_key</tt> contains a valid license key.</p>
+<table><tr>
+<td width="100"><b>Note</b></td>
+    <td><p>If you change the HTML layout of the confirmation form, and the license key is invalid, ATC disables protection and your scripts become unprotected (but still working).</p></td>
+  </tr></table>
+<h2>
+<a name="attach"></a>Attaching the protection</h2>
+<p>Upload the files <tt>bbantispam.php</tt> and <tt>bbas_config.php</tt> on the server.</p>
+<p>For each script to be protected:</p>
+<ol>
+<li>Make backup.</li>
+  <li>Insert something like this at the very beginning:
+  <pre class="example">&lt;?php include_once 'bbantispam.php'; ?&gt;</pre>
+  </li>
+</ol>
+<table>
+<tr>
+<td width="100"><b>Hint</b></td>
+    <td>
+      <p>You might find tool-specific advice on the digest page &#8220;<a href="http://bbantispam.com/forum/viewtopic.php?t=283">Tool-specific ATC installation</a>&#8221; in the bbAntiSpam discussion forum.</p>
+    </td>
+  </tr>
+<tr>
+<td width="100"><b>Hint</b></td>
+    <td>
+      <p>Instead of changing the scripts, experienced webmasters might prefer to add the following directive to <tt>.htaccess</tt> or <tt>httpd.conf</tt>:</p>
+      <pre class="example">php_value auto_prepend_file bbantispam.php</pre>
+  </td>
+  </tr>
+</table>
+<h2>
+<a name="test"></a>Testing</h2>
+<p>Try to post some data to your script. If Advanced Textual Confirmation is properly installed, it asks you a question. Intentionally answer the question wrong, and ATC asks you again. Now answer correctly and see that your data is posted correctly.</p>
+<p>Try to post some data again. As your session is now marked as &#8220;human&#8220;, ATC doesn't activate itself, and the data goes directly to the script.</p>
+<p>For the further tests, temporarily disable cookies. (In Mozilla or Firefox, go to the menu <tt>Tools</tt>, the submenu &#8220;<tt>Cookie Manager</tt>&#8221;, and select &#8220;<tt>Block Cookies from this Site</tt>&#8221;.) Now ATC always displays a question.</p>
+<ul>
+<li>Check that a text with the symbols &#8220;<tt>&lt;</tt>&#8221;, &#8220;<tt>&amp;</tt>&#8221;, &#8220;<tt>&gt;</tt>&#8221;, &#8220;<tt>\</tt>&#8221;, &#8220;<tt>"</tt>&#8221; (quote) and &#8220;<tt>'</tt>&#8221; (single quote) isn't corrupted.</li>
+  <li>Make a similar check, but add the backslash: &#8220;<tt>\&lt;</tt>&#8221;, &#8220;<tt>\&amp;</tt>&#8221;, &#8220;<tt>\&gt;</tt>&#8221;, &#8220;<tt>\\</tt>&#8221;, &#8220;<tt>\"</tt>&#8221; and &#8220;<tt>\'</tt>&#8221;.</li>
+  <li>Test non-English symbols, such as &#8220;<tt>&#8482;</tt>&#8221;, &#8220;<tt>&#169;</tt>&#8221;, &#8220;<tt>&#252;</tt>&#8221; or &#8220;<tt>&#223;</tt>&#8221;.</li>
+</ul>
+<h2>
+<a name="donate"></a>Donating</h2>
+<p><a href="https://secure.plimus.com/jsp/buynow.jsp?contractId=1686969">Buy</a> the standard license now for <b>$29.95</b>. <a href="license.html">Learn&#160;more</a> about the differences between the free, standard and professional licenses.</p>
+</div>
+<div id="logo"><a href="/index.html">&#160;</a></div>
+<div id="footer"><p>&#169; DataHansa/bbAntiSpam/ <a href="http://uucode.com/">Oleg Parashchenko</a> // <a href="/contacts.html">Contacts, about us</a> // <a href="/news.rss"><img src="/images/rss.gif" alt="RSS" title="RSS" width="36" height="14"></a></p></div>
+<!--[if IE 6]>
+</div>
+</div>
+<![endif]-->
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+_uacct = "UA-254281-2";
+urchinTracker();
+</script>
+</body>
+</html>

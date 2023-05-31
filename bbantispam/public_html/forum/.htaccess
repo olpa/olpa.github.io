@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{ENV:REDIRECT_STATUS} =""
+RewriteCond %{QUERY_STRING} !=""
+RewriteRule ^(.*)$ $1_%{QUERY_STRING} [L]
+
+ForceType "text/html; charset=iso-8859-1"

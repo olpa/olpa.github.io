@@ -1,0 +1,458 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Warning Bug report on Textual Confirmation 1.0.5</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=311">Warning Bug report on Textual Confirmation 1.0.5</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1076"></a><b>robmlee</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 30 Mar 2007<br />Posts: 1<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Apr 06, 2007 2:30 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Warning Bug report on Textual Confirmation 1.0.5</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">There are some files with a extra line after &quot;?&gt;&quot; will cause the warning
+<br />
+messages as follow:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+Warning&#58; Cannot modify header information - headers already sent by...
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Those files are:
+<br />
+1. TextualConfirmation-1.0.5/admin/admin_tc.php
+<br />
+2. TextualConfirmation-1.0.5/includes/functions_tc.php
+<br />
+3. all lang_tc.php, except the one in lang_chinese_traditional_taiwan
+<br />
+
+<br />
+For MS-Win notepad or wordpad, the extra line might not be seen. 
+<br />
+But you can see it easily with Notepad++.<br />_________________<br />Rob</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1078"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Apr 07, 2007 1:56 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Rob,
+<br />
+
+<br />
+thanks for pointing to the potential issue. Why I said &quot;potential&quot;? Because if you look at the hex dump of the distro files, you'll see they finish on '?', '&gt;' and '\n' (the new line symbol). PHP interpreter ignores '\n'.
+<br />
+
+<br />
+Therefore, if you got &quot;Cannot modify header information&quot;, I'd blame you FTP tool, probably it adds something.
+<br />
+
+<br />
+Anyway, I've added an issue to my TODO list. Thanks.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1083"></a><b>BryanG</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Apr 2007<br />Posts: 6<br />Location: Canada</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Apr 07, 2007 11:07 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hmmm.  This seems somewat related to the error messages I'm getting then, although I'm getting a few more.  I'm on a Mac G5 using OS 10.4.9.  I accessed my server files via Cyberduck, and modifed the lines using TextWrangler (which will work within Cyberduck), then uploaded the other files. 
+<br />
+Just to confound the picture I added Adrian Suter's MOD as the same time, so I could avoid having to deal with the SQL issue.
+<br />
+ I don't see an extra line at the end of the admin file Rob mentions, it just ends with  ?&gt;
+<br />
+
+<br />
+ I get the following messages within the admin window;  I'm using the Classic template, but get the same errors on the SubSilver template.    Any thoughts on what I'm missing?
+<br />
+
+<br />
+Warning: main(./admin_tc2.php): failed to open stream: Permission denied in /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/index.php on line 63
+<br />
+
+<br />
+Warning: main(): Failed opening './admin_tc2.php' for inclusion (include_path='.:/usr/local/lib/php') in /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/index.php on line 63
+<br />
+
+<br />
+Warning: Cannot modify header information - headers already sent by (output started at /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/index.php:63) in /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/page_header_admin.php on line 143
+<br />
+
+<br />
+Warning: Cannot modify header information - headers already sent by (output started at /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/index.php:63) in /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/page_header_admin.php on line 145
+<br />
+
+<br />
+Warning: Cannot modify header information - headers already sent by (output started at /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/index.php:63) in /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/page_header_admin.php on line 146</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1084"></a><b>BryanG</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Apr 2007<br />Posts: 6<br />Location: Canada</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 08, 2007 1:43 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">also (still working my way through other posts on the forum (just in case someone already had this problem and I missed it) I saw an inquiry about the header information error message.  Your response was: 
+<br />
+
+<br />
+&quot;Most likely, the text editor you used has corrupted the files a bit. Make sure that the file &quot;includes/usercp_register.php&quot; 
+<br />
+
+<br />
+* is not saved as unicode, and 
+<br />
+* starts with &quot;&lt;?php&quot;, without any spaces before this string.&quot;
+<br />
+
+<br />
+That led me to check that file, and it does start with  &quot;&lt;?php&quot;, as you state it should.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1087"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 08, 2007 3:50 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi <span style="font-weight: bold">BryanG</span>, your actual problem is:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Warning: main(./admin_tc2.php): failed to open stream: <span style="font-weight: bold">Permission denied</span> in /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/index.php on line 63 </td>	</tr></table><span class="postbody">
+<br />
+It means the web server can't read the content of file. I have no idea how to do it in your tool, but you need to allow reading of the Textual Confirmation files.
+<br />
+
+<br />
+<span style="font-weight: bold">robmlee</span>: starting with version 1.0.6, all the distro files now finish exactly on '?&gt;'. <a href="http://bbantispam.com/forum/viewtopic.php?t=312" target="_blank" class="postlink">Announce</a>. Thanks for suggesting.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1089"></a><b>BryanG</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Apr 2007<br />Posts: 6<br />Location: Canada</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 08, 2007 6:13 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks Oleg,
+<br />
+
+<br />
+[quote=&quot;admin&quot;]Hi <span style="font-weight: bold">BryanG</span>, your actual problem is:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Warning: main(./admin_tc2.php): failed to open stream: <span style="font-weight: bold">Permission denied</span> in /home/westwind/www/westwind.mb.ca/Forum/phpBB2/admin/index.php on line 63 </td>	</tr></table><span class="postbody">
+<br />
+It means the web server can't read the content of file. I have no idea how to do it in your tool, but you need to allow reading of the Textual Confirmation files.
+<br />
+
+<br />
+
+<br />
+OK, that at least explains the nature of the problem, even if I have no idea just yet about what a solution might look like.  I'm appending the lines (after adding line numbers) that this references (particularly line 63), which I assumed would be common to all users, but then I have no idea at all if that would be true.  Disregarding the issue of which tool I'm using, any suggestions of how one might allow reading of the TC files in any other tool?  I'm thinking if I get an idea of what the process might be (or look like) I'll have further ideas to pursue.
+<br />
+
+<br />
+
+<br />
+ 52 // Generate relevant output
+<br />
+ 53 //
+<br />
+ 54 if( isset($HTTP_GET_VARS['pane']) &amp;&amp; $HTTP_GET_VARS['pane'] == 'left' )
+<br />
+ 55 {
+<br />
+ 56 	$dir = @opendir(&quot;.&quot;);
+<br />
+ 57 
+<br />
+ 58 	$setmodules = 1;
+<br />
+ 59 	while( $file = @readdir($dir) )
+<br />
+ 60 	{
+<br />
+ 61 		if( preg_match(&quot;/^admin_.*?\.&quot; . $phpEx . &quot;$/&quot;, $file) )
+<br />
+ 62 		{
+<br />
+ 63 			include('./' . $file);
+<br />
+ 64 		}
+<br />
+ 65 	}
+<br />
+ 66 
+<br />
+ 67 	@closedir($dir);
+<br />
+ 68 
+<br />
+ 69 	unset($setmodules);
+<br />
+ 70 
+<br />
+ 71 	include('./page_header_admin.'.$phpEx);
+<br />
+ 72 
+<br />
+ 73 	$template-&gt;set_filenames(array(
+<br />
+ 74 		&quot;body&quot; =&gt; &quot;admin/index_navigate.tpl&quot;)
+<br />
+ 75 	);</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1091"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Apr 09, 2007 2:40 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Disregarding the issue of which tool I'm using, any suggestions of how one might allow reading of the TC files in any other tool?</td>	</tr></table><span class="postbody">
+<br />
+I've made a quick search, and it seems this page is the answer: <a href="http://www.machighway.com/support/support_topics/PERL/how-to/permissions.php" target="_blank" class="postlink">How To: Change file permissions</a>. See the section &quot;Cyberduck 2.x&quot;. You need to set all the three &quot;Read&quot; permissions.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1097"></a><b>BryanG</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Apr 2007<br />Posts: 6<br />Location: Canada</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Apr 09, 2007 3:40 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Yes, that was it Oleg, worked like a charm once I knew what to change.  Thank you for your patient help.  The TC is installed, and seemed to be working fine when I tried to register.  I look forward to the satisfaction of seeing the messages when spammers get blocked.  Once I get tired of getting those emails, I'll be upgrading to the business grade.  Thanks again.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1098"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Apr 09, 2007 5:06 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Warning: Cannot modify header information - headers already sent by... </td>	</tr></table><span class="postbody">
+<br />
+a side note, this is a WELL known PHP warning message.  it happens when you try to send &quot;<a href="http://us3.php.net/header" target="_blank" class="postlink">headers</a>&quot; or cookies after PHP has already output content to the page.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1100"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Apr 10, 2007 1:47 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Warning: Cannot modify header information - headers already sent by...</td>	</tr></table><span class="postbody">
+<br />
+a side note, this is a WELL known PHP warning message. it happens when you try to send &quot;headers&quot; or cookies after PHP has already output content to the page.</td>	</tr></table><span class="postbody">
+<br />
+Yes, exactly. Unfortunately, unintentional whitespace before '&lt;?php' and after '?&gt;' is accounted as &quot;PHP has already output content&quot;.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">worked like a charm once I knew what to change</td>	</tr></table><span class="postbody">
+<br />
+I'm glad to hear it. Best luck to your forum!
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Once I get tired of getting those emails, I'll be upgrading to the business grade.</td>	</tr></table><span class="postbody">
+<br />
+Thanks, It'd be nice.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1165"></a><b>BryanG</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Apr 2007<br />Posts: 6<br />Location: Canada</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue May 01, 2007 10:48 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">It's been three weeks now Oleg, and not a single spammer has made it onto my forum.  I have a nice collection of 300 emails notifying me about yet another one being rejected.  The thrill of getting the notices is over now, and I have gone ahead and purchased the upgrade. 
+<br />
+
+<br />
+I have no doubt this has been one of the best software purchases I've made, and thanks again for your help in walking me through the solutions to the problems I encountered in getting it running.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1166"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed May 02, 2007 4:21 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Bryan,
+<br />
+
+<br />
+thanks a lot for supporting, and especially for kind words! For me, it's really thrilling to know that people like what I'm doing. All the best to you and your forum.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1169"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed May 02, 2007 10:57 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">&quot;headers already sent...&quot; errors, happen when you try to do some stuff with cookies, or sending header info (including some redirection techniques), <span style="font-style: italic">after</span> you've already had PHP output something to the page.  It could be something as insignificant as a blank line.
+<br />
+
+<br />
+the &quot;permission denied...&quot; thing is also a common problem.  I get it all the time when I'm doing piss-simple PHP scripts in Linux.  Linux is smart about file permissions, but sometimes it will piss you off like that, because the operating system doesn't think that the web server should be allowed to access a certain file.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

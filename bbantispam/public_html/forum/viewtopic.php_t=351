@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - How to stop CMSimple spam</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=351">How to stop CMSimple spam</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1186"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun May 06, 2007 5:18 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: How to stop CMSimple spam</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"><a href="http://www.cmsimple.dk/" target="_blank" class="postlink">CMSimple</a> is a simple content management system; for the smart maintenance of small commercial or private sites.
+<br />
+
+<br />
+CMSimple's guestbook is a victim of spam. One of the CMSimple users <a href="http://www.cmsimple.dk/forum/viewtopic.php?t=5351" target="_blank" class="postlink">described</a> how to stop it.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+Hi! I think I have an easy solution for the spam problem with the guestbook. I used it with my Forums and it works fine. I used it with my older version 2.5. Didn't find the Guestbook in the actual 2.8, but you'd be able to add this confirmation also to the mail formular in 2.8 and anywhere else. But here is the description for older Versions:
+<br />
+
+<br />
+
+<br />
+1. Go to <a href="http://bbantispam.com/atc/" target="_blank">http://bbantispam.com/atc/</a> and download the Advanced Textual Confirmation
+<br />
+
+<br />
+2. Upload the Files (bbantispam.php and bbas_config.php) to the /cmsimple/ directory
+<br />
+
+<br />
+
+<br />
+3. Open the cms.php and replace
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">if&#40;$action=='save'&#41;&#123;if&#40;$guestbook==''&#41;</td>	</tr></table><span class="postbody">
+<br />
+with
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">if&#40;$action=='save'&#41;&#123;include_once 'bbantispam.php';if&#40;$guestbook==''&#41;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+It is recommended to change the questions in the bbas_config.php file.
+<br />
+</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

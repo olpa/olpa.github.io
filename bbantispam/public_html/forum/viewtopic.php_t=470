@@ -1,0 +1,622 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - phpbb2: what is the correct path to bbantispam.php?</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=470">phpbb2: what is the correct path to bbantispam.php?</a></p>
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=470&amp;&amp;start=15">2</a>&nbsp;&nbsp;<a href="viewtopic.php?t=470&amp;&amp;start=15">Next</a></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1605"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Sep 01, 2007 5:36 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Help needed ASAP!</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Yes, you can change the question.
+<br />
+
+<br />
+The only limitation of the free version is that you can't change the layout of the form.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I need help with my extension.inc file setting.. <img src="images/smiles/icon_redface.gif" alt="Embarassed" border="0" />
+<br />
+
+<br />
+Here's my info:  /public_html/forum/bbantispam
+<br />
+
+<br />
+I created the bbantispam folder and put the two files there.  Is that correct??
+<br />
+
+<br />
+Now I'm stuck on what to do now?<br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1608"></a><b>Slacker</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 6:05 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Yes, you seems to have done it correctly.
+<br />
+
+<br />
+You could try to add this piece of code:
+<br />
+
+<br />
+require_once 'forum/bbantispam/bbantispam.php';
+<br />
+
+<br />
+if this does not work try:
+<br />
+
+<br />
+require_once 'forum/bbantispam/';</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1609"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 6:30 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Didn't work</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Yes, you seems to have done it correctly.
+<br />
+
+<br />
+You could try to add this piece of code:
+<br />
+
+<br />
+require_once 'forum/bbantispam/bbantispam.php';
+<br />
+
+<br />
+if this does not work try:
+<br />
+
+<br />
+require_once 'forum/bbantispam/';</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Didn't work... =(
+<br />
+
+<br />
+Warning: main(forum/bbantispam/bbantispam.php) [function.main]: failed to open stream: No such file or directory in /home/tntridec/public_html/forum/extension.inc on line 2
+<br />
+
+<br />
+Fatal error: main() [function.require]: Failed opening required 'forum/bbantispam/bbantispam.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tntridec/public_html/forum/extension.inc on line 2
+<br />
+
+<br />
+Here's the first...
+<br />
+
+<br />
+Warning: main(forum/bbantispam/) [function.main]: failed to open stream: No such file or directory in /home/tntridec/public_html/forum/extension.inc on line 2
+<br />
+
+<br />
+Fatal error: main() [function.require]: Failed opening required 'forum/bbantispam/' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tntridec/public_html/forum/extension.inc on line 2
+<br />
+
+<br />
+This error is for the second one..
+<br />
+
+<br />
+Any other ideas? <img src="images/smiles/icon_eek.gif" alt="Shocked" border="0" />
+<br />
+
+<br />
+Thanks,
+<br />
+
+<br />
+TNTRide<br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1610"></a><b>Slacker</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 6:49 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Have you checked in /public_html/forum/bbantispam  on the server,  if the two files really are there?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1611"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 8:28 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: question</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Have you checked in /public_html/forum/bbantispam  on the server,  if the two files really are there?</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Yes they are there...  <img src="images/smiles/icon_mad.gif" alt="Mad" border="0" /><br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1612"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 8:56 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">The error message seems indicate that it cant find the bbantispam.php. Have you checked that the permissions of bbantispam folder and bbantispam.php is correct?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1613"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 11:05 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: errors</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Anonymous wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">The error message seems indicate that it cant find the bbantispam.php. Have you checked that the permissions of bbantispam folder and bbantispam.php is correct?</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+what should they be set for?  no I haven't checked that.  I'm very new to phpbb.  <img src="images/smiles/icon_confused.gif" alt="Confused" border="0" /><br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1614"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 11:46 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">You can see the permissions, when you log in through your ftp program. In my ftp program I can change permisson through File attributes for the folder or files. The bbantispam folder should have the permission 755 or Read, write, execute, Read, execute, Read, execute. The two files should have permission 644 or Read, write, Read, Read.
+<br />
+
+<br />
+If it is not a permission problem the path must be wrong. When you log in with your ftp program you should see the forum folder directly. If you see 
+<br />
+public_html only the path should be:
+<br />
+
+<br />
+
+<br />
+require_once 'public_html/forum/bbantispam/bbantispam.php';</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1615"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 2:11 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Anonymous wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">You can see the permissions, when you log in through your ftp program. In my ftp program I can change permisson through File attributes for the folder or files. The bbantispam folder should have the permission 755 or Read, write, execute, Read, execute, Read, execute. The two files should have permission 644 or Read, write, Read, Read.
+<br />
+
+<br />
+If it is not a permission problem the path must be wrong. When you log in with your ftp program you should see the forum folder directly. If you see 
+<br />
+public_html only the path should be:
+<br />
+
+<br />
+
+<br />
+require_once 'public_html/forum/bbantispam/bbantispam.php';</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+
+<br />
+I'm not sure what the problem is I checked everything you asked me to check.  Still a no go and here's the error that comes up.
+<br />
+
+<br />
+
+<br />
+Warning: main(public_html/forum/bbantispam/bbantispam.php) [function.main]: failed to open stream: No such file or directory in /home/tntridec/public_html/forum/extension.inc on line 2
+<br />
+
+<br />
+Fatal error: main() [function.require]: Failed opening required 'public_html/forum/bbantispam/bbantispam.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tntridec/public_html/forum/extension.inc on line 2
+<br />
+
+<br />
+
+<br />
+Any other ideas? <img src="images/smiles/icon_question.gif" alt="Question" border="0" />
+<br />
+
+<br />
+Here's what my extension file reads..
+<br />
+
+<br />
+&lt;?php
+<br />
+require_once 'public_html/forum/bbantispam/bbantispam.php';
+<br />
+/
+<br />
+***************************************************************************  
+<br />
+ *                               extension.inc
+<br />
+ *                            -------------------                         
+<br />
+ *   begin                : Saturday, Feb 13, 2001 
+<br />
+ *   copyright            : (C) 2001 The phpBB Group        
+<br />
+ *   email                : <a href="mailto:support@phpbb.com">support@phpbb.com</a>                           
+<br />
+ *                                                          
+<br />
+ *   $Id: extension.inc,v 1.5 2002/04/04 11:52:50 psotfx Exp $
+<br />
+ *                                                            
+<br />
+ * 
+<br />
+***************************************************************************
+<br />
+/ 
+<br />
+
+<br />
+if ( !defined('IN_PHPBB') )
+<br />
+{
+<br />
+	die(&quot;Hacking attempt&quot;);
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Change this if your extension is not .php!
+<br />
+//
+<br />
+$phpEx = &quot;php&quot;;
+<br />
+
+<br />
+$starttime = 0;
+<br />
+
+<br />
+?&gt;
+<br />
+
+<br />
+Here's a new error besides the errors I just showed you.
+<br />
+
+<br />
+<span style="font-weight: bold">Parse error: syntax error, unexpected '/' in /home/tntridec/public_html/forum/extension.inc on line 3</span><br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1616"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 2:22 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Folder</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Anonymous wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">You can see the permissions, when you log in through your ftp program. In my ftp program I can change permisson through File attributes for the folder or files. The bbantispam folder should have the permission 755 or Read, write, execute, Read, execute, Read, execute. The two files should have permission 644 or Read, write, Read, Read.
+<br />
+
+<br />
+If it is not a permission problem the path must be wrong. When you log in with your ftp program you should see the forum folder directly. If you see 
+<br />
+public_html only the path should be:
+<br />
+
+<br />
+
+<br />
+require_once 'public_html/forum/bbantispam/bbantispam.php';</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+What if I eliminate the folder and just upload those two files directly to the directory?  It seems it's having trouble executing the php file. <img src="images/smiles/icon_idea.gif" alt="Idea" border="0" /><br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1617"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 2:27 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Upload to public_html? Yes, I think it should work, but you then have to change the path.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1618"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 2:31 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: No go</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Anonymous wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Upload to public_html? Yes, I think it should work, but you then have to change the path.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Here's what I got this time.. 
+<br />
+
+<br />
+Warning: main(public_html/forum/bbantispam.php) [function.main]: failed to open stream: No such file or directory in /home/tntridec/public_html/forum/extension.inc on line 3
+<br />
+
+<br />
+Fatal error: main() [function.require]: Failed opening required 'public_html/forum/bbantispam.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tntridec/public_html/forum/extension.inc on line 3<br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1621"></a><b>Slacker</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 2:40 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Did you upload it then inside the forum folder? And wrote:
+<br />
+
+<br />
+require_once 'forum/bbantispam.php'; 
+<br />
+
+<br />
+If you upload it to public_html it should be:
+<br />
+
+<br />
+require_once 'bbantispam.php';</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1622"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 2:42 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Forum folder</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Did you upload it then inside the forum folder? And wrote:
+<br />
+
+<br />
+require_once 'forum/bbantispam.php'; 
+<br />
+
+<br />
+If you upload it to public_html it should be:
+<br />
+
+<br />
+require_once 'bbantispam.php';</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+It's in the forum folder.. This is so frustrating that I'm having this much trouble with something so simple.
+<br />
+
+<br />
+Tried what you said and got this.
+<br />
+
+<br />
+Warning: main(forum/bbantispam.php) [function.main]: failed to open stream: No such file or directory in /home/tntridec/public_html/forum/extension.inc on line 3
+<br />
+
+<br />
+Fatal error: main() [function.require]: Failed opening required 'forum/bbantispam.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/tntridec/public_html/forum/extension.inc on line 3
+<br />
+
+<br />
+
+<br />
+-TNTRide<br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1623"></a><b>Slacker</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 3:13 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">It is very strange indeed. We have to wait to hear what Oleg has to say about this.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=470&amp;&amp;start=15">2</a>&nbsp;&nbsp;<a href="viewtopic.php?t=470&amp;&amp;start=15">Next</a></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

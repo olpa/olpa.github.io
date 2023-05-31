@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91">
+  <channel>
+    <title>bbAntiSpam news</title>
+    <link>http://bbantispam.com/</link>
+    <description>Tools to stop phpBB spam, forum spam, wiki spam, guestbook spam, comment spam, and other web spam.</description>
+    <language>en</language>
+    <!-- TZ=GMT date -R -->
+    <lastBuildDate>Thu, 16 Oct 2008 04:42:39 +0000</lastBuildDate>
+    <pubDate>Thu, 16 Oct 2008 04:42:39 +0000</pubDate>
+    <image>
+      <title>bbAntiSpam logo</title>
+      <url>http://bbantispam.com/images/bbas_logo.gif</url>
+      <link>http://bbantispam.com/</link>
+      <width>100</width>
+      <height>100</height>
+      <description>bbAntiSpam</description>
+    </image>
+    <!--
+    <item>
+      <title>date?</title>
+      <link></link>
+      <description>
+        <![CDATA[
+        ]]>
+      </description>
+    </item>
+    -->
+    <item>
+      <title>Links Rejector 1.2.2: French and Dutch translations</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=630</link>
+      <description>
+        <![CDATA[Thanks Peter van Het Hurktoilet for translating Links Rejector to French and Dutch! The language files are now included into Links Rejector 1.2.2. There are no other changes comparing to the version 1.2.1.
+<br />
+Visit Peter's site: <a href="http://www.hurktoilet.nl/index-en.php" target="_blank" class="postlink">Squat Toilets, travel guide about France</a>.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Press-release for bbspam.com</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=522</link>
+      <description>
+        <![CDATA[We've got a press-release written and sent: <a href="http://bbantispam.com/articles/press_release/new_blog_bbspam_com.html" target="_blank" class="postlink">YOU ARE WANTED AT BBSPAM.COM</a>.]]>
+      </description>
+    </item>
+    <item>
+      <title>Giveaway of the week for Croatians</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=521</link>
+      <description>
+        <![CDATA[This week, till the 1 December 2007, I give away Textual Confirmation licenses to the Croatian forums for free. To get one, reply to this message and give a link to your forum and contact information (e-mail). I'll batch process the request on 1st December 2007.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Textual Confirmation, Lithuanian and Slovenian translations</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=512</link>
+      <description>
+        <![CDATA[Textual Confirmation spreads over the world! Two new translations are available:
+<br />
+
+<br />
+* <span style="font-weight: bold">Lithuanian</span> by Gediminas Misius, and
+<br />
+* <span style="font-weight: bold">Slovenian</span> by Vili Jan.
+
+<br />
+
+<br />
+Thank you a lot!
+<br />
+
+<br />
+The translations are added to the <a href="http://bbantispam.com/tc/tc_langpack.zip" target="_blank" class="postlink">language pack</a>.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Textual Confirmation, Romanian translation</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=502</link>
+      <description>
+        <![CDATA[I'm happy to announce the new translation of Textual Confirmation:
+<br />
+
+<br />
+<span style="font-weight: bold">Romanian (with and without diacritics)</span>
+<br />
+
+<br />
+Thanks Voicu Potrovita!
+
+<br />
+
+<br />
+The translation is added to the <a href="http://bbantispam.com/tc/tc_langpack.zip" target="_blank" class="postlink">language pack</a>.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>ATC Japanese translation</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=485</link>
+      <description>
+        <![CDATA[The <a href="http://bbantispam.com/atc/atc_langpack.zip" target="_blank" class="postlink">language pack</a> for Advanced Textual Confirmation is updated. Now it includes a Japanese translation.
+<br />
+
+<br />
+Meanwhile, here is a short description of ATC in Japanese:
+<br />
+
+<br />
+アドバンス　テキスチュアル　コンファーメーションはフォーラムやブログ、ゲストブック、コンタクトフォーム等、広く使うことができるアンチスパムです。アドバンス　テキスチュアル　コンファーメーションは、ホームページの訪問者が一度だけ要求されるテキストスタイルのキャプチャです。インストールには、データベースやグラフィックライブラリは必要なく、スクリプトに一行入れるだけです。
+<br />
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Links Rejector 1.2.1, Spanish translation</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=472</link>
+      <description>
+        <![CDATA[Links Rejector is updated again. LR 1.2.1 contains the Spanish translation by <a href="http://forofueguino.com/" target="_blank" class="postlink">Gabriel Godoy</a>. Thanks, Gabriel!]]>
+      </description>
+    </item>
+    <item>
+      <title>New home page</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=447</link>
+      <description>
+        <![CDATA[I've completely re-worked the main page of <a href="http://bbantispam.com/" target="_blank" class="postlink">bbAntiSpam.com</a>.
+<br />
+
+<br />
+* The flagship product is now <a href="http://bbantispam.com/atc/" target="_blank" class="postlink">Advanced Textual Confimation</a>. The main page devotes a lot of space to it.
+<br />
+
+* Hope you like the &quot;spam bots crashed&quot; picture.
+<br />
+* Hope search engines love the light, div-based design instead of the mess of the table tags.
+<br />
+
+<br />
+It's quite possible that there are some design problems. If you notice them, please report!
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Advanced Textual Confirmation 1.0.3</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=391</link>
+      <description>
+        <![CDATA[The new version (1.0.3) of Advanced Textual Confirmation (ATC) is a next step in making a better tool. Changes:
+<br />
+
+<br />
+1) The protection now can be attached not only at the top level, but also inside functions. As result, more fine-grained control is possible. Here is an example, using ATC with phpBB3: <a href="http://www.phpbb.com/community/viewtopic.php?p=3025581#p3025581" target="_blank" class="postlink">http://www.phpbb.com/community/viewtopic.php?p=3025581#p3025581</a>.
+<br />
+
+<br />
+
+2) The language pack is started. The current translations:
+<br />
+
+<br />
+* Czech, French, German, Polish, Spanish: <a href="http://hakin9.org/en/haking.html" target="_blank" class="postlink">Haking9 magazine</a>
+<br />
+* Russian: <a href="http://uucode.com/blog/" target="_blank" class="postlink">Oleg Parashchenko</a>
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Press release for Advanced Textual Confirmation</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=379</link>
+      <description>
+        <![CDATA[We've got a press-release written and sent: <a href="http://bbantispam.com/articles/press_release/atc_vs_form_spam.html" target="_blank" class="postlink">PR: bbAntiSpam Advanced Textual Confirmation Makes Spam Bots Go Away</a>.]]>
+      </description>
+    </item>
+    <item>
+      <title>Language pack: Dutch and Ukrainian</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=359</link>
+      <description>
+        <![CDATA[It's pleasant to announce new Textual Confirmation translations:
+<br />
+
+<br />
+Dutch          bertjeuh &lt;PM bertjeuh in the phpBB forum&gt;
+<br />
+Ukrainian      Volodymyr Kurylenko &lt;vkurylenko yahoo co uk&gt;
+
+<br />
+
+<br />
+Thanks, bertjeuh and Volodymyr!
+<br />
+
+<br />
+All the Textual Confirmation translations are now separated into the <a href="http://bbantispam.com/tc/tc_langpack.zip" target="_blank" class="postlink">language pack</a>.
+        ]]>
+      </description>
+      </item>
+    <item>
+      <title>TC 1.0.7, Portuguese translation</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=349</link>
+      <description>Textual Confirmation is updated again. TC 1.0.7 contains the Portuguese translation by J&#xFA;lio Sousa. Thanks, J&#xFA;lio!</description>
+    </item>
+    <item>
+      <title>Promotion Guide writes about bbAntiSpam tools</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=347</link>
+      <description>
+        <![CDATA[<a href="http://apromotionguide.com/" target="_blank" class="postlink">A Promotion Guide</a> is &quot;a high quality website promotion tutorial that discusses meta tags and search engine optimization among other things&quot;. Recently Lauri Harpf, the author of the website, published the article &quot;<a href="http://www.apromotionguide.com/stopping_phpbb_spam.html[/URL" target="_blank" class="postlink">How to stop spam on your phpBB forum</a>&quot;, in which he described Links Rejector and Textual Confirmation.
+<br />
+
+<br />
+
+The article is great, I couldn't write better. Here are two additions from me.
+<br />
+
+<br />
+Textual Confirmation now has a descendant, Advanced Textual Confirmation. ATC can protect now only phpBB, but also other PHP tools. On bbAntiSpam forum, I deinstalled both Links Rejector and Textual Confirmation, and now use ATC only. The results are great.
+<br />
+
+<br />
+However, Links Rejector is still an essential tool. On my Russian forum, I get a lot of loosers, who believe in financial pyramids. They try to spam manually, but LR stops them.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Advanced Textual Confirmation is published on HotScripts</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=331</link>
+      <description>
+        <![CDATA[My recent submission of <a href="http://bbantispam.com/atc/" target="_blank" class="postlink">Advanced Textual Confirmation</a> to <a href="http://www.HotScripts.com/?RID=N606112" target="_blank" class="postlink">HotScripts.com</a> has been approved, and Advanced Textual Confirmation is now included in the Internet's largest development-related directory!
+<br />
+
+<br />
+
+View it at <a href="http://www.HotScripts.com/Detailed/68995.html?RID=N606112" target="_blank" class="postlink">http://www.HotScripts.com/Detailed/68995.html</a>.
+<br />
+
+<br />
+Please rate Advanced Textual Confirmation as &quot;excellent&quot;, or write a mini-review, because it helps to promote our anti-spam tool.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>bbAntiSpam holidays</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=321</link>
+      <description>
+        <![CDATA[I'm starting my holidays right now, and it seems I'm going to be offline till 20th April 2007.
+<br />
+
+<br />
+If you want to register bbAntiSpam tools, don't worry. License keys are sent automatically by Plimus (payment processor). Check the spam folder if you haven't received one.
+<br />
+
+<br />
+If you need support, check archives of this forum, or try to get assistance on the phpbb.com forums.
+<br />
+
+<br />
+Thanks!
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Advanced Textual Confirmation, 1.0.2, important bugfix</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=320</link>
+      <description>
+        <![CDATA[I've updated Advanced Textual Confirmation to the version 1.0.2.
+<br />
+
+<br />
+The only change is corrected handling of the magic quotes. Now, if you have magic quotes &quot;on&quot; (not recommended), ATC handles this case really correctly.
+<br />
+
+<br />
+What is &quot;<a href="http://www.php.net/manual/en/security.magicquotes.php" target="_blank" class="postlink">Magic Quotes</a>&quot;? A quote from the PHP documentation:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote"> Magic Quotes is a process that automagically escapes incoming data to the PHP script. It's preferred to code with magic quotes off and to instead escape the data at runtime, as needed.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+
+To check if your server has magic quotes &quot;on&quot; and you need to upgrade to 1.0.2:
+<br />
+
+<br />
+* Temporary disable cookies.
+<br />
+* Write a text with quotes (&quot;) into a protected web form. Submit the form.
+<br />
+* Make sure that a question from ATC appears. Answer it correctly.
+<br />
+* If quotes (&quot;) are converted to slash-quotes (\&quot;), you need to upgrade to 1.0.2
+
+<br />
+* Enable cookies back.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Advanced Textual Confirmation 1.0.1, bugfix release</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=316</link>
+      <description>
+        <![CDATA[Advanced Textual Confirmation 1.0.1 is released. It fixes a nasty problem.
+<br />
+
+<br />
+Take the two facts:
+<br />
+
+<br />
+* Free version of ATC stops protecting if the default confirmation form is changed.
+<br />
+
+* Sometimes, FTP clients change line endings.
+<br />
+
+<br />
+Combine the facts together... Yes, sometimes, after FTP uploading, ATC stopped working. It's fixed now.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Textual Confirmation 1.0.6, update for Chinese, '?>'</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=312</link>
+      <description>
+        <![CDATA[On the second day after 1.0.5, Textual Confirmation 1.0.6 is ready. There are two changes.
+<br />
+
+<br />
+1) Chinese translation is updated
+<br />
+
+<br />
+
+2) All the PHP files now finish on '?&gt;', not on '?&gt;' plus the line end, as earlier.
+<br />
+
+<br />
+While the both formats are ok, it is <a href="http://bbantispam.com/forum/viewtopic.php?t=311" target="_blank" class="postlink">reported</a> that under some combination of tools and environments, the line end might cause the PHP Error &quot;Warning: Cannot modify header information - headers already sent by... &quot;. Now it shouldn't be possible.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Textual Confirmation 1.0.5</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=310</link>
+      <description>
+        <![CDATA[Three translations are added:
+<br />
+
+<br />
+* Traditional Chinese Taiwan (Big-5) translation by Robert Lee &lt;robmlee gmail com&gt;
+<br />
+* French translation by tran quoc minh &lt;tranquocminh gmail com&gt;
+
+<br />
+* Bulgarian translation by diabolic.bg
+<br />
+
+<br />
+There are no any other changes.
+<br />
+
+<br />
+Actually, the TODO list is big, but I decided to release the new language files immediately, before implementing new features.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Advanced Textual Confirmation is released!</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=309</link>
+      <description>
+        <![CDATA[Finally, <a href="http://bbantispam.com/atc/" target="_blank" class="postlink">Advanced Textual Confirmation</a> (ATC) is released.
+<br />
+
+<br />
+ATC is an universal tool to stop forum spam, wiki spam, guestbook spam, comment spam, and other web spam. It's an improvement of the highly popular phpBB MOD &quot;Textual Confirmation&quot;.
+
+<br />
+
+<br />
+Thanks to great efficiency and easy installation, ATC is a must-have tool for any webmaster.
+        ]]>
+      </description>
+   </item>
+   <item>
+      <title>bbAntiSpam news as RSS</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=308</link>
+      <description>
+        <![CDATA[* I've created the forum &quot;<a href="http://bbantispam.com/forum/viewforum.php?f=6" target="_blank" class="postlink">Announces</a>&quot; to publish news about bbAntiSpam news.
+<br />
+* These news are also available as the RSS feed: <a href="http://bbantispam.com/news.rss" target="_blank" class="postlink">http://bbantispam.com/news.rss</a>.
+<br />
+
+<br />
+Drag and drop this button -- <a href="http://bbantispam.com/news.rss" target="_blank" class="postlink"><img src="http://bbantispam.com/images/rss.gif" border="0" /></a> -- to your blog reader, and you'll get intant notifications about new bbAntiSpam releases and events!
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Advanced Textual Confirmation, Beta5 is ready</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=279</link>
+      <description>
+        <![CDATA[Advanced Textual Confirmation is reached the beta5 status.
+<br />
+
+<br />
+The main change is the new design of the confirmation form and HTML documentation. Users of beta4 don't need to upgrade, unless they like the new design.
+<br />
+
+<br />
+Now I'm preparing the texts for proofreading, and I hope to release the final version 1.0 soon.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Textual Confirmation 1.0.4: Catalan, Italian, Spanish</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=272</link>
+      <description>
+        <![CDATA[Textual Confirmation 1.0.4 is just released. The changes are minimal:
+<br />
+
+<br />
+* Italian translation is added, thanks &lt;ostiaxboz gmail com&gt;!
+<br />
+* Catalan and Spanish translations are added, thank Giledhel Narya &lt;narya elcea es&gt;!
+
+<br />
+* Small bug in the template is fixed (&lt;/h2&gt; instead of &lt;/h1&gt;), thanks <a href="http://bbantispam.com/forum/profile.php?mode=viewprofile&amp;u=27" target="_blank" class="postlink">asuter</a>!
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Press release</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=82</link>
+      <description>
+        <![CDATA[We've got a press-release written and sent: <a href="http://bbantispam.com/pr/press-release.html" target="_blank" class="postlink">bbAntiSpam Tools: The First Anti-Spam Solution For phpBB Forums Has Been Released</a>.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>search engine "phpBB antispam"</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=63</link>
+      <description>
+        <![CDATA[Using <a href="http://google.com/coop/" target="_blank" class="postlink">Google Co-op</a> I created a <a href="http://google.com/coop/cse?cx=016263988511596419578%3Afma9z4wqy2c" target="_blank" class="postlink">search engine dedicated to phpBB antispam</a>. I've added the following sites:
+<br />
+
+<br />
+* bbantispam.com
+<br />
+* phpbb.com/*viewtopic.php*
+<br />
+* phpbbhacks.com/*viewtopic.php*
+<br />
+* phpbbinstallers.com/*viewtopic.php*
+<br />
+* area51.phpbb.com/*viewtopic.php*
+<br />
+
+<br />
+An interesting reading!
+<br />
+
+<br />
+
+Sample searches:
+<br />
+
+<br />
+* <a href="http://www.google.com/custom?hl=en&amp;lr=&amp;client=pub-8908956343180748&amp;cof=FORID%3A1%3BCX%3AphpBB%2520antispam%3B&amp;q=mod&amp;btnG=Search&amp;cx=016263988511596419578%3Afma9z4wqy2c" target="_blank" class="postlink">mod</a>
+<br />
+* <a href="http://www.google.com/custom?hl=en&amp;lr=&amp;client=pub-8908956343180748&amp;cof=FORID%3A1%3BCX%3AphpBB%2520antispam%3B&amp;q=howto&amp;btnG=Search&amp;cx=016263988511596419578%3Afma9z4wqy2c" target="_blank" class="postlink">howto</a>
+<br />
+* <a href="http://www.google.com/custom?hl=en&amp;lr=&amp;client=pub-8908956343180748&amp;cof=FORID%3A1%3BCX%3AphpBB%2520antispam%3B&amp;q=captcha&amp;btnG=Search&amp;cx=016263988511596419578%3Afma9z4wqy2c" target="_blank" class="postlink">captcha</a>
+<br />
+* <a href="http://www.google.com/custom?hl=en&amp;lr=&amp;client=pub-8908956343180748&amp;cof=FORID%3A1%3BCX%3AphpBB%2520antispam%3B&amp;q=%22anti-spam+thread%22&amp;btnG=Search&amp;cx=016263988511596419578%3Afma9z4wqy2c" target="_blank" class="postlink">&quot;anti-spam thread&quot;</a>
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Textual Confirmation beta3</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=58</link>
+      <description>
+        <![CDATA[Finally, <a href="http://bbantispam.com/tc/" target="_blank" class="postlink">Textual Confirmation</a> is announced.
+<br />
+
+<br />
+<span style="font-weight: bold">MOD Title</span>: Textual Confirmation
+<br />
+
+<span style="font-weight: bold">MOD Description</span>: Textual Confirmation (TC) asks newly registering user a question. If the answer is wrong, TC rejects the registration. Also, TC notifies the forum admin and the community spam database. The administrator can edit the questions and answers in the Administration Panel.
+<br />
+<span style="font-weight: bold">MOD Version</span>: 1.0.0.beta3, actually a release candidate
+<br />
+
+<br />
+<span style="font-weight: bold">MOD Homepage</span>: <a href="http://bbantispam.com/tc/" target="_blank">http://bbantispam.com/tc/</a>
+<br />
+<span style="font-weight: bold">MOD Download</span>: <a href="http://bbantispam.com/tc/TextualConfirmation.zip" target="_blank">http://bbantispam.com/tc/TextualConfirmation.zip</a>
+
+<br />
+<span style="font-weight: bold">Demo Board</span>: <a href="http://bbantispam.com/forum/profile.php?mode=register&amp;agreed=true" target="_blank" class="postlink">http://bbantispam.com/forum/profile.php?mode=register&amp;agreed=true</a>
+<br />
+
+<br />
+<a href="http://www.phpbb.com/phpBB/viewtopic.php?t=463860" target="_blank" class="postlink">Discussion on phpbb.com</a>
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Links Rejector, 1.0.1->1.0.2</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=26</link>
+      <description>
+        <![CDATA[Email subject was corrupted under certain circumstances. The probability is very low, but I anyway fixed it. To upgrade, copy the new files (including those in the folder "language") over the old files.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Links Rejector, 1.0.0->1.0.1</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=24</link>
+      <description>
+        <![CDATA[The version 1.0.0 sends too much data about your server to us. More precisely, the whole content of the <a href="http://php.net/manual/reserved.variables.php" target="_blank" class="postlink">$_SERVER variable</a> is sent. Starting with the version 1.0.1, only the spam-related data is sent. Details are <a href="http://bbantispam.com/forum/viewtopic.php?t=23" target="_blank" class="postlink">in the faq</a>.
+<br />
+
+<br />
+To update from 1.0.0 to 1.0.1 just copy the new includes/functions_bbas.php over the old file.
+<br />
+
+<br />
+By the way, here is the explanation why so much data was sent. I noticed that different spam bots sometimes have different data in the $_SERVER variable. I think that it is possible to understand
+<br />
+* what is the bot (XRumer, ...),
+<br />
+* what other forums are visited by the bot.
+<br />
+I'm very curious. Therefore bbAntiSpam was sending all the data to me for future analysis.
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Links Rejector, beta3 to beta4</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=12</link>
+      <description>
+      <![CDATA[<p>Based on feedback, I've slightly updated bbAntiSpam and released it as beta4.</p>
+      <ul>
+      <li>No more warning from the new versions of PHP: "Call-time pass-by-reference has been deprecated".</li>
+      <li>"Strange" URLs such as "http://www." are also forbidden now. They are not used by spammers, but let be anyway forbidden.</li>
+      </ul>
+        ]]>
+      </description>
+    </item>
+    <item>
+      <title>Links Rejector, beta2 to beta3</title>
+      <link>http://bbantispam.com/forum/viewtopic.php?t=8</link>
+      <description>
+        <![CDATA[<p>Unbelievable! My code can contain bugs! Actually, I think it's not my fault, but fault of combination of a phpBB internal function and preg_replace. But who cares? In any case, I'm who is under blame.</p>
+        <p>I forget the rule of successfull programming: never, never trust someone else's code. Do expect that third-party functions return garbage instead of empty values if source data is empty.</p>
+        <p>As result, beta2 has a bug. bbAntiSpam doesn't work if phpBB censor list is empty.</p>
+        <p>I recommend to upgrade to beta3.</p>]]></description>
+        </item>
+  </channel>
+</rss>

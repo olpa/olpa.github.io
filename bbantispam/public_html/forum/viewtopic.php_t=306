@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Can't find the text to change</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=306">Can't find the text to change</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1046"></a><b>Vincent</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 02 Apr 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Apr 02, 2007 6:50 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello
+<br />
+sorry for my poor english
+<br />
+i have a problem to insert the code </span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">tc_hook_register&#40;&#41;;</td>	</tr></table><span class="postbody"> in includes/usercp_register.php
+<br />
+
+<br />
+
+<br />
+my code of usercp_register.php is
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$error = TRUE;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error_msg .= &#40; &#40; isset&#40;$error_msg&#41; &#41; ? '&lt;br /&gt;' &#58; '' &#41; . $lang&#91;'Fields_empty'&#93;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;if &#40;$googlemap_config&#91;'require_coords'&#93; &amp;&amp; empty&#40;$lng_map&#41; &amp;&amp; empty&#40;$lat_map&#41;&#41;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error = true;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error_msg .= &#40; &#40; isset&#40;$error_msg&#41; &#41; ? '&lt;br /&gt;' &#58; '' &#41; . $lang&#91;'GMAP_coords_required'&#93;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;if &#40; !empty&#40;$website&#41; &#41; 
+<br />
+&nbsp; &nbsp; &nbsp; &#123; 
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$error = TRUE; 
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$error_msg .= &#40; &#40; isset&#40;$error_msg&#41; &#41; ? '&lt;br /&gt;' &#58; '' &#41; . &quot;Spammers are *not* allowed!&lt;br /&gt;Afin d'éviter l'inscription de spammers, veuillez ne pas 
+<br />
+
+<br />
+remplir le champ SITE WEB lors de votre inscription. Vous pourrez le remplir plus tard dans votre profil.&quot;; 
+<br />
+&nbsp; &nbsp; &nbsp; &#125;
+<br />
+&nbsp; &nbsp;&#125;
+<br />
+
+<br />
+&nbsp; &nbsp;if &#40;$board_config&#91;'enable_confirm'&#93; &amp;&amp; $mode == 'register'&#41;
+<br />
+&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;if &#40;empty&#40;$HTTP_POST_VARS&#91;'confirm_id'&#93;&#41;&#41;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error = TRUE;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error_msg .= &#40; &#40; isset&#40;$error_msg&#41; &#41; ? '&lt;br /&gt;' &#58; '' &#41; . $lang&#91;'Confirm_code_wrong'&#93;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;else
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$confirm_id = htmlspecialchars&#40;$HTTP_POST_VARS&#91;'confirm_id'&#93;&#41;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if &#40;!preg_match&#40;'/^&#91;A-Za-z0-9&#93;+$/', $confirm_id&#41;&#41;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$confirm_id = '';
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$sql = 'SELECT code 
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;FROM ' . CONFIRM_TABLE . &quot; 
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;WHERE confirm_id = '$confirm_id' 
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;AND session_id = '&quot; . $userdata&#91;'session_id'&#93; . &quot;'&quot;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if &#40;!&#40;$result = $db-&gt;sql_query&#40;$sql&#41;&#41;&#41;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;message_die&#40;GENERAL_ERROR, 'Could not obtain confirmation code', '', __LINE__, __FILE__, $sql&#41;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if &#40;$row = $db-&gt;sql_fetchrow&#40;$result&#41;&#41;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+<br />
+
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if &#40;$row&#91;'code'&#93; != $confirm_code&#41;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error = TRUE;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error_msg .= &#40; &#40; isset&#40;$error_msg&#41; &#41; ? '&lt;br /&gt;' &#58; '' &#41; . $lang&#91;'Confirm_code_wrong'&#93;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;else
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$sql = 'DELETE FROM ' . CONFIRM_TABLE . &quot; 
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;WHERE confirm_id = '$confirm_id' 
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;AND session_id = '&quot; . $userdata&#91;'session_id'&#93; . &quot;'&quot;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if &#40;!$db-&gt;sql_query&#40;$sql&#41;&#41;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;message_die&#40;GENERAL_ERROR, 'Could not delete confirmation code', '', __LINE__, __FILE__, $sql&#41;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;else
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#123;&nbsp; &nbsp;&nbsp; &nbsp;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error = TRUE;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error_msg .= &#40; &#40; isset&#40;$error_msg&#41; &#41; ? '&lt;br /&gt;' &#58; '' &#41; . $lang&#91;'Confirm_code_wrong'&#93;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$db-&gt;sql_freeresult&#40;$result&#41;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&#125;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I tested several solutions, but none works
+<br />
+thank you for your help
+<br />
+Vincent from France</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1049"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Apr 03, 2007 2:13 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Add
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">tc_hook_register&#40;&#41;;</td>	</tr></table><span class="postbody">
+<br />
+before
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&nbsp; &nbsp;if &#40;$board_config&#91;'enable_confirm'&#93; &amp;&amp; $mode == 'register'&#41; </td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1056"></a><b>Vincent</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 02 Apr 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Apr 03, 2007 5:57 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">thank you, it's good <img src="images/smiles/icon_biggrin.gif" alt="Very Happy" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1059"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Apr 04, 2007 1:49 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Good!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

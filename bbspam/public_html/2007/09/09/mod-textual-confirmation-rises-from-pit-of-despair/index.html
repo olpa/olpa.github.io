@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>MOD Textual Confirmation Rises From Pit of Despair | Spam Bots and CAPTCHAs</title>
+
+<meta name="generator" content="WordPress 2.2.3" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../../../../wp-content/themes/default/style.css" type="text/css" media="screen" />
+
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://bbspam.com/xmlrpc.php?rsd" />
+</head>
+<body>
+<div id="page">
+
+
+<div id="header">
+	<div id="headerimg">
+		<h1><a href="../../../../index.html">Spam Bots and CAPTCHAs</a></h1>
+		<div class="description">Stories from the web spam fighters</div>
+	</div>
+</div>
+<hr />
+<p style="background-color:yellow"><font size="7"><b>This blog is retired.</b></font></p>
+<hr />
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../../05/ok-heres-a-cool-captcha-tool-i-can-actually-get-behind/index.html">OK, here’s a cool CAPTCHA tool I can actually get behind</a></div>
+			<div class="alignright"><a href="../../12/the-best-defense-is-a-good-offense-or-is-it/index.html">The best defense is a good offense. Or is it?</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-31">
+			<h2><a href="index.html" rel="bookmark" title="Permanent Link: MOD Textual Confirmation Rises From Pit of Despair">MOD Textual Confirmation Rises From Pit of Despair</a></h2>
+
+			<div class="entry">
+				<div class="KonaBody"><p>True Story:</p>
+<p>I became so irritated from using phpBB2 Advanced Visual Confirmation, which ended up causing me more trouble that it was worth, that I finally did something about it.</p>
+<p>After thinking that I had wrapped a spammer-proof wall of security around my forum, I discovered that spammers were having an easier time decrypting my captcha images than my authorized members were. In fact, I often ended up having to manually register new users who I thought weren’t smart enough to decipher the image that was sitting right there in front of their face. It was only after I tried (and failed) to register one particular user <b>5 times</b> that the truth hit me:</p>
+<p>When it comes to default captcha decoding skills: Computers win, humans lose.</p>
+<p><span id="more-31"></span></p>
+<p>The default phpBB2 captcha is very very simple. There’s no screwed characters, fancy backgrounds, etc. The most basic spambot can plow through this level of protection in milliseconds. Real users stumble.</p>
+<p><a href="http://www.phpbb.com/community/viewtopic.php?f=18t=393503&#038;p=2749158#p2749158">Here’s how I know…</a></p>
+<blockquote><p>I&#8217;ve collected some good information from you guys and I want to thank everyone who posted.  Based upon your input, I recently installed phpBB. I have about 150 users. I’m getting anywhere between 1 - 10 spammer signup attempts per day right now.  As part of my experiment, I went into the code of usercp_register.php and added a little mod that logs everyone who attempts to register.</p>
+<p>Here’s what I found out…</p>
+<p>Although no bot fails to decode the captcha, about 10% of the real users cannot decode the captcha; the most common mistake seems to be entering all lower case when the visual confirmation requires all upper case. I&#8217;m inclined to turn off visual verification and probably will soon.</p></blockquote>
+<p>The end result? Captcha continues to be a bad implementation of a good idea. That’s why I created <a href="http://bbantispam.com/tc/">Textual Confirmation</a>.</p>
+</div>
+
+							
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						by <a href="../../../../index.html" title="Visit author's website" rel="external">author</a>												on Sunday, September 9th, 2007 at 11:55 am						and is filed under <a href="../../../../category/phpbb/index.html" title="View all posts in phpBB" rel="category tag">phpBB</a>,  <a href="../../../../category/usability/index.html" title="View all posts in Usability" rel="category tag">Usability</a>,  <a href="../../../../category/bbantispam/index.html" title="View all posts in bbAntiSpam" rel="category tag">bbAntiSpam</a>,  <a href="../../../../category/explain/index.html" title="View all posts in Explanations" rel="category tag">Explanations</a>,  <a href="../../../../category/tools/index.html" title="View all posts in Tools" rel="category tag">Tools</a>.
+
+
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+
+	<h3 id="comments">3 Responses to &#8220;MOD Textual Confirmation Rises From Pit of Despair&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-302">
+			<cite>jurgen</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-302" title="">February 10th, 2009 at 7:09 am</a> </small>
+
+			<p>Hi! I also run a phpbb. Currently, my way of killing spambots is banning their IP ranges after they&#8217;ve posted, but when I read you changed usercp_register.php to log all IP&#8217;s that attempt to register, I became really, really interested. I would love to know the code you added to the php script, since I&#8217;m not really a skilled coder myself, but could use some help in the fight against spambots! Please post it or send me an e-mail.<br />
+Thx!</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-310">
+			<cite>Sky</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-310" title="">April 9th, 2009 at 6:32 am</a> </small>
+
+			<p>Can anyone explain what happend with the automatic mail to bbspam.com?</p>
+<p>See that part of the mail:</p>
+<p>This message was created automatically by mail delivery software.</p>
+<p>A message that you sent has not yet been delivered to one or more of<br />
+its recipients after 25 hours.</p>
+<p>The message has not yet been delivered to the following addresses:</p>
+<p>host mail.bbspam.com[1.2.3.4]:<br />
+connection to mail exchanger failed with timeout</p>
+<p>Must I change the mail addy - how can I do that?</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-313">
+			<cite>Oleg</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-313" title="">April 22nd, 2009 at 5:43 am</a> </small>
+
+			<p>Here is the explanation:<br />
+<a href="http://bbantispam.com/forum/viewtopic.php?t=606" rel="nofollow">http://bbantispam.com/forum/viewtopic.php?t=606</a></p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+	
+	</div>
+
+
+<hr />
+<div id="footer">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>30 PHP CAPTCHAs | Spam Bots and CAPTCHAs</title>
+
+<meta name="generator" content="WordPress 2.2.3" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../../../../wp-content/themes/default/style.css" type="text/css" media="screen" />
+
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://bbspam.com/xmlrpc.php?rsd" />
+</head>
+<body>
+<div id="page">
+
+
+<div id="header">
+	<div id="headerimg">
+		<h1><a href="../../../../index.html">Spam Bots and CAPTCHAs</a></h1>
+		<div class="description">Stories from the web spam fighters</div>
+	</div>
+</div>
+<hr />
+<p style="background-color:yellow"><font size="7"><b>This blog is retired.</b></font></p>
+<hr />
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../../22/craziest-captchas-on-the-web/index.html">Craziest Captchas on the Web</a></div>
+			<div class="alignright"><a href="../../29/captcha-recognition-experiment/index.html">Captcha recognition experiment</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-25">
+			<h2><a href="index.html" rel="bookmark" title="Permanent Link: 30 PHP CAPTCHAs">30 PHP CAPTCHAs</a></h2>
+
+			<div class="entry">
+				<div class="KonaBody"><p>Recently I analyzed <a href="http://www.hotscripts.com/?RID=N606112">HotScripts.com</a> section &#8220;PHP :: Scripts and Programs :: Security Systems&#8221;. Looking through the all 9 pages, I identified 5 categories:</p>
+<p>* CAPTCHAs,<br />
+* crawler protection,<br />
+* login, users, groups, roles, rights, authentification,<br />
+* data encryption,<br />
+* PHP and HTML source code encryption.</p>
+<p>As one expects, the biggest category is &#8220;CAPTCHAs&#8221;. But how to select the best one?</p>
+<p><span id="more-25"></span></p>
+<p>I&#8217;m very sorry to disappoint you, but I have no answer. I think I know some criteria to decide if a captcha is good or bad (more on it later), but analyzing each of 30 scripts is a bit too hard work.</p>
+<p>Fortunately, in programming, we usually have a correlation between the quality of a tool and its description. This way you can semiautomatically disqualify the most of the script.</p>
+<p>Print this list, strike out what you dislike and write in comments what you&#8217;ve got. I&#8217;ll try manually review the scripts which get votes.</p>
+<ul>
+<li><a href="index.html#i2">Advanced Textual Confirmation: install CAPTCHA in 1 minute.</a></li>
+<li><a href="index.html#i18">Animated CAPTCHA validation images Volume 2</a></li>
+<li><a href="index.html#i13">Animated Math Captcha</a></li>
+<li><a href="index.html#i20">Captcha</a></li>
+<li><a href="index.html#i26">Captcha Creator php script</a></li>
+<li><a href="index.html#i30">Captcha Splasher</a></li>
+<li><a href="index.html#i7">Captcha Verification</a></li>
+<li><a href="index.html#i8">Captcha ZDR - powerfull captcha tool</a></li>
+<li><a href="index.html#i21">Captcher</a></li>
+<li><a href="index.html#i10">Click Captcha</a></li>
+<li><a href="index.html#i9">Cryptographp free CAPTCHA</a></li>
+<li><a href="index.html#i28">easiCaptcha</a></li>
+<li><a href="index.html#i12">HKCaptcha</a></li>
+<li><a href="index.html#i24">Honso_CAPTCHA</a></li>
+<li><a href="index.html#i31">Human Pictcha</a></li>
+<li><a href="index.html#i4">identiPIC photo CAPTCHA</a></li>
+<li><a href="index.html#i22">Image Form Valuator v1.0</a></li>
+<li><a href="index.html#i5">Image Validator</a></li>
+<li><a href="index.html#i14">MathGuard</a></li>
+<li><a href="index.html#i15">myCaptcha</a></li>
+<li><a href="index.html#i25">PHP Captcha Script</a></li>
+<li><a href="index.html#i16">PHP Captcha System. No DB required</a></li>
+<li><a href="index.html#i23">PHP Spam Terminator - protect your site from annoying spam posts</a></li>
+<li><a href="index.html#i27">plx Turing</a></li>
+<li><a href="index.html#i19">Sec-Code</a></li>
+<li><a href="index.html#i6">Securimage CAPTCHA Class</a></li>
+<li><a href="index.html#i3">Security Images (Captcha) v1.2</a></li>
+<li><a href="index.html#i11">Simple Random Character Verification script 2</a></li>
+<li><a href="index.html#i29">Solmetra FormValidator</a></li>
+<li><a href="index.html#i17">submitTroughImage</a></li>
+</ul>
+<p><a href="http://www.hotscripts.com/Detailed/68995.html?RID=N606112" name="i2">Advanced Textual Confirmation: install CAPTCHA in 1 minute.</a><br />
+Advanced Textual Confirmation is an universal antispam for forums, blogs, contact forms, and others. It is a smart textual CAPTCHA, which challenges site visitors only once, and then disappears. To install, no database required, no graphical libraries required, just insert one line into your script.</p>
+<p><a href="http://www.hotscripts.com/Detailed/64115.html?RID=N606112" name="i18">Animated CAPTCHA validation images Volume 2</a><br />
+This package is an alternative animated CAPTCHA generator tool. This package can be used to create animated CAPTCHA images for website validation. To decode of these CAPTCHA images are more difficult by web bots, the execution time of image generating is faster and better than volume 1 package.</p>
+<p><a href="http://www.hotscripts.com/Detailed/69922.html?RID=N606112" name="i13">Animated Math Captcha</a><br />
+The first script creates a static JPEG image with many features, easily and fully customizable. The second script is a math captcha. that creates an animated gif showing a sum, always partially visible (three kinds of animation). Spambots and OCR softwares can never see the complete sum.</p>
+<p><a href="http://www.hotscripts.com/Detailed/61347.html?RID=N606112" name="i20">Captcha</a><br />
+The name of this project tells everything by itself ! It&#8217;s a little captcha generator which creates human-readable check codes which will keep you away from spammers and flooders. It requires GD library, Session handling and some files linked at the bottom of this page.</p>
+<p><a href="http://www.hotscripts.com/Detailed/69052.html?RID=N606112" name="i26">Captcha Creator php script</a><br />
+Captcha Creator is an easy to use PHP Script that generates unique, highly customizable Captcha Images, very useful for web forms to stop automated submissions. The script needs only PHP and GD library, no SQL, no PERL, no other stuff required. A large collection of fonts, backgrounds, and text variations in size and placement are available to ensure that spam bots can NOT break it, while humans will always read it easily. Is very easy to install on any website with php support, and can be used to stop automated submissions on web forms such as: Guestbooks, Blogs, Wiki, Comment, Feedback forms and other types of web forms. The script generates a new, unique Captcha image everytime your page where you placed it is loaded, stopping automated submissions and spam bots from filling your form with junk data.</p>
+<p><a href="http://www.hotscripts.com/Detailed/58022.html?RID=N606112" name="i30">Captcha Splasher</a><br />
+Captcha Splasher is a random image number generator security tool. Its purpose is to prevent automatic signups or signins by robots or computer programs, with the intention of spamming the system.</p>
+<p><a href="http://www.hotscripts.com/Detailed/71714.html?RID=N606112" name="i7">Captcha Verification</a><br />
+CAPTCHA is the mthod of security that many websites use now. It generates random numbers and/or letters and produces them inside an image. This is done by the use of GD in PHP.</p>
+<p><a href="http://www.hotscripts.com/Detailed/69285.html?RID=N606112" name="i8">Captcha ZDR - powerfull captcha tool</a><br />
+This is simple, complete and powerfull captcha tool written in PHP for protecting your web FORMS from spammers.Under GPL. A good solution for this is to use an random code that is generated by a script the code will be displayed as an image so only a person could read the image and type the number. &#8220;Captcha ZDR&#8221; offers several methods of captcha protection, different fonts, string protection, calculation protection (sum and deduction), noise in image, string symbols are hard for reading from spamer machines. * 8 unique backgronds for captcha image. * Easy to install in your web pages. * No DataBase required. * Hard Protection $_SESSION[&#8217;captcha&#8217;] variable contain RIGHT result from CAPTCHA image. You can use example.php and example_submit.php for more information.</p>
+<p><a href="http://www.hotscripts.com/Detailed/57923.html?RID=N606112" name="i21">Captcher</a><br />
+Security code image generator and verifier. Requires GD support (most modern PHP installations) and mySQL. No image caching required. Configurable fonts, colors and captcha lengths.</p>
+<p><a href="http://www.hotscripts.com/Detailed/69668.html?RID=N606112" name="i10">Click Captcha</a><br />
+Stop the form spammers without aggravating Your customers or members. Works in IE 6 &#038; 7, Firefox 2, Netscape 8.1 and Opera 9.1 browsers. Requirements - php >= 4.3 with GD support. Click Captcha is a randomly generated gif file that is dynamically displayed in a random area below form with 9 random color combinations and the click number is randomly displayed to the right or left making 18 different images with random numbers from 11 to 99 the generated gif file is less than 0.39 KB.</p>
+<p><a href="http://www.hotscripts.com/Detailed/68594.html?RID=N606112" name="i9">Cryptographp free CAPTCHA</a><br />
+Crypographp is a free PHP script for install a CAPTCHA on your web site: forms for example. It&#8217;s a Open Source project. Compatible with PHP 4/5/6 www.cryptographp.com</p>
+<p><a href="http://www.hotscripts.com/Detailed/64652.html?RID=N606112" name="i28">easiCaptcha</a><br />
+easiCaptcha is a captcha that you can add to your web forms easily and quickly, it consists of 2 php scripts, a decrypt loader folder and a configuration file that you can use to adjust easiCaptcha&#8217;s preferences if you feel you want to. You need no knowledge of scripting, in fact it can be as simple as dropping the scripts and loader folder into your form directory on your server and adding two lines of php to your form.</p>
+<p><a href="http://www.hotscripts.com/Detailed/71121.html?RID=N606112" name="i12">HKCaptcha</a><br />
+Unlike many other free captcha implementations, this captcha is designed to be extremely hard to crack for computer programs. No fancy colors here that a determined attacker can filter out more easily than a human. The website has a demo page to test the script. Requires the GD library.</p>
+<p><a href="http://www.hotscripts.com/Detailed/63421.html?RID=N606112" name="i24">Honso_CAPTCHA</a><br />
+This CAPTCHA has three main features. Including several random colored lines that are arranged randomly, random image background color, and random text position. This allows humans to read the image, but not robots or computers.</p>
+<p><a href="http://www.hotscripts.com/Detailed/56348.html?RID=N606112" name="i31">Human Pictcha</a><br />
+ZZEE Human Pictcha is a protection in a form of an image (a captcha), which can be embedded inside your web forms, and which will filter out various forum spam, guestbook spam, form spam, signup spam, password attacks, etc. It is a library and a set of tools and examples for PHP and can be used with Perl as well. Human Pictcha is fairly easy to install and embed into your existing PHP or Perl forms. You can download a free demo version to see if it is compatible with your web site and how easy to use it in your forms. Human Pictcha comes with the full open source, which is a big advantage. - For PHP or Perl forms - Easy to setup and maintain - Full open source - Compatible with the typical webserver setup - Secure and hard to defeat by OCR - You can tune it to match your website looks - Complete documentation - Image code can consist of digits and letters or only digits - Trial download available - Online demo available</p>
+<p><a href="http://www.hotscripts.com/Detailed/69548.html?RID=N606112" name="i4">identiPIC photo CAPTCHA</a><br />
+This CAPTCHA uses pictures instead of characters. The user is invited to identify a picture (or pictures) to proceed. It can be used on any web form. It doesn&#8217;t use a database. It is extremely simple to install with very minimal code. It stops spambots and the like because they cannot tell what a picture is of. Includes free, friendly support.</p>
+<p><a href="http://www.hotscripts.com/Detailed/53830.html?RID=N606112" name="i22">Image Form Valuator v1.0</a><br />
+This script generates images for CAPTCHA ( Completely Automated Public Turing test to tell Computers from Humans Apart ) validation tests, make coded string and compare users input. This script was made as simple as only possible. It doesn&#8217;t require any additional libraries or user session, it use only common PHP functions. This simplicity is helpful in case your hosting has lack of abilities.</p>
+<p><a href="http://www.hotscripts.com/Detailed/71273.html?RID=N606112" name="i5">Image Validator</a><br />
+Image Validator is a GPL CAPTCHA php script to stop spam on any form: comment areas, sign-ups, shopping carts - any area of your website where you fear the evil spammers may target.</p>
+<p><a href="http://www.hotscripts.com/Detailed/69713.html?RID=N606112" name="i14">MathGuard</a><br />
+This PHP class inserts a small piece of HTML code into your form - an expression consisting of two random numbers, one text input field for user&#8217;s answer, and one hidden field with the hashcode. When user submits the form with the answer, the answer is being hashed and compared to the security code that has been submitted as well. This way you can easily protect your forms from the spambots.</p>
+<p><a href="http://www.hotscripts.com/Detailed/66939.html?RID=N606112" name="i15">myCaptcha</a><br />
+myCaptcha is a selection of php scripts that enable you to implement a Captcha mechcanism within your projects or site.</p>
+<p><a href="http://www.hotscripts.com/Detailed/69500.html?RID=N606112" name="i25">PHP Captcha Script</a><br />
+This script is a captcha script that you can use on your website to block SPAM being submitted in your forms.</p>
+<p><a href="http://www.hotscripts.com/Detailed/66626.html?RID=N606112" name="i16">PHP Captcha System. No DB required</a><br />
+Easy to install captcha system to keep bots from making false submissions to your web forms. Requires PHP. * Customizable Colors * Choose # of characters in string. * Choose # of interference lines. * Choose character set (numbers, letters, uppercase, lowercase).</p>
+<p><a href="http://www.hotscripts.com/Detailed/72939.html?RID=N606112" name="i23">PHP Spam Terminator - protect your site from annoying spam posts</a><br />
+PHP Spam Terminator will stop robots from using a form to send spam. It displays random characters which the user must enter into the box to continue the script, if they are entered incorrectly or not at all, the form will not be processed. To install, no database required, no graphical libraries required, only one php file and add some code into your script. * Easy to install, only less than 50 lines of PHP code. * Generate verification image dynamically. * No graphical libraries required. * No database required</p>
+<p><a href="http://www.hotscripts.com/Detailed/56010.html?RID=N606112" name="i27">plx Turing</a><br />
+Add more security to your site with this turing number generator! Probably you have seen this kind of security measures taken on most serious sites - yahoo, moneybookers, stormpay and so on. You can add this great feature and please your site members with more securty. When login, signup or whatever security forms are submited on your site you can show randomly generated security code which the user should input in a text field for verification. This way the script blocks the hacker programs from try to submit a form. The hackers programs and robots can not read the generated security code from the image as this number is always different and looks different. The code text is disordered but still remains readable by humans and unreadable by programs, scripts or robots. You have total control on the size and the look of this image - from colors and sizes to font family and character rotation. Easy integration! Usage example included!</p>
+<p><a href="http://www.hotscripts.com/Detailed/63972.html?RID=N606112" name="i19">Sec-Code</a><br />
+This PHP script creates an image with a security code that can be used to protect e.g. your guestbook from spam. It requires PHP 4.1.0 or higher with session support and GD library.</p>
+<p><a href="http://www.hotscripts.com/Detailed/49400.html?RID=N606112" name="i6">Securimage CAPTCHA Class</a><br />
+NEW VERSION!! A highly customizable PHP CAPTCHA image class for generating CAPTCHA images to prevent programs from filling out your forms. This does everything from create and output the image, to validate the code entered by the user in the form. It can show an image in just 3 lines of code, and validate the text in about 6 lines. This supports variable length codes, user defined character sets, custom TTF fonts, custom colors, multi-colored letters, skew lines through text, optional lines to obfuscate text, angled text, transparent text and more. Includes several examples.</p>
+<p><a href="http://www.hotscripts.com/Detailed/72719.html?RID=N606112" name="i3">Security Images (Captcha) v1.2</a><br />
+Add Captch security images to your website, With 6 different backgrounds and fonts.</p>
+<p><a href="http://www.hotscripts.com/Detailed/62177.html?RID=N606112" name="i11">Simple Random Character Verification script 2</a><br />
+A validation script that displays random characters which the user must enter into the box to continue the script, if they are entered incorrectly or not at all, the form will just reload. It uses hashed cookies to stop bots from reading the code. It will stop robots from using a form to send spam. It&#8217;s a foundation to either experiment with or add to a form.</p>
+<p><a href="http://www.hotscripts.com/Detailed/55506.html?RID=N606112" name="i29">Solmetra FormValidator</a><br />
+SOLMETRA FormValidator is a PHP class used to validate web forms against automated submissions. The process involves generating and displaying a distorted image of secret phrase which is readable to humans but completely incomprehendable to machines - even to OCR programs. This protection mechanism is known as CAPTCHA (completely automated public Turing test to tell computers and humans apart).</p>
+<p><a href="http://www.hotscripts.com/Detailed/58097.html?RID=N606112" name="i17">submitTroughImage</a><br />
+A small but usefull spam/flood form submit protection. This class can produce a image with a random string and a form input. When the form is submitted, the string from the form input can be matched against generated string in the image. When they match, the submition can proceed. The random generated image string will be matched against a session var or against a file on the server disk, depanding on the backend you&#8217;ve choosed. Default backend is the session backend. Some of the features: * One or more random colors. * One or more random TTF fonts. * Random rotation. * Custom background color or image. * Transparent background with anti-alias of string. * Hardcoded or variable (liquid) dimentions of the image. * Colors can be filled as HEX or as RGB values. * String/code type can be only numbers, only letters or both. * Backend by session or server disk space.</p>
+</div>
+
+							
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						by <a href="http://bbantispam.com/" title="Visit olpa's website" rel="external">olpa</a>												on Sunday, August 26th, 2007 at 11:55 am						and is filed under <a href="../../../../category/captcha/index.html" title="View all posts in CAPTCHAs" rel="category tag">CAPTCHAs</a>,  <a href="../../../../category/tools/index.html" title="View all posts in Tools" rel="category tag">Tools</a>.
+
+
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+
+	<h3 id="comments">8 Responses to &#8220;30 PHP CAPTCHAs&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-272">
+			<cite><a href='http://www.igorklajo.de' rel='external nofollow'>Igor Klajo</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-272" title="">May 23rd, 2008 at 8:10 pm</a> </small>
+
+			<p>Thank you for this great summary of captcha scripts. I&#8217;ve been looking for such scripts for some time but never found the right one for me. It was time consuming to check all kinda sites, but here, easy to choose which one to get.<br />
+Thanks</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-273">
+			<cite><a href='http://www.insanevisions.com' rel='external nofollow'>Charlie Page</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-273" title="">June 8th, 2008 at 2:53 am</a> </small>
+
+			<p>I was looking for a new captcha for my CMS and this was a great resource.</p>
+<p>I tried out a bunch and was frankly un-impressed by some and then was in disbelief that some cost as much as $30+, ridiculous.</p>
+<p>Anyways this one ended up being my favorite:<br />
+<a href="http://www.hotscripts.com/Detailed/71273.html?RID=N606112" rel="nofollow">http://www.hotscripts.com/Detailed/71273.html?RID=N606112</a></p>
+<p>Small, secure, customize, pretty nice all around.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-292">
+			<cite><a href='http://www.qic.me' rel='external nofollow'>mark kolb</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-292" title="">August 20th, 2008 at 1:02 pm</a> </small>
+
+			<p>New image captcha which is free.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-293">
+			<cite><a href='http://www.qic.me' rel='external nofollow'>mark kolb</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-293" title="">August 20th, 2008 at 1:03 pm</a> </small>
+
+			<p>The site is <a href="http://www.qic.me" rel="nofollow">http://www.qic.me</a></p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-322">
+			<cite><a href='http://www.thirdline.com' rel='external nofollow'>robert p</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-322" title="">August 20th, 2009 at 9:11 am</a> </small>
+
+			<p>Not listed but my clients have had good success with Recaptcha: <a href="http://recaptcha.net/" rel="nofollow">http://recaptcha.net/</a></p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-329">
+			<cite><a href='http://MugFind.com' rel='external nofollow'>Selvol</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-329" title="">November 10th, 2009 at 1:35 pm</a> </small>
+
+			<p>A bit late.  But.  Just wanted to add identiPIC. Is weak. I Got around it is 15 minutes. I know sounds like I   crazy or other.</p>
+<p>Any one have a site with identiPIC 3 image that is on a comment section.</p>
+<p>The funny thing is I emailed Mr Sweeney (I believe thats his name).<br />
+ The inventor of that program.  Stated the problem, and that I was willing to write some php code to fix it. He never replied after the first reply.</p>
+<p>I hit a test site 2500 times in under an hour. With a 100% success rate.</p>
+<p>Selvol</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-330">
+			<cite><a href='http://www.watchesshow.com/' rel='external nofollow'>watches</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-330" title="">November 17th, 2009 at 3:56 am</a> </small>
+
+			<p>x1117The funny thing is I emailed Mr Sweeney (I believe thats his name).<br />
+The inventor of that program.  <a href="http://www.canwatches.com/" rel="nofollow">http://www.canwatches.com/</a>    Stated the problem, and that I was willing to write some php code to fix it. He never replied after the first reply.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-331">
+			<cite><a href='../../../../index.html' rel='external nofollow'>admin</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="index.html#comment-331" title="">November 17th, 2009 at 11:55 pm</a> </small>
+
+			<p>There is a lot of programs, I&#8217;d not worry about one of hundreds. (And at the moment I don&#8217;t worry about SEO links.)</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+	
+	</div>
+
+
+<hr />
+<div id="footer">
+</div>
+
+</body>
+</html>

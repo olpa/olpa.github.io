@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - How to stop vBulletin spam</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=313">How to stop vBulletin spam</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1092"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Apr 09, 2007 3:22 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: How to stop vBulletin spam</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"><a href="http://www.vbulletin.com/" target="_blank" class="postlink">vBulletin</a> is a popular forum software. To attach Advanced Textual Confirmation (ATC) to vBulletin, do the following.
+<br />
+
+<br />
+<span style="font-weight: bold">Note 1</span>. If you prefer better integration with vBulletin, you might prefer <a href="http://www.vbulletin.org/forum/showthread.php?t=124828" target="_blank" class="postlink">NoSpam</a> add-on by <span style="font-weight: bold">antialiasis</span> instead of ATC. Installation is simple too, it's performed through the Admin CP.
+<br />
+
+<br />
+<span style="font-weight: bold">Note 2</span>: I don't have the source code of vBulletin, therefore my installation instruction, based on observations, might be wrong. If you have corrections, please post them.
+<br />
+
+<br />
+<span style="font-weight: bold">0) Download ATC</span>
+<br />
+
+<br />
+* <a href="http://bbantispam.com/atc/" target="_blank" class="postlink">Advanced Textual Confirmation home page</a>
+<br />
+* <a href="http://bbantispam.com/atc/AdvancedTextualConfirmation.zip" target="_blank" class="postlink">Download now</a>
+<br />
+
+<br />
+<span style="font-weight: bold">1) To stop spam registrations</span>
+<br />
+
+<br />
+1.1) In the vBulletin installation directory, open the file &quot;register.php&quot;.
+<br />
+
+<br />
+1.2) At the beginning of the file, find the line
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;?php</td>	</tr></table><span class="postbody">
+<br />
+and change it to
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;?php
+<br />
+require_once '...path.to.../bbantispam.php';</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+1.3) Save the changes.
+<br />
+
+<br />
+
+<br />
+<span style="font-weight: bold">2) To stop forum spam</span>
+<br />
+
+<br />
+2.1) In the vBulletin installation directory, open the file &quot;.php&quot;.
+<br />
+
+<br />
+2.2) At the beginning of the file, find the line
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;?php</td>	</tr></table><span class="postbody">
+<br />
+and change it to
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;?php
+<br />
+require_once '...path.to.../bbantispam.php';</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+2.3) Save the changes.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

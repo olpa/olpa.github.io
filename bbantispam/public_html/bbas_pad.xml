@@ -1,0 +1,90 @@
+<XML_DIZ_INFO>
+  <MASTER_PAD_VERSION_INFO>
+    <MASTER_PAD_VERSION>2.01</MASTER_PAD_VERSION>
+    <MASTER_PAD_EDITOR>Hand made</MASTER_PAD_EDITOR>
+    <MASTER_PAD_INFO>http://bbantispam.com/</MASTER_PAD_INFO>
+  </MASTER_PAD_VERSION_INFO>
+  <Company_Info>
+    <Company_Name>Oleg Parashchenko</Company_Name>
+    <Address_1>private</Address_1>
+    <Address_2>private</Address_2>
+    <City_Town>Greifswald</City_Town>
+    <State_Province></State_Province>
+    <Zip_Postal_Code>17491</Zip_Postal_Code>
+    <Country>Germany</Country>
+    <Company_WebSite_URL>http://bbantispam.com/</Company_WebSite_URL>
+    <Contact_Info>
+      <Author_First_Name>Oleg</Author_First_Name>
+      <Author_Last_Name>Parashchenko</Author_Last_Name>
+      <Author_Email>pad@bbantispam.com</Author_Email>
+      <Contact_First_Name>Oleg</Contact_First_Name>
+      <Contact_Last_Name>Parashchenko</Contact_Last_Name>
+      <Contact_Email>pad@bbantispam.com</Contact_Email>
+    </Contact_Info>
+    <Support_Info>
+      <Sales_Email>pad@bbantispam.com</Sales_Email>
+      <Support_Email>pad@bbantispam.com</Support_Email>
+      <General_Email>pad@bbantispam.com</General_Email>
+      <Sales_Phone>-------</Sales_Phone>
+      <Support_Phone>-------</Support_Phone>
+      <General_Phone>-------</General_Phone>
+      <Fax_Phone>-------</Fax_Phone>
+    </Support_Info>
+  </Company_Info>
+  <Program_Info>
+    <Program_Name>bbAntiSpam</Program_Name>
+    <Program_Version>1.0.2</Program_Version>
+    <Program_Release_Month>06</Program_Release_Month>
+    <Program_Release_Day>27</Program_Release_Day>
+    <Program_Release_Year>2006</Program_Release_Year>
+    <Program_Cost_Dollars>29.97</Program_Cost_Dollars>
+    <Program_Type>Shareware</Program_Type>
+    <Program_Release_Status>New Release</Program_Release_Status>
+    <Program_Install_Support>No Install Support</Program_Install_Support>
+    <Program_OS_Support>Not Applicable</Program_OS_Support>
+    <Program_Language>English,Russian</Program_Language>
+    <File_Info>
+      <Filename_Versioned>bbas101.zip</Filename_Versioned>
+      <Filename_Previous>bbas100.zip</Filename_Previous>
+      <Filename_Generic>bbas.zip</Filename_Generic>
+      <Filename_Long>bbAntiSpam_1_0_1.zip</Filename_Long>
+      <File_Size_Bytes>11000</File_Size_Bytes>
+      <File_Size_K>11</File_Size_K>
+      <File_Size_MB>0.01</File_Size_MB>
+    </File_Info>
+    <Expire_Info>
+      <Has_Expire_Info>n</Has_Expire_Info>
+    </Expire_Info>
+    <Program_Change_Info></Program_Change_Info>
+    <Program_Category_Class>Security &amp; Privacy::Anti-Spam &amp; Anti-Spy Tools</Program_Category_Class>
+    <Program_Specific_Category>Internet</Program_Specific_Category>
+    <Program_Categories>Communications::Chat &amp; Instant Messaging,Communications::Other Comms Tools,Network &amp; Internet::Ad Blockers,Security &amp; Privacy::Anti-Spam &amp; Anti-Spy Tools,Servers::Other Server Applications</Program_Categories>
+    <Program_System_Requirements>phpBB 2.0.17</Program_System_Requirements>
+  </Program_Info>
+  <Program_Descriptions>
+    <English>
+      <Keywords>phpBB,spam,antispam,bot,phpbb</Keywords>
+      <Char_Desc_45>Antispam for the phpBB forum.</Char_Desc_45>
+      <Char_Desc_80>Antispam for the phpBB forum. Anonymous spammers can't post links to sites.</Char_Desc_80>
+      <Char_Desc_250>Antispam for the phpBB forum. Unregistered users can't post contact information. It works because spammers can no longer submit links to raise their site's traffic and position in search engines.</Char_Desc_250>
+      <Char_Desc_450>Antispam for the phpBB forum. Unregistered users can't post contact information. It works because spammers can no longer submit links to raise their site's traffic and position in search engines. No links allowed will give them no opportunity to spam.</Char_Desc_450>
+      <Char_Desc_2000>====bbAntiSpam: phpBB antispam solution====        Unregistered users can't post contact information. That's all.        It works because spammers submit links to raise their sites in search engines. No links allowed will give them no opportunity to spam.        ====Start now====        Download bbAntiSpam for free and install it as described in install.txt. The total time to install takes less than 1 minute. And you can install it in one-click with EasyMOD.        Do you like the program? Buy it now for $29.97!        Have questions? Ask in the forum.        ====Increase your forum popularity====        * Your goal: increase phpBB forum activity        * Pre-solution: allow guest posts        * Problem: spam messages        * Solution: install bbAntiSpam        ====Testimonials====        "My competitor's forum was much more active than mine. After spam bot attacks, he switched off guest posts, and I installed bbAntiSpam. Now my forum is more popular than his entire site! Thanks bbAntiSpam!" -- bbAntiSpam author        Share your success story.        ====Free version====        Use bbAntiSpam for free, if you want. Your users will not notice it. In exchange, each time a spam post is detected, the free bbAntiSpam sends a notification to the forum admin AND TO US. The reasons for this are the following:        * we collect statistics to release a new version based on content analysis        * letters help you to understand how much time you have saved        Privacy Policy: We do not disclose your individual information to any other company. We collect aggregate statistics on spam texts and spammers' IPs. We may publish or share this aggregate information with other companies. This aggregate data, by its nature, will not reveal your identity.        ====More reasons to buy====        No more wasted hours sorting spam and no more dissatisfaction. Buy bbAntiSpam to get        * more free time        * a good feeling        * forum popularity</Char_Desc_2000>
+    </English>
+  </Program_Descriptions>
+  <Web_Info>
+    <Application_URLs>
+      <Application_Info_URL>http://bbantispam.com/</Application_Info_URL>
+      <Application_Order_URL>http://bbantispam.com/?mode=register</Application_Order_URL>
+      <Application_Screenshot_URL>http://bbantispam.com/bbas_screenshot.png</Application_Screenshot_URL>
+      <Application_Icon_URL>http://bbantispam.com/bbas_icon.png</Application_Icon_URL>
+      <Application_XML_File_URL>http://bbantispam.com/bbas_pad.xml</Application_XML_File_URL>
+    </Application_URLs>
+    <Download_URLs>
+      <Primary_Download_URL>http://bbantispam.com/bbAntiSpam.zip</Primary_Download_URL>
+    </Download_URLs>
+  </Web_Info>
+  <Permissions>
+    <Distribution_Permissions>Distribution is allowed as long as the distribution package is not altered.</Distribution_Permissions>
+    <EULA>http://www.gnu.org/copyleft/gpl.html</EULA>
+  </Permissions>
+</XML_DIZ_INFO>

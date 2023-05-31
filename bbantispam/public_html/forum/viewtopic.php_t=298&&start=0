@@ -1,0 +1,542 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Installation of textual confirmation mod</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=298">Installation of textual confirmation mod</a></p>
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=298&amp;&amp;start=15">2</a>&nbsp;&nbsp;<a href="viewtopic.php?t=298&amp;&amp;start=15">Next</a></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="991"></a><b>mercury_be@hotmail.com</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 28, 2007 12:00 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Installation of textual confirmation mod</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello i have installed this mod, but i can't view the options of textual confirmation in the admin control panel, why ?
+<br />
+
+<br />
+i have controlled 3 times and i can't see the options...
+<br />
+
+<br />
+Help me please <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />
+<br />
+
+<br />
+<a href="mailto:Mercury_be@hotmail.com">Mercury_be@hotmail.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="997"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 28, 2007 3:45 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Please check that you have copied the file &quot;admin/admin_tc.php&quot; to the folder &quot;admin&quot;.
+<br />
+
+<br />
+Do you have the entry &quot;textual confirmation&quot; in the left frame of the administration panel?<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="998"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 28, 2007 7:10 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">hello yes the file is in the folder admin... and i have nothing in the left of the control panel, look : 
+<br />
+
+<br />
+<img src="http://img136.imageshack.us/img136/9206/controlehl2.jpg" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="999"></a><b>Mercury_be</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 11<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 28, 2007 7:26 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">hello yes the file is in the folder admin... and i have nothing in the left of the control panel, look : 
+<br />
+
+<br />
+<img src="http://img136.imageshack.us/img136/9206/controlehl2.jpg" border="0" /><br />_________________<br />oufti</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1008"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 29, 2007 2:38 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Very interesting. What happens if you point your browser to such address:
+<br />
+
+<br />
+<a href="http://" target="_blank">http://</a> your forum domain/path to forum/admin/admin_tc.php
+<br />
+
+<br />
+?
+<br />
+
+<br />
+Also, please show contents of the file &quot;language/lang_french/lang_tc.php&quot;.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1013"></a><b>Mercury_be</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 11<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 29, 2007 8:40 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Very interesting. What happens if you point your browser to such address:
+<br />
+
+<br />
+<a href="http://" target="_blank">http://</a> your forum domain/path to forum/admin/admin_tc.php
+<br />
+
+<br />
+?
+<br />
+
+<br />
+Also, please show contents of the file &quot;language/lang_french/lang_tc.php&quot;.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+error 404... but the file is on the good place i'm sure....and i have the translation of language/lang_french/lang_tc.php i have tested with the english version, french version... the menu on the panel admin, never appear
+<br />
+
+<br />
+i don't understand why... i have verifiyng all the points of the install, and all is ok...
+<br />
+
+<br />
+you can find the modified files<a href="http://myspace.voo.be/gilleric/antirobot/erreur.rar" target="_blank" class="postlink"> HERE </a>
+<br />
+
+<br />
+the code ;</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;?php 
+<br />
+/*************************************************************************** 
+<br />
+&nbsp;*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lang_tc.php &#91;Français&#93; 
+<br />
+&nbsp;*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ------------------- 
+<br />
+&nbsp;*&nbsp; &nbsp;begin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#58; Thursday, Oct 19, 2006 
+<br />
+&nbsp;*&nbsp; &nbsp;copyright&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#58; tran quoc minh 
+<br />
+&nbsp;*&nbsp; &nbsp;email&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#58; <a href="mailto:tranquocminh@gmail.com">tranquocminh@gmail.com</a> 
+<br />
+&nbsp;* 
+<br />
+&nbsp;*&nbsp; &nbsp;$Id&#58; lang_tc.php 1198 2006-10-29 04&#58;31&#58;35Z olpa $ 
+<br />
+&nbsp;* 
+<br />
+&nbsp;***************************************************************************/ 
+<br />
+
+<br />
+/*************************************************************************** 
+<br />
+&nbsp;* 
+<br />
+&nbsp;*&nbsp; &nbsp;This program is free software; you can redistribute it and/or modify 
+<br />
+&nbsp;*&nbsp; &nbsp;it under the terms of the GNU General Public License as published by 
+<br />
+&nbsp;*&nbsp; &nbsp;the Free Software Foundation; either version 2 of the License, or 
+<br />
+&nbsp;*&nbsp; &nbsp;&#40;at your option&#41; any later version. 
+<br />
+&nbsp;* 
+<br />
+&nbsp;***************************************************************************/ 
+<br />
+
+<br />
+$lang&#91;'tc_bad_answer'&#93;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 'Mauvaise réponse à la question de Confirmation Textuelle &#40;antispam&#41;.'; 
+<br />
+$lang&#91;'tc_explain'&#93;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 'Répondez à la question de Confirmation Textuelle &#40;antispam&#41; pour prouver que vous êtes un humain et non un robot spammeur.'; 
+<br />
+$lang&#91;'tc_mail_subject'&#93;&nbsp; &nbsp; &nbsp; &nbsp;= 'Tentative de spam sur votre forum phpBB'; 
+<br />
+$lang&#91;'Textual_Confirmation'&#93;&nbsp; = 'Confirmation textuelle'; 
+<br />
+$lang&#91;'tc_admin_dup_question'&#93; = &quot;&lt;p&gt;Question redondante&#58; '%s'.&lt;/p&gt;\n&quot;; 
+<br />
+$lang&#91;'tc_admin_cant_parse'&#93;&nbsp; &nbsp;= &quot;&lt;p&gt;Impossible d'identifier les questions/réponses &#58; '%s'.&lt;/p&gt;\n&quot;; 
+<br />
+$lang&#91;'tc_admin_question_saved'&#93;&nbsp; &nbsp;= &quot;&lt;p&gt;Question enregistrée&#58; '%s'.&lt;/p&gt;\n&quot;; 
+<br />
+$lang&#91;'tc_admin_question_deleted'&#93; = &quot;&lt;p&gt;Ancienne&#40;s&#41; question&#40;s&#41; effacée&#40;s&#41;&#58;%s&lt;/p&gt;\n&quot;; 
+<br />
+$lang&#91;'tc_admin_database_updated'&#93; = &quot;&lt;p&gt;Base de données mise à jour.&lt;/p&gt;\n&quot;; 
+<br />
+$lang&#91;'tc_admin_explanation'&#93;&nbsp; &nbsp; &nbsp; = &quot;&lt;p&gt;Séparez les blocs de questions/réponses par une ligne vide. Dans chaque bloc, la première ligne est une question, les lignes suivantes sont les réponses correctes attendues. Le formatage de la question doit être compatible avec le HTML. Les majuscules / minuscules ne sont pas prises en compte dans les réponses.&lt;/p&gt;\n&quot;; 
+<br />
+
+<br />
+?&gt;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+
+<br />
+ 
+<br />
+the file : 
+<br />
+
+<br />
+<img src="http://img241.imageshack.us/img241/857/admintcfz4.jpg" border="0" /><img src="http://img292.imageshack.us/img292/7594/image1ik3.jpg" border="0" /><br />_________________<br />oufti</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1018"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 30, 2007 2:16 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">error 404... but the file is on the good place i'm sure....</td>	</tr></table><span class="postbody">
+<br />
+Mysterious.
+<br />
+
+<br />
+Would you please try another FTP-client and re-upload the files on the server?
+<br />
+
+<br />
+By the way, what's your forum URL?<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1024"></a><b>Mercury_be</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 11<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 31, 2007 1:49 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">i have try to posts the files with the ftp application of Dreamweave too... no more news...
+<br />
+
+<br />
+the adress is <a href="http://histiocytose-x.be/forum/portal.php" target="_blank">http://histiocytose-x.be/forum/portal.php</a>
+<br />
+
+<br />
+thank you <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" /><br />_________________<br />oufti</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1029"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 31, 2007 2:55 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Did you try to install other MODs?
+<br />
+
+<br />
+It might be possible, the hoster configured the web server in such a way, that the server doesn't look at your forum files, but uses the predefined common files. Please ask the hoster:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I put the file &quot;.../admin_tc.php&quot;, but when I open the URL it in browser, I get &quot;file not found&quot; error. Why it is so?</td>	</tr></table><span class="postbody">
+<br />
+Please report results!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1031"></a><b>Mercury_be</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 11<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 31, 2007 11:27 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">ok i send the question now to hosteur.. and the anxwer is... </span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">i don't no why... try to send the file with another FTP client... </td>	</tr></table><span class="postbody"> you know i have tried...
+<br />
+
+<br />
+and i have the &quot;portal mod&quot;, &quot;php chat &quot;and hes works perfectly...<br />_________________<br />oufti</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1035"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 01, 2007 2:13 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">It's pity the hoster haven't helped.
+<br />
+
+<br />
+Ok, let's try step-by-step.
+<br />
+
+<br />
+1) Create the file &quot;i.php&quot;:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&lt;?php
+<br />
+phpinfo&#40;&#41;;
+<br />
+?&gt;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+2) Upload the file to the root directory of the site
+<br />
+3) Open <a href="http://histiocytose-x.be/i.php" target="_blank">http://histiocytose-x.be/i.php</a> in browser
+<br />
+4) Copy/paste the text from the browser window to here<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1044"></a><b>Mercury_be</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 11<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Apr 02, 2007 1:21 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">simple.... <a href="http://www.hosteur.com/index-introuvable-404.html" target="_blank">http://www.hosteur.com/index-introuvable-404.html</a>
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">error 404...</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+illogical, why 404 ? the file is on the root of the site...<br />_________________<br />oufti</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1050"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Apr 03, 2007 2:18 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">illogical, why 404 ? the file is on the root of the site...</td>	</tr></table><span class="postbody">
+<br />
+It seems I can't help with it... You have to blame the hoster until he helped you.
+<br />
+
+<br />
+Is it possible that path to the site files are changed recently? So, the root is not &quot;/www/...&quot;, but something like &quot;/home/user/www...&quot;.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1057"></a><b>Mercury_be</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 11<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Apr 03, 2007 10:39 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I find the solution !!
+<br />
+
+<br />
+Hosteur have made many change... and the FTP site has moved, the site is in an other FTP site i have sending manually the files with cpanel ans the mods works PERFECTLY !!!
+<br />
+
+<br />
+thank you for your help and sorry for the troubles....
+<br />
+
+<br />
+Can i make a link to your site in the &quot;friend list&quot; ?
+<br />
+
+<br />
+Eric
+<br />
+
+<br />
+<a href="http://www.histiocytose-x.be" target="_blank">www.histiocytose-x.be</a><br />_________________<br />oufti</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1058"></a><b>Mercury_be</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 11<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Apr 03, 2007 3:47 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">This mod is the greatest, simply and performant !!!
+<br />
+
+<br />
+Congratulations !!!!<br />_________________<br />oufti</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=298&amp;&amp;start=15">2</a>&nbsp;&nbsp;<a href="viewtopic.php?t=298&amp;&amp;start=15">Next</a></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

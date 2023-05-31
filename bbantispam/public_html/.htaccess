@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteRule bbAntiSpam.zip http://bbantispam.com/lr/LinksRejector.zip [L,R]
+RewriteRule bbas100.zip http://bbantispam.com/lr/LinksRejector.zip [L,R]
+RewriteRule bbas101.zip http://bbantispam.com/lr/LinksRejector.zip [L,R]
+RewriteRule bbas101.zip http://bbantispam.com/lr/LinksRejector.zip [L,R]
+RewriteRule bbas090.zip http://bbantispam.com/lr/LinksRejector.zip [L,R]
+RewriteRule bbas.zip http://bbantispam.com/lr/LinksRejector.zip [L,R]

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Problem with installing ATC - No forum</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=631">Problem with installing ATC - No forum</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2249"></a><b>Nick P</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Oct 22, 2008 11:25 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Problem with installing ATC - No forum</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I have downloaded the two files bbantispam.php and and bbas_config.php to my provider. (With no change)
+<br />
+I have modified my url test.htm by including one line at beginning. See below
+<br />
+I have downloaded test.htm to provider
+<br />
+When I test test.htm I see no change. I can enter as before and I receive
+<br />
+an e-mail. What is wrong ?
+<br />
+
+<br />
+Nicolaas Vroom
+<br />
+
+<br />
+url: test.htm
+<br />
+&lt;?php include_once 'bbantispam.php'; ?&gt;
+<br />
+&lt;html&gt;
+<br />
+&lt;head&gt;
+<br />
+&lt;title&gt; Spam test&lt;/title&gt; &lt;link rev=&quot;made&quot; href=&quot;mailto:nick@****.be&quot;&gt;
+<br />
+&lt;META name=&quot;description&quot; content=&quot;spam test&quot;&gt;
+<br />
+&lt;META name=&quot;keywords&quot; content=&quot;Spam test&quot;&gt;
+<br />
+&lt;/head&gt;
+<br />
+&lt;body&gt;
+<br />
+&lt;h2&gt; Comments Form&lt;/h2&gt;
+<br />
+&lt;FORM name=&quot;form&quot; METHOD=&quot;POST&quot; ACTION=&quot;/cgi-bin/form.cgi&quot;&gt;
+<br />
+&lt;input type=&quot;hidden&quot; name=&quot;DEBUG&quot; value=&quot;0&quot;&gt;
+<br />
+&lt;input type=&quot;hidden&quot; name=&quot;MAILFILE&quot; value=&quot;/nick/spam_ff.txt&quot;&gt;
+<br />
+&lt;input type=&quot;hidden&quot; name=&quot;MAILTO&quot; value=&quot;nick@****.be&quot;&gt;
+<br />
+&lt;input type=&quot;hidden&quot; name=&quot;REPLYFAULT&quot; value=&quot;/nick/indexx.htm&quot;&gt;
+<br />
+&lt;input type=&quot;hidden&quot; name=&quot;REPLYOK&quot; value=&quot;/nick/spamreply.htm&quot;&gt;
+<br />
+&lt;input type=&quot;hidden&quot; name=&quot;MAILFROM&quot; value=&quot;standard form&quot;&gt;
+<br />
+&lt;LI&gt; Firstname: 
+<br />
+&lt;DD&gt;&lt;input type=&quot;text&quot; size=&quot;20&quot; name=&quot;firstname&quot;&gt;&lt;/DT&gt;
+<br />
+&lt;/ol&gt;
+<br />
+&lt;CENTER&gt;
+<br />
+If you have answered all the questions, select: 
+<br />
+&lt;input type=submit value=&quot; SUBMIT &quot;&gt; .
+<br />
+&lt;p&gt;
+<br />
+If you want to clear the form, select:
+<br />
+&lt;input type=reset value=&quot; RESET &quot;&gt; .
+<br />
+&lt;/CENTER&gt;
+<br />
+&lt;/FORM&gt;</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2250"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Oct 23, 2008 3:33 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello Nick,
+<br />
+
+<br />
+the form is processed not in &quot;test.html&quot;, but in &quot;/cgi-bin/form.cgi&quot;, therefore changes in the former file brings nothing. And I'm afraid that the latter file isn't programmed in PHP, therefore Advanced Textual Confirmation can't help you.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2254"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Oct 24, 2008 2:49 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello Oleg,
+<br />
+
+<br />
+Thanks for your quick reply. I was already under the impression that your tool could not solve my problem and that of the many people who use the same method as I do. I will contact my internet provider to see if they can help us. Thanks.
+<br />
+
+<br />
+Nicolaas Vroom</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

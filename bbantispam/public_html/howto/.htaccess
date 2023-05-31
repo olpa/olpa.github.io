@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^forum$ http://bbantispam.com/forum/viewtopic.php?t=27 [L,R]

@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Dutch language file</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=571">Dutch language file</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2016"></a><b>Peter</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Apr 09, 2008 9:59 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Dutch language file</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Just installed bbantispam and I like it. Translated the language file into Dutch, with one minor alteration: legitemate non-registered userd will not only get an error message, but also a direct link to the registration page.
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&lt;?php
+<br />
+/***************************************************************************
+<br />
+&nbsp;*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lang_bbas.php &#91;Nederlands &#40;Dutch&#41;&#93;
+<br />
+&nbsp;*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -------------------
+<br />
+&nbsp;*&nbsp; &nbsp;begin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#58; Thursday, Apr 6, 2006
+<br />
+&nbsp;*&nbsp; &nbsp;copyright&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#58; &#40;C&#41; 2006 bbAntiSpam
+<br />
+&nbsp;*&nbsp; &nbsp;email&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#58; <a href="mailto:support@bbantispam.com">support@bbantispam.com</a>
+<br />
+&nbsp;*&nbsp; &nbsp;translation&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#58; Peter Koster
+<br />
+&nbsp;*&nbsp; &nbsp;$Id&#58; lang_bbas.php 410 2006-06-27 04&#58;05&#58;16Z olpa $
+<br />
+&nbsp;*
+<br />
+&nbsp;***************************************************************************/
+<br />
+
+<br />
+/***************************************************************************
+<br />
+&nbsp;*
+<br />
+&nbsp;*&nbsp; &nbsp;This program is free software; you can redistribute it and/or modify
+<br />
+&nbsp;*&nbsp; &nbsp;it under the terms of the GNU General Public License as published by
+<br />
+&nbsp;*&nbsp; &nbsp;the Free Software Foundation; either version 2 of the License, or
+<br />
+&nbsp;*&nbsp; &nbsp;&#40;at your option&#41; any later version.
+<br />
+&nbsp;*
+<br />
+&nbsp;***************************************************************************/
+<br />
+//change the link below - make it link to your own forum registration page
+<br />
+//verander de link in hieronder in de link naar de registratiepagina van je eigen forum
+<br />
+$lang&#91;'bbas.guest_contacts_forbidden'&#93; = 'Links kunnen alleen geplaatst worden door geregistreerde gebruikers.&lt;br&gt; &lt;a href=\&quot;http&#58;//www.mysite.nl/phpBB2/profile.php?mode=register\&quot;&gt;Klik hier om te registreren&lt;/a&gt;';
+<br />
+$lang&#91;'bbas.mail.content'&#93; = &lt;&lt;&lt;EOT
+<br />
+Onderwerp&#58; &#123;SUBJECT&#125;
+<br />
+Charset&#58; iso-8859-1
+<br />
+
+<br />
+&#123;UNREG&#125;bbAntiSpam denkt een spambericht onderschept te hebben. Links zijn niet toegestaan&#58;
+<br />
+
+<br />
+&#123;LINKS&#125;
+<br />
+De tekst van het bericht.
+<br />
+=======================
+<br />
+
+<br />
+Gebruikersnaam&#58; &#123;NAME&#125;, onderwerp&#58; &#123;SUBJ&#125;
+<br />
+
+<br />
+&#123;TEXT&#125;
+<br />
+
+<br />
+Server data
+<br />
+===========
+<br />
+
+<br />
+&#123;SERVER&#125;
+<br />
+
+<br />
+-- 
+<br />
+bbAntiSpam, http&#58;//bbantispam.com/
+<br />
+EOT;
+<br />
+$lang&#91;'bbas.mail.subject'&#93; = 'phpBB spam';
+<br />
+$lang&#91;'bbas.mail.unreg'&#93;&nbsp; &nbsp;= &quot;Je gebruikt de ongeregistreerde versie van bbAntiSpam.\nDeze boodschap wordt ook NAAR ONS gezonden om onze spam database aan te vullen.\nOm te voorkomen dat wij deze informatie krijgen, kun je je hier registreren&#58;\nhttp&#58;//bbantispam.com/?mode=register\n\n&quot;;
+<br />
+
+<br />
+?&gt;
+<br />
+</td>	</tr></table><span class="postbody">[/code]</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

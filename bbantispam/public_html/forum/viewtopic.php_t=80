@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - FAQ: The best questions for the registration page</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=80">FAQ: The best questions for the registration page</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="447"></a><b>mischa</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 13 Nov 2006<br />Posts: 11<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Dec 03, 2006 11:37 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: FAQ: The best questions for the registration page</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Might be a good idea to start a topic where people post the questions that they ask their potential users. I think it's always good to look at others creativity <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />
+<br />
+
+<br />
+My questions in addition to the standard ones:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Are you a spambot?
+<br />
+What year is it?
+<br />
+What is 2 + 2?
+<br />
+What is 4 * 4?
+<br />
+What is the domain that the forum is hosted on?</td>	</tr></table><span class="postbody"></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="451"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Dec 04, 2006 4:38 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Are you a spambot?</td>	</tr></table><span class="postbody">
+<br />
+It seems yes/no questions are not very good. They are too easy for half-manual half-automatical spam registrations.
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">What is 4 * 4?</td>	</tr></table><span class="postbody">
+<br />
+I tried math formulas, but gave up. The problem is the additional &quot;*&quot; at the end that identifies the required field. The question string becomes &quot;What is 4 * 4? *&quot;, which looks a bit confising.
+<br />
+
+<br />
+At the moment, I recommend to use something like:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">What's the forum pass code (see &lt;a href=&quot;faq.php&quot;&gt;FAQ&lt;/a&gt;)?</td>	</tr></table><span class="postbody">
+<br />
+(Don't forget to edit faq.php to add the pass code.)
+<br />
+
+<br />
+Meanwhile, Google already indexed some <a href="http://www.google.com/search?hl=en&amp;q=%22answer+the+textual+confirmation%22&amp;btnG=Google+Search" target="_blank" class="postlink">TC-protected forums</a>.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="453"></a><b>mischa</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 13 Nov 2006<br />Posts: 11<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Dec 04, 2006 7:49 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Good idea, the FAQ thing.
+<br />
+I didn't realize that I didn't have a robots.txt on this site. Let's see if that helps.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="455"></a><b>asuter</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 29 Nov 2006<br />Posts: 9<br />Location: Fribourg, Switzerland</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Dec 06, 2006 11:12 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Great idea, BUT...
+<br />
+
+<br />
+...hey mischa, are you writing spam software? I mean, if we collect all possible questions here (who knows), a spammer simply has to look at this topic and write down all the question-answer pairs.
+<br />
+
+<br />
+<span style="font-weight: bold">DANGEROUS!!!!</span>
+<br />
+
+<br />
+By the way <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />, if you want to use math formulas, try to write them down in words: For example (2 * 2) becomes (two times two), (3 - 5) becomes (three minus five), and so on. Just an idea.
+<br />
+
+<br />
+Greetings
+<br />
+Adrian</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="461"></a><b>mischa</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 13 Nov 2006<br />Posts: 11<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Dec 09, 2006 10:08 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">After I wrote the post I thought about the same... but I think using google to get the questions is probably easier.... <img src="images/smiles/icon_sad.gif" alt="Sad" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="465"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Dec 11, 2006 3:50 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">a spammer simply has to look at this topic and write down all the question-answer pairs. </td>	</tr></table><span class="postbody">
+<br />
+I hope the cost of adding such functionality outweights the benefits, therefore spammers will not implement it.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="505"></a><b>carolyn81</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 22 Dec 2006<br />Posts: 2<br />Location: Washington, D.C.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Dec 22, 2006 10:59 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">My questions, aside from the default &quot;are you human&quot; and &quot;say hello&quot; are:
+<br />
+
+<br />
+- Pick a number from 1 through 9
+<br />
+- What letter does your first name begin with
+<br />
+- What year is it
+<br />
+- What month is it
+<br />
+- What is the hour
+<br />
+
+<br />
+Any valid answer will work.<br />_________________<br /><a href="http://forum.annieverse.com" target="_blank" class="postlink">Come Together</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1068"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Apr 05, 2007 4:11 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"><a href="http://www.phpbb.com/community/viewtopic.php?f=15&amp;t=472940&amp;p=2913940#p2913709" target="_blank" class="postlink">Recommendations</a> from the phpBB.com forum:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+Just a thought. In order to ensure that a valid human user doesn't get denied because they lack information, you could include the answer as a statement within your question, and reference it (in a roundabout way). If at all possible, each statement should contain the possibility of at least two question/answers.
+<br />
+
+<br />
+For instance:
+<br />
+
+<br />
+Q: &quot;Mary had a little lamb, it's fleece was white as snow.&quot; What is the color of Mary's pet?
+<br />
+A: white
+<br />
+Q: &quot;Mary had a little lamb, it's fleece was white as snow.&quot; What is Mary's pet?
+<br />
+A: lamb
+<br />
+
+<br />
+or
+<br />
+
+<br />
+Q: Jonathan said &quot;I believe I would like tea with dinner.&quot; What is Jonathan drinking?
+<br />
+A: tea
+<br />
+Q: Jonathan said &quot;I believe I would like tea with dinner.&quot; What meal is Jonathan eating?
+<br />
+A: dinner
+<br />
+Q: Jonathan said &quot;I believe I would like tea with dinner.&quot; Who is eating a meal??
+<br />
+A: Jonathan
+<br />
+
+<br />
+These sorts of questions assume no prior knowlege on the part of the reader, but they do assume enough intelligence to infer an answer.
+<br />
+</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1082"></a><b>Steve</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 07 Apr 2007<br />Posts: 1<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Apr 07, 2007 3:22 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I like this solution the best, but I added color to the correct answer in the statement. 
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"><a href="http://www.phpbb.com/community/viewtopic.php?f=15&amp;t=472940&amp;p=2913940#p2913709" target="_blank" class="postlink">Recommendations</a> from the phpBB.com forum:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+Just a thought. In order to ensure that a valid human user doesn't get denied because they lack information, you could include the answer as a statement within your question, and reference it (in a roundabout way). If at all possible, each statement should contain the possibility of at least two question/answers.
+<br />
+
+<br />
+For instance:
+<br />
+
+<br />
+Q: &quot;Mary had a little lamb, it's fleece was white as snow.&quot; What is the color of Mary's pet?
+<br />
+A: white
+<br />
+Q: &quot;Mary had a little lamb, it's fleece was white as snow.&quot; What is Mary's pet?
+<br />
+A: lamb
+<br />
+
+<br />
+or
+<br />
+
+<br />
+Q: Jonathan said &quot;I believe I would like tea with dinner.&quot; What is Jonathan drinking?
+<br />
+A: tea
+<br />
+Q: Jonathan said &quot;I believe I would like tea with dinner.&quot; What meal is Jonathan eating?
+<br />
+A: dinner
+<br />
+Q: Jonathan said &quot;I believe I would like tea with dinner.&quot; Who is eating a meal??
+<br />
+A: Jonathan
+<br />
+
+<br />
+These sorts of questions assume no prior knowlege on the part of the reader, but they do assume enough intelligence to infer an answer.
+<br />
+</td>	</tr></table><span class="postbody"></td>	</tr></table><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code"></td>	</tr></table><span class="postbody"></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1086"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Apr 08, 2007 3:44 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Unfortunately, the last post is corrupted. Steve, would you please correct it?<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1869"></a><b>hirzel75</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 14 Dec 2007<br />Posts: 3<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Dec 15, 2007 9:09 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">i think the best question could be the contextual one. 
+<br />
+
+<br />
+For example, in this pag3e, a good question could be:
+<br />
+
+<br />
+Which is the second word, after creating, in the logo?
+<br />
+
+<br />
+n other solutions, obviously, is asking something of very common or connected with the activity of the BB.
+<br />
+
+<br />
+Example:
+<br />
+
+<br />
+What's our president name?
+<br />
+What is the subject of this forum? (es. videogames)
+<br />
+
+<br />
+Or something really stupid.
+<br />
+
+<br />
+Which is the human's best friend?
+<br />
+
+<br />
+
+<br />
+Perrsonally, using my BB for University Community i ask about the building location, the informative rsources, our principal's name. It seeme to work! <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+Luca
+<br />
+
+<br />
+
+<br />
+Luca</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1875"></a><b>k72ndst</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 13 Dec 2007<br />Posts: 5<br />Location: New York, NY, USA</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Dec 18, 2007 4:57 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I like Luca's idea a lot. I ask local sports questions. If you know the team, it helps to get the answer right!
+<br />
+
+<br />
+ <img src="images/smiles/icon_cool.gif" alt="Cool" border="0" /> 
+<br />
+
+<br />
+kevin
+<br />
+<a href="http://nycbp.com" target="_blank">http://nycbp.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1927"></a><b>Itchy</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Feb 08, 2008 10:55 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Its horses for courses
+<br />
+
+<br />
+Im English and so my forum its only for the english ....so really i dont want anybody who cant read or speak english so for that forum the question are about England things that an english person would know <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />  but for other forums id used questions based around the forum...... you can of course alway leave the answers to the question in the forum rules as this is the last place any self respecting spammer would be seen in 
+<br />
+e.g  
+<br />
+
+<br />
+Q pinkbibble  A well sure it is
+<br />
+Q jibberjabber A you what
+<br />
+
+<br />
+so th TC would just show jibberjabber and the user would have to put in well sure it is
+<br />
+Just change the lang file telling user its a wise idea to read the forum rules 1st <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2242"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Oct 07, 2008 3:49 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Good idea and wonderful implementation: <a href="http://bbantispam.com/forum/viewtopic.php?p=2239#2239" target="_blank" class="postlink">http://bbantispam.com/forum/viewtopic.php?p=2239#2239</a>.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

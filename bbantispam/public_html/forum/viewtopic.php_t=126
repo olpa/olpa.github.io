@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - pb to have TC work with template different from subsilver</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=126">pb to have TC work with template different from subsilver</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="598"></a><b>qwerty</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 09 Jan 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jan 09, 2007 10:41 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: pb to have TC work with template different from subsilver</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello, 
+<br />
+
+<br />
+Here is my my problem:  
+<br />
+I've been using textual confirmation for 2 weeks and it's been doing great. I used to go by basic subsilver. 
+<br />
+Only, I added recently a new template (ashfuel  <a href="http://demo.forumshotel.org/demo/index.php?s=80&amp;mforum=demo" target="_blank">http://demo.forumshotel.org/demo/index.php?s=80&amp;mforum=demo</a>
+<br />
+), and since then, the Textual confirmation question has disappeared from the registration form, and all users trying to register are rejected for &quot;failing to answer the TC Q&quot;!!! <img src="images/smiles/icon_cry.gif" alt="Crying or Very sad" border="0" /> 
+<br />
+What  can I do to fix it?
+<br />
+
+<br />
+thank you!  
+<br />
+(I know that I've just asked this question to the author of TC, sorry.)
+<br />
+PS: I've installed textual confirmation with Easymod</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="599"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jan 10, 2007 4:18 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">added recently a new template ... and since then, the Textual confirmation question has disappeared from the registration form ...
+<br />
+What can I do to fix it?</td>	</tr></table><span class="postbody">
+<br />
+A bit of manual work is required.
+<br />
+
+<br />
+1) Copy the file &quot;<span style="font-weight: bold">templates/subSilver/admin/textual_confirmation.tpl</span>&quot; to the file &quot;<span style="font-weight: bold">templates/<span style="font-style: italic">your_template_name</span>/admin/textual_confirmation.tpl</span>&quot;.
+<br />
+
+<br />
+2) In the new template, find the file &quot;<span style="font-weight: bold">templates/<span style="font-style: italic">your_template_name</span>/profile_add_body.tpl</span>&quot;.
+<br />
+
+<br />
+Edit the file: find the string
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;!-- END switch_confirm --&gt;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+and after the string, add the following:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&nbsp; &nbsp;&lt;!-- BEGIN switch_textual_confirm --&gt;
+<br />
+&nbsp; &nbsp;&lt;tr&gt; 
+<br />
+&nbsp; &nbsp;&nbsp; &lt;td class=&quot;row1&quot;&gt;&lt;span class=&quot;gen&quot;&gt;&#123;TEXTUAL_CONFIRMATION_QUESTION&#125; * &lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;gensmall&quot;&gt;&#123;L_TEXTUAL_CONFIRMATION_EXPLAIN&#125;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&nbsp; &lt;td class=&quot;row2&quot;&gt;&lt;input type=&quot;text&quot; class=&quot;post&quot; style=&quot;width&#58; 200px&quot; name=&quot;tc_answer&quot; size=&quot;25&quot; value=&quot;&quot; /&gt;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&lt;/tr&gt;
+<br />
+&nbsp; &nbsp;&lt;!-- END switch_textual_confirm --&gt;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Then check that TC works well in the both cases:
+<br />
+* when an user successfully answers a qeustions, and
+<br />
+* when a bot fails to answer.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I know that I've just asked this question to the author of TC.</td>	</tr></table><span class="postbody">
+<br />
+This forum is exactly the place to ask the author of TC, so you are right.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="605"></a><b>qwerty</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 09 Jan 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jan 10, 2007 8:28 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thank you for the fast reply. 
+<br />
+I followed your recommendations, and tested the registration with both a &quot;wrong&quot; and a &quot;correct&quot; confirmation, and everything works perfectly now. 
+<br />
+That trick really does wonders to keep the spamming away!
+<br />
+Thanks a lot again.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="608"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jan 11, 2007 4:17 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Nice to hear the problem is solved. Best wishes to the forum!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="654"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Jan 21, 2007 3:59 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Tnx to this post I've edited my forum and my template as well... hope it will be useful against spam <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+<span style="font-weight: bold"> I'd like to tnx all the staff here for the great job done.</span>
+<br />
+
+<br />
+MY BEST REGARDS</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

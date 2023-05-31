@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Share TC and links rejector?</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=501">Share TC and links rejector?</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1767"></a><b>FoxyLoxy</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Sep 2007<br />Posts: 5<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Oct 22, 2007 12:45 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Share TC and links rejector?</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Oleg,
+<br />
+
+<br />
+I am on the support team at phpBBHacks.com, and I was wondering if I could submit your Textual Confirmation and Links Rejector mods to the database?  When the subject of spam prevention comes up, I always like to mention your mod, but we're not supposed to link to other sites if we can help it.  If your mods were in the database, I could hook more people up with Textual Confirmation!
+<br />
+
+<br />
+Thanks,
+<br />
+
+<br />
+FoxyLoxy
+<br />
+aka Coyote</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1771"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Oct 23, 2007 1:59 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">if I could submit your Textual Confirmation and Links Rejector mods to the database?</td>	</tr></table><span class="postbody">
+<br />
+I'd be very thankful if you do it.
+<br />
+
+<br />
+Actually, phpBBHacks.com has Links Rejector (LR) under the name of just &quot;bbAntiSpam&quot;: <a href="http://phpbbhacks.com/download/6643" target="_blank" class="postlink">http://phpbbhacks.com/download/6643</a>. And I'm in doubt what to do. On the one side, I consider LR to be a failed experiment. On the other side, on one of my forums, LR works perfectly as a good protection against human spammers.
+<br />
+
+<br />
+As for TC, I submitted this MOD to the phpBBHacks.com database, but it wasn't accepted. I don't know why, and I consider it's too bad for community. Please help, if you can! The description can be taken from here: <a href="http://www.phpbb.com/phpBB/viewtopic.php?t=472940" target="_blank" class="postlink">http://www.phpbb.com/phpBB/viewtopic.php?t=472940</a>. The latest version is 1.0.7, the version on phpbb.com is 1.0.1, but it's not important: the code is the same. I was incrementing the version number each time I added a new language file. Now all the language files are put to the language pack: <a href="http://bbantispam.com/tc/tc_langpack.zip" target="_blank" class="postlink">http://bbantispam.com/tc/tc_langpack.zip</a>.
+<br />
+
+<br />
+Also I wonder if it's reasonable to submit Advanced Textual Confirmation for phpBB3. Here is the discussion on phpbb.com: <a href="http://www.phpbb.com/community/viewtopic.php?f=70&amp;t=544007" target="_blank" class="postlink">http://www.phpbb.com/community/viewtopic.php?f=70&amp;t=544007</a>.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1776"></a><b>FoxyLoxy</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Sep 2007<br />Posts: 5<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Oct 23, 2007 1:57 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hey, I like LR.  I don't consider it failed.  I use it on a couple of forums, ant it works very well.
+<br />
+
+<br />
+I don't know why they didn't accept TC and LR the first time you submitted.  I'll try submitting them again.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1778"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Oct 24, 2007 2:04 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Hey, I like LR. I don't consider it failed. I use it on a couple of forums, ant it works very well.</td>	</tr></table><span class="postbody">
+<br />
+I like LR too, and it works well on one of my forums. But there are a few principal problems. I'll talk about it in <a href="http://bbspam.com/" target="_blank" class="postlink">the blog</a>.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I don't know why they didn't accept TC and LR the first time you submitted. I'll try submitting them again.</td>	</tr></table><span class="postbody">
+<br />
+Thanks!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

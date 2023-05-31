@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Need info about X-Rumer autosubmitter?</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=72">Need info about X-Rumer autosubmitter?</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="412"></a><b>DarlersPT</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Nov 24, 2006 6:12 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Need info about X-Rumer autosubmitter?</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm looking for overview of <span style="font-weight: bold">XRUMER software</span>. 
+<br />
+Can you help me? Or give me a link to the official site of this program. 
+<br />
+ 
+<br />
+Thanks</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="416"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Nov 26, 2006 3:27 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Brief English <a href="http://bbantispam.com/howto/xxxxxr.html" target="_blank" class="postlink">summary</a> from me:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+X****r bot is your main enemy. Among other things, he can:
+<br />
+
+<br />
+    * find the forum on your site,
+<br />
+    * select the best forum category to post to,
+<br />
+    * decode many types of CAPTCHA,
+<br />
+    * pass through javascript protection,
+<br />
+    * complete email verification,
+<br />
+    * create accounts on free mail services.
+<br />
+
+<br />
+Fortunately, X****r is quite expensive and his site isn't translated to English yet.
+<br />
+
+<br />
+Recommendation: if you write your own protection, expect that spam bots are smart and humans help them.
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+As for the official site... Why do you need it?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="438"></a><b>bryan</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 30 Nov 2006<br />Posts: 3<br />Location: Spokane, WA</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Dec 01, 2006 12:07 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Watching their video and reading their full feature list is an eye-opening (and gut-wrenching) experience! The demo link and purchasing page gives it reality which your summary can't fully convey. Saying it can decode CAPTCHA isn't as powerful as seeing the most convoluted images get decoded.
+<br />
+
+<br />
+All in all, it just shows how important textual confirmation is. I can't imagine any other effective way to block spammers than to challenge new users with a question that must be answered logically.
+<br />
+
+<br />
+--Bryan</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="439"></a><b>bryan</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 30 Nov 2006<br />Posts: 3<br />Location: Spokane, WA</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Dec 01, 2006 12:34 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Their English grammar sucks, but they laugh at our attempts to deter them.
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Probably everyone by now met the following text while surfing the internet: &quot;Enter the number you see in the box&quot; and, following it, a terribly distorted image. That's a pictocode (ticket, captcha, human verification code).
+<br />
+In the process of it's work, the X****r program, can succesfully recognize tickets, automatically downloading the picture and decoding it. As practice showed us, it takes 1-1,5 seconds to decode such a ticket, and usually even less than that (on a PC with a CPU 1 Ghz). Such a picture's size is usually not more than 3-5Kb so it's downloading time is less than a second.</td>	</tr></table><span class="postbody">
+<br />
+<img src="http://www.commutercars.com/bryan/images/2006/XRumer.jpg" border="0" />
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">These are by far not all the types of tickets, the more trivial ones are not shown, they were used in the early versions of forums, but still appeaк in some of them.
+<br />
+X****r automatically recognizes which type of tickets is used and chooses the proper decoding algorythm. All this can be clearly seen in the demo version of the software which you can download on our site, after registration. 
+<br />
+
+<br />
+You may think that making such a powerful decoder is meaningless - a great lot of forums do not use pictocode. It is not.
+<br />
+It is the more popular forums, with a higher number of users and visitors, make use of the more powerful protection from robots - among others they use the pictocode. Posting your mesages on these forums gives the best returns!</td>	</tr></table><span class="postbody">
+<br />
+Yes, this is right off their copyrighted web site (with the obvious exception of the censoring since I don't want to advertise for them). I don't really care, though . . . </span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">In no way X****r acts like a spam-bot since spam is defined in legislation as 'unsolicited email', whereas X****r simply posts messages created by users, which cannot be illegal providing the user does not violate the legislation . . .</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+--Bryan</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

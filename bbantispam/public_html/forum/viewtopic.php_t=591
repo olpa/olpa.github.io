@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Looking for help on an issue on install</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=591">Looking for help on an issue on install</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2098"></a><b>illusions</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 13 Jun 2008<br />Posts: 7<br />Location: VA</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 13, 2008 7:51 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Looking for help on an issue on install</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello.
+<br />
+
+<br />
+I am fairly really new to all of the website coding and such. So I learn a little bit here and there so please excuse me for an idiotness I show.
+<br />
+<img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+
+<br />
+I tend a little website for a few gamers and I learn more everyday on how to fix my site ( which some one was nice enough to build for me, and now I have to learn how to keep up ) For some time now we have had a huge spam issue there, so we had to lock the site down to admin giving people rights to post and account activiton. So now we just have any where from oh 30 - 50 spam names sign up a day. every night after work I delete names. :: sigh :: what a pain.  
+<br />
+
+<br />
+BUT!! Some one just told me about this AWESOME mod !! WoW !! 
+<br />
+
+<br />
+So I have been working an install,  was going fairly well, intill I try to test the process..
+<br />
+
+<br />
+So i see the TC come up, that worked.
+<br />
+But when I hit submit I get a white page and an error message..
+<br />
+
+<br />
+Just says web page not found. 
+<br />
+
+<br />
+Anyone have any idea where I fudged up on this ? 
+<br />
+
+<br />
+
+<br />
+Well on the bright side, I have no spammers to delete !!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2100"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jun 14, 2008 3:00 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">That's very strange. Installing Textual Confirmation shouldn't lead to such problems.
+<br />
+
+<br />
+Give a link to your forum, I'll look at it.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2101"></a><b>illusions</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 13 Jun 2008<br />Posts: 7<br />Location: VA</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jun 14, 2008 3:03 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"><a href="http://www.surfalteam.com" target="_blank">http://www.surfalteam.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* http://bbspam.com/2008/03/16/trackback-confirmation-plugin-for-wordpress/ [L,R]

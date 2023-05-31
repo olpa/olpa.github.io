@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - A simple phpBB Anti-Spam solution THAT WORKS!</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=65">A simple phpBB Anti-Spam solution THAT WORKS!</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="365"></a><b>jonahan</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 06 Nov 2006<br />Posts: 3<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Nov 06, 2006 3:16 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: A simple phpBB Anti-Spam solution THAT WORKS!</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Ahh finally.  I was getting hit hard by spam for years and was fed up with it.  I came up with a solution that is easy to install and blocks automatic registrations by Spambots.  
+<br />
+
+<br />
+After installation, life has been great and only a couple manual registrations have gotten through.  
+<br />
+
+<br />
+More info at my blog: <a href="http://www.jonahan.com" target="_blank" class="postlink">http://www.jonahan.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="366"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Nov 07, 2006 4:43 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">&quot;phpbb_antispam.zip&quot; doesn't contain &quot;install.txt&quot;, therefore I can't review your code.
+<br />
+
+<br />
+Each author of antispam MODs says his MOD is the solution, but nobody explains why. Would you please compare your MOD with the following:
+<br />
+
+<br />
++ Textual Confirmation
+<br />
+<a href="http://bbantispam.com/tc/" target="_blank">http://bbantispam.com/tc/</a>
+<br />
++ Advanced Visual Confirmation
+<br />
+<a href="http://www.phpbbhacks.com/download/6276" target="_blank">http://www.phpbbhacks.com/download/6276</a>
+<br />
++ Anti Bot Question Hack 
+<br />
+<a href="http://www.phpbbhacks.com/download/6697" target="_blank">http://www.phpbbhacks.com/download/6697</a>
+<br />
++ The Humanizer 
+<br />
+<a href="http://www.phpbbhacks.com/download/6432" target="_blank">http://www.phpbbhacks.com/download/6432</a>
+<br />
++ Spamfilter against automated bot registrations
+<br />
+<a href="http://www.phpbb.com/phpBB/viewtopic.php?t=429212" target="_blank">http://www.phpbb.com/phpBB/viewtopic.php?t=429212</a>
+<br />
++ Antispam for all fields
+<br />
+<a href="http://www.phpbb.com/phpBB/viewtopic.php?t=393606" target="_blank">http://www.phpbb.com/phpBB/viewtopic.php?t=393606</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="369"></a><b>jonahan</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 06 Nov 2006<br />Posts: 3<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Nov 09, 2006 8:39 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Well, my solution is much simpler and it works &quot;out of the box&quot;.  Several of the ones you list force the user to do something extra: mine doesn't.  One of the ones below relies on a database of banned emails or IP's - mine doesn't.  The last one you listed (and many other mod's) require disabling certain form fields during registration: mine doesn't.  
+<br />
+
+<br />
+It just works.
+<br />
+
+<br />
+Yes, as someone pointed out, it's possible that bots in the future could get around this.  But the point is that right now they CAN'T!  Bots cannot autoregister their way around this one because of the use of javascript to set a variable of a hidden form field.  
+<br />
+
+<br />
+And down the road, if bots get around it, we can build soething that would toss a random value into that form field.  
+<br />
+
+<br />
+This thing works, and I have had zero automatic bot signups in 5 days on 2 forums.
+<br />
+
+<br />
+Just trying to help the phpBB community....</span><span class="gensmall"><br /><br />Last edited by jonahan on Thu Nov 09, 2006 8:43 pm; edited 2 times in total</span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="370"></a><b>jonahan</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 06 Nov 2006<br />Posts: 3<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Nov 09, 2006 8:40 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">&quot;phpbb_antispam.zip&quot; doesn't contain &quot;install.txt&quot;, therefore I can't review your code.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I just checked and zip file has 2 items: install.txt and readme.html.  If you're still seeing something different, please let me know</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="371"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Nov 10, 2006 3:25 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for answering. I've re-checked the archive, and install.txt is there, sorry for false alert.
+<br />
+
+<br />
+Your approach does work on many boards in the nearest future. Note also that you have a competitor: <a href="http://www.phpbb.com/phpBB/viewtopic.php?t=435702" target="_blank" class="postlink">VIP code</a>.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1246"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu May 24, 2007 1:39 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">This is now totally free, as I think it's more important to get it out to as many people as possible rather than make a couple bucks off of it.  
+<br />
+
+<br />
+Not tested in PHPbb 3 yet however.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

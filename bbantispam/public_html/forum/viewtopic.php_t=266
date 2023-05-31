@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Sending mail problem after innstalling Textual Confirmation</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=266">Sending mail problem after innstalling Textual Confirmation</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="894"></a><b>SuperHebbe</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 08 Mar 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 08, 2007 7:41 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Sending mail problem after innstalling Textual Confirmation</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi and thanks for a great product, just stopped 8 BOT's o far today <img src="images/smiles/icon_biggrin.gif" alt="Very Happy" border="0" />
+<br />
+
+<br />
+But I have a problem using my SMPT email account to send mails.
+<br />
+I have use this for about 6 months now (Use SMTP Server for email) and never had a problem. After installing VTC I got this error when my board try to send ouf notofications:
+<br />
+
+<br />
+<span style="font-weight: bold">Ran into problems sending Mail. Response: 535 5.7.0 authentication failed 
+<br />
+
+<br />
+DEBUG MODE
+<br />
+
+<br />
+Line : 132
+<br />
+File : smtp.php </span>
+<br />
+
+<br />
+I can resolve this problem my using the internal mail server for sending mails <span style="font-style: italic">Use SMTP Server for email</span> set to no, but I still want to use my SMPT account cause it's more stable than the internal.
+<br />
+
+<br />
+PS! The error msg is there 0,01 seconds after you press submit when writing a message or trying to send mass mails. Meaning that it doesn't even try to use the SMPT accunt<br />_________________<br /><img src="http://www.superhebbe.com/forum/images/smiles/icon_cheers.gif" border="0" />
+<br />
+
+<br />
+SuperHebbe</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="899"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 09, 2007 5:21 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">After installing VTC</td>	</tr></table><span class="postbody">
+<br />
+You mean after installing Textual Confirmation?
+<br />
+
+<br />
+Textual Confirmation uses the standard phpBB functionality to send e-mails. Therefore, if TC mail fails, then most likely any mail from phpBB fails. Please check.
+<br />
+
+<br />
+If phpBB mail works, but TC mail doesn't, pleae try following and report results. In file &quot;functions_tc.php&quot;, find
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$from = &quot;$from &lt;&quot; . $board_config&#91;'board_email'&#93; . '&gt;';</td>	</tr></table><span class="postbody">
+<br />
+and change it to
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$from = $board_config&#91;'board_email'&#93;;</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

@@ -1,0 +1,3252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Can't find text in posting.php (phpBB 2.0.17)</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=1">Links Rejector</a> - <a href="viewtopic.php?t=55">Can't find text in posting.php (phpBB 2.0.17)</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="324"></a><b>Ken</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Oct 17, 2006 10:54 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Can't find text in posting.php (phpBB 2.0.17)</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I am trying to update posting.php and cannot find this text:
+<br />
+
+<br />
+#
+<br />
+#-----[ FIND ]------------------------------------------
+<br />
+#
+<br />
+$userdata['user_sig_bbcode_uid'] = $post_info['user_sig_bbcode_uid'];
+<br />
+}
+<br />
+
+<br />
+Is it specific to a particular version? I am running phpBB 2.0.17.
+<br />
+
+<br />
+Thanks</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="325"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Oct 18, 2006 2:04 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Yes, it seems so. 2.0.17 is a very old version. If you can, upgrade as soon as possible.
+<br />
+
+<br />
+I've downloaded 2.0.17 and looked at it. The corresponding fragment is:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&nbsp; &nbsp;if &#40; $mode == 'newtopic' || $mode == 'reply'&#41;
+<br />
+&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;$user_sig = &#40; $userdata&#91;'user_sig'&#93; != '' &amp;&amp; $board_config&#91;'allow_sig'&#93; &#41; ? $userdata&#91;'user_sig'&#93; &#58; '';
+<br />
+&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;else if &#40; $mode == 'editpost' &#41;
+<br />
+&nbsp; &nbsp;&#123;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;$user_sig = &#40; $post_info&#91;'user_sig'&#93; != '' &amp;&amp; $board_config&#91;'allow_sig'&#93; &#41; ? $post_info&#91;'user_sig'&#93; &#58; '';
+<br />
+&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;
+<br />
+&nbsp; &nbsp;if&#40; $preview &#41;
+<br />
+&nbsp; &nbsp;&#123;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Change
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+if&#40; $preview &#41;
+<br />
+&#123;</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+to
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+bbas_hook&#40;$preview, $error_msg, $username, $subject, $message&#41;;
+<br />
+if&#40; $preview and &#40;$error_msg == ''&#41;&#41;
+<br />
+&#123;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Be warned: I haven't tested bbAntiSpam with 2.0.17. However, I think it should work.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="972"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 23, 2007 7:36 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I have the same problem here: <a href="http://bbspam.com/forum/viewtopic.php?t=292" target="_blank">http://bbspam.com/forum/viewtopic.php?t=292</a>
+<br />
+
+<br />
+I did like it is told in the previous post, but when i tried to test the links rejection, by entering the word that is censored at the Censored Words in the Administrations Panle, and clicked on the Submit, the posting.php won`t load. I simply got the blank page. What is the problem?
+<br />
+
+<br />
+Here is my posting.php file:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">&lt;?php
+<br />
+/***************************************************************************
+<br />
+ *                                posting.php
+<br />
+ *                            -------------------
+<br />
+ *   begin                : Saturday, Feb 13, 2001
+<br />
+ *   copyright            : (C) 2001 The phpBB Group
+<br />
+ *   email                : <a href="mailto:support@phpbb.com">support@phpbb.com</a>
+<br />
+ *
+<br />
+ *   $Id: posting.php,v 1.159.2.23 2005/05/06 20:50:10 acydburn Exp $
+<br />
+ *
+<br />
+ *
+<br />
+ ***************************************************************************/
+<br />
+
+<br />
+/***************************************************************************
+<br />
+ *
+<br />
+ *   This program is free software; you can redistribute it and/or modify
+<br />
+ *   it under the terms of the GNU General Public License as published by
+<br />
+ *   the Free Software Foundation; either version 2 of the License, or
+<br />
+ *   (at your option) any later version.
+<br />
+ *
+<br />
+ ***************************************************************************/
+<br />
+
+<br />
+define('IN_PHPBB', true);
+<br />
+define('IN_CASHMOD', true);
+<br />
+define('CM_POSTING', true);
+<br />
+$phpbb_root_path = './';
+<br />
+include($phpbb_root_path . 'extension.inc');
+<br />
+include($phpbb_root_path . 'common.'.$phpEx);
+<br />
+include($phpbb_root_path . 'includes/bbcode.'.$phpEx);
+<br />
+include($phpbb_root_path . 'includes/functions_post.'.$phpEx);
+<br />
+include($phpbb_root_path . 'includes/functions_bbas.'.$phpEx);
+<br />
+
+<br />
+//
+<br />
+// Check and set various parameters
+<br />
+//
+<br />
+$params = array('submit' =&gt; 'post', 'preview' =&gt; 'preview', 'delete' =&gt; 'delete', 'poll_delete' =&gt; 'poll_delete', 'poll_add' =&gt; 'add_poll_option', 'poll_edit' =&gt; 'edit_poll_option', 'mode' =&gt; 'mode');
+<br />
+while( list($var, $param) = @each($params) )
+<br />
+{
+<br />
+    if ( !empty($HTTP_POST_VARS[$param]) || !empty($HTTP_GET_VARS[$param]) )
+<br />
+    {
+<br />
+        $$var = ( !empty($HTTP_POST_VARS[$param]) ) ? htmlspecialchars($HTTP_POST_VARS[$param]) : htmlspecialchars($HTTP_GET_VARS[$param]);
+<br />
+    }
+<br />
+    else
+<br />
+    {
+<br />
+        $$var = '';
+<br />
+    }
+<br />
+}
+<br />
+
+<br />
+$confirm = isset($HTTP_POST_VARS['confirm']) ? true : false;
+<br />
+
+<br />
+$params = array('forum_id' =&gt; POST_FORUM_URL, 'topic_id' =&gt; POST_TOPIC_URL, 'post_id' =&gt; POST_POST_URL);
+<br />
+while( list($var, $param) = @each($params) )
+<br />
+{
+<br />
+    if ( !empty($HTTP_POST_VARS[$param]) || !empty($HTTP_GET_VARS[$param]) )
+<br />
+    {
+<br />
+        $$var = ( !empty($HTTP_POST_VARS[$param]) ) ? intval($HTTP_POST_VARS[$param]) : intval($HTTP_GET_VARS[$param]);
+<br />
+    }
+<br />
+    else
+<br />
+    {
+<br />
+        $$var = '';
+<br />
+    }
+<br />
+}
+<br />
+
+<br />
+$refresh = $preview || $poll_add || $poll_edit || $poll_delete;
+<br />
+
+<br />
+//
+<br />
+// Set topic type
+<br />
+//
+<br />
+$topic_type = ( !empty($HTTP_POST_VARS['topictype']) ) ? intval($HTTP_POST_VARS['topictype']) : POST_NORMAL;
+<br />
+
+<br />
+//
+<br />
+// If the mode is set to topic review then output
+<br />
+// that review ...
+<br />
+//
+<br />
+if ( $mode == 'topicreview' )
+<br />
+{
+<br />
+    require($phpbb_root_path . 'includes/topic_review.'.$phpEx);
+<br />
+
+<br />
+    topic_review($topic_id, false);
+<br />
+    exit;
+<br />
+}
+<br />
+else if ( $mode == 'smilies' )
+<br />
+{
+<br />
+    generate_smilies('window', PAGE_POSTING);
+<br />
+    exit;
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Start session management
+<br />
+//
+<br />
+$userdata = session_pagestart($user_ip, PAGE_POSTING);
+<br />
+init_userprefs($userdata);
+<br />
+//
+<br />
+// End session management
+<br />
+//
+<br />
+
+<br />
+//
+<br />
+// Was cancel pressed? If so then redirect to the appropriate
+<br />
+// page, no point in continuing with any further checks
+<br />
+//
+<br />
+if ( isset($HTTP_POST_VARS['cancel']) )
+<br />
+{
+<br />
+    if ( $post_id )
+<br />
+    {
+<br />
+        $redirect = &quot;viewtopic.$phpEx?&quot; . POST_POST_URL . &quot;=$post_id&quot;;
+<br />
+        $post_append = &quot;#$post_id&quot;;
+<br />
+    }
+<br />
+    else if ( $topic_id )
+<br />
+    {
+<br />
+        $redirect = &quot;viewtopic.$phpEx?&quot; . POST_TOPIC_URL . &quot;=$topic_id&quot;;
+<br />
+        $post_append = '';
+<br />
+    }
+<br />
+    else if ( $forum_id )
+<br />
+    {
+<br />
+        $redirect = &quot;viewforum.$phpEx?&quot; . POST_FORUM_URL . &quot;=$forum_id&quot;;
+<br />
+        $post_append = '';
+<br />
+    }
+<br />
+    else
+<br />
+    {
+<br />
+        $redirect = &quot;index.$phpEx&quot;;
+<br />
+        $post_append = '';
+<br />
+    }
+<br />
+
+<br />
+    redirect(append_sid($redirect, true) . $post_append);
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// What auth type do we need to check?
+<br />
+//
+<br />
+$is_auth = array();
+<br />
+switch( $mode )
+<br />
+{
+<br />
+    case 'newtopic':
+<br />
+        if ( $topic_type == POST_ANNOUNCE )
+<br />
+        {
+<br />
+            $is_auth_type = 'auth_announce';
+<br />
+        }
+<br />
+        else if ( $topic_type == POST_STICKY )
+<br />
+        {
+<br />
+            $is_auth_type = 'auth_sticky';
+<br />
+        }
+<br />
+        else
+<br />
+        {
+<br />
+            $is_auth_type = 'auth_post';
+<br />
+        }
+<br />
+        break;
+<br />
+    case 'reply':
+<br />
+    case 'quote':
+<br />
+        $is_auth_type = 'auth_reply';
+<br />
+        break;
+<br />
+    case 'editpost':
+<br />
+        $is_auth_type = 'auth_edit';
+<br />
+        break;
+<br />
+    case 'delete':
+<br />
+    case 'poll_delete':
+<br />
+        $is_auth_type = 'auth_delete';
+<br />
+        break;
+<br />
+    case 'vote':
+<br />
+        $is_auth_type = 'auth_vote';
+<br />
+        break;
+<br />
+    case 'topicreview':
+<br />
+        $is_auth_type = 'auth_read';
+<br />
+        break;
+<br />
+    default:
+<br />
+        message_die(GENERAL_MESSAGE, $lang['No_post_mode']);
+<br />
+        break;
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Here we do various lookups to find topic_id, forum_id, post_id etc.
+<br />
+// Doing it here prevents spoofing (eg. faking forum_id, topic_id or post_id
+<br />
+//
+<br />
+$error_msg = '';
+<br />
+$post_data = array();
+<br />
+switch ( $mode )
+<br />
+{
+<br />
+    case 'newtopic':
+<br />
+        if ( empty($forum_id) )
+<br />
+        {
+<br />
+            message_die(GENERAL_MESSAGE, $lang['Forum_not_exist']);
+<br />
+        }
+<br />
+
+<br />
+        $sql = &quot;SELECT *
+<br />
+            FROM &quot; . FORUMS_TABLE . &quot;
+<br />
+            WHERE forum_id = $forum_id&quot;;
+<br />
+        break;
+<br />
+
+<br />
+    case 'reply':
+<br />
+    case 'vote':
+<br />
+        if ( empty( $topic_id) )
+<br />
+        {
+<br />
+            message_die(GENERAL_MESSAGE, $lang['No_topic_id']);
+<br />
+        }
+<br />
+
+<br />
+        $sql = &quot;SELECT f.*, t.topic_status, t.topic_title, t.topic_poster
+<br />
+            FROM &quot; . FORUMS_TABLE . &quot; f, &quot; . TOPICS_TABLE . &quot; t
+<br />
+            WHERE t.topic_id = $topic_id
+<br />
+                AND f.forum_id = t.forum_id&quot;;
+<br />
+        break;
+<br />
+
+<br />
+    case 'quote':
+<br />
+    case 'editpost':
+<br />
+    case 'delete':
+<br />
+    case 'poll_delete':
+<br />
+        if ( empty($post_id) )
+<br />
+        {
+<br />
+            message_die(GENERAL_MESSAGE, $lang['No_post_id']);
+<br />
+        }
+<br />
+
+<br />
+        $temp = $submit;
+<br />
+        $submit = !(!$submit || ( isset($board_config['cash_disable']) &amp;&amp; !$board_config['cash_disable'] &amp;&amp; (($mode == 'editpost') || ($mode == 'delete'))));
+<br />
+
+<br />
+        $select_sql = ( !$submit ) ? &quot;, t.topic_title, p.enable_bbcode, p.enable_html, p.enable_smilies, p.enable_sig, p.post_username, pt.post_subject, pt.post_text, pt.bbcode_uid, u.username, u.user_id, u.user_sig&quot; : '';
+<br />
+        $from_sql = ( !$submit ) ? &quot;, &quot; . POSTS_TEXT_TABLE . &quot; pt, &quot; . USERS_TABLE . &quot; u&quot; : '';
+<br />
+        $where_sql = ( !$submit ) ? &quot;AND pt.post_id = p.post_id AND u.user_id = p.poster_id&quot; : '';
+<br />
+        $submit = $temp;
+<br />
+        unset($temp);
+<br />
+
+<br />
+        $sql = &quot;SELECT f.*, t.topic_id, t.topic_status, t.topic_type, t.topic_first_post_id, t.topic_last_post_id, t.topic_vote, p.post_id, p.poster_id&quot; . $select_sql . &quot;
+<br />
+            FROM &quot; . POSTS_TABLE . &quot; p, &quot; . TOPICS_TABLE . &quot; t, &quot; . FORUMS_TABLE . &quot; f&quot; . $from_sql . &quot;
+<br />
+            WHERE p.post_id = $post_id
+<br />
+                AND t.topic_id = p.topic_id
+<br />
+                AND f.forum_id = p.forum_id
+<br />
+                $where_sql&quot;;
+<br />
+        break;
+<br />
+
+<br />
+    default:
+<br />
+        message_die(GENERAL_MESSAGE, $lang['No_valid_mode']);
+<br />
+}
+<br />
+
+<br />
+if ( $result = $db-&gt;sql_query($sql) )
+<br />
+{
+<br />
+    $post_info = $db-&gt;sql_fetchrow($result);
+<br />
+    $db-&gt;sql_freeresult($result);
+<br />
+
+<br />
+    $forum_id = $post_info['forum_id'];
+<br />
+    $forum_name = $post_info['forum_name'];
+<br />
+
+<br />
+    $is_auth = auth(AUTH_ALL, $forum_id, $userdata, $post_info);
+<br />
+
+<br />
+    if ( $post_info['forum_status'] == FORUM_LOCKED &amp;&amp; !$is_auth['auth_mod'])
+<br />
+    {
+<br />
+       message_die(GENERAL_MESSAGE, $lang['Forum_locked']);
+<br />
+    }
+<br />
+    else if ( $mode != 'newtopic' &amp;&amp; $post_info['topic_status'] == TOPIC_LOCKED &amp;&amp; !$is_auth['auth_mod'])
+<br />
+    {
+<br />
+       message_die(GENERAL_MESSAGE, $lang['Topic_locked']);
+<br />
+    }
+<br />
+
+<br />
+    if ( $mode == 'editpost' || $mode == 'delete' || $mode == 'poll_delete' )
+<br />
+    {
+<br />
+        $topic_id = $post_info['topic_id'];
+<br />
+
+<br />
+        $post_data['post_text'] = ( ($mode == 'editpost') || ($mode == 'delete') ) ? $post_info['post_text'] : '';
+<br />
+        $post_data['bbcode_uid'] = ( ($mode == 'editpost') || ($mode == 'delete') ) ? $post_info['bbcode_uid'] : '';
+<br />
+        $post_data['poster_post'] = ( $post_info['poster_id'] == $userdata['user_id'] ) ? true : false;
+<br />
+        $post_data['first_post'] = ( $post_info['topic_first_post_id'] == $post_id ) ? true : false;
+<br />
+        $post_data['last_post'] = ( $post_info['topic_last_post_id'] == $post_id ) ? true : false;
+<br />
+        $post_data['last_topic'] = ( $post_info['forum_last_post_id'] == $post_id ) ? true : false;
+<br />
+        $post_data['has_poll'] = ( $post_info['topic_vote'] ) ? true : false;
+<br />
+        $post_data['topic_type'] = $post_info['topic_type'];
+<br />
+        $post_data['poster_id'] = $post_info['poster_id'];
+<br />
+
+<br />
+        if ( $post_data['first_post'] &amp;&amp; $post_data['has_poll'] )
+<br />
+        {
+<br />
+            $sql = &quot;SELECT *
+<br />
+                FROM &quot; . VOTE_DESC_TABLE . &quot; vd, &quot; . VOTE_RESULTS_TABLE . &quot; vr
+<br />
+                WHERE vd.topic_id = $topic_id
+<br />
+                    AND vr.vote_id = vd.vote_id
+<br />
+                ORDER BY vr.vote_option_id&quot;;
+<br />
+            if ( !($result = $db-&gt;sql_query($sql)) )
+<br />
+            {
+<br />
+                message_die(GENERAL_ERROR, 'Could not obtain vote data for this topic', '', __LINE__, __FILE__, $sql);
+<br />
+            }
+<br />
+
+<br />
+            $poll_options = array();
+<br />
+            $poll_results_sum = 0;
+<br />
+            if ( $row = $db-&gt;sql_fetchrow($result) )
+<br />
+            {
+<br />
+                $poll_title = $row['vote_text'];
+<br />
+                $poll_id = $row['vote_id'];
+<br />
+                $poll_length = $row['vote_length'] / 86400;
+<br />
+
+<br />
+                do
+<br />
+                {
+<br />
+                    $poll_options[$row['vote_option_id']] = $row['vote_option_text'];
+<br />
+                    $poll_results_sum += $row['vote_result'];
+<br />
+                }
+<br />
+                while ( $row = $db-&gt;sql_fetchrow($result) );
+<br />
+            }
+<br />
+            $db-&gt;sql_freeresult($result);
+<br />
+
+<br />
+            $post_data['edit_poll'] = ( ( !$poll_results_sum || $is_auth['auth_mod'] ) &amp;&amp; $post_data['first_post'] ) ? true : 0;
+<br />
+        }
+<br />
+        else
+<br />
+        {
+<br />
+            $post_data['edit_poll'] = ($post_data['first_post'] &amp;&amp; $is_auth['auth_pollcreate']) ? true : false;
+<br />
+        }
+<br />
+        
+<br />
+        //
+<br />
+        // Can this user edit/delete the post/poll?
+<br />
+        //
+<br />
+        if ( $post_info['poster_id'] != $userdata['user_id'] &amp;&amp; !$is_auth['auth_mod'] )
+<br />
+        {
+<br />
+            $message = ( $delete || $mode == 'delete' ) ? $lang['Delete_own_posts'] : $lang['Edit_own_posts'];
+<br />
+            $message .= '&lt;br /&gt;&lt;br /&gt;' . sprintf($lang['Click_return_topic'], '&lt;a href=&quot;' . append_sid(&quot;viewtopic.$phpEx?&quot; . POST_TOPIC_URL . &quot;=$topic_id&quot;) . '&quot;&gt;', '&lt;/a&gt;');
+<br />
+
+<br />
+            message_die(GENERAL_MESSAGE, $message);
+<br />
+        }
+<br />
+        else if ( !$post_data['last_post'] &amp;&amp; !$is_auth['auth_mod'] &amp;&amp; ( $mode == 'delete' || $delete ) )
+<br />
+        {
+<br />
+            message_die(GENERAL_MESSAGE, $lang['Cannot_delete_replied']);
+<br />
+        }
+<br />
+        else if ( !$post_data['edit_poll'] &amp;&amp; !$is_auth['auth_mod'] &amp;&amp; ( $mode == 'poll_delete' || $poll_delete ) )
+<br />
+        {
+<br />
+            message_die(GENERAL_MESSAGE, $lang['Cannot_delete_poll']);
+<br />
+        }
+<br />
+    }
+<br />
+    else
+<br />
+    {
+<br />
+        if ( $mode == 'quote' )
+<br />
+        {
+<br />
+            $topic_id = $post_info['topic_id'];
+<br />
+        }
+<br />
+
+<br />
+        $post_data['topic_poster'] = ( $mode == 'reply' ) ? $post_info['topic_poster'] : 0;
+<br />
+        $post_data['first_post'] = ( $mode == 'newtopic' ) ? true : 0;
+<br />
+        $post_data['last_post'] = false;
+<br />
+        $post_data['has_poll'] = false;
+<br />
+        $post_data['edit_poll'] = false;
+<br />
+    }
+<br />
+}
+<br />
+else
+<br />
+{
+<br />
+    message_die(GENERAL_MESSAGE, $lang['No_such_post']);
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// The user is not authed, if they're not logged in then redirect
+<br />
+// them, else show them an error message
+<br />
+//
+<br />
+if ( !$is_auth[$is_auth_type] )
+<br />
+{
+<br />
+    if ( $userdata['session_logged_in'] )
+<br />
+    {
+<br />
+        message_die(GENERAL_MESSAGE, sprintf($lang['Sorry_' . $is_auth_type], $is_auth[$is_auth_type . &quot;_type&quot;]));
+<br />
+    }
+<br />
+
+<br />
+    switch( $mode )
+<br />
+    {
+<br />
+        case 'newtopic':
+<br />
+            $redirect = &quot;mode=newtopic&amp;&quot; . POST_FORUM_URL . &quot;=&quot; . $forum_id;
+<br />
+            break;
+<br />
+        case 'reply':
+<br />
+        case 'topicreview':
+<br />
+            $redirect = &quot;mode=reply&amp;&quot; . POST_TOPIC_URL . &quot;=&quot; . $topic_id;
+<br />
+            break;
+<br />
+        case 'quote':
+<br />
+        case 'editpost':
+<br />
+            $redirect = &quot;mode=quote&amp;&quot; . POST_POST_URL .&quot;=&quot; . $post_id;
+<br />
+            break;
+<br />
+    }
+<br />
+
+<br />
+    redirect(append_sid(&quot;login.$phpEx?redirect=posting.$phpEx&amp;&quot; . $redirect, true));
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Set toggles for various options
+<br />
+//
+<br />
+if ( !$board_config['allow_html'] )
+<br />
+{
+<br />
+    $html_on = 0;
+<br />
+}
+<br />
+else
+<br />
+{
+<br />
+    $html_on = ( $submit || $refresh ) ? ( ( !empty($HTTP_POST_VARS['disable_html']) ) ? 0 : TRUE ) : ( ( $userdata['user_id'] == ANONYMOUS ) ? $board_config['allow_html'] : $userdata['user_allowhtml'] );
+<br />
+}
+<br />
+
+<br />
+if ( !$board_config['allow_bbcode'] )
+<br />
+{
+<br />
+    $bbcode_on = 0;
+<br />
+}
+<br />
+else
+<br />
+{
+<br />
+    $bbcode_on = ( $submit || $refresh ) ? ( ( !empty($HTTP_POST_VARS['disable_bbcode']) ) ? 0 : TRUE ) : ( ( $userdata['user_id'] == ANONYMOUS ) ? $board_config['allow_bbcode'] : $userdata['user_allowbbcode'] );
+<br />
+}
+<br />
+
+<br />
+if ( !$board_config['allow_smilies'] )
+<br />
+{
+<br />
+    $smilies_on = 0;
+<br />
+}
+<br />
+else
+<br />
+{
+<br />
+    $smilies_on = ( $submit || $refresh ) ? ( ( !empty($HTTP_POST_VARS['disable_smilies']) ) ? 0 : TRUE ) : ( ( $userdata['user_id'] == ANONYMOUS ) ? $board_config['allow_smilies'] : $userdata['user_allowsmile'] );
+<br />
+}
+<br />
+
+<br />
+if ( ($submit || $refresh) &amp;&amp; $is_auth['auth_read'])
+<br />
+{
+<br />
+    $notify_user = ( !empty($HTTP_POST_VARS['notify']) ) ? TRUE : 0;
+<br />
+}
+<br />
+else
+<br />
+{
+<br />
+    if ( $mode != 'newtopic' &amp;&amp; $userdata['session_logged_in'] &amp;&amp; $is_auth['auth_read'] )
+<br />
+    {
+<br />
+        $sql = &quot;SELECT topic_id
+<br />
+            FROM &quot; . TOPICS_WATCH_TABLE . &quot;
+<br />
+            WHERE topic_id = $topic_id
+<br />
+                AND user_id = &quot; . $userdata['user_id'];
+<br />
+        if ( !($result = $db-&gt;sql_query($sql)) )
+<br />
+        {
+<br />
+            message_die(GENERAL_ERROR, 'Could not obtain topic watch information', '', __LINE__, __FILE__, $sql);
+<br />
+        }
+<br />
+
+<br />
+        $notify_user = ( $db-&gt;sql_fetchrow($result) ) ? TRUE : $userdata['user_notify'];
+<br />
+        $db-&gt;sql_freeresult($result);
+<br />
+    }
+<br />
+    else
+<br />
+    {
+<br />
+        $notify_user = ( $userdata['session_logged_in'] &amp;&amp; $is_auth['auth_read'] ) ? $userdata['user_notify'] : 0;
+<br />
+    }
+<br />
+}
+<br />
+
+<br />
+$attach_sig = ( $submit || $refresh ) ? ( ( !empty($HTTP_POST_VARS['attach_sig']) ) ? TRUE : 0 ) : ( ( $userdata['user_id'] == ANONYMOUS ) ? 0 : $userdata['user_attachsig'] );
+<br />
+
+<br />
+// --------------------
+<br />
+//  What shall we do?
+<br />
+//
+<br />
+if ( ( $delete || $poll_delete || $mode == 'delete' ) &amp;&amp; !$confirm )
+<br />
+{
+<br />
+    //
+<br />
+    // Confirm deletion
+<br />
+    //
+<br />
+    $s_hidden_fields = '&lt;input type=&quot;hidden&quot; name=&quot;' . POST_POST_URL . '&quot; value=&quot;' . $post_id . '&quot; /&gt;';
+<br />
+    $s_hidden_fields .= ( $delete || $mode == &quot;delete&quot; ) ? '&lt;input type=&quot;hidden&quot; name=&quot;mode&quot; value=&quot;delete&quot; /&gt;' : '&lt;input type=&quot;hidden&quot; name=&quot;mode&quot; value=&quot;poll_delete&quot; /&gt;';
+<br />
+
+<br />
+    $l_confirm = ( $delete || $mode == 'delete' ) ? $lang['Confirm_delete'] : $lang['Confirm_delete_poll'];
+<br />
+
+<br />
+    //
+<br />
+    // Output confirmation page
+<br />
+    //
+<br />
+    include($phpbb_root_path . 'includes/page_header.'.$phpEx);
+<br />
+
+<br />
+    $template-&gt;set_filenames(array(
+<br />
+        'confirm_body' =&gt; 'confirm_body.tpl')
+<br />
+    );
+<br />
+
+<br />
+    $template-&gt;assign_vars(array(
+<br />
+        'MESSAGE_TITLE' =&gt; $lang['Information'],
+<br />
+        'MESSAGE_TEXT' =&gt; $l_confirm,
+<br />
+
+<br />
+        'L_YES' =&gt; $lang['Yes'],
+<br />
+        'L_NO' =&gt; $lang['No'],
+<br />
+
+<br />
+        'S_CONFIRM_ACTION' =&gt; append_sid(&quot;posting.$phpEx&quot;),
+<br />
+        'S_HIDDEN_FIELDS' =&gt; $s_hidden_fields)
+<br />
+    );
+<br />
+
+<br />
+    $template-&gt;pparse('confirm_body');
+<br />
+
+<br />
+    include($phpbb_root_path . 'includes/page_tail.'.$phpEx);
+<br />
+}
+<br />
+else if ( $mode == 'vote' )
+<br />
+{
+<br />
+    //
+<br />
+    // Vote in a poll
+<br />
+    //
+<br />
+    if ( !empty($HTTP_POST_VARS['vote_id']) )
+<br />
+    {
+<br />
+        $vote_option_id = intval($HTTP_POST_VARS['vote_id']);
+<br />
+
+<br />
+        $sql = &quot;SELECT vd.vote_id    
+<br />
+            FROM &quot; . VOTE_DESC_TABLE . &quot; vd, &quot; . VOTE_RESULTS_TABLE . &quot; vr
+<br />
+            WHERE vd.topic_id = $topic_id
+<br />
+                AND vr.vote_id = vd.vote_id
+<br />
+                AND vr.vote_option_id = $vote_option_id
+<br />
+            GROUP BY vd.vote_id&quot;;
+<br />
+        if ( !($result = $db-&gt;sql_query($sql)) )
+<br />
+        {
+<br />
+            message_die(GENERAL_ERROR, 'Could not obtain vote data for this topic', '', __LINE__, __FILE__, $sql);
+<br />
+        }
+<br />
+
+<br />
+        if ( $vote_info = $db-&gt;sql_fetchrow($result) )
+<br />
+        {
+<br />
+            $vote_id = $vote_info['vote_id'];
+<br />
+
+<br />
+            $sql = &quot;SELECT *
+<br />
+                FROM &quot; . VOTE_USERS_TABLE . &quot;  
+<br />
+                WHERE vote_id = $vote_id
+<br />
+                    AND vote_user_id = &quot; . $userdata['user_id'];
+<br />
+            if ( !($result2 = $db-&gt;sql_query($sql)) )
+<br />
+            {
+<br />
+                message_die(GENERAL_ERROR, 'Could not obtain user vote data for this topic', '', __LINE__, __FILE__, $sql);
+<br />
+            }
+<br />
+
+<br />
+            if ( !($row = $db-&gt;sql_fetchrow($result2)) )
+<br />
+            {
+<br />
+                $sql = &quot;UPDATE &quot; . VOTE_RESULTS_TABLE . &quot;
+<br />
+                    SET vote_result = vote_result + 1
+<br />
+                    WHERE vote_id = $vote_id
+<br />
+                        AND vote_option_id = $vote_option_id&quot;;
+<br />
+                if ( !$db-&gt;sql_query($sql, BEGIN_TRANSACTION) )
+<br />
+                {
+<br />
+                    message_die(GENERAL_ERROR, 'Could not update poll result', '', __LINE__, __FILE__, $sql);
+<br />
+                }
+<br />
+
+<br />
+                $sql = &quot;INSERT INTO &quot; . VOTE_USERS_TABLE . &quot; (vote_id, vote_user_id, vote_user_ip)
+<br />
+                    VALUES ($vote_id, &quot; . $userdata['user_id'] . &quot;, '$user_ip')&quot;;
+<br />
+                if ( !$db-&gt;sql_query($sql, END_TRANSACTION) )
+<br />
+                {
+<br />
+                    message_die(GENERAL_ERROR, &quot;Could not insert user_id for poll&quot;, &quot;&quot;, __LINE__, __FILE__, $sql);
+<br />
+                }
+<br />
+
+<br />
+                $message = $lang['Vote_cast'];
+<br />
+            }
+<br />
+            else
+<br />
+            {
+<br />
+                $message = $lang['Already_voted'];
+<br />
+            }
+<br />
+            $db-&gt;sql_freeresult($result2);
+<br />
+        }
+<br />
+        else
+<br />
+        {
+<br />
+            $message = $lang['No_vote_option'];
+<br />
+        }
+<br />
+        $db-&gt;sql_freeresult($result);
+<br />
+
+<br />
+        $template-&gt;assign_vars(array(
+<br />
+            'META' =&gt; '&lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;url=' . append_sid(&quot;viewtopic.$phpEx?&quot; . POST_TOPIC_URL . &quot;=$topic_id&quot;) . '&quot;&gt;')
+<br />
+        );
+<br />
+        $message .=  '&lt;br /&gt;&lt;br /&gt;' . sprintf($lang['Click_view_message'], '&lt;a href=&quot;' . append_sid(&quot;viewtopic.$phpEx?&quot; . POST_TOPIC_URL . &quot;=$topic_id&quot;) . '&quot;&gt;', '&lt;/a&gt;');
+<br />
+        message_die(GENERAL_MESSAGE, $message);
+<br />
+    }
+<br />
+    else
+<br />
+    {
+<br />
+        redirect(append_sid(&quot;viewtopic.$phpEx?&quot; . POST_TOPIC_URL . &quot;=$topic_id&quot;, true));
+<br />
+    }
+<br />
+}
+<br />
+else if ( $submit || $confirm )
+<br />
+{
+<br />
+    //
+<br />
+    // Submit post/vote (newtopic, edit, reply, etc.)
+<br />
+    //
+<br />
+    $return_message = '';
+<br />
+    $return_meta = '';
+<br />
+
+<br />
+    switch ( $mode )
+<br />
+    {
+<br />
+        case 'editpost':
+<br />
+        case 'newtopic':
+<br />
+        case 'reply':
+<br />
+            $username = ( !empty($HTTP_POST_VARS['username']) ) ? $HTTP_POST_VARS['username'] : '';
+<br />
+            $subject = ( !empty($HTTP_POST_VARS['subject']) ) ? trim($HTTP_POST_VARS['subject']) : '';
+<br />
+            $message = ( !empty($HTTP_POST_VARS['message']) ) ? $HTTP_POST_VARS['message'] : '';
+<br />
+            $poll_title = ( isset($HTTP_POST_VARS['poll_title']) &amp;&amp; $is_auth['auth_pollcreate'] ) ? $HTTP_POST_VARS['poll_title'] : '';
+<br />
+            $poll_options = ( isset($HTTP_POST_VARS['poll_option_text']) &amp;&amp; $is_auth['auth_pollcreate'] ) ? $HTTP_POST_VARS['poll_option_text'] : '';
+<br />
+            $poll_length = ( isset($HTTP_POST_VARS['poll_length']) &amp;&amp; $is_auth['auth_pollcreate'] ) ? $HTTP_POST_VARS['poll_length'] : '';
+<br />
+            $bbcode_uid = '';
+<br />
+
+<br />
+            prepare_post($mode, $post_data, $bbcode_on, $html_on, $smilies_on, $error_msg, $username, $bbcode_uid, $subject, $message, $poll_title, $poll_options, $poll_length);
+<br />
+            bbas_hook($preview, $error_msg, $username, $subject, $message);
+<br />
+
+<br />
+            if ( $error_msg == '' )
+<br />
+            {
+<br />
+                $topic_type = ( $topic_type != $post_data['topic_type'] &amp;&amp; !$is_auth['auth_sticky'] &amp;&amp; !$is_auth['auth_announce'] ) ? $post_data['topic_type'] : $topic_type;
+<br />
+
+<br />
+                submit_post($mode, $post_data, $return_message, $return_meta, $forum_id, $topic_id, $post_id, $poll_id, $topic_type, $bbcode_on, $html_on, $smilies_on, $attach_sig, $bbcode_uid, str_replace(&quot;\'&quot;, &quot;''&quot;, $username), str_replace(&quot;\'&quot;, &quot;''&quot;, $subject), str_replace(&quot;\'&quot;, &quot;''&quot;, $message), str_replace(&quot;\'&quot;, &quot;''&quot;, $poll_title), $poll_options, $poll_length);
+<br />
+            }
+<br />
+            break;
+<br />
+
+<br />
+        case 'delete':
+<br />
+        case 'poll_delete':
+<br />
+            delete_post($mode, $post_data, $return_message, $return_meta, $forum_id, $topic_id, $post_id, $poll_id);
+<br />
+            break;
+<br />
+    }
+<br />
+
+<br />
+    if ( $error_msg == '' )
+<br />
+    {
+<br />
+        if ( $mode != 'editpost' )
+<br />
+        {
+<br />
+            $user_id = ( $mode == 'reply' || $mode == 'newtopic' ) ? $userdata['user_id'] : $post_data['poster_id'];
+<br />
+            update_post_stats($mode, $post_data, $forum_id, $topic_id, $post_id, $user_id);
+<br />
+        }
+<br />
+
+<br />
+        if ($error_msg == '' &amp;&amp; $mode != 'poll_delete')
+<br />
+        {
+<br />
+            user_notification($mode, $post_data, $post_info['topic_title'], $forum_id, $topic_id, $post_id, $notify_user);
+<br />
+        }
+<br />
+
+<br />
+        if ( $mode == 'newtopic' || $mode == 'reply' )
+<br />
+        {
+<br />
+            $tracking_topics = ( !empty($HTTP_COOKIE_VARS[$board_config['cookie_name'] . '_t']) ) ? unserialize($HTTP_COOKIE_VARS[$board_config['cookie_name'] . '_t']) : array();
+<br />
+            $tracking_forums = ( !empty($HTTP_COOKIE_VARS[$board_config['cookie_name'] . '_f']) ) ? unserialize($HTTP_COOKIE_VARS[$board_config['cookie_name'] . '_f']) : array();
+<br />
+
+<br />
+            if ( count($tracking_topics) + count($tracking_forums) == 100 &amp;&amp; empty($tracking_topics[$topic_id]) )
+<br />
+            {
+<br />
+                asort($tracking_topics);
+<br />
+                unset($tracking_topics[key($tracking_topics)]);
+<br />
+            }
+<br />
+
+<br />
+            $tracking_topics[$topic_id] = time();
+<br />
+
+<br />
+            setcookie($board_config['cookie_name'] . '_t', serialize($tracking_topics), 0, $board_config['cookie_path'], $board_config['cookie_domain'], $board_config['cookie_secure']);
+<br />
+        }
+<br />
+
+<br />
+        $template-&gt;assign_vars(array(
+<br />
+            'META' =&gt; $return_meta)
+<br />
+        );
+<br />
+        message_die(GENERAL_MESSAGE, $return_message);
+<br />
+    }
+<br />
+}
+<br />
+
+<br />
+if( $refresh || isset($HTTP_POST_VARS['del_poll_option']) || $error_msg != '' )
+<br />
+{
+<br />
+    $username = ( !empty($HTTP_POST_VARS['username']) ) ? htmlspecialchars(trim(stripslashes($HTTP_POST_VARS['username']))) : '';
+<br />
+    $subject = ( !empty($HTTP_POST_VARS['subject']) ) ? htmlspecialchars(trim(stripslashes($HTTP_POST_VARS['subject']))) : '';
+<br />
+    $message = ( !empty($HTTP_POST_VARS['message']) ) ? htmlspecialchars(trim(stripslashes($HTTP_POST_VARS['message']))) : '';
+<br />
+
+<br />
+    $poll_title = ( !empty($HTTP_POST_VARS['poll_title']) ) ? htmlspecialchars(trim(stripslashes($HTTP_POST_VARS['poll_title']))) : '';
+<br />
+    $poll_length = ( isset($HTTP_POST_VARS['poll_length']) ) ? max(0, intval($HTTP_POST_VARS['poll_length'])) : 0;
+<br />
+
+<br />
+    $poll_options = array();
+<br />
+    if ( !empty($HTTP_POST_VARS['poll_option_text']) )
+<br />
+    {
+<br />
+        while( list($option_id, $option_text) = @each($HTTP_POST_VARS['poll_option_text']) )
+<br />
+        {
+<br />
+            if( isset($HTTP_POST_VARS['del_poll_option'][$option_id]) )
+<br />
+            {
+<br />
+                unset($poll_options[$option_id]);
+<br />
+            }
+<br />
+            else if ( !empty($option_text) )
+<br />
+            {
+<br />
+                $poll_options[$option_id] = htmlspecialchars(trim(stripslashes($option_text)));
+<br />
+            }
+<br />
+        }
+<br />
+    }
+<br />
+
+<br />
+    if ( isset($poll_add) &amp;&amp; !empty($HTTP_POST_VARS['add_poll_option_text']) )
+<br />
+    {
+<br />
+        $poll_options[] = htmlspecialchars(trim(stripslashes($HTTP_POST_VARS['add_poll_option_text'])));
+<br />
+    }
+<br />
+
+<br />
+    if ( $mode == 'newtopic' || $mode == 'reply')
+<br />
+    {
+<br />
+        $user_sig = ( $userdata['user_sig'] != '' &amp;&amp; $board_config['allow_sig'] ) ? $userdata['user_sig'] : '';
+<br />
+    }
+<br />
+    else if ( $mode == 'editpost' )
+<br />
+    {
+<br />
+        $user_sig = ( $post_info['user_sig'] != '' &amp;&amp; $board_config['allow_sig'] ) ? $post_info['user_sig'] : '';
+<br />
+    }
+<br />
+    
+<br />
+   bbas_hook($preview, $error_msg, $username, $subject, $message);
+<br />
+if( $preview and ($error_msg == ''))
+<br />
+{ 
+<br />
+        $orig_word = array();
+<br />
+        $replacement_word = array();
+<br />
+        obtain_word_list($orig_word, $replacement_word);
+<br />
+
+<br />
+        $bbcode_uid = ( $bbcode_on ) ? make_bbcode_uid() : '';
+<br />
+        $preview_message = stripslashes(prepare_message(addslashes(unprepare_message($message)), $html_on, $bbcode_on, $smilies_on, $bbcode_uid));
+<br />
+        $preview_subject = $subject;
+<br />
+        $preview_username = $username;
+<br />
+
+<br />
+        //
+<br />
+        // Finalise processing as per viewtopic
+<br />
+        //
+<br />
+        if( !$html_on )
+<br />
+        {
+<br />
+            if( $user_sig != '' || !$userdata['user_allowhtml'] )
+<br />
+            {
+<br />
+                $user_sig = preg_replace('#(&lt;)([\/]?.*?)(&gt;)#is', '&amp;lt;\2&amp;gt;', $user_sig);
+<br />
+            }
+<br />
+        }
+<br />
+
+<br />
+        if( $attach_sig &amp;&amp; $user_sig != '' &amp;&amp; $userdata['user_sig_bbcode_uid'] )
+<br />
+        {
+<br />
+            $user_sig = bbencode_second_pass($user_sig, $userdata['user_sig_bbcode_uid']);
+<br />
+        }
+<br />
+
+<br />
+        if( $bbcode_on )
+<br />
+        {
+<br />
+            $preview_message = bbencode_second_pass($preview_message, $bbcode_uid);
+<br />
+        }
+<br />
+
+<br />
+        if( !empty($orig_word) )
+<br />
+        {
+<br />
+            $preview_username = ( !empty($username) ) ? preg_replace($orig_word, $replacement_word, $preview_username) : '';
+<br />
+            $preview_subject = ( !empty($subject) ) ? preg_replace($orig_word, $replacement_word, $preview_subject) : '';
+<br />
+            $preview_message = ( !empty($preview_message) ) ? preg_replace($orig_word, $replacement_word, $preview_message) : '';
+<br />
+        }
+<br />
+
+<br />
+        if( $user_sig != '' )
+<br />
+        {
+<br />
+            $user_sig = make_clickable($user_sig);
+<br />
+        }
+<br />
+        $preview_message = make_clickable($preview_message);
+<br />
+
+<br />
+        if( $smilies_on )
+<br />
+        {
+<br />
+            if( $userdata['user_allowsmile'] &amp;&amp; $user_sig != '' )
+<br />
+            {
+<br />
+                $user_sig = smilies_pass($user_sig);
+<br />
+            }
+<br />
+
+<br />
+            $preview_message = smilies_pass($preview_message);
+<br />
+        }
+<br />
+
+<br />
+        if( $attach_sig &amp;&amp; $user_sig != '' )
+<br />
+        {
+<br />
+            $preview_message = $preview_message . '&lt;br /&gt;&lt;br /&gt;_________________&lt;br /&gt;' . $user_sig;
+<br />
+        }
+<br />
+
+<br />
+        $preview_message = str_replace(&quot;\n&quot;, '&lt;br /&gt;', $preview_message);
+<br />
+
+<br />
+        $template-&gt;set_filenames(array(
+<br />
+            'preview' =&gt; 'posting_preview.tpl')
+<br />
+        );
+<br />
+
+<br />
+        $template-&gt;assign_vars(array(
+<br />
+            'TOPIC_TITLE' =&gt; $preview_subject,
+<br />
+            'POST_SUBJECT' =&gt; $preview_subject,
+<br />
+            'POSTER_NAME' =&gt; $preview_username,
+<br />
+            'POST_DATE' =&gt; create_date($board_config['default_dateformat'], time(), $board_config['board_timezone']),
+<br />
+            'MESSAGE' =&gt; $preview_message,
+<br />
+
+<br />
+            'L_POST_SUBJECT' =&gt; $lang['Post_subject'],
+<br />
+            'L_PREVIEW' =&gt; $lang['Preview'],
+<br />
+            'L_POSTED' =&gt; $lang['Posted'],
+<br />
+            'L_POST' =&gt; $lang['Post'])
+<br />
+        );
+<br />
+        $template-&gt;assign_var_from_handle('POST_PREVIEW_BOX', 'preview');
+<br />
+    }
+<br />
+    else if( $error_msg != '' )
+<br />
+    {
+<br />
+        $template-&gt;set_filenames(array(
+<br />
+            'reg_header' =&gt; 'error_body.tpl')
+<br />
+        );
+<br />
+        $template-&gt;assign_vars(array(
+<br />
+            'ERROR_MESSAGE' =&gt; $error_msg)
+<br />
+        );
+<br />
+        $template-&gt;assign_var_from_handle('ERROR_BOX', 'reg_header');
+<br />
+    }
+<br />
+}
+<br />
+else
+<br />
+{
+<br />
+    //
+<br />
+    // User default entry point
+<br />
+    //
+<br />
+    if ( $mode == 'newtopic' )
+<br />
+    {
+<br />
+        $user_sig = ( $userdata['user_sig'] != '' ) ? $userdata['user_sig'] : '';
+<br />
+
+<br />
+        $username = ($userdata['session_logged_in']) ? $userdata['username'] : '';
+<br />
+        $poll_title = '';
+<br />
+        $poll_length = '';
+<br />
+        $subject = '';
+<br />
+        $message = '';
+<br />
+    }
+<br />
+    else if ( $mode == 'reply' )
+<br />
+    {
+<br />
+        $user_sig = ( $userdata['user_sig'] != '' ) ? $userdata['user_sig'] : '';
+<br />
+
+<br />
+        $username = ( $userdata['session_logged_in'] ) ? $userdata['username'] : '';
+<br />
+        $subject = '';
+<br />
+        $message = '';
+<br />
+
+<br />
+    }
+<br />
+    else if ( $mode == 'quote' || $mode == 'editpost' )
+<br />
+    {
+<br />
+        $subject = ( $post_data['first_post'] ) ? $post_info['topic_title'] : $post_info['post_subject'];
+<br />
+        $message = $post_info['post_text'];
+<br />
+
+<br />
+        if ( $mode == 'editpost' )
+<br />
+        {
+<br />
+            $attach_sig = ( $post_info['enable_sig'] &amp;&amp; $post_info['user_sig'] != '' ) ? TRUE : 0;
+<br />
+            $user_sig = $post_info['user_sig'];
+<br />
+
+<br />
+            $html_on = ( $post_info['enable_html'] ) ? true : false;
+<br />
+            $bbcode_on = ( $post_info['enable_bbcode'] ) ? true : false;
+<br />
+            $smilies_on = ( $post_info['enable_smilies'] ) ? true : false;
+<br />
+        }
+<br />
+        else
+<br />
+        {
+<br />
+            $attach_sig = ( $userdata['user_attachsig'] ) ? TRUE : 0;
+<br />
+            $user_sig = $userdata['user_sig'];
+<br />
+        }
+<br />
+
+<br />
+        if ( $post_info['bbcode_uid'] != '' )
+<br />
+        {
+<br />
+            $message = preg_replace('/\<img src="images/smiles/icon_sad.gif" alt="Sad" border="0" />([a-z0-9]<img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />?)' . $post_info['bbcode_uid'] . '/s', '', $message);
+<br />
+        }
+<br />
+
+<br />
+        $message = str_replace('&lt;', '&amp;lt;', $message);
+<br />
+        $message = str_replace('&gt;', '&amp;gt;', $message);
+<br />
+        $message = str_replace('&lt;br /&gt;', &quot;\n&quot;, $message);
+<br />
+
+<br />
+        if ( $mode == 'quote' )
+<br />
+        {
+<br />
+            $orig_word = array();
+<br />
+            $replacement_word = array();
+<br />
+            obtain_word_list($orig_word, $replace_word);
+<br />
+
+<br />
+            $msg_date =  create_date($board_config['default_dateformat'], $postrow['post_time'], $board_config['board_timezone']);
+<br />
+
+<br />
+            // Use trim to get rid of spaces placed there by MS-SQL 2000
+<br />
+            $quote_username = ( trim($post_info['post_username']) != '' ) ? $post_info['post_username'] : $post_info['username'];
+<br />
+            $message = '</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>' . $quote_username . ' wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">' . $message . '</td>	</tr></table><span class="postbody">';
+<br />
+
+<br />
+            if ( !empty($orig_word) )
+<br />
+            {
+<br />
+                $subject = ( !empty($subject) ) ? preg_replace($orig_word, $replace_word, $subject) : '';
+<br />
+                $message = ( !empty($message) ) ? preg_replace($orig_word, $replace_word, $message) : '';
+<br />
+            }
+<br />
+
+<br />
+            if ( !preg_match('/^Re:/', $subject) &amp;&amp; strlen($subject) &gt; 0 )
+<br />
+            {
+<br />
+                $subject = 'Re: ' . $subject;
+<br />
+            }
+<br />
+
+<br />
+            $mode = 'reply';
+<br />
+        }
+<br />
+        else
+<br />
+        {
+<br />
+            $username = ( $post_info['user_id'] == ANONYMOUS &amp;&amp; !empty($post_info['post_username']) ) ? $post_info['post_username'] : '';
+<br />
+        }
+<br />
+    }
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Signature toggle selection
+<br />
+//
+<br />
+if( $user_sig != '' )
+<br />
+{
+<br />
+    $template-&gt;assign_block_vars('switch_signature_checkbox', array());
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// HTML toggle selection
+<br />
+//
+<br />
+if ( $board_config['allow_html'] )
+<br />
+{
+<br />
+    $html_status = $lang['HTML_is_ON'];
+<br />
+    $template-&gt;assign_block_vars('switch_html_checkbox', array());
+<br />
+}
+<br />
+else
+<br />
+{
+<br />
+    $html_status = $lang['HTML_is_OFF'];
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// BBCode toggle selection
+<br />
+//
+<br />
+if ( $board_config['allow_bbcode'] )
+<br />
+{
+<br />
+    $bbcode_status = $lang['BBCode_is_ON'];
+<br />
+    $template-&gt;assign_block_vars('switch_bbcode_checkbox', array());
+<br />
+}
+<br />
+else
+<br />
+{
+<br />
+    $bbcode_status = $lang['BBCode_is_OFF'];
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Smilies toggle selection
+<br />
+//
+<br />
+if ( $board_config['allow_smilies'] )
+<br />
+{
+<br />
+    $smilies_status = $lang['Smilies_are_ON'];
+<br />
+    $template-&gt;assign_block_vars('switch_smilies_checkbox', array());
+<br />
+}
+<br />
+else
+<br />
+{
+<br />
+    $smilies_status = $lang['Smilies_are_OFF'];
+<br />
+}
+<br />
+
+<br />
+if( !$userdata['session_logged_in'] || ( $mode == 'editpost' &amp;&amp; $post_info['poster_id'] == ANONYMOUS ) )
+<br />
+{
+<br />
+    $template-&gt;assign_block_vars('switch_username_select', array());
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Notify checkbox - only show if user is logged in
+<br />
+//
+<br />
+if ( $userdata['session_logged_in'] &amp;&amp; $is_auth['auth_read'] )
+<br />
+{
+<br />
+    if ( $mode != 'editpost' || ( $mode == 'editpost' &amp;&amp; $post_info['poster_id'] != ANONYMOUS ) )
+<br />
+    {
+<br />
+        $template-&gt;assign_block_vars('switch_notify_checkbox', array());
+<br />
+    }
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Delete selection
+<br />
+//
+<br />
+if ( $mode == 'editpost' &amp;&amp; ( ( $is_auth['auth_delete'] &amp;&amp; $post_data['last_post'] &amp;&amp; ( !$post_data['has_poll'] || $post_data['edit_poll'] ) ) || $is_auth['auth_mod'] ) )
+<br />
+{
+<br />
+    $template-&gt;assign_block_vars('switch_delete_checkbox', array());
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Topic type selection
+<br />
+//
+<br />
+$topic_type_toggle = '';
+<br />
+if ( $mode == 'newtopic' || ( $mode == 'editpost' &amp;&amp; $post_data['first_post'] ) )
+<br />
+{
+<br />
+    $template-&gt;assign_block_vars('switch_type_toggle', array());
+<br />
+
+<br />
+    if( $is_auth['auth_sticky'] )
+<br />
+    {
+<br />
+        $topic_type_toggle .= '&lt;input type=&quot;radio&quot; name=&quot;topictype&quot; value=&quot;' . POST_STICKY . '&quot;';
+<br />
+        if ( $post_data['topic_type'] == POST_STICKY || $topic_type == POST_STICKY )
+<br />
+        {
+<br />
+            $topic_type_toggle .= ' checked=&quot;checked&quot;';
+<br />
+        }
+<br />
+        $topic_type_toggle .= ' /&gt; ' . $lang['Post_Sticky'] . '&amp;nbsp;&amp;nbsp;';
+<br />
+    }
+<br />
+
+<br />
+    if( $is_auth['auth_announce'] )
+<br />
+    {
+<br />
+        $topic_type_toggle .= '&lt;input type=&quot;radio&quot; name=&quot;topictype&quot; value=&quot;' . POST_ANNOUNCE . '&quot;';
+<br />
+        if ( $post_data['topic_type'] == POST_ANNOUNCE || $topic_type == POST_ANNOUNCE )
+<br />
+        {
+<br />
+            $topic_type_toggle .= ' checked=&quot;checked&quot;';
+<br />
+        }
+<br />
+        $topic_type_toggle .= ' /&gt; ' . $lang['Post_Announcement'] . '&amp;nbsp;&amp;nbsp;';
+<br />
+    }
+<br />
+
+<br />
+    if ( $topic_type_toggle != '' )
+<br />
+    {
+<br />
+        $topic_type_toggle = $lang['Post_topic_as'] . ': &lt;input type=&quot;radio&quot; name=&quot;topictype&quot; value=&quot;' . POST_NORMAL .'&quot;' . ( ( $post_data['topic_type'] == POST_NORMAL || $topic_type == POST_NORMAL ) ? ' checked=&quot;checked&quot;' : '' ) . ' /&gt; ' . $lang['Post_Normal'] . '&amp;nbsp;&amp;nbsp;' . $topic_type_toggle;
+<br />
+    }
+<br />
+}
+<br />
+
+<br />
+$hidden_form_fields = '&lt;input type=&quot;hidden&quot; name=&quot;mode&quot; value=&quot;' . $mode . '&quot; /&gt;';
+<br />
+
+<br />
+switch( $mode )
+<br />
+{
+<br />
+    case 'newtopic':
+<br />
+        $page_title = $lang['Post_a_new_topic'];
+<br />
+        $hidden_form_fields .= '&lt;input type=&quot;hidden&quot; name=&quot;' . POST_FORUM_URL . '&quot; value=&quot;' . $forum_id . '&quot; /&gt;';
+<br />
+        break;
+<br />
+
+<br />
+    case 'reply':
+<br />
+        $page_title = $lang['Post_a_reply'];
+<br />
+        $hidden_form_fields .= '&lt;input type=&quot;hidden&quot; name=&quot;' . POST_TOPIC_URL . '&quot; value=&quot;' . $topic_id . '&quot; /&gt;';
+<br />
+        break;
+<br />
+
+<br />
+    case 'editpost':
+<br />
+        $page_title = $lang['Edit_Post'];
+<br />
+        $hidden_form_fields .= '&lt;input type=&quot;hidden&quot; name=&quot;' . POST_POST_URL . '&quot; value=&quot;' . $post_id . '&quot; /&gt;';
+<br />
+        break;
+<br />
+}
+<br />
+
+<br />
+// Generate smilies listing for page output
+<br />
+generate_smilies('inline', PAGE_POSTING);
+<br />
+
+<br />
+//
+<br />
+// Include page header
+<br />
+//
+<br />
+include($phpbb_root_path . 'includes/page_header.'.$phpEx);
+<br />
+
+<br />
+$template-&gt;set_filenames(array(
+<br />
+    'body' =&gt; 'posting_body.tpl',
+<br />
+    'pollbody' =&gt; 'posting_poll_body.tpl',
+<br />
+    'reviewbody' =&gt; 'posting_topic_review.tpl')
+<br />
+);
+<br />
+make_jumpbox('viewforum.'.$phpEx);
+<br />
+
+<br />
+$template-&gt;assign_vars(array(
+<br />
+    'FORUM_NAME' =&gt; $forum_name,
+<br />
+    'L_POST_A' =&gt; $page_title,
+<br />
+    'L_POST_SUBJECT' =&gt; $lang['Post_subject'],
+<br />
+
+<br />
+    'U_VIEW_FORUM' =&gt; append_sid(&quot;viewforum.$phpEx?&quot; . POST_FORUM_URL . &quot;=$forum_id&quot;))
+<br />
+);
+<br />
+
+<br />
+//
+<br />
+// This enables the forum/topic title to be output for posting
+<br />
+// but not for privmsg (where it makes no sense)
+<br />
+//
+<br />
+$template-&gt;assign_block_vars('switch_not_privmsg', array());
+<br />
+
+<br />
+//
+<br />
+// Output the data to the template
+<br />
+//
+<br />
+$template-&gt;assign_vars(array(
+<br />
+    'USERNAME' =&gt; $username,
+<br />
+    'SUBJECT' =&gt; $subject,
+<br />
+    'MESSAGE' =&gt; $message,
+<br />
+    'HTML_STATUS' =&gt; $html_status,
+<br />
+    'BBCODE_STATUS' =&gt; sprintf($bbcode_status, '&lt;a href=&quot;' . append_sid(&quot;faq.$phpEx?mode=bbcode&quot;) . '&quot; target=&quot;_phpbbcode&quot;&gt;', '&lt;/a&gt;'),
+<br />
+    'SMILIES_STATUS' =&gt; $smilies_status,
+<br />
+
+<br />
+    'L_SUBJECT' =&gt; $lang['Subject'],
+<br />
+    'L_MESSAGE_BODY' =&gt; $lang['Message_body'],
+<br />
+    'L_OPTIONS' =&gt; $lang['Options'],
+<br />
+    'L_PREVIEW' =&gt; $lang['Preview'],
+<br />
+    'L_SPELLCHECK' =&gt; $lang['Spellcheck'],
+<br />
+    'L_SUBMIT' =&gt; $lang['Submit'],
+<br />
+    'L_CANCEL' =&gt; $lang['Cancel'],
+<br />
+    'L_CONFIRM_DELETE' =&gt; $lang['Confirm_delete'],
+<br />
+    'L_DISABLE_HTML' =&gt; $lang['Disable_HTML_post'],
+<br />
+    'L_DISABLE_BBCODE' =&gt; $lang['Disable_BBCode_post'],
+<br />
+    'L_DISABLE_SMILIES' =&gt; $lang['Disable_Smilies_post'],
+<br />
+    'L_ATTACH_SIGNATURE' =&gt; $lang['Attach_signature'],
+<br />
+    'L_NOTIFY_ON_REPLY' =&gt; $lang['Notify'],
+<br />
+    'L_DELETE_POST' =&gt; $lang['Delete_post'],
+<br />
+
+<br />
+    'L_BBCODE_B_HELP' =&gt; $lang['bbcode_b_help'],
+<br />
+    'L_BBCODE_I_HELP' =&gt; $lang['bbcode_i_help'],
+<br />
+    'L_BBCODE_U_HELP' =&gt; $lang['bbcode_u_help'],
+<br />
+    'L_BBCODE_Q_HELP' =&gt; $lang['bbcode_q_help'],
+<br />
+    'L_BBCODE_C_HELP' =&gt; $lang['bbcode_c_help'],
+<br />
+    'L_BBCODE_L_HELP' =&gt; $lang['bbcode_l_help'],
+<br />
+    'L_BBCODE_O_HELP' =&gt; $lang['bbcode_o_help'],
+<br />
+    'L_BBCODE_P_HELP' =&gt; $lang['bbcode_p_help'],
+<br />
+    'L_BBCODE_W_HELP' =&gt; $lang['bbcode_w_help'],
+<br />
+    'L_BBCODE_A_HELP' =&gt; $lang['bbcode_a_help'],
+<br />
+    'L_BBCODE_S_HELP' =&gt; $lang['bbcode_s_help'],
+<br />
+    'L_BBCODE_F_HELP' =&gt; $lang['bbcode_f_help'],
+<br />
+    'L_EMPTY_MESSAGE' =&gt; $lang['Empty_message'],
+<br />
+
+<br />
+    'L_FONT_COLOR' =&gt; $lang['Font_color'],
+<br />
+    'L_COLOR_DEFAULT' =&gt; $lang['color_default'],
+<br />
+    'L_COLOR_DARK_RED' =&gt; $lang['color_dark_red'],
+<br />
+    'L_COLOR_RED' =&gt; $lang['color_red'],
+<br />
+    'L_COLOR_ORANGE' =&gt; $lang['color_orange'],
+<br />
+    'L_COLOR_BROWN' =&gt; $lang['color_brown'],
+<br />
+    'L_COLOR_YELLOW' =&gt; $lang['color_yellow'],
+<br />
+    'L_COLOR_GREEN' =&gt; $lang['color_green'],
+<br />
+    'L_COLOR_OLIVE' =&gt; $lang['color_olive'],
+<br />
+    'L_COLOR_CYAN' =&gt; $lang['color_cyan'],
+<br />
+    'L_COLOR_BLUE' =&gt; $lang['color_blue'],
+<br />
+    'L_COLOR_DARK_BLUE' =&gt; $lang['color_dark_blue'],
+<br />
+    'L_COLOR_INDIGO' =&gt; $lang['color_indigo'],
+<br />
+    'L_COLOR_VIOLET' =&gt; $lang['color_violet'],
+<br />
+    'L_COLOR_WHITE' =&gt; $lang['color_white'],
+<br />
+    'L_COLOR_BLACK' =&gt; $lang['color_black'],
+<br />
+
+<br />
+    'L_FONT_SIZE' =&gt; $lang['Font_size'],
+<br />
+    'L_FONT_TINY' =&gt; $lang['font_tiny'],
+<br />
+    'L_FONT_SMALL' =&gt; $lang['font_small'],
+<br />
+    'L_FONT_NORMAL' =&gt; $lang['font_normal'],
+<br />
+    'L_FONT_LARGE' =&gt; $lang['font_large'],
+<br />
+    'L_FONT_HUGE' =&gt; $lang['font_huge'],
+<br />
+
+<br />
+    'L_BBCODE_CLOSE_TAGS' =&gt; $lang['Close_Tags'],
+<br />
+    'L_STYLES_TIP' =&gt; $lang['Styles_tip'],
+<br />
+
+<br />
+    'U_VIEWTOPIC' =&gt; ( $mode == 'reply' ) ? append_sid(&quot;viewtopic.$phpEx?&quot; . POST_TOPIC_URL . &quot;=$topic_id&amp;amp;postorder=desc&quot;) : '',
+<br />
+    'U_REVIEW_TOPIC' =&gt; ( $mode == 'reply' ) ? append_sid(&quot;posting.$phpEx?mode=topicreview&amp;amp;&quot; . POST_TOPIC_URL . &quot;=$topic_id&quot;) : '',
+<br />
+
+<br />
+    'S_HTML_CHECKED' =&gt; ( !$html_on ) ? 'checked=&quot;checked&quot;' : '',
+<br />
+    'S_BBCODE_CHECKED' =&gt; ( !$bbcode_on ) ? 'checked=&quot;checked&quot;' : '',
+<br />
+    'S_SMILIES_CHECKED' =&gt; ( !$smilies_on ) ? 'checked=&quot;checked&quot;' : '',
+<br />
+    'S_SIGNATURE_CHECKED' =&gt; ( $attach_sig ) ? 'checked=&quot;checked&quot;' : '',
+<br />
+    'S_NOTIFY_CHECKED' =&gt; ( $notify_user ) ? 'checked=&quot;checked&quot;' : '',
+<br />
+    'S_TYPE_TOGGLE' =&gt; $topic_type_toggle,
+<br />
+    'S_TOPIC_ID' =&gt; $topic_id,
+<br />
+    'S_POST_ACTION' =&gt; append_sid(&quot;posting.$phpEx&quot;),
+<br />
+    'S_HIDDEN_FORM_FIELDS' =&gt; $hidden_form_fields)
+<br />
+);
+<br />
+
+<br />
+//
+<br />
+// Poll entry switch/output
+<br />
+//
+<br />
+if( ( $mode == 'newtopic' || ( $mode == 'editpost' &amp;&amp; $post_data['edit_poll']) ) &amp;&amp; $is_auth['auth_pollcreate'] )
+<br />
+{
+<br />
+    $template-&gt;assign_vars(array(
+<br />
+        'L_ADD_A_POLL' =&gt; $lang['Add_poll'],  
+<br />
+        'L_ADD_POLL_EXPLAIN' =&gt; $lang['Add_poll_explain'],   
+<br />
+        'L_POLL_QUESTION' =&gt; $lang['Poll_question'],   
+<br />
+        'L_POLL_OPTION' =&gt; $lang['Poll_option'],  
+<br />
+        'L_ADD_OPTION' =&gt; $lang['Add_option'],
+<br />
+        'L_UPDATE_OPTION' =&gt; $lang['Update'],
+<br />
+        'L_DELETE_OPTION' =&gt; $lang['Delete'],
+<br />
+        'L_POLL_LENGTH' =&gt; $lang['Poll_for'],  
+<br />
+        'L_DAYS' =&gt; $lang['Days'],
+<br />
+        'L_POLL_LENGTH_EXPLAIN' =&gt; $lang['Poll_for_explain'],
+<br />
+        'L_POLL_DELETE' =&gt; $lang['Delete_poll'],
+<br />
+        
+<br />
+        'POLL_TITLE' =&gt; $poll_title,
+<br />
+        'POLL_LENGTH' =&gt; $poll_length)
+<br />
+    );
+<br />
+
+<br />
+    if( $mode == 'editpost' &amp;&amp; $post_data['edit_poll'] &amp;&amp; $post_data['has_poll'])
+<br />
+    {
+<br />
+        $template-&gt;assign_block_vars('switch_poll_delete_toggle', array());
+<br />
+    }
+<br />
+
+<br />
+    if( !empty($poll_options) )
+<br />
+    {
+<br />
+        while( list($option_id, $option_text) = each($poll_options) )
+<br />
+        {
+<br />
+            $template-&gt;assign_block_vars('poll_option_rows', array(
+<br />
+                'POLL_OPTION' =&gt; str_replace('&quot;', '&amp;quot;', $option_text),
+<br />
+
+<br />
+                'S_POLL_OPTION_NUM' =&gt; $option_id)
+<br />
+            );
+<br />
+        }
+<br />
+    }
+<br />
+
+<br />
+    $template-&gt;assign_var_from_handle('POLLBOX', 'pollbody');
+<br />
+}
+<br />
+
+<br />
+//
+<br />
+// Topic review
+<br />
+//
+<br />
+if( $mode == 'reply' &amp;&amp; $is_auth['auth_read'] )
+<br />
+{
+<br />
+    require($phpbb_root_path . 'includes/topic_review.'.$phpEx);
+<br />
+    topic_review($topic_id, true);
+<br />
+
+<br />
+    $template-&gt;assign_block_vars('switch_inline_mode', array());
+<br />
+    $template-&gt;assign_var_from_handle('TOPIC_REVIEW_BOX', 'reviewbody');
+<br />
+}
+<br />
+
+<br />
+$template-&gt;pparse('body');
+<br />
+
+<br />
+include($phpbb_root_path . 'includes/page_tail.'.$phpEx);
+<br />
+
+<br />
+?&gt;</td>	</tr></table><span class="postbody"></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="980"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Mar 26, 2007 2:25 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I did like it is told in the previous post, but when i tried to test the links rejection, by entering the word that is censored at the Censored Words in the Administrations Panle, and clicked on the Submit, the posting.php won`t load. I simply got the blank page. What is the problem? </td>	</tr></table><span class="postbody">
+<br />
+Hard to say. Do you have access to the server logs? Most likely, the description of the error is in the file &quot;error_log&quot;.
+<br />
+
+<br />
+Also, what happens if you comment out the calls to &quot;bbas_hook&quot; in &quot;posting.php&quot;? Change
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">bbas_hook&#40;$preview, $error_msg, $username, $subject, $message&#41;;</td>	</tr></table><span class="postbody">
+<br />
+to
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">// bbas_hook&#40;$preview, $error_msg, $username, $subject, $message&#41;;</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="982"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Mar 26, 2007 11:33 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for the help. Now the posting.php page works (after you told me to put &quot;// &quot;).
+<br />
+But still the links rejector is not working. I have for example added the word &quot;worm&quot; at the Words censors, and the replacement &quot;http://worm.bbspam.com/&quot;. But when i type a message with &quot;worm&quot; in it, the message is accepted, and the only thing that happens is the replacement of the word &quot;worm&quot; with &quot;http://worm.bbspam.com/&quot;
+<br />
+
+<br />
+About my phpBB version: at the bottom of the AP there is: &quot;Your installation is up to date, no updates are aviable for your version of the PhpBB&quot;.
+<br />
+
+<br />
+But as i said, i don`t think this is true, as far as i have installed all ne versions of the phpBB 2.0.17 to 2.0.22 with easyMOD. When checked some of the files, i saw that they are still at the phpBB 2.0.17 version.
+<br />
+So, maybe the only thing that tells your, if you have newest version or not at AP i some data from the SQL table in wich is written - 2.0.22 or something else, even if the files are not at that version. Am i wrong?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="994"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 28, 2007 3:36 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Now the posting.php page works (after you told me to put &quot;// &quot;).
+<br />
+But still the links rejector is not working.</td>	</tr></table><span class="postbody">
+<br />
+Yes, commenting-out (adding &quot;//&quot;) stops executing Links Rejector.
+<br />
+
+<br />
+Now we know that the error happens somewhere inside &quot;functions_bbas.php&quot;.
+<br />
+
+<br />
+The easiest way to find the exact location is to look in the error log of the web server. If possible, please do so. If not, let's try to find the location step-by-step.
+<br />
+
+<br />
+* Uncomment (remove &quot;//&quot;) bbas_hook.
+<br />
+* Post a message without links. Does posting.php work?
+<br />
+* Post a message with a link. Does posting.php work?
+<br />
+
+<br />
+Please also give a link to your forum.
+<br />
+
+<br />
+As for the phpBB version: yes, it might be possible that the database version is for 2.0.22, and the files are from 2.0.17. Try downloading 2.0.22 and put the new files over old files.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1001"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 28, 2007 11:53 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Ok, i have removed the &quot;// &quot; from the bbas_hook and, when i after that try to post a message (with or without the censored word) i get the same result - after clicking the &quot;Submit&quot; button i get a blank page.
+<br />
+
+<br />
+Here is the url of site: <a href="http://www.iss-world.net/phpBB2/" target="_blank">http://www.iss-world.net/phpBB2/</a> (i will add again the &quot;// &quot; to the bbas_hook so that the site will be operate - i am just informing this in case that you will try to post the message on the forum to see what`s happening)
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">As for the phpBB version: yes, it might be possible that the database version is for 2.0.22, and the files are from 2.0.17. Try downloading 2.0.22 and put the new files over old files.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Uh, will it work if i directly make a leap from 2.0.17 to 2.0.22 (witout code changes of the updates between this two version)? Also, i have a numerous, number of mods, and editings, so i supose that simply replacing the 2.0.17 files with the 2.0.22 ones will make some problems at that field too.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1007"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 29, 2007 2:28 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Now we know that the error happens regardless if the censored word is in the posting.
+<br />
+
+<br />
+Does the error happen when there are no links at all?
+<br />
+
+<br />
+The second test: if the posting has a link, does &quot;preview&quot; of the posting work?
+<br />
+
+<br />
+If possible, try also: when you get the empty &quot;posting.php&quot;, use &quot;view source&quot; functionality in the browser. Copy/paste the text here.
+<br />
+
+<br />
+By the way, please copy/paste here the first 12 lines of your file &quot;includes/functions_bbas.php&quot;.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Uh, will it work if i directly make a leap from 2.0.17 to 2.0.22 (witout code changes of the updates between this two version)? Also, i have a numerous, number of mods, and editings, so i supose that simply replacing the 2.0.17 files with the 2.0.22 ones will make some problems at that field too.</td>	</tr></table><span class="postbody">
+<br />
+I don't fully understand the first question, therefore can't answer. But as you have a lot of mods, I agree that simply replacing the 2.0.17 files with the 2.0.22 ones will make problems. Don't do it.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1015"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 29, 2007 3:57 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">ok, i have again removed the &quot;// &quot; and here are the results
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Does the error happen when there are no links at all?</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+yes. I forgot to ask you this: by &quot;links&quot; i supose that you consider the Censored words?
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">The second test: if the posting has a link, does &quot;preview&quot; of the posting work?</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+no
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">If possible, try also: when you get the empty &quot;posting.php&quot;, use &quot;view source&quot; functionality in the browser. Copy/paste the text here.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+It wasn`t possible as far as i have got the blank page when i chose the &quot;view source&quot; at Firefox. But then i have saved that file and opened with notepad. Here is the code:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&lt;script&gt;
+<br />
+function lycosBreak&#40;&#41;
+<br />
+&#123;
+<br />
+if&#40;typeof&#40;&quot;DeleteCookie&quot;&#41;==&quot;function&quot;&#41;DeleteCookie&#40;&quot;adFrameForcePHP&quot;&#41;;
+<br />
+&#125;
+<br />
+lycosBreak&#40;&#41;
+<br />
+function resizeGoogleAdFrame&#40;&#41; &#123;
+<br />
+if &#40;window != top&#41; window.parent.document.body.cols = &quot;*,0&quot;;
+<br />
+&#125;
+<br />
+resizeGoogleAdFrame&#40;&#41;
+<br />
+//setInterval&#40;&quot;lycosBreak&#40;&#41;&quot;,2000&#41;;
+<br />
+if &#40;window != top&#41; setInterval&#40;&quot;resizeGoogleAdFrame&#40;&#41;&quot;, 1&#41;;// lower is better
+<br />
+&lt;/script&gt;
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http&#58;//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+<br />
+&lt;html xmlns=&quot;http&#58;//www.w3.org/1999/xhtml&quot; dir=&quot;ltr&quot;&gt;
+<br />
+&lt;head&gt;
+<br />
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot; /&gt;
+<br />
+&lt;meta http-equiv=&quot;Content-Style-Type&quot; content=&quot;text/css&quot; /&gt;
+<br />
+
+<br />
+&lt;title&gt;ISS world &#58;&#58; &lt;/title&gt;
+<br />
+&lt;link rel=&quot;icon&quot; href=&quot;favicon.ico&quot; /&gt;
+<br />
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot; /&gt;
+<br />
+&lt;link rel=&quot;stylesheet&quot; href=&quot;templates/fisubgreen/fisubgreen.css&quot; type=&quot;text/css&quot; /&gt;
+<br />
+&lt;/head&gt;
+<br />
+&lt;body&gt;
+<br />
+&lt;a name=&quot;top&quot; id=&quot;top&quot;&gt;&lt;/a&gt;
+<br />
+&lt;table class=&quot;bodyline&quot; div align=&quot;center&quot; width=&quot;760&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot;&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;td align=&quot;center&quot; valign=&quot;top&quot;&gt;
+<br />
+&lt;table class=&quot;topbkg&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot;&gt;
+<br />
+&nbsp; &nbsp; &nbsp; &lt;tr&gt;
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;&lt;div align=&quot;center&quot;&gt;&lt;table width=&quot;760&quot; height=&quot;238&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+<br />
+&nbsp; &lt;tr&gt;
+<br />
+&nbsp; &nbsp; &lt;td rowspan=&quot;3&quot;&gt;&lt;img src=&quot;http&#58;//members.lycos.co.uk/issworldsoccer/forum/1.jpg&quot; width=&quot;276&quot; height=&quot;238&quot;&gt;&lt;/td&gt;
+<br />
+&nbsp; &nbsp; &lt;td colspan=&quot;2&quot;&gt;&lt;img src=&quot;http&#58;//members.lycos.co.uk/issworldsoccer/forum/2.jpg&quot; width=&quot;484&quot; height=&quot;160&quot;&gt;&lt;/td&gt;
+<br />
+&nbsp; &lt;/tr&gt;
+<br />
+&nbsp; &lt;tr&gt;
+<br />
+&nbsp; &nbsp; &lt;td width=&quot;468&quot; height=&quot;60&quot; valign=&quot;bottom&quot;&gt;
+<br />
+&nbsp; &nbsp; &nbsp; &lt;div align=&quot;center&quot;&gt;
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;script language=&quot;JavaScript&quot;&gt;
+<br />
+&lt;!--
+<br />
+// original content taken from Nic's JavaScript Page with permission
+<br />
+// lack of these three lines will result in copyright infringment
+<br />
+// made by&#58; Nic's JavaScript Page - http&#58;//www.javascript-page.com
+<br />
+
+<br />
+var currentdate = 0;
+<br />
+var core = 0;
+<br />
+
+<br />
+function initArray&#40;&#41; &#123;
+<br />
+
+<br />
+this.length = initArray.arguments.length;
+<br />
+&nbsp; for &#40;var i = 0; i &lt; this.length; i++&#41; &#123;
+<br />
+&nbsp; this&#91;i&#93; = initArray.arguments&#91;i&#93;;
+<br />
+&nbsp; &#125;
+<br />
+&#125;
+<br />
+
+<br />
+link = new initArray&#40;
+<br />
+&quot;http&#58;//www.lik-sang.com/affiliate.php?cre=2&amp;lsaid=257056&quot;,
+<br />
+&quot;http&#58;//www.iss-world.net/phpBB2/viewforum.php?f=22&quot;,
+<br />
+&quot;http&#58;//www.iss-world.net/phpBB2&quot;,
+<br />
+&quot;http&#58;//www.iss-world.net/phpBB2&quot;,
+<br />
+&quot;http&#58;//http&#58;//www.play-asia.com/SOap-23-83-cer-71-6m-15-pc+usb-84-j-70-gt.html&quot;,
+<br />
+&quot;http&#58;//click.adultsingles.com/partner/click.asp?id=58153&amp;typ=click&quot;
+<br />
+&#41;;
+<br />
+
+<br />
+image = new initArray&#40;
+<br />
+&quot;http&#58;//affiliate.lik-sang.com/img.php?lsaid=257056&amp;cre=2&amp;img=468x60/lsi_banner_ps2.gif&quot;,
+<br />
+&quot;http&#58;//www.iss-world.net/phpBB2/slike/baneri/baner_golmeseca_gg_468x60.jpg&quot;,
+<br />
+&quot;http&#58;//www.iss-world.net/phpBB2/slike/issworld.gif&quot;,
+<br />
+&quot;http&#58;//www.iss-world.net/phpBB2/slike/issworld_2.jpg&quot;,
+<br />
+&quot;http&#58;//members.lycos.co.uk/issworldsoccer/slike/privremeni/ps_to_pc_usb.jpg&quot;,
+<br />
+&quot;http&#58;//click.adultsingles.com/partner/click.asp?id=58153&amp;typ=show&quot;
+<br />
+&#41;;
+<br />
+
+<br />
+text = new initArray&#40;
+<br />
+&quot;Ovde mozete naci sve za vase konzole kao i za klasicne siteme Commodore64, Atari, Amiga, NES...&quot;,
+<br />
+&quot;Ucestvujte u Nagradnoj igri Gol godine/Gol meseca od 1. Aprila na ISS worldu!&quot;,
+<br />
+&quot;ISS world - domaca Winning Eleven/Pro Evolution Soccer/International Superstar Soccer Konami online fudbalska zajednica&quot;,
+<br />
+&quot;ISS world - domaca Winning Eleven/Pro Evolution Soccer/International Superstar Soccer Konami online fudbalska zajednica&quot;,
+<br />
+&quot;Veliki izbor originalne opreme za sve vrste konzola!&quot;,
+<br />
+&quot;Nadjite sebi blisku osobu&quot;
+<br />
+&#41;;
+<br />
+
+<br />
+var currentdate = new Date&#40;&#41;;
+<br />
+var core = currentdate.getSeconds&#40;&#41; % image.length;
+<br />
+var ranlink&nbsp; = link&#91;core&#93;;
+<br />
+var ranimage = image&#91;core&#93;;
+<br />
+var rantext&nbsp; = text&#91;core&#93;;
+<br />
+
+<br />
+document.write&#40;'&lt;a href=\&quot;' +ranlink+ '\&quot; target=&quot;_blank&quot;&gt;&lt;img src=\&quot;'+ranimage+'\&quot; border=&quot;0&quot; alt=\&quot;'+rantext+'\&quot;&gt;&lt;/a&gt;'&#41;;
+<br />
+
+<br />
+//--&gt;
+<br />
+&lt;/SCRIPT&gt;&lt;/div&gt;&lt;/td&gt;
+<br />
+&nbsp; &nbsp; &lt;td&gt;&lt;img src=&quot;http&#58;//members.lycos.co.uk/issworldsoccer/forum/3.jpg&quot; width=&quot;16&quot; height=&quot;60&quot;&gt;&lt;/td&gt;
+<br />
+&nbsp; &lt;/tr&gt;
+<br />
+&nbsp; &lt;tr&gt;
+<br />
+&nbsp; &nbsp; &lt;td colspan=&quot;2&quot;&gt;&lt;img src=&quot;http&#58;//members.lycos.co.uk/issworldsoccer/forum/4.jpg&quot; width=&quot;484&quot; height=&quot;18&quot;&gt;&lt;/td&gt;
+<br />
+&nbsp; &lt;/tr&gt;
+<br />
+&lt;/table&gt;
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;table width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;td align=&quot;center&quot; class=&quot;topnav&quot;&gt;&lt;a href=&quot;portal.php&quot;&gt;Home&lt;/a&gt;&amp;nbsp; &#8226; &amp;nbsp;&lt;a href=&quot;index.php&quot;&gt;Forum&lt;/a&gt;&amp;nbsp; &#8226; &amp;nbsp;&lt;a href=&quot;bookies.php&quot;&gt;Bookmakers&lt;/a&gt;&nbsp; •&nbsp; &lt;a href=&quot;quiz.php?category=1&quot;&gt;Quiz&lt;/a&gt;&amp;nbsp; &#8226; &amp;nbsp;&lt;a href=&quot;album.php&quot;&gt;Album&lt;/a&gt;&amp;nbsp; &#8226; &amp;nbsp;&lt;a href=&quot;faq.php&quot;&gt;FAQ&lt;/a&gt;&amp;nbsp; &#8226; &amp;nbsp;&lt;a href=&quot;search.php&quot;&gt;Search&lt;/a&gt;
+<br />
+&amp;nbsp; &#8226; &amp;nbsp;&lt;a href=&quot;memberlist.php&quot;&gt;Memberlist&lt;/a&gt;&amp;nbsp; &#8226;
+<br />
+&amp;nbsp;&lt;a href=&quot;groupcp.php&quot;&gt;Usergroups&lt;/a&gt;
+<br />
+&amp;nbsp; &#8226; &amp;nbsp;&lt;a href=&quot;profile.php?mode=register&quot;&gt;Register&lt;/a&gt;
+<br />
+&amp;nbsp; &#8226; &amp;nbsp;&lt;a href=&quot;profile.php?mode=editprofile&quot;&gt;Profile&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;privmsg.php?folder=inbox&quot;&gt;Log in to check your private messages&lt;/a&gt;&amp;nbsp;
+<br />
+&#8226; &amp;nbsp;&lt;a href=&quot;login.php&quot;&gt;Log in&lt;/a&gt;&lt;/td&gt;
+<br />
+&lt;/tr&gt;
+<br />
+&lt;/table&gt;
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;&lt;/td&gt;
+<br />
+&lt;/tr&gt;
+<br />
+&nbsp; &nbsp; &lt;/table&gt;
+<br />
+&lt;table width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;10&quot;&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;td align=&quot;center&quot;&gt;
+<br />
+
+<br />
+&lt;br /&gt;
+<br />
+&lt;table width=&quot;100%&quot; cellspacing=&quot;2&quot; cellpadding=&quot;2&quot; border=&quot;0&quot;&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;td class=&quot;nav&quot;&gt;&lt;a href=&quot;index.php&quot;&gt;ISS world Forum Index&lt;/a&gt;&lt;/td&gt;
+<br />
+&lt;/tr&gt;
+<br />
+&lt;/table&gt;
+<br />
+&lt;table class=&quot;forumline&quot; width=&quot;100%&quot; cellspacing=&quot;1&quot; cellpadding=&quot;4&quot; border=&quot;0&quot;&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;th&gt;Information&lt;/th&gt;
+<br />
+&lt;/tr&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;td class=&quot;row1&quot;&gt;
+<br />
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;1&quot; border=&quot;0&quot;&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+<br />
+&lt;/tr&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;td align=&quot;center&quot;&gt;No post mode specified&lt;/td&gt;
+<br />
+&lt;/tr&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+<br />
+&lt;/tr&gt;
+<br />
+&lt;/table&gt;
+<br />
+&lt;/td&gt;
+<br />
+&lt;/tr&gt;
+<br />
+&lt;tr&gt;
+<br />
+&lt;td class=&quot;cat&quot;&gt;&amp;nbsp;&lt;/td&gt;
+<br />
+&lt;/tr&gt;
+<br />
+&lt;/table&gt;
+<br />
+&lt;br clear=&quot;all&quot; /&gt;
+<br />
+
+<br />
+&lt;div class=&quot;gensmall&quot;&gt;&lt;br /&gt;&lt;br /&gt;
+<br />
+&lt;!--
+<br />
+We request you retain the full copyright notice below including the link to <a href="http://www.phpbb.com." target="_blank">www.phpbb.com.</a>
+<br />
+This not only gives respect to the large amount of time given freely by the developers
+<br />
+but also helps build interest, traffic and use of phpBB 2.0. If you cannot &#40;for good
+<br />
+reason&#41; retain the full copyright we request you at least leave in place the
+<br />
+Powered by phpBB&nbsp; line, with phpBB linked to <a href="http://www.phpbb.com." target="_blank">www.phpbb.com.</a> If you refuse
+<br />
+to include even this then support on our forums may be affected.
+<br />
+
+<br />
+The phpBB Group &#58; 2002
+<br />
+// --&gt;
+<br />
+
+<br />
+&lt;div align=&quot;center&quot;&gt;&lt;script language=&quot;JavaScript&quot;&gt;
+<br />
+&lt;!--
+<br />
+// original content taken from Nic's JavaScript Page with permission
+<br />
+// lack of these three lines will result in copyright infringment
+<br />
+// made by&#58; Nic's JavaScript Page - http&#58;//www.javascript-page.com
+<br />
+
+<br />
+var currentdate = 0;
+<br />
+var core = 0;
+<br />
+
+<br />
+function initArray&#40;&#41; &#123;
+<br />
+
+<br />
+this.length = initArray.arguments.length;
+<br />
+&nbsp; for &#40;var i = 0; i &lt; this.length; i++&#41; &#123;
+<br />
+&nbsp; this&#91;i&#93; = initArray.arguments&#91;i&#93;;
+<br />
+&nbsp; &#125;
+<br />
+&#125;
+<br />
+
+<br />
+link = new initArray&#40;
+<br />
+&quot;http&#58;//www.play-asia.com/paOS-23-70-cer-71-.html&quot;,
+<br />
+&quot;http&#58;//www.play-asia.com/SOap-23-83-cer-84-j-71-6m-70-gt-15-pc+usb.html&quot;,
+<br />
+&quot;http&#58;//www.iss-world.net/phpBB2/viewforum.php?f=22&quot;,
+<br />
+&quot;http&#58;//click.adultsingles.com/partner/click.asp?id=58153&amp;typ=click&quot;,
+<br />
+&quot;http&#58;//www.lik-sang.com/affiliate.php?cre=2&amp;lsaid=257056&quot;
+<br />
+&#41;;
+<br />
+
+<br />
+image = new initArray&#40;
+<br />
+&quot;http&#58;//www.play-asia.com/paOS-1e-74-h-70-cer-71-.html&quot;,
+<br />
+&quot;http&#58;//members.lycos.co.uk/issworldsoccer/slike/privremeni/ps_to_pc_usb.jpg&quot;,
+<br />
+&quot;http&#58;//www.iss-world.net/phpBB2/slike/baneri/baner_golmeseca_gg_468x60.jpg&quot;,
+<br />
+&quot;http&#58;//click.adultsingles.com/partner/click.asp?id=58153&amp;typ=show&quot;,
+<br />
+&quot;http&#58;//affiliate.lik-sang.com/img.php?lsaid=257056&amp;cre=2&amp;img=468x60/lsi_banner_ps2.gif&quot;
+<br />
+&#41;;
+<br />
+
+<br />
+text = new initArray&#40;
+<br />
+&quot;Veliki izbor originalnih igara i opreme za sve vrste konzola!&quot;,
+<br />
+&quot;Veliki izbor originalne opreme za sve vrste konzola!&quot;,
+<br />
+&quot;Ucestvujte u Nagradnoj igri Gol godine / Gol meseca od 1. Aprila na ISS worldu!&quot;,
+<br />
+&quot;Nadjite sebi blisku osobu&quot;,
+<br />
+&quot;Ovde mozete naci sve za vase konzole kao i za klasicne siteme Commodore64, Atari, Amiga, NES...&quot;
+<br />
+&#41;;
+<br />
+
+<br />
+var currentdate = new Date&#40;&#41;;
+<br />
+var core = currentdate.getSeconds&#40;&#41; % image.length;
+<br />
+var ranlink&nbsp; = link&#91;core&#93;;
+<br />
+var ranimage = image&#91;core&#93;;
+<br />
+var rantext&nbsp; = text&#91;core&#93;;
+<br />
+
+<br />
+document.write&#40;'&lt;a href=\&quot;' +ranlink+ '\&quot; target=&quot;_blank&quot;&gt;&lt;img src=\&quot;'+ranimage+'\&quot; border=&quot;0&quot; alt=\&quot;'+rantext+'\&quot;&gt;&lt;/a&gt;'&#41;;
+<br />
+
+<br />
+//--&gt;
+<br />
+&lt;/SCRIPT&gt;
+<br />
+&lt;/div&gt;
+<br />
+&lt;br&gt;
+<br />
+
+<br />
+&lt;div align=&quot;center&quot;&gt;&lt;strong&gt;www.iss-world.net © 2002-2005&lt;/strong&gt;&lt;/div&gt;&lt;br /&gt;
+<br />
+Powered by &lt;a href=&quot;http&#58;//www.phpbb.com/&quot; target=&quot;_phpbb&quot;&gt;phpBB&lt;/a&gt; 
+<br />
+© 2001, 2005 phpBB Group &#58;&#58; Theme created by &lt;a href=&quot;http&#58;//www.forumimages.com/&quot; target=&quot;_blank&quot;&gt;Daz&lt;/a&gt;&lt;br /&gt;
+<br />
+All times are GMT + 1 Hour&lt;br /&gt;
+<br />
+&lt;/div&gt;
+<br />
+&lt;a name=&quot;bot&quot; id=&quot;bot&quot;&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+<br />
+
+<br />
+&lt;/body&gt;
+<br />
+&lt;/html&gt;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">By the way, please copy/paste here the first 12 lines of your file &quot;includes/functions_bbas.php&quot;.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+wow, i forgot to upload that file. Sorry for that mate. Here when i now again remove the &quot;// &quot;,and try to post the message with the censored word (or link as you said) i get this:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">Could not find email template file &#58;&#58; links_rejector
+<br />
+
+<br />
+DEBUG MODE
+<br />
+
+<br />
+Line &#58; 111
+<br />
+File &#58; emailer.php</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Uh, will it work if i directly make a leap from 2.0.17 to 2.0.22 (witout code changes of the updates between this two version)? Also, i have a numerous, number of mods, and editings, so i supose that simply replacing the 2.0.17 files with the 2.0.22 ones will make some problems at that field too.</td>	</tr></table><span class="postbody">
+<br />
+I don't fully understand the first question, therefore can't answer. But as you have a lot of mods, I agree that simply replacing the 2.0.17 files with the 2.0.22 ones will make problems. Don't do it.[/quote]
+<br />
+
+<br />
+the first question ment exactly as you have answered me. Maybe i haven`t wrote the word like it should be (&quot;leap&quot; like &quot;jump&quot;, or maybe is it leep?)</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1017"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 30, 2007 2:07 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for data! The finish is near.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">yes. I forgot to ask you this: by &quot;links&quot; i supose that you consider the Censored words?</td>	</tr></table><span class="postbody">
+<br />
+No, by &quot;links&quot; I meant links, that links which start with <a href="http://" target="_blank">http://</a> and clickable . But it's not important now.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Could not find email template file :: links_rejector
+<br />
+
+<br />
+DEBUG MODE
+<br />
+
+<br />
+Line : 111
+<br />
+File : emailer.php</td>	</tr></table><span class="postbody">
+<br />
+That's easy. Check that the file &quot;lang_english/email/links_rejector.tpl&quot; (and/or something like &quot;lang_<span style="font-weight: bold">polish</span>/email/links_rejector.tpl&quot;) exists.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Maybe i haven`t wrote the word like it should be (&quot;leap&quot; like &quot;jump&quot;, or maybe is it leep?)</td>	</tr></table><span class="postbody">
+<br />
+&quot;leap&quot; is correct. The main problem for me was to interpret the meaning of &quot;it&quot; in &quot;will it work&quot;.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1019"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 30, 2007 10:39 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">wow, sorry for that mate. There was clearly written that that file is missing, and i haven`t even noticed it.
+<br />
+Sorry for all this disturbance, only because for my fault.
+<br />
+
+<br />
+Everything is working now.
+<br />
+But i have a question: i have installed the Links Rejector because i needed an effective tool to protect from spambots. As they passed even the &quot;say hello&quot; message, i saw that Links rejector has an option of disabling bots to post by adding censored words. But then when you told me &quot;link&quot; in the previous post, i remembered something - is this mod rejecting the links in messages also? For now, the links can be entered into messages at my board. Will i have any problem in the future?
+<br />
+
+<br />
+Also, what about those data sendings to the spam base? I supose that the main reason is to mark all the spambots and it`s i.p., email etc. But what about common users wich accidently enter the censored word? Are they going to be marked in that spam bot database? Will that effect bad (in some way) on them, or their i.p.?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1026"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 31, 2007 2:25 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I recommend to install also Textual Confirmation or Advanced Textual Confirmation.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">But then when you told me &quot;link&quot; in the previous post, i remembered something - is this mod rejecting the links in messages also?</td>	</tr></table><span class="postbody">
+<br />
+The main goal of this MOD was to stop spam postings from anonymous users. When a guest posts a message with links, the message is rejected. Registered users are allowed to post links.
+<br />
+
+<br />
+However, there is an undocumented feature. If a link contains &quot;bbspam.com&quot;, the message is rejected even if the user is registered. It is used to created censored words.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">For now, the links can be entered into messages at my board. Will i have any problem in the future?</td>	</tr></table><span class="postbody">
+<br />
+No.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Also, what about those data sendings to the spam base?</td>	</tr></table><span class="postbody">
+<br />
+The spam base is cancelled, the new revisions of the MODs will stop sending notifications there.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

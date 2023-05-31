@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Fatal error: Call to undefined function: str_rot13() in /hom</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=530">Fatal error: Call to undefined function: str_rot13() in /hom</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1858"></a><b>lbk3918</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 13 Dec 2007<br />Posts: 1<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Dec 13, 2007 2:01 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Fatal error: Call to undefined function: str_rot13() in /hom</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi,
+<br />
+
+<br />
+I installed as per instructions but I get this error when testing (after clicking Submit in phpBB2 registration page).
+<br />
+
+<br />
+I installed by changing profile .php to add the line as shown below;
+<br />
+
+<br />
+&lt;?php
+<br />
+
+<br />
+require_once 'bbantispam.php';
+<br />
+
+<br />
+/***************************************************************************
+<br />
+ *                                profile.php
+<br />
+ *                            -------------------
+<br />
+ *   begin                : Saturday, Feb 13, 2001
+<br />
+ *   copyright            : (C) 2001 The phpBB Group
+<br />
+ *   email                : <a href="mailto:support@phpbb.com">support@phpbb.com</a>
+<br />
+
+<br />
+The full error message is;
+<br />
+
+<br />
+Fatal error: Call to undefined function: str_rot13() in /home/sites/site13/web/phpBB2/bbantispam.php(131) : eval()'d code on line 2
+<br />
+
+<br />
+Any suggestions as to why this might be - searched through the forum posts but couldn't find anything similar.
+<br />
+
+<br />
+Cheers,
+<br />
+L.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1861"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Dec 14, 2007 3:06 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi,
+<br />
+
+<br />
+what's the version of PHP on your server (ask the hoster if you don't know)? If the version is less than 4.2.0, then you have to upgrade PHP to use Advanced Textual Confirmation (and many other useful PHP scripts).<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

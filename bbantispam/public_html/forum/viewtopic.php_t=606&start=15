@@ -1,0 +1,594 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - FAQ: Spam notification bouncing</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=606&amp;start=15">FAQ: Spam notification bouncing</a></p>
+<p>Goto page  <a href="viewtopic.php?t=606&amp;&amp;start=0">Previous</a>&nbsp;&nbsp;<a href="viewtopic.php?t=606&amp;&amp;start=0">1</a>, <b>2</b>, <a href="viewtopic.php?t=606&amp;&amp;start=30">3</a>&nbsp;&nbsp;<a href="viewtopic.php?t=606&amp;&amp;start=30">Next</a></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2175"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jul 31, 2008 5:11 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Could it be so, that you somehow have two forums? For example, you might have made a backup, and spammers post messages through the backup copy?<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2176"></a><b>djemmers</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jul 31, 2008 6:27 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">same here ...
+<br />
+If this stays I wil have to look for another antispam solution as my bos doesn't want to give money for it and I get over 500 mails a day now</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2177"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jul 31, 2008 4:46 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"><span style="font-weight: bold">Reason:</span> Sending reports by e-mail was a bad idea. I underestimated potential popularity of the MOD and overestimated commercial profit. As result, the server can't handle the incoming traffic, and I don't have enough resources to upgrade the system. As a workaround, I wanted to disable all the e-mails using &quot;Null MX&quot;, but the provider doesn't support it and set the 1.2.3.4.
+<br />
+
+<br />
+<span style="font-weight: bold">Solution:</span> Disable sending of e-mails.
+<br />
+Variant 1: <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">purchase a license</a>.
+<br />
+Variant 2: edit the file &quot;functions_tc.php&quot;, comment out the string with the function &quot;emailer-&gt;send&quot;.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+OK, from what I can gather here we're being held hostage!  Either option #1 = pay money or option #2 = modify the code that other say DOES NOT WORK?  In which case you are referred back to option #1?
+<br />
+
+<br />
+So we got rid of the spammers but now get spam in our in box?  FREE = FREE Dude!  If you didn't want to give your work away you should have charged for it from the beginning!  
+<br />
+
+<br />
+This smells like someone just shut down the &quot;inbox&quot; so that we'd get the spam sent back to us with no recourse but option #1!!  Sorry, but that's the way I see it!  And I assume this message will be deleted and my IP address banned!  That's OK too as there's no help here anyway!  There is the PHPBB site though and I'll make my thoughts on this mod known there!  Hopefully they will remove it from the &quot;approved MODs&quot; list!
+<br />
+
+<br />
+Have a nice day!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2180"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Aug 01, 2008 3:14 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">The solution 2 must work. If it doesn't work, then the solution 1 will not work too.
+<br />
+
+<br />
+To Dave: please delete the whole fragment:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+// Send the message
+<br />
+//
+<br />
+include_once&#40;$phpbb_root_path . 'includes/emailer.'.$phpEx&#41;;
+<br />
+$emailer = new emailer&#40;$board_config&#91;'smtp_delivery'&#93;&#41;;
+<br />
+$emailer-&gt;use_template&#40;'textual_confirmation'&#41;;
+<br />
+$emailer-&gt;encoding = $lang&#91;'ENCODING'&#93;;
+<br />
+$from = $emailer-&gt;encode&#40;$lang&#91;'Textual_Confirmation'&#93;&#41;;
+<br />
+$from = &quot;$from &lt;&quot; . $board_config&#91;'board_email'&#93; . '&gt;';
+<br />
+$emailer-&gt;from&#40;$from&#41;;
+<br />
+$emailer-&gt;replyto&#40;$from&#41;;
+<br />
+$emailer-&gt;email_address&#40;$board_config&#91;'board_email'&#93;&#41;;
+<br />
+if &#40;$key != $lic_key&#41; &#123;
+<br />
+&nbsp; &nbsp;$emailer-&gt;bcc&#40;'tcsubmit@bbspam.com'&#41;;
+<br />
+&#125;
+<br />
+$subst&#91;'SUBJECT'&#93;&nbsp; = $emailer-&gt;encode&#40;$lang&#91;'tc_mail_subject'&#93;&#41;;
+<br />
+$emailer-&gt;extra_headers&#40;'X-bbAniSpam-spam&#58; Yes'&#41;;
+<br />
+$emailer-&gt;assign_vars&#40;$subst&#41;;
+<br />
+//
+<br />
+// $emailer-&gt;send&#40;&#41;;
+<br />
+//
+<br />
+$emailer-&gt;reset&#40;&#41;;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+Has it helped?
+<br />
+
+<br />
+Important: in the bounce notifications, check the dates of the orinigal spam reports, not the dates of the bounce notification. Time difference between them is normally 3-4 days.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2183"></a><b>Kareeser</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 24 Feb 2007<br />Posts: 13<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Aug 03, 2008 3:14 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Anonymous wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"><span style="font-weight: bold">Reason:</span> Sending reports by e-mail was a bad idea. I underestimated potential popularity of the MOD and overestimated commercial profit. As result, the server can't handle the incoming traffic, and I don't have enough resources to upgrade the system. As a workaround, I wanted to disable all the e-mails using &quot;Null MX&quot;, but the provider doesn't support it and set the 1.2.3.4.
+<br />
+
+<br />
+<span style="font-weight: bold">Solution:</span> Disable sending of e-mails.
+<br />
+Variant 1: <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">purchase a license</a>.
+<br />
+Variant 2: edit the file &quot;functions_tc.php&quot;, comment out the string with the function &quot;emailer-&gt;send&quot;.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+OK, from what I can gather here we're being held hostage!  Either option #1 = pay money or option #2 = modify the code that other say DOES NOT WORK?  In which case you are referred back to option #1?
+<br />
+
+<br />
+So we got rid of the spammers but now get spam in our in box?  FREE = FREE Dude!  If you didn't want to give your work away you should have charged for it from the beginning!  
+<br />
+
+<br />
+This smells like someone just shut down the &quot;inbox&quot; so that we'd get the spam sent back to us with no recourse but option #1!!  Sorry, but that's the way I see it!  And I assume this message will be deleted and my IP address banned!  That's OK too as there's no help here anyway!  There is the PHPBB site though and I'll make my thoughts on this mod known there!  Hopefully they will remove it from the &quot;approved MODs&quot; list!
+<br />
+
+<br />
+Have a nice day!</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Hm, I was not aware that using this free product suddenly made you king of the world.
+<br />
+
+<br />
+Do you realize that our friend here has programmed this script entirely out of the goodness of his heart (and maybe a little greed)??
+<br />
+
+<br />
+Did you realize that by downloading and installing the free version, you don't have any legal recourse?
+<br />
+
+<br />
+Did you even realize that if you REALLY wanted the emails to stop, you could just set up a god damn filter and block the mailer daemon?
+<br />
+
+<br />
+No, of course not. You're too idiotic to realize that.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2184"></a><b>Kareeser</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 24 Feb 2007<br />Posts: 13<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Aug 03, 2008 3:21 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">As a workaround, I wanted to disable all the e-mails using &quot;Null MX&quot;, but the provider doesn't support it and set the 1.2.3.4.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Have you tried contacting your hosting provider directly to ask for a solution?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2185"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Aug 04, 2008 3:07 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks Kareeser.
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Have you tried contacting your hosting provider directly to ask for a solution?</td>	</tr></table><span class="postbody">
+<br />
+Yes. Unfortunately, my requirements are too exotic, and all that automatic management tools don't support them.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2186"></a><b>ChevelleFan</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Jul 2008<br />Posts: 3<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Aug 04, 2008 3:45 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Well, I deleted that whole section (Send the message) from the functions_tc.php file (in /public_html/phpBB/admin/mods/TextualConfirmation-1.0.1/includes/ ) and I'm still getting the bounces.  When I test it out, they arrive immediately.
+<br />
+
+<br />
+I don't know much about PHP -- is it possible that there is a cache'd copy being used somewhere?
+<br />
+
+<br />
+-Dave
+<br />
+
+<br />
+
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">The solution 2 must work. If it doesn't work, then the solution 1 will not work too.
+<br />
+
+<br />
+To Dave: please delete the whole fragment:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+// Send the message
+<br />
+//
+<br />
+include_once&#40;$phpbb_root_path . 'includes/emailer.'.$phpEx&#41;;
+<br />
+$emailer = new emailer&#40;$board_config&#91;'smtp_delivery'&#93;&#41;;
+<br />
+$emailer-&gt;use_template&#40;'textual_confirmation'&#41;;
+<br />
+$emailer-&gt;encoding = $lang&#91;'ENCODING'&#93;;
+<br />
+$from = $emailer-&gt;encode&#40;$lang&#91;'Textual_Confirmation'&#93;&#41;;
+<br />
+$from = &quot;$from &lt;&quot; . $board_config&#91;'board_email'&#93; . '&gt;';
+<br />
+$emailer-&gt;from&#40;$from&#41;;
+<br />
+$emailer-&gt;replyto&#40;$from&#41;;
+<br />
+$emailer-&gt;email_address&#40;$board_config&#91;'board_email'&#93;&#41;;
+<br />
+if &#40;$key != $lic_key&#41; &#123;
+<br />
+&nbsp; &nbsp;$emailer-&gt;bcc&#40;'tcsubmit@bbspam.com'&#41;;
+<br />
+&#125;
+<br />
+$subst&#91;'SUBJECT'&#93;&nbsp; = $emailer-&gt;encode&#40;$lang&#91;'tc_mail_subject'&#93;&#41;;
+<br />
+$emailer-&gt;extra_headers&#40;'X-bbAniSpam-spam&#58; Yes'&#41;;
+<br />
+$emailer-&gt;assign_vars&#40;$subst&#41;;
+<br />
+//
+<br />
+// $emailer-&gt;send&#40;&#41;;
+<br />
+//
+<br />
+$emailer-&gt;reset&#40;&#41;;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+Has it helped?
+<br />
+
+<br />
+Important: in the bounce notifications, check the dates of the orinigal spam reports, not the dates of the bounce notification. Time difference between them is normally 3-4 days.</td>	</tr></table><span class="postbody"></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2187"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Aug 05, 2008 4:46 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for providing the full path to the file you edit! Now I can easily help. Instead of the file
+<br />
+
+<br />
+/public_html/phpBB/admin/mods/TextualConfirmation-1.0.1/includes/functions_tc.php
+<br />
+
+<br />
+edit the file
+<br />
+
+<br />
+/public_html/phpBB/includes/functions_tc.php
+<br />
+
+<br />
+The former is an archived copy, the latter is what is used by phpBB.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2188"></a><b>ChevelleFan</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Jul 2008<br />Posts: 3<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Aug 05, 2008 1:05 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Thanks for providing the full path to the file you edit! Now I can easily help. Instead of the file
+<br />
+
+<br />
+/public_html/phpBB/admin/mods/TextualConfirmation-1.0.1/includes/functions_tc.php
+<br />
+
+<br />
+edit the file
+<br />
+<span style="font-weight: bold">
+<br />
+/public_html/phpBB/includes/functions_tc.php</span>
+<br />
+
+<br />
+The former is an archived copy, the latter is what is used by phpBB.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I think that did it!  I guess it helps when you edit the correct file!  I commented out the whole send-the-mail section and it doesn't seem to be generating the emails any longer.  Thanks for sticking with me on this!
+<br />
+
+<br />
+-Dave</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2189"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Aug 06, 2008 5:18 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Very nice! I'm happy that the problem is finally solved.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2190"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Aug 07, 2008 2:40 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I edited the file:
+<br />
+/phpBB/includes/functions_tc.php
+<br />
+
+<br />
+And commented out line 204:
+<br />
+$emailer-&gt;bcc('tcsubmit@bbspam.com');
+<br />
+
+<br />
+That seems to have done the trick.
+<br />
+
+<br />
+To be clear, the line became:
+<br />
+/* $emailer-&gt;bcc('tcsubmit@bbspam.com'); */</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2194"></a><b>Guest</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Aug 15, 2008 1:43 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Is it possible to change the email address that the failed notifications get sent too?  I dont mind getting them, but I want the to go to a different account than I originally setup?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2195"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Aug 15, 2008 3:25 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Is it possible to change the email address that the failed notifications get sent too? I dont mind getting them, but I want the to go to a different account than I originally setup?</td>	</tr></table><span class="postbody">
+<br />
+Yes. In the file &quot;includes/functions_tc.php&quot;, change the line
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$emailer-&gt;email_address&#40;$board_config&#91;'board_email'&#93;&#41;;</td>	</tr></table><span class="postbody">
+<br />
+to
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$emailer-&gt;email_address&#40;'email@you.want'&#41;;</td>	</tr></table><span class="postbody"><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2196"></a><b>Guest</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Aug 15, 2008 1:23 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Is it possible to change the email address that the failed notifications get sent too? I dont mind getting them, but I want the to go to a different account than I originally setup?</td>	</tr></table><span class="postbody">
+<br />
+Yes. In the file &quot;includes/functions_tc.php&quot;, change the line
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$emailer-&gt;email_address&#40;$board_config&#91;'board_email'&#93;&#41;;</td>	</tr></table><span class="postbody">
+<br />
+to
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">$emailer-&gt;email_address&#40;'email@you.want'&#41;;</td>	</tr></table><span class="postbody"></td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Awesome!  Thanks...great product by the way!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p>Goto page  <a href="viewtopic.php?t=606&amp;&amp;start=0">Previous</a>&nbsp;&nbsp;<a href="viewtopic.php?t=606&amp;&amp;start=0">1</a>, <b>2</b>, <a href="viewtopic.php?t=606&amp;&amp;start=30">3</a>&nbsp;&nbsp;<a href="viewtopic.php?t=606&amp;&amp;start=30">Next</a></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

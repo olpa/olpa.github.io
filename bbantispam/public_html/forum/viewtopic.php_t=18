@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - FAQ: too much e-mails</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=1">Links Rejector</a> - <a href="viewtopic.php?t=18">FAQ: too much e-mails</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="42"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue May 02, 2006 2:43 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: FAQ: too much e-mails</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Question:
+<br />
+
+<br />
+I'm tired of e-mail notifications. What can I do?
+<br />
+
+<br />
+Answer:
+<br />
+
+<br />
+Don't worry! Deleting e-mails is much simpler than deleting forum postings. But here are a pair of suggestions.
+<br />
+
+<br />
+The best way is to register bbAntiSpam.
+<br />
+
+<br />
+A good approach is to automatically move e-mails to a mail client folder. You can filter either by a mail header, either by the &quot;from&quot; field.
+<br />
+
+<br />
+1) by a mail header
+<br />
+
+<br />
+bbAntiSpam notifications contains the following mail header:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">X-bbAniSpam-spam: Yes</td>	</tr></table><span class="postbody">
+<br />
+If your software supports filtering by a mail header, use this way.
+<br />
+
+<br />
+2) by the &quot;from&quot; field
+<br />
+
+<br />
+If your board email is something like &quot;phpbb@my.site&quot;, then bbAntiSpam sends e-mails with the following &quot;From&quot; address:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">bbAntiSpam &lt;phpbb@my.site&gt;</td>	</tr></table><span class="postbody"></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

@@ -1,0 +1,756 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Textual Confirmation working, but spambots still spamming</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=358">Textual Confirmation working, but spambots still spamming</a></p>
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=358&amp;&amp;start=15">2</a>&nbsp;&nbsp;<a href="viewtopic.php?t=358&amp;&amp;start=15">Next</a></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1215"></a><b>Andres</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 18, 2007 1:44 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Textual Confirmation working, but spambots still spamming</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi again Oleg,
+<br />
+
+<br />
+I have your mod installed in several of my phpBB forums and, for the most part, it's working great.  However, I have one forum located at <a href="http://www.UnitedComplaints.com" target="_blank" class="postlink">www.UnitedComplaints.com</a> that has started receiving spambots all of a sudden.  You can view the <a href="http://www.unitedcomplaints.com/memberlist.php?sid=fd6033a488dcad3f28040c88f93925c9" target="_blank" class="postlink">memberlist</a> and see that the last 4 to join, are spambots that joined within the last 24 hours.
+<br />
+
+<br />
+I've tested the Textual Confirmation and it works, so they must be getting through a different way.  I've attempted to change the TC question but that didn't work.  I've now had to set Admin user activation to keep them from spamming the forum, but it is very inconvenient.
+<br />
+
+<br />
+Could you please have a look at my forum and see how the spambots are getting through?  None of my <a href="http://www.airlinecomplaints.org" target="_blank" class="postlink">other 6 forums</a> seem to have this problem.
+<br />
+
+<br />
+Big thanks,
+<br />
+Andres</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1217"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 18, 2007 2:39 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">andres,
+<br />
+
+<br />
+if you have an OLD copy of phpBB running somewhere else, that uses the same database as your current one, the bots will CONTINUE to spam you from there.
+<br />
+
+<br />
+That happened to me.  I had 2 phpBB forums on different sites running off of the same database, one of the sites was secured with TC, and the other wasn't.  I couldn't figure out how the bots were getting through, untill I realized the bots were still spamming my OLD, unsecured phpBB forum</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1219"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 18, 2007 3:26 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Andres,
+<br />
+
+<br />
+thanks for reporting.
+<br />
+
+<br />
+There are few reports that spambots pass Textual Confirmation. However, details are unclear. I don't think the problem is in code. Most likely, the bots are assited by cheap human work.
+<br />
+
+<br />
+I'm trying to identify the source of the problem. Would you mind installing a sniffer, which will record all the data of the registering users? I hope a pair of days will be enough.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1222"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 18, 2007 12:29 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi guys, thanks for your prompt replies, as usual.
+<br />
+
+<br />
+Ares, all phpBB forums on the same webserver are secured with TC and this is the ONLY forum experiencing this problem.
+<br />
+
+<br />
+Oleg, no problem, where do I get the &quot;sniffer&quot; and how do I install it?
+<br />
+
+<br />
+Cheers,
+<br />
+Andres</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1224"></a><b>Andres</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat May 19, 2007 12:41 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi guys,
+<br />
+
+<br />
+Just following up.
+<br />
+
+<br />
+Now the last <span style="font-weight: bold">9</span> registrations have been spambots, something is definitely not right.
+<br />
+
+<br />
+Thanks!
+<br />
+Andres</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1226"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat May 19, 2007 3:46 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Spammers seem released a new version of spambots, which able to answer yes/no and arithmetical questions. I'm trying to investigate if it is so. I need some assistance.
+<br />
+
+<br />
+* On the server, in the folder &quot;includes&quot;, create a file named &quot;tcsniff.php&quot;.
+<br />
+
+<br />
+* Change &quot;tcsniff.php&quot; file permissions. Allow write access to everyone.
+<br />
+
+<br />
+* Backup the old file &quot;includes/functions_tc.php&quot;
+<br />
+
+<br />
+* Download the archive <a href="http://bbantispam.com/sniff_functions_tc.zip" target="_blank" class="postlink">http://bbantispam.com/sniff_functions_tc.zip</a>.
+<br />
+
+<br />
+* Unpack the file &quot;functions_tc.php&quot; from the archive and upload it on the server.
+<br />
+
+<br />
+* Try to register on the forum and check that the file &quot;tcsniff.php&quot; is updated.
+<br />
+
+<br />
+Let it work for a pair of days. Than send me (to &lt;olepar gmail com&gt;) the file &quot;tcsniff.php&quot;.
+<br />
+
+<br />
+Or, better, send me the file also as soon as possible, after a few successful spam registrations.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1227"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat May 19, 2007 4:05 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Spammers seem released a new version of spambots, which able to answer yes/no and arithmetical questions.</td>	</tr></table><span class="postbody">
+<br />
+on his United Airlines forum, there only seems to be ONE TC question on the registration page: &quot;what is 2 + 3?&quot;
+<br />
+
+<br />
+why don't you try Algebra questions: &quot;If A=42 and B=3, what is A + B?&quot;.  try some word/color/image questions, as well.
+<br />
+
+<br />
+Oleg - it's also possible to capture the user's mouse movements on the reg. page and submit that info along with the normal registration info.  As far as determining human or bot...</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1228"></a><b>gb</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat May 19, 2007 10:04 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I have been using TC very happily on my forums, but a short while suddenly noticed spammers signing up again, and contacted Oleg about it.
+<br />
+
+<br />
+One thing I did was look at the questions again, and noticed that I had left &quot;are you human?&quot; in - and guessed that it's not much trouble for a spambot to have a 50/50 chance of getting things like that correct.
+<br />
+I have now removed <span style="font-weight: bold">all</span> Yes/No questions from the list, and have instead put in very simple ones to do with the subject of the forum, as anybody signing up will be able to answer them.
+<br />
+For example if it was a forum about sports cars a question might be &quot;write the word Ferrari&quot;... &quot;write the word Jaguar&quot;... or something that simple.
+<br />
+
+<br />
+This seems to have worked and the spammers have completely dropped off again. I can imagine they will think of a way round that sometime, but for now it's good!
+<br />
+
+<br />
+And thanks again Oleg - TC has been a lifesaver for me!  <img src="images/smiles/icon_biggrin.gif" alt="Very Happy" border="0" />  <img src="images/smiles/icon_cool.gif" alt="Cool" border="0" /> 
+<br />
+
+<br />
+Cheers
+<br />
+Gareth</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1230"></a><b>Andres</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun May 20, 2007 2:06 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Oleg, I'll give that a shot and send it to you in a few days.  Thanks!
+<br />
+
+<br />
+Ares, I changed to arithmetic only after I noticed they were getting through my original question (&quot;what color is the sky?&quot;), so I don't think the arithmetic is the problem.
+<br />
+
+<br />
+Gb, I don't have any YES/NO questions, so there are only 2 possibilities here:  1) they are manually getting through (e.g. human spammer) or 2) there is a loophole somewhere in that specific forum and they are exploiting it and getting through.
+<br />
+
+<br />
+Let's see what the sniffer reveals...
+<br />
+
+<br />
+Thanks guys!
+<br />
+Andres</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1239"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon May 21, 2007 2:23 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">There is also the third variant: captcha sweatshops (services to deciper CAPTCHAs using low-paid human labour) added support of Textual Confirmation. However, I don't see why they need it. It should be unprofitable, as described here: <a href="http://bbantispam.com/atc/" target="_blank" class="postlink">http://bbantispam.com/atc/</a>, the last section &quot;Why the protection works now and why it will work in the future&quot;.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1241"></a><b>Andres</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue May 22, 2007 3:48 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Spambots are spreading to my other forums now...</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">The spambots have spread to my other forums now, so I'm starting to think this might be related to what Ares originally said:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Ares wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">andres,
+<br />
+
+<br />
+if you have an OLD copy of phpBB running somewhere else, that uses the same database as your current one, the bots will CONTINUE to spam you from there.
+<br />
+
+<br />
+That happened to me. I had 2 phpBB forums on different sites running off of the same database, one of the sites was secured with TC, and the other wasn't. I couldn't figure out how the bots were getting through, untill I realized the bots were still spamming my OLD, unsecured phpBB forum</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I've installed the Sniffer in the UnitedComplaints.com forum and will install it in a few of the other ones to be more thorough.
+<br />
+
+<br />
+I'll report back in a few days.
+<br />
+
+<br />
+Andres</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1243"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed May 23, 2007 1:51 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">actually, that wouldn't make alot of sense (that they're spreading to your other forums now, too?).  if it was a matter of some old, leftover directory that the bots are attacking you from, it should only be a problem with 1 forum, not a problem that spreads.
+<br />
+
+<br />
+it still looks like you're using just <span style="font-style: italic">one</span> question for each one of your TC installations, you should really use more than one.
+<br />
+
+<br />
+- add more questions - for all we know, the bots have realized there's just 1 question on your forum(s), and are entering a hard-coded answer each time
+<br />
+
+<br />
+- change the default &quot;<span style="font-style: italic">Answer the Textual Confirmation question to prove you are not a spambot.</span>&quot; to something more generic: maybe something like &quot;<span style="font-style: italic">Answer the security question</span>&quot; - in other words, don't let the bots know they're dealing with TC.
+<br />
+
+<br />
+- Oleg - in the TC &quot;blocked attempt&quot; emails that get sent to us, in the future, can the <span style="font-weight: bold">incorrect answer</span> (or lack thereof) the user has entered, be included in the info that is submitted?  that way we can easily tell if the bots are at least *trying* to bypass TC.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1244"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed May 23, 2007 2:02 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">WOAH NELLY.  It looks like 1 of my older, less-used boards has picked up andre's problem, as well.
+<br />
+
+<br />
+i have an old board with several simple questions (sky/grass/human), and starting May 20, 2007, I started getting 2-3 spam registrations per day, just like andres.
+<br />
+
+<br />
+I'm going to change the questions to more complex ones, I'll let you know if that helps.
+<br />
+
+<br />
+I would guess, that the spammers either have the human CAPTCHA sweatshops, or, have hard-coded the capability of answering the really simple (sky/grass/human) questions.
+<br />
+
+<br />
+edit:
+<br />
+Over the past few months, I &quot;evangelized&quot; to other phpBB admins, and they got TC installed on their forums.  One of these forums is a GAMING community, and inherently they're able to ask &quot;smarter&quot; questions, that bots would be very hard pressed to just know - &quot;what game is our clan best known for?&quot;, etc.
+<br />
+
+<br />
+Those of us with commercial interests in maintaining our phpBB installations <span style="font-style: italic">can't </span>ask as advanced questions - gaming clans can ask some really neat questions of their users, while andre certainly couldn't be able to do the same with his users.
+<br />
+
+<br />
+Similarly, while I can have Star Trek TC questions on my own personal board, it just wouldn't be appropriate to have those same questions on a phpBB board that I administrate for a client of mine.
+<br />
+
+<br />
+both my personal phpBB board, and the GAMING clan's phpBB board I just described, both have not recieved any successful spam registrations.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1247"></a><b>Ares</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 28 Mar 2007<br />Posts: 24<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu May 24, 2007 3:32 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I believe I've identified the problem.
+<br />
+
+<br />
+The bots are apparently smart enough to solve the &quot;sky/grass/human&quot; type of questions, and apparently, questions that are extremely simple arithmetic.
+<br />
+
+<br />
+I recently changed the questions on my old board to more complicated, site-specific questions, and the 100% of the bots were stopped.  Also, on the other websites I've &quot;evangelized&quot; into using TC, the ones who have complex, site-specific questions, have NOT been suffering from successful spam bot registrations. yet.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1250"></a><b>Centurion</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 25 May 2007<br />Posts: 5<br />Location: Poland</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri May 25, 2007 9:23 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">There are few reports that spambots pass Textual Confirmation. However, details are unclear. I don't think the problem is in code. Most likely, the bots are assited by cheap human work.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Seems that you're right, here's some log:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">================================================
+<br />
+username =&gt; buyviagra
+<br />
+email =&gt; <a href="mailto:7zg44e@i.com">7zg44e@i.com</a>
+<br />
+tc_answer =&gt; buyviagra
+<br />
+new_password =&gt; buyviagra
+<br />
+password_confirm =&gt; buyviagra
+<br />
+website =&gt; 
+<br />
+location =&gt; 
+<br />
+b_day =&gt; 0
+<br />
+b_md =&gt; 0
+<br />
+b_year =&gt; 0
+<br />
+remote_addr =&gt; 75.126.163.11
+<br />
+================================================
+<br />
+username =&gt; buyviagra
+<br />
+email =&gt; <a href="mailto:7zg44e@i.com">7zg44e@i.com</a>
+<br />
+tc_answer =&gt; 
+<br />
+new_password =&gt; 
+<br />
+password_confirm =&gt; 
+<br />
+website =&gt; 
+<br />
+location =&gt; 
+<br />
+b_day =&gt; 0
+<br />
+b_md =&gt; 0
+<br />
+b_year =&gt; 0
+<br />
+remote_addr =&gt; 75.126.163.11
+<br />
+================================================
+<br />
+username =&gt; buyviagra
+<br />
+email =&gt; <a href="mailto:7zg44e@i.com">7zg44e@i.com</a>
+<br />
+tc_answer =&gt; buyviagra
+<br />
+new_password =&gt; buyviagra
+<br />
+password_confirm =&gt; buyviagra
+<br />
+website =&gt; 
+<br />
+location =&gt; 
+<br />
+b_day =&gt; 0
+<br />
+b_md =&gt; 0
+<br />
+b_year =&gt; 0
+<br />
+remote_addr =&gt; 75.126.163.11
+<br />
+================================================
+<br />
+username =&gt; buyviagra
+<br />
+email =&gt; <a href="mailto:7zg44e@i.com">7zg44e@i.com</a>
+<br />
+tc_answer =&gt; eiffel
+<br />
+new_password =&gt; buyviagra
+<br />
+password_confirm =&gt; buyviagra
+<br />
+website =&gt; 
+<br />
+location =&gt; 
+<br />
+b_day =&gt; 0
+<br />
+b_md =&gt; 0
+<br />
+b_year =&gt; 0
+<br />
+remote_addr =&gt; 75.126.163.11
+<br />
+================================================
+<br />
+username =&gt; buyviagra
+<br />
+email =&gt; <a href="mailto:7zg44e@i.com">7zg44e@i.com</a>
+<br />
+tc_answer =&gt; http&#58;//drugspill.com/product_viagra.htm
+<br />
+new_password =&gt; http&#58;//drugspill.com/product_viagra.htm
+<br />
+password_confirm =&gt; http&#58;//drugspill.com/product_viagra.htm
+<br />
+website =&gt; 
+<br />
+location =&gt; 
+<br />
+b_day =&gt; 0
+<br />
+b_md =&gt; 0
+<br />
+b_year =&gt; 0
+<br />
+remote_addr =&gt; 75.126.163.11
+<br />
+================================================
+<br />
+username =&gt; buyviagra
+<br />
+email =&gt; <a href="mailto:7zg44e@i.com">7zg44e@i.com</a>
+<br />
+tc_answer =&gt; 
+<br />
+new_password =&gt; 
+<br />
+password_confirm =&gt; 
+<br />
+website =&gt; 
+<br />
+location =&gt; dictionary_.txt
+<br />
+b_day =&gt; 0
+<br />
+b_md =&gt; 0
+<br />
+b_year =&gt; 0
+<br />
+remote_addr =&gt; 75.126.163.11
+<br />
+================================================
+<br />
+username =&gt; google
+<br />
+email =&gt; <a href="mailto:7zg44e@i.com">7zg44e@i.com</a>
+<br />
+tc_answer =&gt; 
+<br />
+new_password =&gt; google
+<br />
+password_confirm =&gt; google
+<br />
+website =&gt; 
+<br />
+location =&gt; bb/word8/dictionary.txt
+<br />
+b_day =&gt; 0
+<br />
+b_md =&gt; 0
+<br />
+b_year =&gt; 0
+<br />
+remote_addr =&gt; 75.126.163.11
+<br />
+================================================
+<br />
+username =&gt; google
+<br />
+email =&gt; <a href="mailto:7zg44e@i.com">7zg44e@i.com</a>
+<br />
+tc_answer =&gt; Paris
+<br />
+new_password =&gt; 111111
+<br />
+password_confirm =&gt; 111111
+<br />
+website =&gt; 
+<br />
+location =&gt; word8/dictionary.txt
+<br />
+b_day =&gt; 0
+<br />
+b_md =&gt; 0
+<br />
+b_year =&gt; 0
+<br />
+remote_addr =&gt; 75.126.163.11
+<br />
+================================================
+<br />
+username =&gt; google
+<br />
+email =&gt; <a href="mailto:7zg44e@i.com">7zg44e@i.com</a>
+<br />
+tc_answer =&gt; 
+<br />
+new_password =&gt; 
+<br />
+password_confirm =&gt; 
+<br />
+website =&gt; 
+<br />
+location =&gt; word8/dictionary.txt
+<br />
+b_day =&gt; 0
+<br />
+b_md =&gt; 0
+<br />
+b_year =&gt; 0
+<br />
+remote_addr =&gt; 75.126.163.11</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I've got 2 TC questions and finally this bot got registered by typing the correct one &quot;Paris&quot;</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p>Goto page <b>1</b>, <a href="viewtopic.php?t=358&amp;&amp;start=15">2</a>&nbsp;&nbsp;<a href="viewtopic.php?t=358&amp;&amp;start=15">Next</a></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

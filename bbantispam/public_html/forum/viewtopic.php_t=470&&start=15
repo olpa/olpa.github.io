@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - phpbb2: what is the correct path to bbantispam.php?</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=5">Advanced Textual Confirmation</a> - <a href="viewtopic.php?t=470&amp;start=15">phpbb2: what is the correct path to bbantispam.php?</a></p>
+<p>Goto page  <a href="viewtopic.php?t=470&amp;&amp;start=0">Previous</a>&nbsp;&nbsp;<a href="viewtopic.php?t=470&amp;&amp;start=0">1</a>, <b>2</b></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1624"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 3:16 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Frustration</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">It is very strange indeed. We have to wait to hear what Oleg has to say about this.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I bet it's something SO simple!  
+<br />
+
+<br />
+Will Oleg be on anytime soon?<br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1625"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 3:19 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: My Error Log</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">It is very strange indeed. We have to wait to hear what Oleg has to say about this.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Forget my error log! <img src="images/smiles/icon_lol.gif" alt="Laughing" border="0" /><br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"><br /><br />Last edited by TNTRide on Sun Sep 02, 2007 4:21 pm; edited 1 time in total</span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1626"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 4:08 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Got it to come up</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">It is very strange indeed. We have to wait to hear what Oleg has to say about this.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Ok I got it.  It just needed to be this 
+<br />
+require_once 'bbantispam.php'; 
+<br />
+with no folder.  The files needed to be in the forum folder directory.
+<br />
+
+<br />
+Now captcha isn't showing up?  Any clues?  Could anything else go wrong?
+<br />
+
+<br />
+Nevermind!  I just reset the config and renabled the visual confirmation and now captcha magically works again.  Go figure!
+<br />
+
+<br />
+This MOD was easy, yet difficult!
+<br />
+
+<br />
+Thanks to all who attempted to help me.  The whole problem was having the extra folder named bbantispam.
+<br />
+
+<br />
+Cheers,
+<br />
+
+<br />
+-TNTRide  <img src="images/smiles/icon_cool.gif" alt="Cool" border="0" /><br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"><br /><br />Last edited by TNTRide on Sun Sep 02, 2007 4:21 pm; edited 1 time in total</span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1627"></a><b>Slacker</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 4:19 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">You will see the page after you tried to post a message in the forum. For me it seems that the page mainly occurs during the first posting and the second time it does not occur for me, You could try to log out as member and try to post as guest, if it is possible.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1628"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 4:24 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: WOOT!</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">You will see the page after you tried to post a message in the forum. For me it seems that the page mainly occurs during the first posting and the second time it does not occur for me, You could try to log out as member and try to post as guest, if it is possible.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+It's magically fixed now.  <img src="images/smiles/icon_biggrin.gif" alt="Very Happy" border="0" /> 
+<br />
+
+<br />
+Any other good MODS you could recommend?  I get spammed by porn nearly everyday.  I'm hoping this MOD will help out in some way.
+<br />
+
+<br />
+-TNTRide<br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1629"></a><b>TNTRide</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 01 Sep 2007<br />Posts: 13<br />Location: San Diego, CA.</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 4:34 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: not working</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">You will see the page after you tried to post a message in the forum. For me it seems that the page mainly occurs during the first posting and the second time it does not occur for me, You could try to log out as member and try to post as guest, if it is possible.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Ok it's not working again<br />_________________<br /><a href="http://www.tntride.com" target="_blank">www.tntride.com</a>
+<br />
+<a href="http://www.myspace.com/tntride" target="_blank">www.myspace.com/tntride</a>
+<br />
+<a href="http://www.wonky-eye.com" target="_blank">www.wonky-eye.com</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1630"></a><b>Slacker</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 5:00 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Glad you got it working. I have PHP-Nuke with phpbb integrated in it as forum. bbantispam has stopped spamming for me completely although guests are allowed to post in my forum. bbantispam also stopped completely the member spamming i.e. with members registering just to show their link in Members List. I do not need anything additional to stop spam in phpbb.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1631"></a><b>Slacker</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 5:16 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Re: not working</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>TNTRide wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">You will see the page after you tried to post a message in the forum. For me it seems that the page mainly occurs during the first posting and the second time it does not occur for me, You could try to log out as member and try to post as guest, if it is possible.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Ok it's not working again</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+For me logged as a member bbantispam only works the first post and on subsequent postings bbantispam does not show up. BUT it stops spammers, because they don't pass the first test. Sometimes two weeks later bbantispam works again for my posts.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1632"></a><b>SPAM MODS</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Sep 02, 2007 9:53 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Re: not working</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>TNTRide wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Slacker wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">You will see the page after you tried to post a message in the forum. For me it seems that the page mainly occurs during the first posting and the second time it does not occur for me, You could try to log out as member and try to post as guest, if it is possible.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Ok it's not working again</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+For me logged as a member bbantispam only works the first post and on subsequent postings bbantispam does not show up. BUT it stops spammers, because they don't pass the first test. Sometimes two weeks later bbantispam works again for my posts.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Well mine is still working, it's just not consistent where it shows up?  We've tested it several times and it either comes up during registration or before you post something.  Both options are fine with me.
+<br />
+
+<br />
+Anyone know how to target before a post only or during registration only?  Possible some other MOD that is just as good as this one?
+<br />
+
+<br />
+Get back if you can! <img src="images/smiles/icon_cool.gif" alt="Cool" border="0" /> 
+<br />
+
+<br />
+Cheers,
+<br />
+
+<br />
+-TNTRide</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1633"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Sep 03, 2007 1:54 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">It seems for me that the correct path for the initial setup was &quot;bbantispam/bbantispam.php&quot;. But as it works now, let's don't change anything.
+<br />
+
+<br />
+I feel sorry for all the frustration. The graphical installer is under development, but it isn't going to appear soon.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Well mine is still working, it's just not consistent where it shows up? We've tested it several times and it either comes up during registration or before you post something. Both options are fine with me.</td>	</tr></table><span class="postbody">
+<br />
+ATC shows up the first time when a visitor tries to submit something. If he starts with posting a message, ATC appears on posting, if he starts with registering, ATC comes up during registration. As long as the test is successfully passed, the visitor isn't annoyed anymore.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Any other good MODS you could recommend?</td>	</tr></table><span class="postbody">
+<br />
+You don't need anything else.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Anyone know how to target before a post only or during registration only?</td>	</tr></table><span class="postbody">
+<br />
+It's possible if you remove the call to bbantispam from &quot;extensions.inc&quot; and add the call in the right places to &quot;posting.php&quot; or &quot;includes/usercp_register.php&quot;.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p>Goto page  <a href="viewtopic.php?t=470&amp;&amp;start=0">Previous</a>&nbsp;&nbsp;<a href="viewtopic.php?t=470&amp;&amp;start=0">1</a>, <b>2</b></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

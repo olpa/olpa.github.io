@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Whatever works is good for me</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=114">Whatever works is good for me</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="563"></a><b>Tonelock</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 04 Jan 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jan 04, 2007 2:47 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Whatever works is good for me</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">First off, Bogus Apps and Posts on a board are not SPAM, but then ADSL routers aren't Modems either, so the term Spam is what I will use <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+I went through a number of MODS and ideas about methods to restrict Spam apps. I figured a CAPTCHA was sweet, saw that fail , and I also got carried away with &quot;required&quot; fields, and that failed also.
+<br />
+
+<br />
+I think the VIP deal is great for about the few minutes a bot needs to look for VIP in a board. It really needs an admin interface that can easily change VIP to SUPER SECRET QUESTION or something.  Caveat.. I have not installed the VIP mod so I am not going to get into a pissing match here. If you like it then I am happy for you.
+<br />
+
+<br />
+<span style="font-weight: bold">Oleg's</span>, textual confirmation has a simple install, and an  admin interface (that needs some work) but allows for easily changing the confirmation syntax easily. So when a bot figures out an answer to my form that works, and my spam apps rise, it is easy to change the question, without the need to change a VIP announcement for example.
+<br />
+
+<br />
+I have to admit that <span style="font-weight: bold">Oleg's</span> request for money in order to disable some of the features of &quot;Textual Confirmation&quot;  kind of bothered me.  But <span style="font-weight: bold">Jonahan</span> is also asking for Donations also <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+And at the end of the day, who cares as <span style="font-weight: bold">damnian</span> says it is GPL....
+<br />
+I am no Guru, but even I can figure out that disabling, or rewriting <span style="font-weight: bold">Oleg's</span> feature set ain't Rocket science. 
+<br />
+
+<br />
+After I thought about it a while, I realized that I really do want an e-mail sent to me, but was not convinced I wanted it sent to phpantispam.org
+<br />
+but I like the idea of setting up a dbase of board hackers, I mean they get one for $400.00 bucks. I figure a banlist for $30.00 or so is pretty cheap.
+<br />
+
+<br />
+So I am keeping the code as is for now, and have added some code of my own outside the box so to speak.
+<br />
+
+<br />
+I  made a VBS script that reads the Outlook Inbox that I am dumping the failure notifications into. And yes I am a Microsofty, and use Outlook.
+<br />
+
+<br />
+The script pulls the info and dumps it to a CSV file for use in Excel or
+<br />
+ Openoffice. I am already seeing that many of my spam apps are from the
+<br />
+ same HTTP_X_FORWARDED_FOR source.
+<br />
+ 
+<br />
+ I intend to add to the script so that it will dump directly into a mySQL
+<br />
+ database, and then mark the failures as read and move them to an archive folder. I really don't want to actually read any of these failed apps.  but getting the first bunch was pretty neat.
+<br />
+
+<br />
+It would be cool to have a central location to be able to look at so we can see if and who are the &quot;bad guys&quot; hence <span style="font-weight: bold">Oleg's</span>&quot;send it to me&quot; part of the MOD
+<br />
+
+<br />
+I am not a great believer in IP banning but if we saw enough hits on the same IP are registered well ....
+<br />
+
+<br />
+We could then post the &quot;Number one to five bad guys IP&quot; for public consumption so other board admins could ban those IP's if they chose.
+<br />
+
+<br />
+
+<br />
+the following is a partial CSV from one of my boards(seems the comma's got stripped) anyone recognize an IP?
+<br />
+
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">User	Remote	Forwarder	Encoding	timestamp
+<br />
+Datepleelen8	200.65.127.163	72.232.250.154	iso-8859-1	12/28/2006 23:33
+<br />
+Datepleelen8	200.65.127.163	72.232.250.154	iso-8859-1	12/28/2006 23:33
+<br />
+Datepleelen8	200.65.127.163	72.232.250.154	iso-8859-1	12/28/2006 23:33
+<br />
+csandrawz	165.228.129.11	85.255.117.66	iso-8859-1	12/29/2006 1:03
+<br />
+ysmithky	165.228.129.11	85.255.117.66	iso-8859-1	12/29/2006 22:01
+<br />
+jsophienp	165.228.131.11	85.255.117.66	iso-8859-1	1/2/2007 10:02
+<br />
+hmargaretfv	165.228.131.11	85.255.117.66	iso-8859-1	1/3/2007 6:10
+<br />
+tdensonae	165.228.131.12	85.255.117.66	iso-8859-1	12/29/2006 1:13
+<br />
+zshumanfk	165.228.131.12	85.255.117.66	iso-8859-1	12/29/2006 1:14
+<br />
+rlowryke	165.228.131.12	85.255.117.66	iso-8859-1	12/30/2006 15:02
+<br />
+ecolinat	165.228.131.12	85.255.117.66	iso-8859-1	1/1/2007 11:04
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+if anyone is interested I can post up what i have fer code, it is a VBS script as I intended it to be a scheduled task, and I am only pulling some of the info from the e-mails, but the other pairs are in the script just commented out.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="569"></a><b>damnian</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 30 Dec 2006<br />Posts: 5<br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Jan 04, 2007 6:51 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Great idea. How about blacklisting those HTTP_X_FORWARDED_FOR IPs?<br />_________________<br /><a href="http://blog.phpbb.cc/" target="_blank" class="postlink">phpBB Blog</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="571"></a><b>Tonelock</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 04 Jan 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jan 05, 2007 1:50 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Great idea. How about blacklisting those HTTP_X_FORWARDED_FOR IPs?</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Not sure which of my ideas you mean <span style="font-weight: bold">Damnian</span>, but i am guessing it is about the whole &quot;Blacklist&quot; thing.. <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+One thing I did in my apps is add the applicants IP address to the e-mails I receive, so I have a pretty good collection of bad IP's but as most of them are likely proxies and as such they are of little value. 
+<br />
+
+<br />
+With <span style="font-weight: bold">Oleg's</span> Mod giving us the HTTP_X_FORWARDED_FOR IP's we have something of greater value.
+<br />
+
+<br />
+BUT, and please correct me if I am wrong.
+<br />
+
+<br />
+I think phpbb's ban Ip function only looks at the (likely proxied) applicant IP and NOT the HTTP_X_FORWARDED_FOR IP. 
+<br />
+
+<br />
+So in order for a so called Blacklist to be useful we would need a phpbb MOD that would also allow a ban on the incoming HTTP_X_FORWARDED_FOR values as well as the Applicant Ip values.
+<br />
+
+<br />
+That still does not take away the value of sending the info to a central location (as <span style="font-weight: bold">Oleg's</span> confirmation mod is doing at the moment) in the hope that we will soon have a greater list of &quot;bad&quot; ip's, that we <span style="font-style: italic">might</span> be able to do something with.
+<br />
+
+<br />
+So for now ,I'll just keep sending back the failed info to add to the current collective. in the hopes that we will be able to find that info usefull at some point.
+<br />
+
+<br />
+Does that make sense ?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="576"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jan 05, 2007 5:44 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">And at the end of the day, who cares as damnian says it is GPL....
+<br />
+I am no Guru, but even I can figure out that disabling, or rewriting Oleg's feature set ain't Rocket science.</td>	</tr></table><span class="postbody">
+<br />
+Yes and no. I know I should be modest, but can't. I'm quite a good programmer with sympathy for users (a bit rare feature). Code contains minor tweaks, which can't be noticed as such, but gives a lot to the overall usability. An usual rewriting by a usual coder can't be so good.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Great idea. How about blacklisting those HTTP_X_FORWARDED_FOR IPs?</td>	</tr></table><span class="postbody">
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I think phpbb's ban Ip function only looks at the (likely proxied) applicant IP and NOT the HTTP_X_FORWARDED_FOR IP.</td>	</tr></table><span class="postbody">
+<br />
+As far as I remember, phpBB ban by IP means ban by HTTP_X_FORWARDED_FOR. It is because phpBB gets the client's IP by looking into the proxy variable. At least, it was my first impression some time ago. Checking it is in my TODO list.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I have a pretty good collection of bad IP's but as most of them are likely proxies and as such they are of little value. </td>	</tr></table><span class="postbody">
+<br />
+I have a great business idea. Let's sell the list of proxies to spammers <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">So for now ,I'll just keep sending back the failed info to add to the current collective. in the hopes that we will be able to find that info usefull at some point.
+<br />
+
+<br />
+Does that make sense ?</td>	</tr></table><span class="postbody">
+<br />
+Yes, it seems I'm going to analyze logs in the nearest future. My pet forum is so popular among spammers, that they crash down the site. I need IP blocking as soon as possible.
+<br />
+
+<br />
+But having own local script is also useful.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

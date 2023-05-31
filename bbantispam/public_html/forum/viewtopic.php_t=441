@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - spam poisoners / honeypots</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=441">spam poisoners / honeypots</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1508"></a><b>beng</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 24, 2007 12:52 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: spam poisoners / honeypots</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Here is a link to some php and perl spam poison scripts / honeypots.
+<br />
+<a href="http://spamlinks.net/prevent-spambots-poison.htm" target="_blank">http://spamlinks.net/prevent-spambots-poison.htm</a>
+<br />
+
+<br />
+These are programs that generate endless pages full of fake email addresses for email harvesting spam bots to collect so that the spammers waste their time and bandwidth emailing useless email addresses. Now with bot nets consisting of thousands of computers being used it probably won't deter them, but it will decrease the value of the email lists that they sell to organised crime gangsters.
+<br />
+
+<br />
+If you use such things, i suggest you put them in a directory forbidden to all bots by robots.txt so that legitimate bots who respect robots.txt rules will not fall into them. Also, the links that go to them should have rel=nofollow to further prevent googlebot etc from following them.
+<br />
+And you can make the link text a very small font (use style=font-size:1px ) and the same colour as the backgroud so that human users wil not click on them.
+<br />
+
+<br />
+For more info on the international criminal element in spam harvesting see:
+<br />
+<a href="http://www.cs.auckland.ac.nz/~pgut001/pubs/malware_biz.pdf" target="_blank">http://www.cs.auckland.ac.nz/~pgut001/pubs/malware_biz.pdf</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1509"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 24, 2007 2:08 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Great links! Impressive reading, and a lot of ideas for the blog <a href="http://bbspam.com/" target="_blank" class="postlink">Spam Bots and CAPTCHAs</a>.
+<br />
+
+<br />
+Thanks a lot!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1511"></a><b>beng</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 24, 2007 3:01 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">See also the websit of the guy who did the pdf file above:
+<br />
+<a href="http://www.cs.auckland.ac.nz/~pgut001/" target="_blank">http://www.cs.auckland.ac.nz/~pgut001/</a>
+<br />
+
+<br />
+It is all about computer security issues. His article on phishing is also interesting:
+<br />
+<a href="http://www.cs.auckland.ac.nz/~pgut001/pubs/phishing.pdf" target="_blank">http://www.cs.auckland.ac.nz/~pgut001/pubs/phishing.pdf</a>
+<br />
+
+<br />
+As for the other link about the spambot poisoners, see also the rest of that website:
+<br />
+<a href="http://spamlinks.net/index.html" target="_blank">http://spamlinks.net/index.html</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

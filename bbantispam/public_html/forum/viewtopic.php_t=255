@@ -1,0 +1,456 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Interesting little problemo...</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=255">Interesting little problemo...</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="863"></a><b>Kareeser</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 24 Feb 2007<br />Posts: 13<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Feb 24, 2007 10:28 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Interesting little problemo...</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I installed textual confirmation, and it works great in the default subSilver template, but the question doesn't appear at all when the other template is used. What's worse is that the user can't enter the answer to the question (since there is no answer box), and can't register! Uh-oh...
+<br />
+
+<br />
+Here are the gists of the modified files. I assume that the base files themselves work (since the extension works with subSilver):
+<br />
+
+<br />
+<span style="font-weight: bold">profile_add_body.tpl</span>
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+...
+<br />
+&nbsp; &nbsp;&lt;/tr&gt;
+<br />
+
+<br />
+&nbsp; &nbsp;&lt;!-- END switch_confirm --&gt;
+<br />
+&nbsp; &nbsp;
+<br />
+&nbsp; &nbsp;&lt;!-- BEGIN switch_textual_confirm --&gt;
+<br />
+&nbsp; &nbsp;&lt;tr&gt; 
+<br />
+&nbsp; &nbsp;&nbsp; &lt;td class=&quot;row1&quot;&gt;&lt;span class=&quot;gen&quot;&gt;&#123;TEXTUAL_CONFIRMATION_QUESTION&#125; * &lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;gensmall&quot;&gt;&#123;L_TEXTUAL_CONFIRMATION_EXPLAIN&#125;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&nbsp; &lt;td class=&quot;row2&quot;&gt;&lt;input type=&quot;text&quot; class=&quot;post&quot; style=&quot;width&#58; 200px&quot; name=&quot;tc_answer&quot; size=&quot;25&quot; value=&quot;&quot; /&gt;&lt;/td&gt;
+<br />
+&nbsp; &nbsp;&lt;/tr&gt;
+<br />
+&nbsp; &nbsp;&lt;!-- END switch_textual_confirm --&gt;
+<br />
+
+<br />
+&nbsp; &nbsp;&lt;tr&gt; 
+<br />
+
+<br />
+&nbsp; &nbsp;&nbsp; &lt;td class=&quot;titlebottomwtop&quot; colspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;
+<br />
+
+<br />
+&nbsp; &nbsp;&lt;/tr&gt;
+<br />
+...
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+<span style="font-weight: bold">usercp_register.php</span>
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+...
+<br />
+
+<br />
+$error = TRUE;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$error_msg .= &#40; &#40; isset&#40;$error_msg&#41; &#41; ? '&lt;br /&gt;' &#58; '' &#41; . $lang&#91;'Fields_empty'&#93;;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;&#125;
+<br />
+&nbsp; &nbsp;tc_hook_register&#40;&#41;;
+<br />
+&nbsp; &nbsp;if &#40;$board_config&#91;'enable_confirm'&#93; &amp;&amp; $mode == 'register'&#41;
+<br />
+&nbsp; &nbsp;&#123;
+<br />
+
+<br />
+...
+<br />
+
+<br />
+&nbsp; &nbsp;$ini_val = &#40; phpversion&#40;&#41; &gt;= '4.0.0' &#41; ? 'ini_get' &#58; 'get_cfg_var';
+<br />
+&nbsp; &nbsp;$form_enctype = &#40; @$ini_val&#40;'file_uploads'&#41; == '0' || strtolower&#40;@$ini_val&#40;'file_uploads'&#41; == 'off'&#41; || phpversion&#40;&#41; == '4.0.4pl1' || !$board_config&#91;'allow_avatar_upload'&#93; || &#40; phpversion&#40;&#41; &lt; '4.0.3' &amp;&amp; @$ini_val&#40;'open_basedir'&#41; != '' &#41; &#41; ? '' &#58; 'enctype=&quot;multipart/form-data&quot;';
+<br />
+
+<br />
+&nbsp; &nbsp;tc_hook_template&#40;$mode, $template, $s_hidden_fields, $tc_question&#41;;
+<br />
+&nbsp; &nbsp;$template-&gt;assign_vars&#40;array&#40;
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'TEXTUAL_CONFIRMATION_QUESTION' =&gt; isset&#40;$tc_question&#41; ? $tc_question &#58; '',
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'L_TEXTUAL_CONFIRMATION_EXPLAIN' =&gt; isset&#40;$lang&#91;'tc_explain'&#93;&#41; ? $lang&#91;'tc_explain'&#93; &#58; '',
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'USERNAME' =&gt; isset&#40;$username&#41; ? $username &#58; '',
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'CUR_PASSWORD' =&gt; isset&#40;$cur_password&#41; ? $cur_password &#58; '',
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'NEW_PASSWORD' =&gt; isset&#40;$new_password&#41; ? $new_password &#58; '',
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'PASSWORD_CONFIRM' =&gt; isset&#40;$password_confirm&#41; ? $password_confirm &#58; '',
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'EMAIL' =&gt; isset&#40;$email&#41; ? $email &#58; '',
+<br />
+&nbsp; &nbsp;&nbsp; &nbsp;'CONFIRM_IMG' =&gt; $confirm_image, 
+<br />
+...
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+<span style="font-weight: bold">constants.php</span>
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+...
+<br />
+define&#40;'SMILIES_TABLE', $table_prefix.'smilies'&#41;;
+<br />
+define&#40;'TEXTUAL_CONFIRMATION_TABLE', $table_prefix.'textual_confirmation'&#41;;
+<br />
+define&#40;'THEMES_TABLE', $table_prefix.'themes'&#41;;
+<br />
+...
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+... and I assumed /<span style="font-style: italic">mytemplate</span>/admin/textual_confirmation.tpl didn't need modifying... so I simply uploaded it to that folder.
+<br />
+
+<br />
+Any help?  <img src="images/smiles/icon_confused.gif" alt="Confused" border="0" />
+<br />
+
+<br />
+Oh, while I'm at it... it looks like Visual Confirm isn't even installed... :S That is, in &quot;profile_add_body.tpl&quot;, all there is is a little comment that says
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+&lt;!-- Visual Confirmation --&gt;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Likewise, Visual Confirmation cannot be turned on in the config page in the admin panel, as it doesn't exist. Does that help?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="864"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Feb 25, 2007 2:59 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi!
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I installed textual confirmation, and it works great in the default subSilver template, but the question doesn't appear at all when the other template is used. What's worse is that the user can't enter the answer to the question (since there is no answer box), and can't register! Uh-oh... </td>	</tr></table><span class="postbody">
+<br />
+You should modify the file &quot;profile_add_body.tpl&quot; not only for the subSilver theme, but also for all other themes. As far as I understand, you tried to do so, but got a problem.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Oh, while I'm at it... it looks like Visual Confirm isn't even installed... :S That is, in &quot;profile_add_body.tpl&quot;, all there is is a little comment that says </td>	</tr></table><span class="postbody">
+<br />
+Very strange. Probably your forum has a long history of modifications, and something decayed in the way.
+<br />
+
+<br />
+I need some more information to say something. Show us the file &quot;profile_add_body.tpl&quot; from the template in which the question doesn't appear.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="865"></a><b>Kareeser</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 24 Feb 2007<br />Posts: 13<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Feb 25, 2007 9:53 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello!
+<br />
+
+<br />
+Yep, checked and double checked. The profile_add_body.tpl I pasted in the OP is the excerpt from the file in the custom template. <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" />
+<br />
+
+<br />
+As for the forum itself, it was a fresh download of files straight from the phpBB website. I just ran update_to_final.php to bring the DB up to standard... but that's irrelevant, I believe...
+<br />
+
+<br />
+Anything else? <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="869"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Feb 27, 2007 4:40 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi!
+<br />
+
+<br />
+Please zip the whole folder with your templates and send it to me (&lt;olepar gmail com&gt;), I'll look at it.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="870"></a><b>Kareeser</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 24 Feb 2007<br />Posts: 13<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Feb 27, 2007 5:39 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thank you, Oleg! The fix worked perfectly.
+<br />
+
+<br />
+btw, your advanced textual confirm doesn't accept &quot;oui&quot; for &quot;Are you Human?&quot;
+<br />
+
+<br />
+<img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />
+<br />
+
+<br />
+<img src="http://kareeser.homeip.net/images/lnx.JPG" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="871"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Feb 28, 2007 5:19 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm glad the fix worked. Again, best luck to your forum!
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">btw, your advanced textual confirm doesn't accept &quot;oui&quot; for &quot;Are you Human?&quot;</td>	</tr></table><span class="postbody">
+<br />
+Is it in French? I think I should add it. Thanks for suggestion.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote"><img src="http://kareeser.homeip.net/images/lnx.JPG" border="0" /></td>	</tr></table><span class="postbody">
+<br />
+Oh, shame on me, I can't answer this question. My math skills are totally forgotten. By the way, here is yet another mind teaser:
+<br />
+
+<br />
+<img src="http://bbantispam.com/images/best_captcha.png" border="0" /><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="872"></a><b>Kareeser</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 24 Feb 2007<br />Posts: 13<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Feb 28, 2007 6:15 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Yikes! Am I supposed to answer that or type it out? Haha...
+<br />
+
+<br />
+I noticed that Textual Confirmation comes with two default questions, Are you Human, and Say Hello. Aren't you worried that at some point, after Textual Confirmation becomes popular, that the spammers won't just program the bot to answer those two defaults?
+<br />
+
+<br />
+Even if the admin created other questions, if you keep refreshing, you're bound to cross the defaults at some point...</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="876"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 01, 2007 4:24 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I noticed that Textual Confirmation comes with two default questions, Are you Human, and Say Hello. Aren't you worried that at some point, after Textual Confirmation becomes popular, that the spammers won't just program the bot to answer those two defaults? </td>	</tr></table><span class="postbody">
+<br />
+I'm sure the spammers' bots will learn the default questions soon. But I hope that administrators of forums change the default questions to custom questions.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Even if the admin created other questions, if you keep refreshing, you're bound to cross the defaults at some point...</td>	</tr></table><span class="postbody">
+<br />
+...unless the administrator deleted the default questions.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="885"></a><b>Kareeser</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 24 Feb 2007<br />Posts: 13<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Mar 03, 2007 7:58 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi Oleg...
+<br />
+
+<br />
+I figured out why Visual Confirm wasn't being activated. It was my default style, Chunkstyle, which didn't conform to phpBB standards (since visual confirm wasn't standard at the time)
+<br />
+
+<br />
+Just letting you know</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="886"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Mar 04, 2007 2:43 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Ah, sorry. I did notice that Visual Confirmation code was not present in the template, but forget to say it. I was happy that the problem with Textual Confirmation was solved, and didn't notice yet another question.
+<br />
+
+<br />
+By the way, you don't need Visual Confirmation anymore.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Allowing anonymous postings</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=265">Allowing anonymous postings</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="890"></a><b>Brett</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 07, 2007 11:28 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Allowing anonymous postings</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi,
+<br />
+
+<br />
+I don't yet have a forum installed but am sure I'll go with bbphp.  I want to allow anonymous postings so that poeple don't have to register.  The screenshot of bbAntiSpam shows a registration form.  How does your software work for those that want to post but don't want to register?
+<br />
+
+<br />
+Also, can you explain how the LinkRejector software works if an anonymous user (spammer) post spam into a message.
+<br />
+
+<br />
+I'll be running bbphp on top of ms sql server.  Would that be an issue for your software?
+<br />
+
+<br />
+Kind regards,
+<br />
+Brett</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="893"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 08, 2007 5:01 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello Brett,
+<br />
+
+<br />
+thanks for the questions.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I want to allow anonymous postings so that people don't have to register.</td>	</tr></table><span class="postbody">
+<br />
+It's a nice idea.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">How does your software work for those that want to post but don't want to register?</td>	</tr></table><span class="postbody">
+<br />
+Textual Confirmation (TC): not in action in this case. TC only prevents automatic registration.
+<br />
+
+<br />
+Links Rejector (LR): no links are allowed in the user messages. More below. LR is very good against human spammers.
+<br />
+
+<br />
+Advanced Textual Confirmation (ATC): it validates that the message is posted by an user, not by a bot (automatic program).
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Also, can you explain how the LinkRejector software works if an anonymous user (spammer) post spam into a message.</td>	</tr></table><span class="postbody">
+<br />
+Unregistered users can't post contact information. That's all.
+<br />
+
+<br />
+It works because spammers always submit links, otherwise there is no reason to spam. Therefore, no links allowed -- no opportunity to spam.
+<br />
+
+<br />
+You can see a screenshot on the <a href="http://bbantispam.com/lr/" target="_blank" class="postlink">LR home page</a>.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I'll be running bbphp on top of ms sql server. Would that be an issue for your software?</td>	</tr></table><span class="postbody">
+<br />
+I don't know, and I don't recommend to use phpBB together with MS SQL. However, I have TC installation instructions for MS SQL, and nobody yet complained.
+<br />
+
+<br />
+LR and ATC doesn't use a database.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="895"></a><b>Brett</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Mar 08, 2007 9:18 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">If I use only Textual Confirmation and moderate my board manually, will that be effective?
+<br />
+
+<br />
+Can TC work on one form or is it a two form process?  I'd just like it to be simple and fast to post.
+<br />
+
+<br />
+Thanks,
+<br />
+Brett</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="897"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Mar 09, 2007 5:12 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello,
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">If I use only Textual Confirmation and moderate my board manually, will that be effective?</td>	</tr></table><span class="postbody">
+<br />
+As you are going to allow anonymous postings, no. You also have to install Links Rejector to stop spam in the guest postings.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Can TC work on one form or is it a two form process?</td>	</tr></table><span class="postbody">
+<br />
+TC is a one-form process.
+<br />
+
+<br />
+Thanks for questions, now I have ideas how to re-write texts and suggestions. Draft short version:
+<br />
+
+<br />
+There are two alternative types of setup:
+<br />
+
+<br />
+1) Textual Confirmation plus Links Rejector, or
+<br />
+2) Advanced Textual Confirmation.
+<br />
+
+<br />
+The first gives better integration with phpBB, but the second is much easier in setup and maintenance. If you don't know what to use, use Advanced Textual Confirmation.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I'd just like it to be simple and fast to post.</td>	</tr></table><span class="postbody">
+<br />
+This forum is protected by Advanced Textual Confirmation only. As you've already posted two messages, you can estimate if it's simple and fast.
+<br />
+
+<br />
+By the way, how have you found it? Was it simple and fast?<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - no registration form at all now</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=376">no registration form at all now</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1287"></a><b>eyeless</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Jun 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Jun 03, 2007 12:12 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: no registration form at all now</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I have now spent half the day trying to figure out what's up with this mod. Have reinstalled 2.0.22 forum twice and after performing the TC installation very carefully and run the db_update.php file, I log out and try and register, but when I click register, I only get a blank page with the forum menu header and footer, but no registration fields at all in between. After repeating this a couple of times it is suggested that I have tried to register too many times .... hmm. Maybe something strange with the config.php file (the only file I have not replaced from the download)? Try here: lyceum.dk/eyelessforum/ .... . /Jerry</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1289"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Jun 03, 2007 4:02 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Something went wrong. Please zip and send to me (&lt;olepar gmail com&gt;) the following files:
+<br />
+
+<br />
+includes/constants.php
+<br />
+includes/usercp_register.php
+<br />
+templates/subSilver/profile_add_body.tpl<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1296"></a><b>eyeless</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Jun 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Jun 04, 2007 3:48 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for the help with the Mac specific line endings that caused the problem! /Jerry</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1302"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jun 05, 2007 2:35 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">You are always welcome!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1820"></a><b>Robert</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 15 Nov 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Nov 15, 2007 12:08 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I am delighted to find Textual Confirmation for my little forum. I have a group of people who are planning to collaborate on the forum, but the spammers are making everyone uncomfortable and keeping me busy. Textual Confirmation is a great idea and I'm looking forward to using it.
+<br />
+
+<br />
+The 3-minute mod has taken many hours. Fortunately I was able to find a friend who could guide me through creating that SQL table.
+<br />
+
+<br />
+The big problem I'm having is that the registration form has completely vanished.
+<br />
+
+<br />
+I think that is the only problem. It looks as if the new Admin menu is working, and the rest of the phpBB2 site seems okay.
+<br />
+
+<br />
+I suspect that I'm having the same problem as eyeless in this thread.
+<br />
+
+<br />
+Since you asked eyeless to send you the attached files I tried to do that, but the email was returned.
+<br />
+
+<br />
+The zipped record of those 3 files is here: <a href="http://www.ballantyne.com/for_Oleg_Parashchenko.zip" target="_blank">http://www.ballantyne.com/for_Oleg_Parashchenko.zip</a>
+<br />
+That is a temporary location and I will remove them when the problem is solved.
+<br />
+
+<br />
+I am also using a MAC, and the text editor is textWrangler.
+<br />
+
+<br />
+BTW, if you have a problem seeing the forum it could be because I've already banned lots of IPs in Saint-Petersburg. If this is the case, let me know yours and I'll un-ban it.
+<br />
+
+<br />
+The forum is here: governing.ca/phpBB2/index.php There are 4 hidden forums and 1 hidden usergroup that are not visible.
+<br />
+
+<br />
+Many thanks... Robert</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1823"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Nov 16, 2007 3:24 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello Robert,
+<br />
+
+<br />
+I'm very sorry that installing my software caused so much pain. Initially I thought the tool would be installed by experienced webmasters only, not by normal people. Now I'm working on a user-friendly graphical installer.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I suspect that I'm having the same problem as eyeless in this thread.</td>	</tr></table><span class="postbody">
+<br />
+Yes, you are right.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Since you asked eyeless to send you the attached files I tried to do that, but the email was returned. </td>	</tr></table><span class="postbody">
+<br />
+It's very very strange. Would you please provide details? Where to did you send the e-mail? With which excuse the e-mail was returned?
+<br />
+
+<br />
+I've updated your files. Download the package here: <a href="http://bbantispam.com/tmp/20071116/a.zip" target="_blank" class="postlink">http://bbantispam.com/tmp/20071116/a.zip</a>. Please report the results.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1824"></a><b>Robert</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 15 Nov 2007<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Nov 16, 2007 6:10 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+I'm very sorry that installing my software caused so much pain. Initially I thought the tool would be installed by experienced webmasters only, not by normal people. Now I'm working on a user-friendly graphical installer.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Pain? Having to clean out the spammer accounts at my forum was painful. Tonight it looks as if your MOD has ended all of that. I am truly grateful to you for providing a solution to a huge problem. 
+<br />
+
+<br />
+I am writing to let you know that with the files you sent, the forum is working well. I have done a run-through of the whole registration process. I can see that your MOD is an elegant solution to a large problem for all of us who want to take advantage of these forums.
+<br />
+
+<br />
+So, <span style="font-weight: bold">many thanks</span> for taking the time to help out a 'normal' person! 
+<br />
+
+<br />
+I think that all of us are going to have to learn how to operate in the guts of our software. I run 2 websites, 3 blogs (one is for an association), and now one forum. My wife has just been asked to manage a small non-profit's Joomla site plus a wiki. Big companies can hire pros to do it for them. Us normal people are going to have to figure it out for ourselves.
+<br />
+
+<br />
+BTW, something earlier in the thread suggested that the problem I was having might be related to using a Macintosh. Since this is likely not the last MOD I will want to use, can you suggest what I was doing wrong?
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Robert wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">Since you asked <span style="font-style: italic">eyeless</span> to send you the attached files I tried to do that, but the email was returned. </td>	</tr></table><span class="postbody">
+<br />
+It's very very strange. Would you please provide details? Where to did you send the e-mail? With which excuse the e-mail was returned?</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I sent it to olepar at gmail.com. I think I found the address in one of the forum posts, but I don't remember where. Also, I did not keep the bounced email. Since I have my own domain, spammers often pretend that their emails come from my domain. It means that I can have hundreds of bounced emails in my inbox overnight. I delete them at the POP server. So, I peek at what is there, and that is how I saw that the email I sent to you was returned. But it was deleted.
+<br />
+
+<br />
+Best wishes... Robert</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1825"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Nov 17, 2007 2:57 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I'm happy to hear that the MOD finally works and spam is stopped.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Us normal people are going to have to figure it out for ourselves.</td>	</tr></table><span class="postbody">
+<br />
+Unfortunately, yes. Fortunately, it's not so hard as expected.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">BTW, something earlier in the thread suggested that the problem I was having might be related to using a Macintosh. Since this is likely not the last MOD I will want to use, can you suggest what I was doing wrong? </td>	</tr></table><span class="postbody">
+<br />
+In the text files, the end of line is encoded differently on Windows, Unix and Mac. PhpBB templates fail when they are in the Mac format. Therefore, when editing and saving phpBB files, check the options of the text editor: file format should be DOS/Windows or Unix.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I sent it to olepar at gmail.com. I think I found the address in one of the forum posts, but I don't remember where...</td>	</tr></table><span class="postbody">
+<br />
+Don't worry, probably I've already identified the problem. GMail started to reject letters with PHP files.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

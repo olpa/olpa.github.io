@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule LinksRejector.zip http://bbantispam.com/lr/LinksRejector-1.2.2.zip [L,R]

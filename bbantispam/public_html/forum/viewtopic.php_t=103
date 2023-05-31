@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Fighting SPAM</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=4">phpBB spam</a> - <a href="viewtopic.php?t=103">Fighting SPAM</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="527"></a><b>DickS</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 08 Aug 2006<br />Posts: 13<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Dec 27, 2006 1:23 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Fighting SPAM</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Just want to share with you what we have installed to fight spam. It works well, there are no spam posts although we have guest posting active on all forum sections.
+<br />
+
+<br />
+We use the following MODs:
+<br />
+
+<br />
+1. Anti Bot Question MOD. This mod replaces the default phpBB visual confirmation captcha system with various question types (math additions, etc). Adds it to registrations and to guest post submission. Allows for full configuration of captcha and supports multiple fonts. Uses pull down multiple choice to make entering answers easier. We noticed that when using individual questions bots can submit posts so we disabled them and only have automatic generated verifications. Since then no more troubles.
+<br />
+
+<br />
+2. Links Rejector
+<br />
+
+<br />
+3. Extended Censoring Mod. This mod just extends the words in Word Censor list to all areas of your forum.
+<br />
+
+<br />
+With the three above we have no more spams. We also installed following (optional) mods.
+<br />
+
+<br />
+1. No Website Signature during registration. This removes the website link and signature box on registration page. Option to auto ban IPs who try this.
+<br />
+
+<br />
+2. Remove Sid For Guests (Search Engine Optimization). This mod allows you to remove SID for guests, for bots or for all. It has ACP configuration and works really well.
+<br />
+
+<br />
+If you have any questions let me know, happy to help fight spam!
+<br />
+
+<br />
+DickS</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="528"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Dec 28, 2006 4:59 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi DickS! Nice to see you here in forums again!
+<br />
+
+<br />
+The set of MODs is good. I'd add some optional RSS mod, but it's very hard to find a good one from a lot of them. I hope somewhen I'll find time to look at the RSS mods.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">1. Anti Bot Question MOD</td>	</tr></table><span class="postbody">
+<br />
+I strongly recommend my Textual Confirmation instead of ABQ MOD. (Well, if ABQ is already installed, let it be). Why to choose Textual Confirmation:
+<br />
+
+<br />
+* It is accepted to the MODS-database
+<br />
+* Very easy installation and maintenance
+<br />
+* User-friendly
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">We use the following MODs:</td>	</tr></table><span class="postbody">
+<br />
+I'm evaluating the MOD &quot;<a href="http://www.phpbb.com/phpBB/viewtopic.php?t=275662" target="_blank" class="postlink">spamark</a>&quot;, which uses bayesian filtering. Current results are conflicting. On the one side, it workd good. But on the other side, I expected more.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="577"></a><b>DickS</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 08 Aug 2006<br />Posts: 13<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jan 05, 2007 11:19 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi,
+<br />
+
+<br />
+Well, ABQ generates images instead of text questions and offers a multiple choice option which makes answering the questions easier.
+<br />
+
+<br />
+ABQ also has an &quot;individual&quot; question option that is similar to TC. But I noticed that bots can get past that since its text based. Since we changed to full automatic questions the guest post attempts have been a few daily.
+<br />
+
+<br />
+Take a look how it works: <a href="http://www.pamela-systems.com/forum" target="_blank">www.pamela-systems.com/forum</a>
+<br />
+
+<br />
+In addition we replaced the &quot;No Website Signature&quot; Mod with the &quot;Only Active Members can post URLs&quot; Mod which means that only after making x posts a member can complete the profile and post links. This as we do not require user confirmation at registration.
+<br />
+
+<br />
+We will monitor how this goes, the most difficult thing is keeping the board simple enough to use and still keeping out spam.
+<br />
+
+<br />
+Definitely LinksRejector is one of the best mods out there and helped up many many times. This is a MUST HAVE mod no matter what other mods you have.
+<br />
+
+<br />
+DickS</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="987"></a><b>Ares</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Mar 27, 2007 3:43 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">hey dickS,
+<br />
+
+<br />
+I've used Textual Confirmation on my phpbb, and have gotten ZERO spam registrations since.
+<br />
+
+<br />
+TC is so great, because it allows you to put some HTML in your question.  So TC could theoretically be used to ask algebra questions (which I'm fond of), star trek questions (hell yes), or even prompt the user with images (therefore becoming visual conformation, or &quot;is this girl hot?&quot; style questions).</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="989"></a><b>tranquocminh</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 27 Mar 2007<br />Posts: 15<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Mar 27, 2007 9:26 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote"> I strongly recommend my Textual Confirmation instead of ABQ MOD. (Well, if ABQ is already installed, let it be). Why to choose Textual Confirmation:
+<br />
+- It is accepted to the MODS-database
+<br />
+- Very easy installation and maintenance
+<br />
+- User-friendly </td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+I'm a very satisfied user of Textual Confirmation and I recommend it too for the same reasons  <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />  <img src="images/smiles/icon_exclaim.gif" alt="Exclamation" border="0" /></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="996"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 28, 2007 3:42 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Thanks for pleasant words!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

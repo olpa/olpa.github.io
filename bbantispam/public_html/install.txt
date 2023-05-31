@@ -1,0 +1,117 @@
+##############################################################
+## MOD Title: bbAntiSpam
+## MOD Author: olpa <olpa bbantispam com> (Oleg Parashchenko) http://bbantispam.com/
+## MOD Description: bbAntiSpam: phpBB antispam solution
+## MOD Version: 1.0.0
+##
+## Installation Level: Easy
+## Installation Time: 1 Minute
+## Files To Edit: posting.php
+## Included Files: includes/functions_bbas.php
+##                 language/lang_english/lang_bbas.php
+##                 language/lang_russian/lang_bbas.php
+## License: http://opensource.org/licenses/gpl-license.php GNU General Public License v2
+##############################################################
+## For security purposes, please check: http://www.phpbb.com/mods/
+## for the latest version of this MOD. Although MODs are checked
+## before being allowed in the MODs Database there is no guarantee
+## that there are no security problems within the MOD. No support
+## will be given for MODs not found within the MODs Database which
+## can be found at http://www.phpbb.com/mods/ 
+##############################################################
+## Author Notes:
+##
+## bbAntiSpam is shareware. You should pay for it.
+## Check http://bbantispam.com/?mode=register for details.
+##
+## Use bbAntiSpam for free, if you want. Your users will not
+## notice it. In exchange, each time a spam post is detected,
+## the free bbAntiSpam sends a notification to the forum admin
+## AND TO US. The reasons for this are the following:
+##
+##  * we collect statistics to release a new version based on
+##    content analysis
+##  * letters help you to understand how much time you have saved
+##
+## Privacy Policy: We do not disclose your individual information
+## to any other company. We collect aggregate statistics on spam
+## texts and spammers' IPs. We may publish or share this aggregate
+## information with other companies. This aggregate data, by its
+## nature, will not reveal your identity.
+##
+##############################################################
+## MOD History:
+##
+##   2006-05-29 - Version 1.0.0
+##      - code re-layout to conform phpBB coding and mod guidelines
+##   2006-04-29 - Version 1.0.0.beta5
+##      - a bit of code re-layout
+##      - the difference of free and non-free versions is back
+##   2006-04-26 - Version 1.0.0.beta4
+##      - fix for "Call-time pass-by-reference has been deprecated"
+##      - "strange" URLs such as "http://www." are also forbidden now
+##   2006-04-24 - Version 1.0.0.beta3
+##      - bug fix for the case of the empty censor list
+##   2006-04-22 - Version 1.0.0.beta2
+##      - several bug fixes and improvements
+##   2006-04-18 - Version 1.0.0.beta1
+##      - the code is packed as mod
+##
+##############################################################
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD
+##############################################################
+
+#
+#-----[ OPEN ]------------------------------------------
+#
+posting.php
+
+#
+#-----[ FIND ]------------------------------------------
+#
+include($phpbb_root_path . 'includes/functions_post.'.$phpEx);
+
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+include($phpbb_root_path . 'includes/functions_bbas.'.$phpEx);
+
+#
+#-----[ FIND ]------------------------------------------
+#
+prepare_post($mode, $post_data, $bbcode_on, $html_on, $smilies_on, $error_msg, $username, $bbcode_uid, $subject, $message, $poll_title, $poll_options, $poll_length);
+
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+bbas_hook($preview, $error_msg, $username, $subject, $message);
+
+#
+#-----[ FIND ]------------------------------------------
+#
+$userdata['user_sig_bbcode_uid'] = $post_info['user_sig_bbcode_uid'];
+}
+
+if( $preview )
+{
+
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+$userdata['user_sig_bbcode_uid'] = $post_info['user_sig_bbcode_uid'];
+}
+
+bbas_hook($preview, $error_msg, $username, $subject, $message);
+if( $preview and ($error_msg == ''))
+{
+
+#
+#-----[ COPY ]------------------------------------------
+#
+copy includes/functions_bbas.php to includes/functions_bbas.php
+copy language/lang_english/lang_bbas.php to language/lang_english/lang_bbas.php
+
+#
+#-----[ SAVE/CLOSE ALL FILES ]------------------------------------------
+#
+# EoM

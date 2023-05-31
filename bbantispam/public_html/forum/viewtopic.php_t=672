@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - The submitted form was invalid. Try submitting again.</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=672">The submitted form was invalid. Try submitting again.</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2399"></a><b>Brewer</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Mar 24, 2009 6:41 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: The submitted form was invalid. Try submitting again.</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I installed the Textual Confirmation in my board
+<br />
+   <a href="http://www.excelential.com/bb" target="_blank">http://www.excelential.com/bb</a>
+<br />
+
+<br />
+1. Download Advanced Textual Confirmation from
+<br />
+<a href="http://bbantispam.com/atc/AdvancedTextualConfirmation.zip" target="_blank">http://bbantispam.com/atc/AdvancedTextualConfirmation.zip</a>
+<br />
+
+<br />
+2. Unpack the archive to get the files
+<br />
+&quot;bbantispam.php&quot; and &quot;bbas_config.php&quot;
+<br />
+
+<br />
+3. Change the questions in the file &quot;bbas_config.php&quot; 
+<br />
+I used:
+<br />
+$questions = array(
+<br />
+  'Are you a spammer?' =&gt; array ('no', 'nein', 'nope'),
+<br />
+  'What product is this forum about? (hint: look at the domain name)' =&gt; array ('excelential', 'xcelential', 'excelential.com', 'xcelential.com', 'excel', 'dashboard', 'dashboards', 'excel dashboards')
+<br />
+);
+<br />
+
+<br />
+4. copy bbantispam.php to bbantispam.php
+<br />
+copy bbas_config.php to bbas_config.php
+<br />
+
+<br />
+5. then modified common.php to start with
+<br />
+
+<br />
+&lt;?php
+<br />
+include_once($phpbb_root_path . 'bbantispam.' . $phpEx);
+<br />
+
+<br />
+6. then I disabled visual confirmation.
+<br />
+
+<br />
+THEN I tried to register in the board ( <a href="http://www.excelential.com/bb" target="_blank">www.excelential.com/bb</a> )
+<br />
+
+<br />
+after uploading the files, it worked! I got the textual confirmation, which refused to let me past until I typed a correct 
+<br />
+
+<br />
+Unfortunately, when I tried to submit my registration, I got:
+<br />
+&quot;The submitted form was invalid. Try submitting again.&quot;
+<br />
+
+<br />
+When I undid my change in common.php, the problem went away.
+<br />
+I applied the change in common.php and the problem is back.
+<br />
+( and I let is stay, so now users can not register in the forum. you can try it yourself )
+<br />
+
+<br />
+Can you help me fix this?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2400"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Mar 25, 2009 5:55 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Strange. I've tried to register an user (the name is &quot;test&quot;), and everything went without problems.
+<br />
+
+<br />
+Probably it's not an error due to the Advanced Textual Confirmation, but a feature of phpBB3? <a href="http://www.google.com/search?q=phpbb+&quot;The+submitted+form+was+invalid.+Try+submitting+again.&quot;" target="_blank" class="postlink">A quick look at Google</a> suggests, for example, a possible explanation:
+<br />
+
+<br />
+<a href="http://www.phpbb-seo.com/en/phpbb-forum/article-t1888.html" target="_blank">http://www.phpbb-seo.com/en/phpbb-forum/article-t1888.html</a>
+<br />
+<a href="http://blog.taragana.com/index.php/archive/how-to-fix-phpbb-error-the-submitted-form-was-invalid-try-submitting-again/" target="_blank">http://blog.taragana.com/index.php/archive/how-to-fix-phpbb-error-the-submitted-form-was-invalid-try-submitting-again/</a><br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - usercp_register.php - unable to locate code to replace..</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=174">usercp_register.php - unable to locate code to replace..</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="708"></a><b>POLOMINT</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jan 27, 2007 10:17 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: usercp_register.php - unable to locate code to replace..</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi there can you help me?
+<br />
+
+<br />
+I'm inplementing this solution as i think a great techique, anyway..
+<br />
+
+<br />
+the instrucitons say:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">#-----[ FIND ]------------------------------------------
+<br />
+#
+<br />
+	$template-&gt;assign_vars(array(
+<br />
+		'USERNAME' =&gt; isset($username) ? $username : '',
+<br />
+		'CUR_PASSWORD' =&gt; isset($cur_password) ? $cur_password : '',</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+But i'm unable to locate that in my usercp_register.php file..  any recommendations to were to add the line:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">#-----[ REPLACE WITH ]------------------------------------------
+<br />
+#
+<br />
+	tc_hook_template($mode, $template, $s_hidden_fields, $tc_question);
+<br />
+	$template-&gt;assign_vars(array(
+<br />
+		'TEXTUAL_CONFIRMATION_QUESTION' =&gt; isset($tc_question) ? $tc_question : '',
+<br />
+		'L_TEXTUAL_CONFIRMATION_EXPLAIN' =&gt; isset($lang['tc_explain']) ? $lang['tc_explain'] : '',
+<br />
+		'USERNAME' =&gt; isset($username) ? $username : '',
+<br />
+		'CUR_PASSWORD' =&gt; isset($cur_password) ? $cur_password : '',</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Thanks..
+<br />
+
+<br />
+Version of PHPBB is 2.0.21
+<br />
+
+<br />
+POLO</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="709"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jan 27, 2007 12:15 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Figured it out,
+<br />
+
+<br />
+I was editing the local file which happened to be offsite to the remote file so i was editing an old backup henc the code wasn't there..
+<br />
+
+<br />
+... oh well thanks great MOD BTW .. and great place St. Petersberg as well  power cut last night wasn't there? i lost a server last cos of it..
+<br />
+
+<br />
+POLO</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="710"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jan 27, 2007 1:40 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">An the same note i also found a work around if anyonw else hasn't done it..  if your not able to locate that line to edit then search for:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">template-&gt;assign_vars(array(
+<br />
+		'USERNAME' =&gt; $username,
+<br />
+		'CUR_PASSWORD' =&gt; $cur_password,</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+and replace as normal with:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">	tc_hook_template($mode, $template, $s_hidden_fields, $tc_question);
+<br />
+	$template-&gt;assign_vars(array(
+<br />
+		'TEXTUAL_CONFIRMATION_QUESTION' =&gt; isset($tc_question) ? $tc_question : '',
+<br />
+		'L_TEXTUAL_CONFIRMATION_EXPLAIN' =&gt; isset($lang['tc_explain']) ? $lang['tc_explain'] : '',
+<br />
+		'USERNAME' =&gt; isset($username) ? $username : '',
+<br />
+		'CUR_PASSWORD' =&gt; isset($cur_password) ? $cur_password : ''</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+
+<br />
+I've tested it and it works a treat... just figure i'd share, thanks once a again simple yet extremely affective no spam for over an hour nice
+<br />
+
+<br />
+POLO</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="715"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Jan 28, 2007 4:34 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Yes, the advice is right. Thanks for sharing it!<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

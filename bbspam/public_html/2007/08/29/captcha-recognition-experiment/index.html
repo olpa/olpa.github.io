@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Captcha recognition experiment | Spam Bots and CAPTCHAs</title>
+
+<meta name="generator" content="WordPress 2.2.3" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../../../../wp-content/themes/default/style.css" type="text/css" media="screen" />
+
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://bbspam.com/xmlrpc.php?rsd" />
+</head>
+<body>
+<div id="page">
+
+
+<div id="header">
+	<div id="headerimg">
+		<h1><a href="../../../../index.html">Spam Bots and CAPTCHAs</a></h1>
+		<div class="description">Stories from the web spam fighters</div>
+	</div>
+</div>
+<hr />
+<p style="background-color:yellow"><font size="7"><b>This blog is retired.</b></font></p>
+<hr />
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../../26/30-php-captchas/index.html">30 PHP CAPTCHAs</a></div>
+			<div class="alignright"><a href="../../../09/02/hot-captcha-or-captcha-with-fun/index.html">Hot captcha, or CAPTCHA with fun</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-27">
+			<h2><a href="index.html" rel="bookmark" title="Permanent Link: Captcha recognition experiment">Captcha recognition experiment</a></h2>
+
+			<div class="entry">
+				<div class="KonaBody"><p>Just stumbled upon the article &#8220;<a href="http://www.mperfect.net/aiCaptcha/">Using AI to beat CAPTCHA and post comment spam</a>&#8221;. There is a number of projects related to breaking CAPTCHAs and a number of articles on the topic, but this article strikes me most, because of:</p>
+<p><span id="more-27"></span></p>
+<p>* speed of development, and<br />
+* techniques used.</p>
+<p>First, some introduction. Casey (the author) visited a blog hosting site. For some reason, he disliked the spam bot protection and decided to demonstrate that CAPTCHA provided a false sense of security. Why? I have no idea. The most reasonable explanation is hidden in the article itself:</p>
+<blockquote><p>When i looked at it <i>[CAPTCHA]</i>, I was pretty certain I could apply the AI techniques I&#8217;ve been teaching myself to beat it. So that is my 2nd reason for writing this article&#8230; Because I could.</p></blockquote>
+<p>Good programmers love challenges, and breaking captchas is a good challenge. Meanwhile, here is an example of what he was going be break:</p>
+<p><img src="../../../../wp-content/uploads/2007/08/captcha.jpg" width="300" height="100"></img></p>
+<p>I&#8217;d say it&#8217;s not the weakest CAPTCHA. I&#8217;d even say it&#8217;s above an average web CAPTCHA. That&#8217;s why the author&#8217;s experience is even more interesting.</p>
+<p>Speed of development: the CAPTCHA was broken in about a weekend, starting from scratch. And the author didn&#8217;t have experience, and the whole work was an experiment, with the trial and error approach.</p>
+<p>The funny thing is that the final code doesn&#8217;t use a rocket science. Yes, the author tried to use a neural network, but gave up:</p>
+<blockquote><p>If I used a small number of input patterns (e.g. less than 100 characters), then the neural net would train successfully, but it did not perform well at runtime for recognizing the skewed characters. If I used a large number of input patterns (e.g. 250 characters), then the neural net would not converge during training. I.e. it would not successfully match all of the input data, even though the total error kept dropping.</p></blockquote>
+<p>The final solution was:</p>
+<p>* As one of the means to describe a character, use the number of its endpoints.<br />
+* Use the collection of feature vectors directly, without the neural network.</p>
+<p>Surprisingly, it worked. Even without tuning, the whole CAPTCHA was correctly guessed more than in the half of the cases. This gives the following conclusion.</p>
+<p><b>In short:</b> A casual programmer broke a not-so-bad CAPTCHA in a weekend, and it was nearly 3 years ago. It&#8217;s hard to imagine the experience of the real spammers&#8230;</p>
+</div>
+
+							
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						by <a href="http://bbantispam.com/" title="Visit olpa's website" rel="external">olpa</a>												on Wednesday, August 29th, 2007 at 11:55 am						and is filed under <a href="../../../../category/articles/index.html" title="View all posts in Articles" rel="category tag">Articles</a>,  <a href="../../../../category/defeat/index.html" title="View all posts in Defeating protection" rel="category tag">Defeating protection</a>,  <a href="../../../../category/explain/index.html" title="View all posts in Explanations" rel="category tag">Explanations</a>,  <a href="../../../../category/captcha/index.html" title="View all posts in CAPTCHAs" rel="category tag">CAPTCHAs</a>.
+
+
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+
+
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+
+	
+	</div>
+
+
+<hr />
+<div id="footer">
+</div>
+
+</body>
+</html>

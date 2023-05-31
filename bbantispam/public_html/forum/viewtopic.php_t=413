@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Problem with language</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=413">Problem with language</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1401"></a><b>Donald</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 03, 2007 12:41 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Problem with language</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hey,
+<br />
+
+<br />
+i like this mod very much, but it wont translate into german. I installed phpbb 2.0.22 in english and added the german language-file to the forum. The forum is in german now.
+<br />
+After that i installed Textual confirmation with EasyMod and there was no failure. It works but displays the text in english. Sure, i have to add german questions, and i did. but the mod himself is in english:
+<br />
+
+<br />
+example: 
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Tippe &quot;Pizza&quot;. Write down &quot;Pizza&quot; * 
+<br />
+Answer the Textual Confirmation question to prove you are not a spambot.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+when i look in the folder language (admin/mods/TextualConfirmation/language/) the german language is in there.
+<br />
+
+<br />
+What do i have to do? When i download the language-pack for TC then there are the same files again, that are also in the installer?!?!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1402"></a><b>Donald</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 03, 2007 12:49 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Oh i forgot.... i use the template BBTech? Is that my failure?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1405"></a><b>Donald</b></span><br /><span class="postdetails">Guest<br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 03, 2007 3:29 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Here is the entry of the easyMod history:
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">MOD Title&#58;&nbsp; &nbsp; &nbsp;Textual Confirmation&nbsp; &nbsp; &nbsp;1.0.7&nbsp; &nbsp; &nbsp;install.txt
+<br />
+Description&#58; &nbsp; &nbsp;While registering, the user must answer a question to prove the user isn't a spambot.
+<br />
+Author&#58; &nbsp; &nbsp;olpa&nbsp; &nbsp; &nbsp;olpa@bbantispam.com&nbsp; &nbsp; &nbsp;Oleg Parashchenko&nbsp; &nbsp; &nbsp;http&#58;//bbantispam.com/tc/
+<br />
+Installed&#58; &nbsp; &nbsp;03 Jul 2007 09&#58;26&#58;08
+<br />
+phpBB version&#58; &nbsp; &nbsp;2.0.22
+<br />
+Processed Themes&#58; &nbsp; &nbsp;subSilver; BBTech
+<br />
+Processed Languages&#58; &nbsp; &nbsp;english; german
+<br />
+Files Edited&#58; &nbsp; &nbsp;4
+<br />
+includes/constants.php
+<br />
+includes/usercp_register.php
+<br />
+templates/BBTech/profile_add_body.tpl
+<br />
+templates/subSilver/profile_add_body.tpl</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+For me it looks like everything went fine... but its english and no possibility to set german as default language.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1424"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Jul 10, 2007 3:29 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Sorry for delay, I was on vacations.
+<br />
+
+<br />
+Please check if the language is really installed. You need to look into the folder &quot;languages&quot; right in the phpBB installation folder, not in &quot;admin/mods&quot;.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

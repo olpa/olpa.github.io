@@ -1,0 +1,682 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - A Suggestion and A Question</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=113">A Suggestion and A Question</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="561"></a><b>mezmorizing</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Jan 2007<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Jan 03, 2007 7:19 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: A Suggestion and A Question</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">My first is a suggesion:
+<br />
+
+<br />
+On this forum one of the registration questions is 2 + 2 * 2 = <span style="font-style: italic">?????</span>
+<br />
+
+<br />
+2 + 2 * 2 = <span style="font-style: italic">?????</span>;
+<br />
+2 + 2 = 4;
+<br />
+4 * 2 = 8;
+<br />
+
+<br />
+<span style="font-weight: bold">8 (eight) is the answer</span>
+<br />
+
+<br />
+By the proper mathematical function all multiplications (* or x) should be done first, .....
+<br />
+
+<br />
+2 + 2 * 2 = <span style="font-style: italic">?????</span>  <span style="font-weight: bold">is really</span>  2 + (2 * 2) = <span style="font-style: italic">?????</span>
+<br />
+
+<br />
+so, the other answer is .....
+<br />
+
+<br />
+2 + (2 * 2) = <span style="font-style: italic">?????</span>;
+<br />
+2 * 2 = 4;
+<br />
+4 + 2 = 6;
+<br />
+
+<br />
+<span style="font-weight: bold">6 (six) is the answer</span>
+<br />
+
+<br />
+Now, I'm not the cleverest, and I used 8 (eight) as the answer twice, once in number format and once in word format, both failed [I'm gussing the correct answer was 6]. I think it would be best rather not to use a math question that may have more than once answer, or to point out the way to solve it out in the correct way somehow.
+<br />
+
+<br />
+Second, a question.
+<br />
+
+<br />
+I have a premodded forum. I was about to buy a business license for the two hacks available for the software but realised that I needed to imput my domain. However, my premodded forum is used at multiple domains by a lot of people. It's available free for download. Is there a way that I can purchase a business license that has no set domain? And, if this is possible, how much will the license cost?
+<br />
+
+<br />
+If this is not yet available, will there be a &quot;super business&quot; type of license in the future?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="575"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jan 05, 2007 5:12 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">The first beta of Textual Confirmation had a math question. And yes, that question was &quot;2 + 2 * 2&quot;. Due to the symbol &quot;*&quot; for a required field, it looked as &quot;2 + 2 * 2 *&quot;, which was a bit confusing.
+<br />
+
+<br />
+Therefore, I changed the question to &quot;[math]2 + 2 * 2[/math]&quot;, but got a question what did the tag &quot;math&quot; mean and where to it should be put.
+<br />
+
+<br />
+Finally, I removed the question from the mod. But I see I haven't removed it from the database. Thanks for reporting!
+<br />
+
+<br />
+Meanwhile, I found a funny picture: <img src="http://bbantispam.com/images/best_captcha.png" border="0" />
+<br />
+
+<br />
+About licenses:
+<br />
+
+<br />
+* I give 30% off for consequent licenses.
+<br />
+* If the same board is available under different names, one license is ok.
+<br />
+
+<br />
+But it seems your situation is totally different. You distribute a modded phpBB, you want to include Textual Confirmation, and you want that your users don't need to buy a TC license. Am I right?
+<br />
+
+<br />
+I thought about a super business license, but it seems you are not a super business, but a normal human, therefore I can't charge a lot.
+<br />
+
+<br />
+I have to think a bit for ideas. Right now please comment what do you think about the following:
+<br />
+
+<br />
+Users of your software can purchase Textual Confirmation with 30% discount. Does it look good?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="578"></a><b>mezmorizing</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Jan 2007<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jan 05, 2007 2:45 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">But it seems your situation is totally different. You distribute a modded phpBB, you want to include Textual Confirmation, and you want that your users don't need to buy a TC license. Am I right?</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Yes, that is correct.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">I thought about a super business license, but it seems you are not a super business, but a normal human, therefore I can't charge a lot.
+<br />
+
+<br />
+I have to think a bit for ideas. Right now please comment what do you think about the following:
+<br />
+
+<br />
+Users of your software can purchase Textual Confirmation with 30% discount. Does it look good?</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+It's a nice offer, that I know. However, it means that there will ....
+<br />
+
+<br />
+1. Rather have to be two versions of the forum, which is ok by me. However, what I don't want is for users to have to pay for the software. I obviously don't mind paying, but I don't want to sell a premodded forum when I don't have to. 
+<br />
+2. A lot of users asking for help on how to apply their license to their forum.
+<br />
+
+<br />
+.... So, for now, I will stick to the free version. If you come up with a new idea, great, if not, then it doesn't matter a lot. (I'm watching this topic so whether you come up with an idea in the next few days, weeks, or months, it doesn't matter).
+<br />
+
+<br />
+Another question about the license, which is similiar to the above....
+<br />
+
+<br />
+I have (nearly) created a feature for my forum that turns it into a host (so basically members can register and get their own forum - multiple forum installations). 
+<br />
+The files are global, and currently it works like this: the forum is located at <a href="http://www.myforum.com" target="_blank">www.myforum.com</a> and members can access theirs at <a href="http://www.myforum.com/" target="_blank">www.myforum.com/</a><span style="font-weight: bold"><span style="font-style: italic">some_name*</span></span>. In the future members may have their own sub-domain, like <a href="http://www." target="_blank">www.</a><span style="font-weight: bold"><span style="font-style: italic">some_name*</span></span>.myforum.com 
+<br />
+<span style="font-style: italic">Currently</span> I have <span style="font-weight: bold">no plans</span> to implement this into the premodded forum, although if I do it again will be free to download. Is this classed as a &quot;super business&quot; that I will be creating, and if so how much will the license cost? Will I and the members that create their own forum have to purchase a license, or just me?
+<br />
+
+<br />
+If I do put this multi-forum installation into the premodded forum, will I, the members that download the forum and use it for their website, as well as their registered members who've created their own forum at the download peersons site, have to purchase a license?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="579"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jan 06, 2007 4:49 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I think I've got an idea, see below.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I have (nearly) created a feature for my forum that turns it into a host (so basically members can register and get their own forum - multiple forum installations).</td>	</tr></table><span class="postbody">
+<br />
+It's a &quot;super business&quot; license.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">If I do put this multi-forum installation into the premodded forum, will I, the members that download the forum and use it for their website, as well as their registered members who've created their own forum at the download peersons site, have to purchase a license?</td>	</tr></table><span class="postbody">
+<br />
+It's a &quot;super super business&quot; license, as the members that download the forum need the &quot;super business&quot; license.
+<br />
+
+<br />
+However, I think it's impossible to track these members and ask them to buy the &quot;super business&quot; license. Also, I assume those who want to make business on hosting multiple phpBB boards, will do custom developments, not use something from a third party. That's why I'm ready to downgrade the requirements:
+<br />
+
+<br />
+* you need the &quot;super business&quot; license (instead of &quot;super super business&quot;),
+<br />
+* your users need nothing.
+<br />
+
+<br />
+Now about &quot;super business&quot; license.
+<br />
+
+<br />
+An expected conversion rate for shareware software is about 1% (1 purchase on 100 downloads). In case of bbAntiSpam tools it's a bit lower due to the nature of the tools. Also, your users might not need the tools. So let's suggest that if your users were had to buy TC, the conversion rate would be 1 of 500. This way I get the formula for the &quot;super business&quot; license.
+<br />
+
+<br />
+* You need the usual business license.
+<br />
+* You need an additional business license (with 30% discount) for each 500 downloads/instances of your forum.
+<br />
+* Your users don't need the business license.
+<br />
+
+<br />
+I think it's good both for me and you. If you can reach thousands of downloads, your site will be very profitable.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="580"></a><b>mezmorizing</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Jan 2007<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jan 06, 2007 5:47 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I think it's good both for me and you. If you can reach thousands of downloads, your site will be very profitable.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Erm ... you mean you will be profitable  <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />  I don't wish to sell the forum software. I think it also may go against the license of phpBB if i do so.
+<br />
+
+<br />
+<span style="font-weight: bold">1.</span> So, will the super-business license cost the same amount as a normal license? [I gather no but you mention no price]
+<br />
+
+<br />
+<span style="font-weight: bold">2.</span> And this license is for 500 downloads/domains? 
+<br />
+
+<br />
+<span style="font-weight: bold">3.</span> After 500 downloads/domains I have to purchase another license for the next 500? 
+<br />
+
+<br />
+<span style="font-weight: bold">4.</span> And this license covers all products here, or just TC?
+<br />
+
+<br />
+<span style="font-weight: bold">5.</span> What does the license consist of? 
+<br />
+Is it just a kind of reciept, or does actual code/key have to be put into files?
+<br />
+
+<br />
+From your post I also gather that I cannot use this license if I have my MOD installed which lets people create themselves another forum.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Also, I assume those who want to make business on hosting multiple phpBB boards, will do custom developments, not use something from a third party.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Yeah, you'd think so wouldn't you. I have however been approached twice (it's not easily downloadable yet, even though it is free) about the software, and it's not even out of beta yet. The places are however using it/testing out its features, although the version i've nearly finished creating is slightly different.
+<br />
+
+<br />
+So, just to sum up, is this correct?.....
+<br />
+
+<br />
+<span style="font-weight: bold"><span style="font-size: 18px; line-height: normal">Premodded forum without license with multi-forums</span></span>
+<br />
+This will not cost me nor the user anything because we have no license.?
+<br />
+
+<br />
+<span style="font-weight: bold"><span style="font-size: 18px; line-height: normal">Premodded forum with license without multi-forums</span></span>
+<br />
+This is a super business license?
+<br />
+I buy the license, the user pays nothing because it doesn't have multi-forums. The license lasts for 500 downloads, after that I have to buy a new one.
+<br />
+<span style="color: red">How much does this cost?</span>
+<br />
+
+<br />
+<span style="font-weight: bold"><span style="font-size: 18px; line-height: normal">Premodded forum with license with multi-forums</span></span>
+<br />
+This is a super super business license?
+<br />
+Because it has multi-forums installed the user will have to purchase a license key, which for them will last 500 <span style="font-weight: bold">domains</span>. They <span style="font-style: italic">cannot distribute it themselves</span>, only let up to 500 members create a forum at their forum, <span style="text-decoration: underline">unlike me</span> who can have a combination of up to 500 downloads/installations ^. It will cost the same as a super business license for the user. I however have to buy a super super business license. 
+<br />
+<span style="color: red">This will cost how much? How many downloads does this last?</span>
+<br />
+
+<br />
+I was thinking, if i do buy a license, and its a super-super business license, then i could open up an online shop, where the users have to pay for a super business license (with the money being transferred to you). The shop would close at a certain period if it goes over what i can distribute.
+<br />
+
+<br />
+
+<br />
+Hmmm, is this getting a little too confusing for just me?
+<br />
+
+<br />
+Anyways, I will have to think about the options available, and whether i really do want to buy/start selling software which i think (if i was really forced to make a decision) should be free.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="582"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jan 06, 2007 11:21 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I think it's good both for me and you. If you can reach thousands of downloads, your site will be very profitable.</td>	</tr></table><span class="postbody">
+<br />
+Erm ... you mean you will be profitable <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" /> Wink I don't wish to sell the forum software. I think it also may go against the license of phpBB if i do so.</td>	</tr></table><span class="postbody">
+<br />
+I mean that your site should be very popular to get thousands of downloads, and popular sites can easily earn money (advertisement, Adsense, etc). By the way, GPL license doesn't forbid selling software.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">1. So, will the super-business license cost the same amount as a normal license? [I gather no but you mention no price]</td>	</tr></table><span class="postbody">
+<br />
+Let's split the super business license on two parts: the business license and the recurring license.
+<br />
+
+<br />
+* The cost of the business license is the same, $29.95.
+<br />
+* The cost of the recurring license is $29.95 minus 30%.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">2. And this license is for 500 downloads/domains?</td>	</tr></table><span class="postbody">
+<br />
+The business license is prerequisite and purchased only once. The recurring license is for 500 downloads/domains.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">3. After 500 downloads/domains I have to purchase another license for the next 500? </td>	</tr></table><span class="postbody">
+<br />
+Nearly yes. You have to purchase another <span style="font-style: italic">recurring</span> license <span style="font-style: italic">before</span> 500 downloads/domains.
+<br />
+
+<br />
+Therefore, the initial minimal cost of the super business license is (I hope my calculator is good) $50.91 (one business plus one recurring).
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">4. And this license covers all products here, or just TC? </td>	</tr></table><span class="postbody">
+<br />
+The license covers all the bbAntiSpam products.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">5. What does the license consist of?
+<br />
+Is it just a kind of reciept, or does actual code/key have to be put into files? </td>	</tr></table><span class="postbody">
+<br />
+After you purchase the license, I'll send you a new version of TC, with license-checking code removed.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Hmmm, is this getting a little too confusing for just me? </td>	</tr></table><span class="postbody">
+<br />
+Often I just can't write clearly what I mean. Don't hesitate to ask me till I formulate everything well.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Premodded forum without license with multi-forums
+<br />
+This will not cost me nor the user anything because we have no license.?</td>	</tr></table><span class="postbody">
+<br />
+Yes, this will not cost you and your users. However, your users will receive bothering notifications about spam.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Premodded forum with license without multi-forums
+<br />
+This is a super business license?
+<br />
+I buy the license, the user pays nothing because it doesn't have multi-forums. The license lasts for 500 downloads, after that I have to buy a new one.
+<br />
+How much does this cost? </td>	</tr></table><span class="postbody">
+<br />
+Yes, this is the super business license. The minimal cost is $50.91 as described above.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Premodded forum with license with multi-forums
+<br />
+This is a super super business license?</td>	</tr></table><span class="postbody">
+<br />
+Yes, it is the super super business license. However, I don't want to complicate things. As long as you distribute your premodded forum for free, all you need is just the super business license, and your users need nothing.
+<br />
+
+<br />
+Well, the last phrase is the sum. As long as you distribute your premodded forum for free, all you need is just the super business license, and your users need nothing.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="583"></a><b>mezmorizing</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Jan 2007<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Jan 06, 2007 4:06 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">OK, thanks for clearing it up.
+<br />
+
+<br />
+I however have one more question before making up my mind.
+<br />
+
+<br />
+I have implemented a feature on the forum to disable/enable <span style="font-weight: bold">all</span> emails sent, set in the ACP. Would this somehow affect my rights in using your MOD's?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="585"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Jan 07, 2007 4:39 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">No problem, you have all rights to do so.
+<br />
+
+<br />
+Meantime, the page to <a href="https://secure.plimus.com/jsp/buynow.jsp?contractId=1683475" target="_blank" class="postlink">purchase the super business license</a> is ready.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="586"></a><b>mezmorizing</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 03 Jan 2007<br />Posts: 6<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Jan 07, 2007 3:13 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">No problem, you have all rights to do so.
+<br />
+
+<br />
+Meantime, the page to <a href="https://secure.plimus.com/jsp/buynow.jsp?contractId=1683475" target="_blank" class="postlink">purchase the super business license</a> is ready.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">bbAntiSpam Textual Confirmation for phpBB super business license (one business plus one recurring)</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+But it's for all bbAntiSpam products, right? Also, will it cover any products that may be released in the future by bbAntiSpam?
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote"> Server name in the license key must equal to the server name of your forum. For example, if your forum address is &quot;http://www.phpbb.com/phpBB/&quot;, then use the server name &quot;www.phpbb.com&quot;.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+But it works for any domain, even if I enter <a href="http://www.mysite.com?" target="_blank">www.mysite.com?</a> So it will also work at <a href="http://www.someothersite.com," target="_blank">www.someothersite.com,</a> <a href="http://www.yetanothersite.com," target="_blank">www.yetanothersite.com,</a> <a href="http://www.someotherpersonssite.net," target="_blank">www.someotherpersonssite.net,</a> etc.
+<br />
+
+<br />
+Also, do users have to change any of the code so they can use it at their site?
+<br />
+
+<br />
+Edit: Is the super business license also valid for a forum that allows people to create their own forum?, which is <span style="font-weight: bold">not available for users to download</span>? So basically, its a personal version of the forum only for myself, which allows people to host their forum and have the license too.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="592"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Jan 08, 2007 5:12 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">bbAntiSpam Textual Confirmation for phpBB super business license (one business plus one recurring)</td>	</tr></table><span class="postbody">
+<br />
+But it's for all bbAntiSpam products, right?</td>	</tr></table><span class="postbody">
+<br />
+Right.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Also, will it cover any products that may be released in the future by bbAntiSpam?</td>	</tr></table><span class="postbody">
+<br />
+It's my intention, but I don't promise it. For example, if I release an antispam for e-mail, it will require another license.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Server name in the license key must equal to the server name of your forum. For example, if your forum address is &quot;http://www.phpbb.com/phpBB/&quot;, then use the server name &quot;www.phpbb.com&quot;.</td>	</tr></table><span class="postbody">
+<br />
+But it works for any domain, even if I enter <a href="http://www.mysite.com?" target="_blank">www.mysite.com?</a> So it will also work at <a href="http://www.someothersite.com," target="_blank">www.someothersite.com,</a> <a href="http://www.yetanothersite.com," target="_blank">www.yetanothersite.com,</a> <a href="http://www.someotherpersonssite.net," target="_blank">www.someotherpersonssite.net,</a> etc.</td>	</tr></table><span class="postbody">
+<br />
+Yes, it will work for any domain, because I'll remove license checks from the code. In your case, the field &quot;Server name&quot; actually isn't required, just put some nonsense info there.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Also, do users have to change any of the code so they can use it at their site?</td>	</tr></table><span class="postbody">
+<br />
+No, users don't need to change anyhing.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Edit: Is the super business license also valid for a forum that allows people to create their own forum?, which is not available for users to download?</td>	</tr></table><span class="postbody">
+<br />
+Yes, the super business license is valid or this case.
+<br />
+
+<br />
+Let's continue with such summary:
+<br />
+
+<br />
+* If you are the owner of an usual forum, you need a business license.
+<br />
+
+<br />
+* If 1) you are the author of a tool which allows to create forums 2) you want the owners of that forums are not bothered by Textual Confirmation, then:
+<br />
+- you need the super business license,
+<br />
+- the owners need nothing.
+<br />
+
+<br />
+* If 1) you are the author of a tool which allows to create forums 2) you include Textual Confirmation as is, and 3) all the licensing issues is the bother of the owners of that forums, then:
+<br />
+- you need nothing,
+<br />
+- the owners need the business license.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1472"></a><b>bengtang</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 16 Jul 2007<br />Posts: 7<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Jul 16, 2007 7:35 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+Meanwhile, I found a funny picture: <img src="http://bbantispam.com/images/best_captcha.png" border="0" /></td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+Hahaha! That must be for a mathematics forum. I used to know how to do maths like when i was in school that but since i had no use for it after the exams, i forgot it all.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

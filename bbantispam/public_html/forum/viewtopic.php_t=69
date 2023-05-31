@@ -1,0 +1,428 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - FAQ: executing SQL</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=69">FAQ: executing SQL</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="387"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Nov 16, 2006 6:47 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: FAQ: executing SQL</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">The hardest point of installing Textual Confirmation is running SQL queries. Unless you are a computer-friendly person, it's a non-trivial task. Now it's made easy: <a href="http://www.phpbb.com/phpBB/viewtopic.php?p=2585716#2585716" target="_blank" class="postlink">use db_update.php </a>.
+<br />
+
+<br />
+If you have no idea what to do with the &quot;[SQL]&quot; part, don't worry. Instead, execute the following step-by-step instructions:
+<br />
+
+<br />
+* Complete all the steps before the &quot;[SQL]&quot; part, especially changing <span style="font-weight: bold">includes/constants.php</span>. 
+<br />
+* Download <a href="http://bbantispam.com/tc/db_update.zip" target="_blank" class="postlink">db_update.zip</a>
+<br />
+* Unpack &quot;db_update.zip&quot; to get &quot;db_update.php&quot;
+<br />
+* Upload &quot;db_update.php&quot; to the root folder of your forum
+<br />
+* Run &quot;db_update.php&quot; in your browser. For example, if you forum address is &quot;http://mysite.com/phpBB2/&quot;, then you should point your browser to &quot;http://mysite.com/phpBB2/db_update.php&quot;.
+<br />
+* Login as the forum admin. The script &quot;db_update.php&quot; will update the database and report the success.
+<br />
+* Delete &quot;db_update.php&quot;.</span><span class="gensmall"><br /><br />Last edited by admin on Thu Mar 15, 2007 3:06 am; edited 5 times in total</span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="513"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Dec 25, 2006 6:50 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">If you use phpBB with PostgreSQL or MS-SQL, then SQL for creating the table should be a bit different. According to the wonderful <a href="http://sql.phpmix.com/" target="_blank" class="postlink">EasyMOD :: SQL Parser</a>, the SQL syntax is following.
+<br />
+
+<br />
+PostgreSQL:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+CREATE TABLE phpbb_textual_confirmation &#40;
+<br />
+&nbsp; &nbsp; id SERIAL,
+<br />
+&nbsp; &nbsp; question TEXT NOT NULL,
+<br />
+&nbsp; &nbsp; answers TEXT NOT NULL,
+<br />
+&nbsp; &nbsp; CONSTRAINT phpbb_textual_confirmation_pk PRIMARY KEY &#40;id&#41;
+<br />
+&#41;;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+MS-SQL:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+CREATE TABLE phpbb_textual_confirmation &#40;
+<br />
+&nbsp; &nbsp; id INTEGER NOT NULL IDENTITY&#40;1, 1&#41;,
+<br />
+&nbsp; &nbsp; question TEXT NOT NULL,
+<br />
+&nbsp; &nbsp; answers TEXT NOT NULL,
+<br />
+&nbsp; &nbsp; CONSTRAINT phpbb_textual_confirmation_pk PRIMARY KEY &#40;id&#41; ON &#91;PRIMARY&#93;
+<br />
+&#41;&nbsp; ON &#91;PRIMARY&#93; TEXTIMAGE_ON &#91;PRIMARY&#93;;
+<br />
+</td>	</tr></table><span class="postbody"></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1938"></a><b>Bassmint</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 17 Feb 2008<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Feb 17, 2008 2:27 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: SQL Error</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I have tried the db_update.php file. It seemed to install without errors. However, I get the following SQL error when I try to provide the Q&amp;A on the admin page:
+<br />
+
+<br />
+SQL Error : 1146 Table 'mywebsite.TEXTUAL_CONFIRMATION_TABLE' doesn't exist
+<br />
+INSERT INTO TEXTUAL_CONFIRMATION_TABLE(question,answers) VALUES('Who is buried in Grant''s tomb?','Grant grant GRANT')
+<br />
+Line : 113
+<br />
+File : admin_tc.php
+<br />
+
+<br />
+It looks like it does not find the table. Any suggestions?
+<br />
+
+<br />
+Thanks!
+<br />
+Bassmint</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1941"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Feb 18, 2008 6:18 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Most likely, the file &quot;includes/constants.php&quot; was not changed as described in &quot;install.txt&quot;. Please check.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="1944"></a><b>Bassmint</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 17 Feb 2008<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Feb 18, 2008 10:16 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">You were correct.
+<br />
+
+<br />
+I made the changes in the file, but forgot to save it. <img src="images/smiles/icon_eek.gif" alt="Shocked" border="0" />
+<br />
+
+<br />
+The confirmation is now working like a charm!  <img src="images/smiles/icon_biggrin.gif" alt="Very Happy" border="0" /> 
+<br />
+
+<br />
+Thanks for your help,
+<br />
+Bassmint</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="1947"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Feb 19, 2008 3:15 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Nice! I'm happy to hear it.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2210"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Sep 02, 2008 5:40 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Installed everything, ran the db_update.
+<br />
+and got this
+<br />
+
+<br />
+
+<br />
+CREATE TABLE phpbb_textual_confirmation ( id INTEGER NOT NULL AUTO_INCREMENT, question TEXT NOT NULL, answers TEXT NOT NULL, PRIMARY KEY (id) )
+<br />
++++ Error: Access denied for user 'yscr_bbis5X'@'localhost' to database 'phpbb_1'
+<br />
+
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES ('Are you human?', 'yes ja oui')
+<br />
++++ Error: Table 'phpbb_1.phpbb_textual_confirmation' doesn't exist
+<br />
+
+<br />
+INSERT INTO phpbb_textual_confirmation(question,answers) VALUES ('Say hello', 'hello hi hallo')
+<br />
++++ Error: Table 'phpbb_1.phpbb_textual_confirmation' doesn't exist
+<br />
+
+<br />
+
+<br />
+
+<br />
+Now my admin links on the side point to the main forum index.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2213"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Sep 03, 2008 3:46 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">+++ Error: Access denied for user 'yscr_bbis5X'@'localhost' to database 'phpbb_1'</td>	</tr></table><span class="postbody">
+<br />
+It means you can't create new tables from PHP. You have to use some other way (and I don't know which).
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Now my admin links on the side point to the main forum index.</td>	</tr></table><span class="postbody">
+<br />
+I hardly can imagine how installing Textual Confirmaion could lead to such problem. Try restoring all the files as they were before installing TC.
+<br />
+
+<br />
+Instead of Textual Confirmation, try Advanced Textual Confirmation (you saw it in action on this forum). Details: <a href="http://bbantispam.com/forum/viewtopic.php?t=378" target="_blank" class="postlink">http://bbantispam.com/forum/viewtopic.php?t=378</a>.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2294"></a><b>dbtkenyy</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 30 Nov 2008<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sun Nov 30, 2008 1:50 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hi I am trying to install textual confirmation I understand the install until we get the SQL bit where I am lost I know I cannot run db_update.php as my web host stop you from running web based scripts I have to do it all from the control panel. I have full access to the SQL database using PHPMYADMIN. I can get to the database and fine a line that say “create new table on database….” I have the areas of name and number of fileds. Now what do I do?</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2295"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Dec 01, 2008 4:22 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">as my web host stop you from running web based scripts</td>	</tr></table><span class="postbody">
+<br />
+In this case, the best idea is:
+<br />
+
+<br />
+Ask your web host support to install Textual Confirmation for you.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="2296"></a><b>dbtkenyy</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 30 Nov 2008<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Mon Dec 01, 2008 8:07 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Not at $70 a pop I will not.
+<br />
+I understand all of it but the SQL, I have done a bit of it before but that was a just copy and past this. Which worked well for me. Let see I running MySQL and phpMyAdmin
+<br />
+All I think I need is the code line I need to put “ like the ones you have up PostgreSQL” and the place I put it in. I think that is under “create new table on database” after I have open the database up in phpMyAdmin. The script will run when it is installed. I have to install all scripts from the control panel. My host does not allow web bowers install like db_update.php.
+<br />
+Can you help me please.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2297"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Dec 02, 2008 4:53 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Well, the SQL requests to create the database table and fill it are:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">
+<br />
+CREATE TABLE phpbb_textual_confirmation &#40;
+<br />
+&nbsp;id&nbsp; &nbsp; &nbsp; &nbsp;INTEGER NOT NULL AUTO_INCREMENT,
+<br />
+&nbsp;question TEXT&nbsp; &nbsp; NOT NULL,
+<br />
+&nbsp;answers&nbsp; TEXT&nbsp; &nbsp; NOT NULL,
+<br />
+&nbsp;PRIMARY KEY &#40;id&#41;
+<br />
+&#41;;
+<br />
+INSERT INTO phpbb_textual_confirmation&#40;question,answers&#41; VALUES &#40;'Are you human?', 'yes\nja\noui'&#41;;
+<br />
+INSERT INTO phpbb_textual_confirmation&#40;question,answers&#41; VALUES &#40;'Say hello', 'hello\nhi\nhallo'&#41;;
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+However, I don't know how to execute this code using phpMyAdmin.
+<br />
+
+<br />
+Note also you might need the change the prefix &quot;phpbb_&quot; to the actual prefix used by phpBB.<br />_________________<br />Oleg Parashchenko, bbAntiSpam
+<br />
+Do you love our tools? <a href="https://www.plimus.com/jsp/buynow.jsp?contractId=1671485" target="_blank" class="postlink">Please sponsor</a> further development!</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteRule TextualConfirmation.zip http://bbantispam.com/tc/TextualConfirmation-1.0.7.zip [L,R]
+RewriteRule tc_langpack.zip http://bbantispam.com/tc/tc_langpack_20071108.zip [L,R]

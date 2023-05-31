@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - FAQ: what is being sent to us</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=1">Links Rejector</a> - <a href="viewtopic.php?t=23">FAQ: what is being sent to us</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="104"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Fri Jun 23, 2006 4:30 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: FAQ: what is being sent to us</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">As a reminder, here is a cite from the home page:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+Use bbAntiSpam for free, if you want. Your users will <span style="font-style: italic">not</span> notice it. In exchange, each time a spam post is detected, the free bbAntiSpam sends a notification to the forum admin <span style="font-weight: bold">AND TO US</span>. The reasons for this are the following:
+<br />
+
+<br />
+* we collect statistics to release a new version based on content analysis
+<br />
+* letters help you to understand how much time you have saved
+<br />
+
+<br />
+Privacy Policy: We do not disclose your individual information to any other company. We collect aggregate statistics on spam texts and spammers' IPs. We may publish or share this aggregate information with other companies. This aggregate data, by its nature, will not reveal your identity.
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+A typical notification looks as the following:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+You use UNREGISTERED version of bbAntiSpam.
+<br />
+This message is also SENT TO US for improving our spam database.
+<br />
+To avoid information disclosure, register bbAntiSpam:
+<br />
+<a href="http://bbantispam.com/?mode=register" target="_blank">http://bbantispam.com/?mode=register</a>
+<br />
+
+<br />
+bbAntiSpam thinks he has stopped the SPAM message. Contacts are not allowed:
+<br />
+
+<br />
+* <a href="http://bbantispam.com/" target="_blank">http://bbantispam.com/</a>
+<br />
+
+<br />
+The text of the message
+<br />
+=======================
+<br />
+
+<br />
+User name: test, subject: test
+<br />
+
+<br />
+<a href="http://bbantispam.com/" target="_blank">http://bbantispam.com/</a>
+<br />
+
+<br />
+Server data
+<br />
+===========
+<br />
+
+<br />
+REMOTE_ADDR=125.244.xxx.yyy
+<br />
+HTTP_USER_AGENT=libwww-perl/5.805
+<br />
+HTTP_VIA=1.1 none:8080 (Topproxy-2.0/)
+<br />
+HTTP_X_FORWARDED_FOR=85.255.uuu.vvv
+<br />
+ENCODING=windows-1251
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+All is obvious except the server data.
+<br />
+
+<br />
+REMOTE_ADDR is an IP address of the spammer. HTTP_VIA and HTTP_X_FORWARDED_FOR give the list of the proxy-servers used by the spammer. HTTP_USER_AGENT contains the name of the browser or software. Finally, ENCODING allows to correctly interpret the text of a non-English spam message.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="2696"></a><b>Guest</b></span><br /><span class="postdetails"><br /><br /><br /><br /><br /></span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Tue Oct 05, 2010 2:05 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Re: FAQ: what is being sent to us</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>admin wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">As a reminder, here is a cite from the home page:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+Use bbAntiSpam for free, if you want. Your users will <span style="font-style: italic">not</span> notice it. In exchange, each time a spam post is detected, the free bbAntiSpam sends a notification to the forum admin <span style="font-weight: bold">AND TO US</span>. The reasons for this are the following:
+<br />
+
+<br />
+* we collect statistics to release a new version based on content analysis
+<br />
+* letters help you to understand how much time you have saved
+<br />
+
+<br />
+Privacy Policy: We do not disclose your individual information to any other company. We collect aggregate statistics on spam texts and spammers' IPs. We may publish or share this aggregate information with other companies. This aggregate data, by its nature, will not reveal your identity.
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+A typical notification looks as the following:
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">
+<br />
+You use UNREGISTERED version of bbAntiSpam.
+<br />
+This message is also SENT TO US for improving our spam database.
+<br />
+To avoid information disclosure, register bbAntiSpam:
+<br />
+<a href="http://bbantispam.com/?mode=register" target="_blank">http://bbantispam.com/?mode=register</a>
+<br />
+
+<br />
+bbAntiSpam thinks he has stopped the SPAM message. Contacts are not allowed:
+<br />
+
+<br />
+* <a href="http://bbantispam.com/" target="_blank">http://bbantispam.com/</a>
+<br />
+
+<br />
+The text of the message
+<br />
+=======================
+<br />
+
+<br />
+User name: test, subject: test
+<br />
+
+<br />
+<a href="http://bbantispam.com/" target="_blank">http://bbantispam.com/</a>
+<br />
+
+<br />
+Server data
+<br />
+===========
+<br />
+
+<br />
+REMOTE_ADDR=125.244.xxx.yyy
+<br />
+HTTP_USER_AGENT=libwww-perl/5.805
+<br />
+HTTP_VIA=1.1 none:8080 (Topproxy-2.0/)
+<br />
+HTTP_X_FORWARDED_FOR=85.255.uuu.vvv
+<br />
+ENCODING=windows-1251
+<br />
+</td>	</tr></table><span class="postbody">
+<br />
+All is obvious except the server data.
+<br />
+
+<br />
+REMOTE_ADDR is an IP address of the spammer. HTTP_VIA and HTTP_X_FORWARDED_FOR give the list of the proxy-servers used by the spammer. HTTP_USER_AGENT contains the name of the browser or software. Finally, ENCODING allows to correctly interpret the text of a non-English spam message.</td>	</tr></table><span class="postbody">
+<br />
+
+<br />
+
+<br />
+<a href="http://shqiplive.info" target="_blank">http://shqiplive.info</a></span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

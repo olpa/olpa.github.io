@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Self-made DoS of the bbantispam server | Spam Bots and CAPTCHAs</title>
+
+<meta name="generator" content="WordPress 2.2.3" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../../../../wp-content/themes/default/style.css" type="text/css" media="screen" />
+
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://bbspam.com/xmlrpc.php?rsd" />
+</head>
+<body>
+<div id="page">
+
+
+<div id="header">
+	<div id="headerimg">
+		<h1><a href="../../../../index.html">Spam Bots and CAPTCHAs</a></h1>
+		<div class="description">Stories from the web spam fighters</div>
+	</div>
+</div>
+<hr />
+<p style="background-color:yellow"><font size="7"><b>This blog is retired.</b></font></p>
+<hr />
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../../14/the-best-captcha-ever-2/index.html">The best CAPTCHA ever - 2</a></div>
+			<div class="alignright"><a href="../../22/yahoo-captcha-is-broken/index.html">Yahoo CAPTCHA is broken</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-51">
+			<h2><a href="index.html" rel="bookmark" title="Permanent Link: Self-made DoS of the bbantispam server">Self-made DoS of the bbantispam server</a></h2>
+
+			<div class="entry">
+				<div class="KonaBody"><p>According to Wikipedia, a <a href="http://en.wikipedia.org/wiki/Denial-of-service_attack">denial-of-service attack</a> (DoS attack) is an attempt to make a computer resource unavailable to its intended users. Recently it happended to bbantispam.com and bbspam.com. More precisely, it was not a DoS-attack, but a DoS-<i>suicide</i>.</p>
+<p><span id="more-51"></span></p>
+<p><a href="http://bbantispam.com/tc/">Textual Confirmation</a> is an antispam tool for phpBB. In the community edition, it sends a copy of detected spam registrations to the central database, which is located on this server.</p>
+<p>The current rate is a few notifications per second. It&#8217;s not a big load. But imagine that something is happened and the operating system (OS) has few free memory.</p>
+<p>Sendmail (a mailer daemon) tries to save the notification in a database. By design, an external helper is used. But the program can&#8217;t be run because the OS is out of memory.</p>
+<p>Therefore, sendmail defers saving of the notification. But additionally, it tries to send a problem report. Now we have two letters instead of one!</p>
+<p>Now things go worse. Sending the report takes a time due to the network latency. Meanwhile, a new spam notification arrives. Again, it can&#8217;t be delivered immediately, and the process repeats. And yet another notification comes in&#8230;</p>
+<p>After a while, the mail queue is jammed, the memory is fully occupied, and the system doesn&#8217;t provide any services anymore.</p>
+<p>At the moment, a temporary workaround is implemented. All the incoming notifications are just thrown away. Now I&#8217;m waiting till the mail queue becomes empty. It will take a day or two. Then I&#8217;ll investigate how to solve the problem correctly.</p>
+</div>
+
+							
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						by <a href="../../../../index.html" title="Visit admin's website" rel="external">admin</a>												on Thursday, January 17th, 2008 at 12:34 am						and is filed under <a href="../../../../category/administrative/index.html" title="View all posts in Administrative" rel="category tag">Administrative</a>.
+
+
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+
+
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+
+	
+	</div>
+
+
+<hr />
+<div id="footer">
+</div>
+
+</body>
+</html>

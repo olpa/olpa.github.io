@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>bbAntiSpam :: View topic - Gratulations</title>
+<link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css">
+</head>
+<body>
+<p><span class="maintitle">bbAntiSpam: Discuss how to stop web spam</span></p>
+<p style="background-color:yellow"><font size="7">The forum is retired.</font></p>
+
+<p class="maintitle"><a href="index.php">bbAntiSpam Forum Index</a> - <a href="viewforum.php?f=3">Textual Confirmation</a> - <a href="viewtopic.php?t=77">Gratulations</a></p>
+<p></p>
+
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr>
+		<th class="thLeft" width="150" height="26" nowrap="nowrap">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="429"></a><b>asuter</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 29 Nov 2006<br />Posts: 9<br />Location: Fribourg, Switzerland</span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Wed Nov 29, 2006 7:25 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: Gratulations</span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Hello
+<br />
+
+<br />
+I'd like to congratulate to your good work. It seems, that the textual confirmation does its job and prevents spam-registrations. I hope, this would still be the case if once the tool would become very popular.
+<br />
+
+<br />
+However, here is a suggestion for further development: Use the textual confirmation to update on-the-fly the .htaccess file. For example, log the IPs of the spammers and if there were more than X register attempts that failed from one IP within the last Y days, then add a deny entry to the .htaccess file.
+<br />
+
+<br />
+I have already modified your &quot;tc_bad_answer&quot;-function such that it would log the IP together with a timestamp in a file. By the way, no panic, I haven't commented out or deleted anything...
+<br />
+
+<br />
+Are the community spam notifications available for us - the community? Any statistics? Would be interesting to know some numbers/stats.
+<br />
+
+<br />
+Best regards
+<br />
+Adrian Suter</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row2"><span class="name"><a name="432"></a><b>admin</b></span><br /><span class="postdetails">Site Admin<br /><br /><br />Joined: 18 Apr 2006<br />Posts: 805<br />Location: Saint-Petersburg, Russia</span><br /></td>
+		<td class="row2" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Thu Nov 30, 2006 3:30 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">I'd like to congratulate to your good work. It seems, that the textual confirmation does its job and prevents spam-registrations. I hope, this would still be the case if once the tool would become very popular. </td>	</tr></table><span class="postbody">
+<br />
+Thanks a lot! And yes, I think that Textual Confirmation (TC) would be even more effective if become popular. Sometimes, if a spam bot fails to register, then a human spam-registers manually. But if TC is installed on many boards, the human will become tired very soon and will just skip such boards.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">However, here is a suggestion for further development: Use the textual confirmation to update on-the-fly the .htaccess file. For example, log the IPs of the spammers and if there were more than X register attempts that failed from one IP within the last Y days, then add a deny entry to the .htaccess file. </td>	</tr></table><span class="postbody">
+<br />
+Thanks for suggesting. Most likely, something like it will be in the future versions.
+<br />
+
+<br />
+</span><table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr> 	  <td><span class="genmed"><b>Quote:</b></span></td>	</tr>	<tr>	  <td class="quote">Are the community spam notifications available for us - the community? Any statistics? Would be interesting to know some numbers/stats. </td>	</tr></table><span class="postbody">
+<br />
+Unfortunately, at the moment the numbers are unknown, even for me. I need time to work on it. But earlier or later, It will be have done.</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="150" align="left" valign="top" class="row1"><span class="name"><a name="444"></a><b>donjoe</b></span><br /><span class="postdetails"><br /><br /><br />Joined: 30 Nov 2006<br />Posts: 2<br /></span><br /></td>
+		<td class="row1" width="100%" height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%"><span class="postdetails">Posted: Sat Dec 02, 2006 9:28 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td valign="top" nowrap="nowrap">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">So far so good. <img src="images/smiles/icon_biggrin.gif" alt="Very Happy" border="0" /> No more nasties getting through - not one. I guess it helps (among other things) to have a non-english forum. <img src="images/smiles/icon_razz.gif" alt="Razz" border="0" /> It may be a long, long while before any human spammer decides to pay me a visit and make a list of my 6-7 answers. And even then, all I have to do is come up with a fresh list, which is easy as pie, because I want everyone to be able to register so it's enough to write some common-sense questions quickly.
+<br />
+
+<br />
+Great mod! *thumbs up*</span><span class="gensmall"></span></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="templates/subSilver/images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+</table>
+
+<p></p>
+
+<p>Ok.</p>
+</body>
+</html>
+

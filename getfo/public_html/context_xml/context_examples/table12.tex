@@ -1,0 +1,17 @@
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+
+\bTABLE
+\bTR \bTD State \eTD \bTD3-year average(2001-2003) \eTD \bTD2-year average(2001-2002) \eTD \eTR
+%
+% merge first cell down one
+\bTR \bTD[nr=2] Alabama \eTD \bTD 13.3 \eTD \bTD 13.5 \eTD \eTR
+%
+% merge last cell down one
+\bTR \bTD 17.8 \eTD \bTD[nr=2] 18.8 \eTD \eTR
+\bTR \bTD Arizona \eTD \bTD 17.3 \eTD  \eTR
+\eTABLE
+
+\stoptext
+

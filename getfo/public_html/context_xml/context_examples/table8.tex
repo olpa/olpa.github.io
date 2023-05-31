@@ -1,0 +1,27 @@
+% taken from the condensed manual Here is a practical and good example of a
+% table that mergest cells both vertically and horizontally.
+
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+\placetable
+  [here,force]
+  [tab:examplecontextcommands]
+  {Effect of \CONTEXT\ formatting commands.}
+\starttable[|l|c|c|c|c|]
+\HL
+\VL \FIVE \JustCenter{City council elections in 1994}    \VL\SR
+\HL
+\VL \LOW{Party} \VL \THREE{Districts}   \VL \LOW{Total} \VL\SR
+\DC             \DL[3]                  \DC                \DR
+\VL             \VL 1   \VL 2   \VL 3   \VL             \VL\SR
+\HL
+\VL PvdA        \VL 351 \VL 433 \VL 459 \VL 1243        \VL\FR
+\VL CDA         \VL 346 \VL 350 \VL 285 \VL ~981        \VL\MR
+\VL VVD         \VL 140 \VL 113 \VL 132 \VL ~385        \VL\MR
+\VL HKV/RPF/SGP \VL 348 \VL 261 \VL 158 \VL ~767        \VL\MR
+\VL GPV         \VL 117 \VL 192 \VL 291 \VL ~600        \VL\LR
+\HL
+\stoptable
+\stoptext
+

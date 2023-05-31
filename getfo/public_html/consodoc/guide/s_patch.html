@@ -1,0 +1,33 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Patch work</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="Consodoc publication server user's guide"><link rel="up" href="steps.html" title="Predefined steps"><link rel="prev" href="s_pretex.html" title="pre-[La]TeX from TeXML"><link rel="next" href="s_p_common.html" title="Patch work, common"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Patch work</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="s_pretex.html">Prev</a> </td><th width="60%" align="center">Predefined steps</th><td width="20%" align="right"> <a accesskey="n" href="s_p_common.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="s_patch"></a>Patch work</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="s_p_intro"></a>Introduction</h4></div></div></div><p>Automatically generated documentation might contain problematic places, in which manual re-layout is desired. Consodoc is tailored to support manual intervention on the level of LaTeX files.</p><p>Obviously, the system mustn't lose the user's changes when re-generating PDF. Consodoc remembers and applies changes using the diff and patch mechanism.</p><p>Summary of the situations:</p><ul>
+    <li><p>There is no patch, so nothing to apply</p></li>
+    <li>
+      <p>Patch is applied:</p>
+      <ul>
+        <li><p>successfully</p></li>
+        <li><p>with errors</p></li>
+      </ul>
+    </li>
+    <li><p>The user has made changes, and the patch file should be generated</p></li>
+  </ul><p>This functionality adds complexity to the build process. A set of supporting files is used to assist the patch step:</p><ul>
+    <li>
+      <p><tt>$(patch_error)</tt> is a lock-file to prevent further steps in case of patch errors.</p>
+    </li>
+    <li>
+      <p><tt>$(patch_tex)</tt> and <tt>$(patch_tex_copy)</tt> are used to detect if the user has manually edited the LaTeX code.</p>
+    </li>
+    <li>
+      <p><tt>$(patch_tex)</tt> and <tt>$(patch_tex_orig)</tt> are used to generate a patch file.</p>
+    </li>
+  
+  </ul><p>For convenience of describing the process, the step “Patch Work” is splitted on three virtual steps:</p><ul>
+    <li>
+      <p>“Forward Order”,</p>
+    </li>
+    <li>
+      <p>“Reverse order”, and</p>
+    </li>
+    <li>
+      <p>“Problems”.</p>
+    </li>
+  
+  </ul></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="s_pretex.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="steps.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="s_p_common.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">pre-[La]TeX from TeXML </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Patch work, common</td></tr></table></div></body></html>

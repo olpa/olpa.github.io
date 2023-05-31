@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<html><head><title>Getting Started</title><link rel="stylesheet" type="text/css" href="styles.css"/></head><body>
+    <h2 class="page-head">Getting Started</h2>
+    
+    <div class="level2"><a name="id2249780"/>
+     <h3 class="level2">ConTeXt
+     </h3>
+     <p>
+      ConTeXt is a
+      system for creating high-quality print documents, such as PDF. It is
+      similar to LaTeX but
+      with different syntax. Normally, one creates a
+      ConTeXt document
+      in a text editor and then uses the
+      ConTeXt software
+      to convert it to PDF. But
+      ConTeXt can also
+      be used as means to convert XML to PDF. Using XSLT, an author can convert
+      an XML document to
+      ConTeXt
+      document, and then convert this document to a print document.
+     </p>
+     <p>
+      Using ConTeXt in
+      this way eliminates needing FO. While FO, an open standard, provides an
+      exellent vocabulary to describe page layout, its open source
+      implementation is lacking. The most complete open source software to
+      convert FO to PDF is the java utilty called FOP, and this program cannot
+      do basic things like center tables or control widow paragraphs. The
+      developers of
+      ConTeXt are
+      developing their own utlity to convert the FO to print documents, but
+      since their implementation is not complete, it makes sense to use plain
+      ConTeXt to
+      format XML documents. With
+      ConTeXt, you
+      does not face any of the limitations you encounter with FOP. You can
+      create beautiful print documents&#x2014;right now.
+     </p>
+     <p>
+      I assume you already have
+      ConTeXt
+      installed. If not, download and install the version found at
+      http://www.pragma-ade.com/. You might have to join the mailing list to get
+      everything working right. Once you make it that far, you probably know
+      that you format
+      ConTeXt by
+      issuing commands that begin with a backslash.
+     </p>
+<div class="context-block-code"><pre>\starttext
+A one line document.
+\stoptext
+</pre></div>
+    </div>
+    <div class="level2"><a name="id2249952"/>
+     <h3 class="level2">TeXML</h3>
+     <p>
+      As mentioned above, we will not create such documents in a text editor,
+      but through an XSLT conversion. Being text-based,
+      ConTeXt does not
+      always lend itself well to a direct conversion from an XML tree. If an
+      innoncent blank line from an XML document finds its way into a document,
+      the resulting document will wrongly contain a paragraph divison. In
+      addition, certain characters in your XML document will have special
+      meaning in
+      ConTeXt,
+      resulting in either a wrong result or a failed run. If your XML document
+      contained an &#x201C;{&#x201D;, and you didn&#x2019;t escape it by putting a
+      backslash in front of it, your resulting
+      ConTeXt document
+      would be invalid.
+     </p>
+     <p>
+      In order to get around this problem, I advocate using
+      <a href="http://getfo.sourceforge.net/texml/index.html">TeXML</a>
+      . TeXML is a python utility that converts its own special form of XML into
+      ConTeXt. That
+      means you can use XSLT to convert from one XML tree to another and then
+      let the python utlity to the dirty work of handling white space.
+     </p>
+     <p>
+      TeXML uses a very simple XML language. Basically, it represents
+      ConTeXt commands
+      in XML and does little more. One could look at a TeXML document and
+      immediately know what the author meant to express in
+      ConTeXt. In
+      converting an XML document such as TEI to TeXML, one is coming as close as
+      possible to actually converting to
+      ConTeXt itself,
+      without having to worry about white space, and while having the comfort of
+      working with an XML tree. If you use TeXML to convert, you really
+      won&#x2019;t have to learn a new XML languge, since TeXML consists of very
+      few elements. Instead, you will still think in terms of
+      ConTeXt.
+     </p>
+     <p>
+      If you choose not to use TeXML, you should still find this document
+      valuable, since I always include examples of how to format in both raw
+      ConTeXt and in
+      TeXML.
+     </p>
+     <p>
+      Here is the above document in TeXML format.
+     </p>
+<div class="xml"><pre> &lt;?xml version="1.0"?&gt;
+ &lt;TeXML xmlns="http://getfo.sourceforge.net/texml/ns1"&gt;
+  &lt;env name="text"&gt;
+   A one line document.
+  &lt;/env&gt;
+ &lt;/TeXML&gt;
+</pre></div>
+     <p>
+      <a href="texml_examples/simple1.xml">source file</a>
+     </p>
+     <p>
+      To convert this document to a print format, first convert it to a
+      ConTeXt
+      document.
+     </p>
+<div class="context-block-code"><pre>texml.py -e utf -c infile.xml outfile.tex
+</pre></div>
+     <p>
+      Next, convert the
+      ConTeXt file to
+      a print with your normal
+      ConTeXt command.
+     </p>
+<div class="context-block-code"><pre>texexec outfile.tex
+</pre></div>
+     <p>
+      You can also convert your XML file to an outfile all in one step with the
+      script texml_con.
+     </p>
+<div class="context-block-code"><pre>texml_con infile.xml
+</pre></div>
+     <p>
+      This script converts the infile.xml to infile.tex and then exectutes the
+      command line texexec on that file. You can use any option with this script
+      that you would use with texexec.
+     </p>
+     <p>
+      Elements in the TeXML document are bound to a namespace. Since TeXML does
+      not allow mixing of elements from other namespaces, I will present
+      elements in this document without prefixes, assuming the root element
+      contains the namespace.
+     </p>
+    </div>
+    <div class="level2"><a name="id2250229"/>
+     <h3 class="level2">Basic ConTeXt and TeXML</h3>
+     <p>
+      Here are the basic concepts you need to know to understand the rest of the
+      document. Don&#x2019;t worry if you can&#x2019;t understand the individual
+      ConTeXt code.
+      Just make sure you understand how to issue commands.
+     </p>
+     <div class="level3"><a name="id2250266"/>
+      <h4 class="level3">env</h4>
+      <p>
+       Each ConTeXt
+       document must begin with a
+       <tt>starttext</tt> command
+       and end with a
+       <tt>stoptext</tt> command.
+       <tt>starttext</tt> and
+       <tt>stoptext</tt> are
+       examples of an environment. TeXML codes any combination of
+       <tt>start-</tt>
+       <tt>stop-</tt> with the
+       env element, shorthand for an environment. The env element must have the
+       name attribute, which consists of the command name minus the start or
+       stop. If the commands in
+       ConTeXt are
+       <tt>starttext</tt>
+       and<tt>stoptext</tt>, the
+       name of the environment is
+       <tt>text</tt>. If the
+       ConTeXt
+       commands are
+       <tt>startnarrowr</tt> and
+       <tt>stopnarrower</tt>, the
+       environment&#x2019;s name is
+       <tt>narrower</tt>.
+      </p>
+     </div>
+     <div class="level3"><a name="id2250418"/>
+      <h4 class="level3">commands</h4>
+      <p>
+       Commands start with a backslash and can be followed by setups, which are
+       placed in brackets, and by the &#x201C;scope or range of the
+       command,&#x201D; which are placed in curly brackets. This example creates
+       a simple box with the words &#x201C;that&#x2019;s it&#x201D; inside.
+      </p>
+<div class="context-block-code"><pre>\framed[width=2cm,height=1cm]{that's it} 
+</pre></div>
+      <p>
+       I will refer to the text in square brackets as an option. The text inside
+       the curly brackets I will call a parameter. In TeXML, this simple
+       fragment looks like this:
+      </p>
+<div class="xml"><pre>&lt;cmd name="framed"&gt;
+  &lt;opt&gt;width=2cm, height=1cm&lt;/opt&gt;
+  &lt;parm&gt;that's it&lt;/parm&gt;
+&lt;/cmd&gt;
+</pre></div>
+      <p>
+       The element opt can contain different properties. The opt element above
+       defines both the width and height. It is easy to forget and include one
+       option value for each parameter, but don&#x2019;t, because you will end of
+       with extra square brackets and invalid
+       ConTeXt.
+      </p>
+      <p>
+       By default, TeXML puts curly brackets after each command:
+      </p>
+<div class="xml"><pre>&lt;cmd name="par"\&gt;
+</pre></div>
+<div class="context-block-code"><pre>\par{}
+</pre></div>
+      <p>
+       In order to supress the curly brackets, set the &#x201C;gr&#x201D;
+       attribute to &#x201C;0&#x201D;.
+      </p>
+<div class="xml"><pre>&lt;cmd name="par" gr="0"\&gt;
+</pre></div>
+<div class="context-block-code"><pre>\par
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2250540"/>
+      <h4 class="level3">newlines</h4>
+      <p>
+       By default, TeXML does not insert newlines after or before commands.
+      </p>
+      <p>
+       That means that this code:
+      </p>
+<div class="xml"><pre>&lt;cmd name="hairline" gr="0"/&gt;
+&lt;cmd name="par" gr="0"/&gt;
+&lt;cmd name="hairline" gr="0"/&gt;
+&lt;cmd name="par" gr="0"/&gt;
+</pre></div>
+      <p>
+       Will appear as:
+      </p>
+<div class="context-block-code"><pre>\hairline \par \hairline \par
+</pre></div>
+      <p>
+       I don&#x2019;t think this ever will change the print document. However, if
+       you want commands to appear on their own line in your
+       ConTeXt
+       document, use the &#x201C;nl1&#x201D; and &#x201C;nl2&#x201D; attributes.
+       &#x201C;nl1&#x201D; forces a newline before the command; &#x201C;nl2&#x201D;
+       forces a break after.
+      </p>
+<div class="xml"><pre>&lt;!--a newline after--&gt;
+&lt;cmd name="par" gr="0" nl2="1"/&gt;
+
+&lt;!--no newlines--&gt;
+&lt;cmd name="hairline" gr="0"  /&gt;
+
+&lt;!--a newline before and a newline after--&gt;
+&lt;cmd name="par" gr="0" nl1="1" nl2="1"/&gt;
+
+&lt;!--no newlines--&gt;
+&lt;cmd name="hairline" gr="0" /&gt;
+</pre></div>
+<div class="context-block-code"><pre>\par
+\hairline
+\par
+\hairline
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2250638"/>
+      <h4 class="level3">definitions</h4>
+      <p>
+       Often times we need to create a definition for some command and then
+       recall that definition. In such a case, make up a name for the
+       definition, and use this same name when recalling the definition. In the
+       example below,
+       <tt>myCustomLayout</tt> is the
+       arbritrary word that identifies the definition.
+      </p>
+<div class="context-block-code"><pre>\definepapersize[myCustomLayout][width=8.5in, height=11in]
+\setuppapersize[myCustomLayout]
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="definepapersize"&gt;
+ &lt;opt&gt;myCustomLayout&lt;/cmd&gt;
+ &lt;opt&gt;width=8.5in, height=11in&lt;/opt&gt;
+&lt;/cmd&gt;
+&lt;cmd name="setuppappersize"&gt;
+ &lt;opt&gt;myCustomLayout&lt;/opt&gt;
+&lt;/cmd&gt;
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2250690"/>
+      <h4 class="level3">group</h4>
+      <p>
+       ConTeXt can
+       group textual matter by curly brackets. In the following example, the
+       title <i>The Old Man and the
+       Sea</i> is italicized, while the rest of text is not.
+      </p>
+<div class="context-block-code"><pre>{\sl The Old Man and the Sea} by Ernest Hemingway
+</pre></div>
+<div class="xml"><pre>&lt;group&gt;&lt;cmd name="sl" gr="0"/&gt;The Old Man and the Sea&lt;/group&gt; by
+Ernest Hemingwary
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2250745"/>
+      <h4 class="level3">Complete Specifications</h4>
+      <p>
+       TeXML&#x2019;s own guide can be found
+       <a href="http://getfo.sourceforge.net/texml/quick.html">here</a>
+       The complete specifications can be found
+       <a href="http://getfo.sourceforge.net/texml/spec.html">here</a>
+       .
+      </p>
+     </div>
+    </div>
+    <div class="level2"><a name="id2250784"/>
+     <h3 class="level2">Type of ConTeXt in this document</h3>
+     <p>
+      ConTeXt allows
+      many different ways to do the same thing. Much of its code facilitates
+      automatic generation. Page numbers are automatically placed; sections are
+      given numbers; table of contents and indices can be created automatically;
+      front and back matter are formatted special ways.
+     </p>
+     <p>
+      The XML author will need very little of this code. He uses XSLT to do most
+      of the numbering and generation of such things as table of contents and
+      controls the default font size and spacing through XML.
+     </p>
+     <p>
+      This document will therefore use the
+      ConTeXt code
+      that is simplest and most consistent and will ignore that code meant for
+      ConTeXt authors.
+      When the rule of simplicity and consistency conflict, I will choose
+      consitency. It is better to remember or look up one rule even if this rule
+      requires a few more lines. Extra lines won&#x2019;t bother us, because we
+      will not have to do much (if any) editing of the
+      ConTeXt
+      document.
+     </p>
+    </div>
+    <div class="level2"><a name="id2250872"/>
+     <h3 class="level2">A few commands to get started</h3>
+     <p>
+      The one-line document illustrates the bare minimum code to create a vaild
+      ConTeXt
+      document. You need to know a few more commands to understand the next
+      section.
+     </p>
+     <div class="level3"><a name="id2250900"/>
+      <h4 class="level3">enableregime</h4>
+      <p>
+       The <tt>enableregime</tt>
+       command tells
+       ConTeXt what
+       kind of input code to expect. Set the option to
+       <tt>utf</tt> so that
+       ConTeXt can
+       handle any utf in your XML document, including utf-8 and utf-16.
+      </p>
+<div class="context-block-code"><pre>\enableregime[utf]
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="enableregime"&gt;
+ &lt;opt&gt;utf&lt;/opt&gt;
+&lt;/cmd&gt;
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2250970"/>
+      <h4 class="level3">setuppagenumbering</h4>
+      <p>
+       By default,
+       ConTeXt puts
+       page numbers at the top of each page. In additon, it restarts numbering
+       after each <tt>part</tt>
+       command, as explained in the next section of this document. To turn of
+       this automatic numbering, set the
+       <tt>state</tt> to
+       <tt>stop</tt>, and the
+       <tt>way</tt> option to
+       <tt>bytext</tt>.
+      </p>
+<div class="context-block-code"><pre>
+\setuppagenumbering[state=stop, way=bytext]
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="setuppagenumbering"&gt;
+ &lt;opt&gt;state=stop, way=bytext&lt;/opt&gt;
+&lt;/cmd&gt;
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2251059"/>
+      <h4 class="level3">setupreferencing</h4>
+      <p>
+       By default,
+       ConTeXt puts
+       part numbers for cross references. We can generate our own section
+       numbers, so we want to turn this off.
+      </p>
+<div class="context-block-code"><pre>\setupreferencing[partnumber=no]
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="setupreferencing"&gt;
+ &lt;opt&gt;partnumber=no&lt;opt&gt;
+&lt;/cmd&gt;
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2251105"/>
+      <h4 class="level3">input</h4>
+      <p>
+       The <tt>input</tt> command
+       inputs an external document. It takes not options or parameters. Instead,
+       you put the path to the external file on the same line as the
+       <tt>input</tt> command.
+       The <tt>input</tt> command
+       is useful for documentating
+       ConTeXt because
+       it allows for sample documents that just display the relevant commands,
+       uncluttered by pages of text.
+      </p>
+      <p>
+       Here are two sample documents illustrating some of the examples discussed
+       on this page.
+      </p>
+      <p>
+       <a href="context_examples/simple2.tex">example file in ConTeXt.</a>
+      </p>
+      <p>
+       <a href="texml_examples/simple2.xml">example file in TeXML.</a>
+      </p>
+     </div>
+    </div>
+   <p>
+ copyright 2005 Paul Henry Tremblay
+      
+  </p><p>
+      License: GPL
+  </p><p><a href="index.html">home | </a><a href="contents.html">contents | </a><a href="page1.html">previous | </a><a href="page3.html">next</a></p><p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=102261&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo"/></a></p><p><b>last updated: </b>2005-03-23</p></body></html>

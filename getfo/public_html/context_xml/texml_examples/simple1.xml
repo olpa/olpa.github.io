@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!--
+The simples document possible in TeXML
+-->
+<TeXML xmlns="http://getfo.sourceforge.net/texml/ns1">
+  <env name="text">
+   A one line document.
+ </env>
+</TeXML>

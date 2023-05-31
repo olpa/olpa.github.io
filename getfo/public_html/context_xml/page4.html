@@ -1,0 +1,1022 @@
+<?xml version="1.0"?>
+<html><head><title>Blocks</title><link rel="stylesheet" type="text/css" href="styles.css"/></head><body>
+    <h2 class="page-head">Blocks</h2>
+    
+    
+    
+    
+    
+    
+    <div class="level2"><a name="id2254172"/>
+     <h3 class="level2">Paragraph Formatting</h3>
+     <p>
+      The basic block unit in
+      ConTeXt is the
+      paragraph. Create a paragraph block with the
+      <tt>par</tt> command.
+     </p>
+<div class="context-block-code"><pre>A one line paragraph\par
+Another one line paragraph\par
+
+
+</pre></div>
+<div class="xml"><pre>A one line paragraph&lt;cmd name="par" gr="0"/&gt;
+Another one line paragraph&lt;cmd name="par" gr="0"/&gt;
+
+
+</pre></div>
+     <p>
+      ConTeXt allows
+      you to also create a paragraph with a simple blank line, such as you would
+      in email. TeXML works the opposite: it will get rid of any blank lines. So
+      if you use TeXML, the only way to form a paragraph is with the
+      <tt>par</tt> command.
+     </p>
+     <div class="level3"><a name="id2254253"/>
+      <h4 class="level3">Space between, before and after</h4>
+      <p>
+       Use the commands
+       <tt>setupwhitespace</tt>
+       to control the amount of space between paragraph. To reset the amount of
+       space to the default value, use &#x201C;none&#x201D; as a value.
+      </p>
+<div class="context-block-code"><pre>\setupwhitespace[5mm]
+first paragraph\par
+second paragraph\par
+third paragraph\par
+\setupwhitespace[none]
+fourth paragraph\par
+fifth paragraph\par
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="par" gr="0"/&gt;
+&lt;cmd name="setupwhitespace"&gt;
+ &lt;opt&gt;5mm&lt;/opt&gt;
+&lt;/cmd&gt;
+first paragraph
+&lt;cmd name="par" gr="0"/&gt;
+second paragaph
+&lt;cmd name="par" gr="0"/&gt;
+third paragaph
+&lt;cmd name="par" gr="0"/&gt;
+&lt;cmd name="setupwhitespace"&gt;
+ &lt;opt&gt;none&lt;/cmd&gt;
+&lt;/cmd&gt;
+fourth paragarph
+&lt;cmd name="par" gr="0"/&gt;
+fifth paragarph
+&lt;cmd name="par" gr="0"/&gt;
+
+</pre></div>
+      <div class="img"><img src="png_images/whitespace1.png" alt="creating space between each paragraph">
+       <p class="figure-caption">creating space between each paragraph</p>
+      </img></div>
+      <p>
+       If you want to add extra space before of after a paragraphs, use the
+       <tt>blank</tt> command.
+      </p>
+<div class="context-block-code"><pre>
+before paragraph
+\blank[24pt]
+This paragraph has 24 points before it and 36 points after it.\par
+\blank[36pt]
+after paragraph\par
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="blank"&gt;
+ &lt;opt&gt;24pt&lt;/opt&gt;
+&lt;/cmd&gt;
+This paragraph has 24 points before it and 36 points after it.
+&lt;cmd name="par" gr="0"/&gt;
+&lt;cmd name="blank"&gt;
+ &lt;opt&gt;36pt&lt;/opt&gt;
+&lt;/cmd&gt;
+after paragraph
+&lt;cmd name="par" gr="0"/&gt;
+
+</pre></div>
+      <div class="img"><img src="png_images/blankspace1.png" alt="space before and after paragraph">
+       <p class="figure-caption">space before and after paragraph</p>
+      </img></div>
+      <p>
+       The <tt>blank</tt> command
+       will not put any blank space at the top of th page unless you use the
+       <tt>force</tt> option.
+      </p>
+<div class="context-block-code"><pre>\blank[force, 36pt]
+% chapter title
+Thoreau's Life
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="blank"&gt;
+ &lt;opt&gt;force, 36pt&lt;/opt&gt;
+&lt;/cmd&gt;
+&lt;!--title chapter--&gt;
+Thourea's Life
+
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2254422"/>
+      <h4 class="level3">Line spacing</h4>
+      <p>
+       Set up line spacing with the
+       <tt>setupinterlinespace</tt>
+       command. This command&#x2019;s option can be set to small for single
+       spacing (the default), medium for 1.5 spacing, or big for double spacing.
+      </p>
+<div class="context-block-code"><pre>% doublespacing
+\setupinterlinespace[big]
+
+</pre></div>
+<div class="xml"><pre>&lt;!--doublespacing--&gt;
+&lt;cmd name="setupinterlinespace"&gt;
+ &lt;opt&gt;big&lt;/opt&gt;
+&lt;/cmd&gt;
+
+
+</pre></div>
+      <p>
+       To gain even more control over the space between lines, change the option
+       to line=x, where x is some value, such as 18pt.
+      </p>
+<div class="context-block-code"><pre>\setupinterlinespace[line=18pt]
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="setupinterlinespace"&gt;
+ &lt;opt&gt;line=18pt&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+      <h3 class="list-head">Tips</h3><ul>
+       
+       <li>
+        <p>
+         Setting the value of line to some value of ex ensures that your line
+         spacing will always stay in proportion to the size of your font.
+        </p>
+       </li>
+       <li>
+        <p>
+         2.8ex is the default size of line.
+        </p>
+       </li>
+       <li>
+        <p>
+         3.5ex seems to be the size for one and one half line spacing
+         (<tt>medium</tt>).
+        </p>
+       </li>
+       <li>
+        <p>
+         4.2ex seems to be the size for double spacing
+         (<tt>big</tt>)
+        </p>
+       </li>
+      </ul>
+     </div>
+     <div class="level3"><a name="id2254578"/>
+      <h4 class="level3">Indenting</h4>
+      <div class="level4"><a name="id2254587"/>
+       <h5 class="level4">First line</h5>
+       <p>
+        Two commands control indenting of the first line:
+        <tt>indenting</tt> and
+        <tt>setupindenting</tt>.
+       </p>
+       <p>
+        The first command determines the amount of the indent for the first
+        line.
+       </p>
+<div class="context-block-code"><pre>\setupindenting[12pt]
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="setupindenting"&gt;
+ &lt;opt&gt;12pt&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+       <p>
+        The <tt>indenting</tt>
+        command, determines when indenting will occurr. By default,
+        ConTeXt will
+        not indent blocks of text that it determines do not look good, such as a
+        block of text after a vertical space. To override this feature and gain
+        complete control over indenting, set
+        <tt>indenting</tt> to
+        &#x201C;first&#x201D;.
+       </p>
+<div class="context-block-code"><pre>\indenting[first]
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="indenting"&gt;
+ &lt;opt&gt;first&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+       <p>
+        This indents all paragraphs by the amount of the
+        <tt>setupindenting</tt>
+        command. You probably don&#x2019;t want headings and titles indented, so
+        just before you write your header, use the
+        <tt>noindenting</tt>
+        command.
+       </p>
+<div class="context-block-code"><pre>\indenting[first]
+\setupindenting[12pt]
+body text ...\par
+% turn off indenting for a section head
+\noindenting
+section head\par
+% body text will again be indented
+more body text..\par
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="indenting"&gt;
+ &lt;opt&gt;first&lt;/opt&gt;
+&lt;/cmd&gt;
+&lt;cmd name="setupindenting"&gt;
+ &lt;opt&gt;12pt&lt;/opt&gt;
+&lt;/cmd&gt;
+body text..
+&lt;!--turn off indenting for a section head--&gt;
+section head\par
+&lt;!--body text will again be indented--&gt;
+more body text ...\par
+
+</pre></div>
+       <h3 class="list-head">Tips</h3><ul>
+        
+        <li>
+         <p>
+          You don&#x2019;t need to use the
+          <tt>indenting</tt>
+          command to get indenting to work. If you do not,
+          ConTeXt will
+          use the default of not indenting paragraphs after vertical spaces.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="level4"><a name="id2254803"/>
+       <h5 class="level4">Indenting blocks</h5>
+       <p>
+        To reduce the width of a text, as for a quote, use the envirnoment
+        &#x201C;narrower.&#x201D; Set up the dimensions with the
+        <tt>setupnarrower</tt>
+        command.
+       </p>
+<div class="context-block-code"><pre>\setupnarrower[left=24pt, right=30pt]
+\startnarrower[left, right]
+ body text..
+\stopnarrower
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="setupnarrower"&gt;
+ &lt;opt&gt;left=24pt, right=30pt&lt;/opt&gt;
+&lt;/cmd&gt;
+&lt;env name="narrower"&gt;
+ &lt;opt&gt;left, right&lt;/opt&gt;
+ quote text
+&lt;/env&gt;
+
+</pre></div>
+       <h3 class="list-head">Tips</h3><ul>
+        
+        <li>
+         <p>
+          If you do not use the
+          <tt>setupnarrower</tt>
+          command,
+          ConTeXt will
+          set right and left to 12pt.
+         </p>
+        </li>
+        <li>
+         <p>
+          If you only want to indent the left, leave off the right for the
+          option in
+          <tt>setupnarrower</tt>.
+          Likewise, leave off the left if you only want to indent your text to
+          the right.
+         </p>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="level3"><a name="id2254919"/>
+      <h4 class="level3">Aligning text</h4>
+      <div class="level4"><a name="id2254929"/>
+       <h5 class="level4">Non-justified text</h5>
+       <p>
+        By default,
+        ConTeXt
+        justifies text. In fact, creating pretty text is one
+        ConTeXt&#x2019;s
+        main feature. If you want your text non-justified, use the
+        <tt>setupalign</tt>
+        command with the option of
+        <tt>right</tt>.
+       </p>
+<div class="context-block-code"><pre>\setupalign[right]
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="setupalign"&gt;
+ &lt;opt&gt;right&lt;/otp&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+       <h3 class="list-head">Tips</h3><ul>
+        
+        <li>
+         <p>
+          To align text to the left, set the option to
+          <tt>left</tt>.
+         </p>
+        </li>
+        <li>
+         <p>
+          To center the text, set the option to
+          <tt>middle</tt>.
+         </p>
+        </li>
+        <li>
+         <p>
+          Justified text is easier to read because the spaces between the words
+          are the same.
+         </p>
+        </li>
+        <li>
+         <p>
+          Kudos for the developers of
+          ConTeXt for
+          making non-justified text so easy to use. In other forms of
+          TeX, using
+          non-justified text required complicated code.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="level4"><a name="id2255099"/>
+       <h5 class="level4">Changing alignment on a block of text</h5>
+       <p>
+        The above code works for setting the alignment for the entire document.
+        To change just a block of text, start a new
+        <tt>alignment</tt> enviornment.
+        Within this enivronment, the text will take on the justification
+        assigned to it.
+       </p>
+<div class="context-block-code"><pre>\startalignment[middle]
+{\bfd ABSTRACT OF THESIS}\par 
+\blank[.5in]
+\stopalignment
+
+</pre></div>
+       <h3 class="list-head">Tips</h3><ul>
+        
+        <li>
+         <p>
+          As the exmple shows, this structure is good for titles of sections.
+          The examples below don&#x2019;t allow the fexibilit that of the
+          <tt>startalignment</tt>
+          environment.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="level4"><a name="id2255176"/>
+       <h5 class="level4">Changing alignment of small portions of text</h5>
+       <p>
+        Most likely, you will use one type of alignment for your document, such
+        as justified or non-justified. However, you will often want to change
+        the alignment for just a portion of text, such as the date at the top of
+        a letter, or a title.
+       </p>
+       <div class="level5"><a name="id2255197"/>
+        <h6 class="level5">Centering</h6>
+        <p>
+         To center a line, use the midaligned command.
+        </p>
+<div class="context-block-code"><pre>\midaligned{This text is centered}
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="midaligned"&gt;
+ &lt;parm&gt;This text is centered&lt;/parm&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+       </div>
+       <div class="level5"><a name="id2255233"/>
+        <h6 class="level5">Left-Aligned</h6>
+        <p>
+         To make a line of text left aligned, use the
+         <tt>leftaligned</tt>
+         command.
+        </p>
+<div class="context-block-code"><pre>\leftaligned{This text left-aligned}
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="leftaligned"&gt;
+ &lt;parm&gt;This text is left-aligned&lt;/parm&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+       </div>
+       <div class="level5"><a name="id2255278"/>
+        <h6 class="level5">Non-Justified</h6>
+        <p>
+         To make a line of text non-justified, use the
+         <tt>rightaligned</tt>
+         command.
+        </p>
+<div class="context-block-code"><pre>\rightaligned{This text is non-justified}
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="rightaligned"&gt;
+ &lt;parm&gt;This text is non-justified&lt;/parm&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="level2"><a name="id2255326"/>
+     <h3 class="level2">Orphan and Widow Controls</h3>
+     <p>
+      Orphans and widows are the ugly text that appears by themselves at the top
+      or bottom of a page. An orphan is the first line of a paragraph on the
+      last line of a page whereas the last line of the paragraph on a new page
+      is a widow.
+      ConTeXt uses the
+      definitions
+      <tt>widowpenalty=x</tt> and
+      <tt>clubpenalty=x</tt> to
+      discourage either of these typographical flaws. The default values for
+      each is 150. Increasing the value to 450 should discourage most widows and
+      orphans.
+     </p>
+<div class="context-block-code"><pre>\starttext
+% make sure you put these two commands *after*
+% the \starttext command
+\clubpenalty=450
+\widowpenalty=450
+...
+
+</pre></div>
+<div class="xml"><pre>&lt;env name="text"&gt;
+&lt;!--
+Make sure this text occurs within
+the text env
+--&gt;
+&lt;cmd name="clubpenalty=450"/&gt;
+&lt;cmd name="widowpenalty=450"/&gt;
+...
+&lt;/env&gt;
+
+</pre></div>
+     <div class="level3"><a name="id2255396"/>
+      <h4 class="level3">Keeping text with next</h4>
+      <p>
+       Many commercial programs such as Microsoft Word, as well as FO, allow for
+       you to keep section headings with the text that follows, so that they
+       won&#x2019;t become stuck by themselves at the bottom of the page. You can
+       achieve the same thing with the
+       <tt>testpage</tt> command.
+      </p>
+      <p>
+       The <tt>testpage</tt>
+       command takes one option, a number, which roughly correspond to the
+       number of minimum additional &#x201C;lines&#x201D; the page should contain.
+       If the number of the option were 2,
+       ConTeXt checks
+       to see if it can fit two more &#x201C;lines&#x201D; on the page. If not, it
+       breaks the page at the
+       <tt>testpage</tt> command
+       and puts the text on the next page.
+      </p>
+      <p>
+       This command has the affect of allowing text to stick together. If you
+       issued this command right before a section title, and used the number 3,
+       ConTeXt would
+       check to see if the heading and two additional &#x201C;lines&#x201D; below
+       it can fit on the page. If not, it breaks the page, preventing the
+       heading from becoming an orphan.
+      </p>
+      <p>
+       I put the &#x201C;lines&#x201D; in quotes because
+       ConTeXt
+       doesn&#x2019;t also counts white space as &#x201C;lines.&#x201D; If you use
+       white space after your title (an most likely you will), you will have to
+       increase the number in the option. Too high a number will certainly
+       prevent orphans of the title, but will also result an ugly empty spaces
+       at the bottom of pages. 5 or 6 will probably work in most situations.
+      </p>
+<div class="context-block-code"><pre>% space before the sub-title
+\blank[12pt]
+% make sure the page can contain 5 more virtual lines
+% if not, break
+\testpage[5]
+% the title (which normally would appear in larger 
+% font)
+Thoreau's Lifestyle\par
+% space after the title
+\blank[12pt]
+</pre></div>
+<div class="xml"><pre>&lt;!--space before the sub-title--&gt;
+&lt;cmd name="blank"&gt;
+ &lt;opt&gt;12pt&lt;/opt&gt;
+&lt;/cmd&gt;
+&lt;!--
+ make sure the page can contain 5 more virtual lines
+ if not, break
+--&gt;
+&lt;cmd name="testpage"&gt;
+ &lt;opt&gt;3&lt;/opt&gt;
+&lt;/cmd&gt;
+&lt;!--
+the title (which normally would appear in larger 
+ font)
+--&gt;
+Thoreau's Lifestyle
+&lt;cmd name="par" gr="0"/&gt;
+&lt;!--space after the title--&gt;
+&lt;cmd name="blank"&gt;
+ &lt;opt&gt;12pt&lt;/opt&gt;
+&lt;/cmd&gt;
+
+
+</pre></div>
+     </div>
+    </div>
+    <div class="level2"><a name="id2255552"/>
+     <h3 class="level2">Footnotes</h3>
+     <div class="level3"><a name="id2255562"/>
+      <h4 class="level3">default foototes</h4>
+      <p>
+       The <tt>footnote</tt>
+       command creates footnotes. Put the text of the footnote in the parameter.
+      </p>
+<div class="context-block-code"><pre>At present I am a sojourner in civilized life
+again. \footnote{Thoreau...}
+</pre></div>
+      <p>
+       <a href="context_examples/footnote.tex">source file</a>
+      </p>
+<div class="xml"><pre>At present I am a sojourner in civilized life
+again. 
+ &lt;cmd name="footnote"&gt;
+  &lt;parm&gt;
+  Thoreau...
+  &lt;/parm&gt;
+ &lt;/cmd&gt;
+</pre></div>
+      <p>
+       <a href="texml_examples/footnote.xml">source file</a>
+      </p>
+     </div>
+     <div class="level3"><a name="id2255637"/>
+      <h4 class="level3">customizing footnotes</h4>
+      <div class="level4"><a name="id2255647"/>
+       <h5 class="level4">Basic customization</h5>
+       <p>
+        The
+        <tt>setupfootnotes</tt>
+        command allows you to many features for footnotes. This command takes
+        one option, but within that option you can set many properties.
+       </p>
+<div class="context-block-code"><pre>% set up a defintion for the amount of distance
+% between the body text and footnotes
+% and between the footnotes and footer
+\def\DistanceBef{\blank[24pt]}
+\def\DistanceAft{\blank[24pt]}
+
+\setupfootnotes[
+ % use Roman numerals instead of numbers
+ conversion=romannumerals,
+ % turn on rule (default)
+ % use "off" instead of "on" to get rid of rule
+ rule=on,
+ % set body font size
+ bodyfont=10pt,
+ % set width
+ width=5in,
+ % distnace marker extends into the margin
+ margindistance=12pt,
+ % distance of footnote from body text
+ before=\DistanceBef,
+ % distance of footnotes from footer
+ after=\DistanceAft,
+ ]
+
+At present I am a sojourner in civilized life
+again. \footnote{Thoreau...}
+</pre></div>
+       <p>
+        <a href="context_examples/footnote2.tex">source file</a>
+       </p>
+       <div class="img"><img src="png_images/footnote2.png" alt="customizing footnotes">
+        <p class="figure-caption">customizing footnotes</p>
+       </img></div>
+       <h3 class="list-head">Tips</h3><ul>
+        
+        <li>
+         <p>
+          The <tt>margindistance</tt>
+          property pushes the footnote marker into the margin by the amount you
+          specify. If you do not specify any amount,
+          ConTeXt will
+          push the marker into the margin by a small amount.
+         </p>
+        </li>
+        <li>
+         <p>
+          Other values for
+          <tt>conversion</tt> are
+          <tt>characters</tt> for
+          lower-case letters;
+          <tt>Characters</tt> for
+          upper-case letters;
+          <tt>Romannumerals</tt> for
+          upper-case Roman numerals; and
+          <tt>set 3</tt> for symbols
+          such as daggers and asteristics. You can also experiment with other
+          sets, such as <tt>set 1</tt>
+          or <tt>set 2</tt>. Sets
+          indicate a mathmatical set of symbols defined by
+          ConTeXt.
+         </p>
+        </li>
+        <li>
+         <p>
+          For indenting footnotes, see the next section
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="level4"><a name="id2255863"/>
+       <h5 class="level4">Changing the footnote number</h5>
+       <p>
+        There are a number of ways to set the number for the footnote marker.
+       </p>
+       <p>
+        To reset the number for every page so each new page starts at 1 (or the
+        symbol or character associated with 1), set the
+        <tt>byway</tt> option in the
+        <tt>setupfootnotes</tt>
+        to <tt>bypage</tt>.
+       </p>
+       <p>
+        To reset the number for every section, so each new section starts at 1
+        (or the symbol or character associated with 1), set the
+        <tt>byway</tt> option in the
+        <tt>setupfootnotes</tt>
+        to
+        <tt><i>section</i></tt>,
+        where section is the name of your section. This document uses uses only
+        the <tt>part</tt>
+        section. In order to have my footnotes start at 1 after each
+        <tt>part</tt> command, I
+        would type <tt>way=bypart</tt>.
+       </p>
+       <p>
+        To reset the number manually, set the
+        <tt>byway</tt> option in the
+        <tt>setupfootnotes</tt>
+        to <tt>bytext</tt>. Before each
+        footnote, issue the
+        <tt>setnumber</tt>
+        command. Put <tt>footnote</tt>
+        as the option, and the desired number
+        <i>minus 1</i> as the
+        parameter. If you want the number to be 3, use 2 as your parameter.
+       </p>
+<div class="context-block-code"><pre>\setupfootnotes[way=bytext, conversion=characters]
+
+% set the number manually
+% the next footnote will be *3*
+\setnumber[footnote]{2}
+
+The twelve labors of Hercules\footnote{Hercules had to perform 12
+near-impossible tasks to become a god} were trifling in comparison
+with those which my neighbors have undertaken;
+
+</pre></div>
+       <h3 class="list-head">Tips</h3><ul>
+        
+        <li>
+         <p>
+          Always use a number as the parameter of the
+          <tt>setnumber</tt>
+          command. If you want another footnote marker such as a Roman numeral,
+          use the <tt>conversion</tt>
+          option (see above), and
+          ConTeXt will
+          convert whatever number you choose to the appropriate symbol.
+         </p>
+        </li>
+       </ul>
+       <p>
+        <a href="context_examples/footnote6.tex">source file</a>
+       </p>
+      </div>
+      <div class="level4"><a name="id2256124"/>
+       <h5 class="level4">Space between footnotes</h5>
+       <p>
+        Crete custom space between footnotes by using the
+        <tt>setupfootnotedefinition</tt>
+        command. Like the
+        <tt>setupfootnotes</tt>
+        command, this command has an
+        <tt>after</tt> and
+        <tt>before</tt> property, only
+        in the case of
+        <tt>setupfootnotedefinition</tt>,
+        these properties determine the space between individual footnotes rather
+        than before and after the complete block of footnotes.
+       </p>
+<div class="context-block-code"><pre>%set up the amount of space before each footnote
+\def\DistanceBef{\blank[12pt]}
+% set up the amount of space after each footnote
+\def\DistanceAft{\blank[12pt]}
+
+\setupfootnotedefinition[
+ after=\DistanceAft,
+ before=\DistanceBef,
+]
+
+At present I am a sojourner in civilized life
+again. \footnote{Thoreau started writing {\sl Walden} in 1846. ..  }
+...
+
+I would fain say something, no so much concerning the Chinese and
+Sandwich Islanders \footnote{Hawaiians} 
+</pre></div>
+       <p>
+        <a href="context_examples/footnote3.tex">source file</a>
+       </p>
+      </div>
+      <div class="level4"><a name="id2256219"/>
+       <h5 class="level4">First line indent</h5>
+       <p>
+        To create a footnote with a first line indent, use the
+        <tt>hspace</tt> command
+        right before your footnote text. You will have to define the actual
+        spacing in a separate command issued previously.
+       </p>
+<div class="context-block-code"><pre>% define amount of space
+\definehspace[footnoteSpace][12pt]
+
+At present I am a sojourner in civilized life
+ again. \footnote{\hspace[footnoteSpace]Thoreau started writing ...}
+</pre></div>
+       <p>
+        <a href="context_examples/footnote4.tex">source file</a>
+       </p>
+      </div>
+      <div class="level4"><a name="id2256272"/>
+       <h5 class="level4">hanging indent</h5>
+       <p>
+        In order to create a footnote with a hanging indent, you will have to
+        indent the first line by the negative amount of the indent using the
+        <tt>hskip</tt> command.
+        At the same time, indent the entire footnote by the positive amount of
+        the indent. Last, push the text up by the negative amount of a line by
+        using the <tt>vskip</tt>
+        command in order to delete the extra space created by the indentin
+        environment.
+       </p>
+<div class="context-block-code"><pre>% define amount to indent
+\setupnarrower[left=12pt]
+
+At present I am a sojourner in civilized life
+again. \footnote{
+\startnarrower[left]
+% create a negative vertical space equivlent to the line height
+\vskip-14pt
+% indent the first line by the negative amount
+\hskip-12pt Thoreau started writing {\sl Walden} in 1846, a few
+months after . . .
+\stopnarrower}
+
+</pre></div>
+       <p>
+        <a href="context_examples/footnote5.tex">source file</a>
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="level2"><a name="id2256343"/>
+     <h3 class="level2">Lists</h3>
+     <div class="level3"><a name="id2256353"/>
+      <h4 class="level3">Default list</h4>
+      <p>
+       Form lists by creating an itemize environment. The numbering for the
+       itemized list is determined by the first option of the
+       <tt>startitemize</tt>
+       command. Here are the possible values for the first option and the result
+       these values produce.
+      </p>
+      <table id="enumeration"><thead><tr>
+        <td>setup</td>
+        <td class="last">result</td>
+       </tr></thead><tbody>
+       <caption align="bottom">enumeration symbols</caption>
+       
+       <tr>
+        <td>n</td>
+        <td class="last">1,2,3,4</td>
+       </tr>
+       <tr>
+        <td>a</td>
+        <td class="last">a,b,c,d</td>
+       </tr>
+       <tr>
+        <td>A</td>
+        <td class="last">A,B,C,D</td>
+       </tr>
+       <tr>
+        <td>KA</td>
+        <td class="last">A,B,C,D [small caps]</td>
+       </tr>
+       <tr>
+        <td>r</td>
+        <td class="last">i,ii,iii,iv</td>
+       </tr>
+       <tr>
+        <td>R</td>
+        <td class="last">I, II, III, IV</td>
+       </tr>
+       <tr>
+        <td>KR</td>
+        <td class="last">I, II, III, IV[small caps]</td>
+       </tr>
+       <tr>
+        <td>m</td>
+        <td class="last">1,2,3,4[smaller numbers]</td>
+       </tr>
+       <tr>
+        <td>g</td>
+        <td class="last">&#x3B1;,&#x3B2;,&#x3B3;</td>
+       </tr>
+       <tr>
+        <td>G</td>
+        <td class="last">&#x391;,&#x392;,&#x393;</td>
+       </tr>
+       <tr>
+        <td>1</td>
+        <td class="last">&#x2022;</td>
+       </tr>
+       <tr>
+        <td>2</td>
+        <td class="last">&#x2014;</td>
+       </tr>
+       <tr>
+        <td>3</td>
+        <td class="last">*</td>
+       </tr>
+       <tr>
+        <td>4</td>
+        <td class="last">&#x2023;</td>
+       </tr>
+       <tr>
+        <td>5</td>
+        <td class="last">[circle]</td>
+       </tr>
+       <tr>
+        <td>6</td>
+        <td class="last">[big circle]</td>
+       </tr>
+       <tr>
+        <td>7</td>
+        <td class="last">[bigger circle]</td>
+       </tr>
+       <tr>
+        <td>8</td>
+        <td class="last">&#x274F; [box]</td>
+       </tr>
+      </tbody></table>
+      <p>
+       The <tt>item</tt> command
+       creates the actual item in the list.
+      </p>
+<div class="context-block-code"><pre>\startitemize[n]
+\item {\sl Temperance.} Eat not to dulness. Drink not to Elevation.
+\item {\sl Silence.} Speak not but what may benefit other or yourself.
+...
+\stopitemize
+</pre></div>
+      <p>
+       <a href="context_examples/itemize1.tex">source file</a>
+      </p>
+      <h3 class="list-head">Tips</h3><ul>
+       
+       <li>
+        <p>
+         If you use <tt>continue</tt>
+         as an additional property in the
+         <tt>startitemize command, you
+         can continue numbering a list already started.
+         (<tt>\startitemize[n,
+         continue]</tt>)</tt>
+        </p>
+       </li>
+       <li>
+        <p>
+         If you use <tt>inmargin</tt>
+         as an additional property in the
+         <tt>startitemize</tt>
+         command, you will push the markers into the margin.
+        </p>
+       </li>
+       <li>
+        <p>
+         If you use the use
+         <tt>intro</tt> property in the
+         <tt>startitemize</tt>
+         command, you will ensure theat the previous paragraph and the list will
+         stick together and not be broken by a page break.
+        </p>
+       </li>
+       <li>
+        <p>
+         If your item contains more than one paragraph, use the
+         <tt>par</tt> comand to
+         separate them. Note that the
+         ConTeXt
+         manual suggests you use the
+         <tt>head</tt> command
+         instead of the
+         <tt>item</tt> command
+         for items with more than one paragraph, but I found the
+         <tt>head</tt> command
+         could not handle items with more than 2 paragraphs.
+        </p>
+       </li>
+      </ul>
+     </div>
+     <div class="level3"><a name="id2257037"/>
+      <h4 class="level3">Defining your own marker</h4>
+      <p>
+       If you wish to use your own markers in a list, rather than have
+       ConTeXt provide
+       them, use the command
+       <tt>sym</tt> instead of
+       <tt>item</tt>. Within the
+       parameter, provide the marker you want.
+      </p>
+<div class="context-block-code"><pre>These Names of Virtues with their Precepts were\par
+\startitemize
+\sym{1)} {\sl Temperance.} Eat not to dulness. Drink not to Elevation.
+\sym{2)} {\sl Silence.} Speak not but what may benefit other or yourself.
+...
+</pre></div>
+      <p>
+       <a href="context_examples/itemize3.tex">source file</a>
+      </p>
+     </div>
+     <div class="level3"><a name="id2257107"/>
+      <h4 class="level3">Customizing lists</h4>
+      <p>
+       Customize your list by first using the
+       <tt>setupitemize</tt>
+       command. If you want to put space before or after the list, or inbetween
+       list items, first establish definitions that you can use in the
+       <tt>setupitemize</tt>
+       command.
+      </p>
+<div class="context-block-code"><pre>\def\Inbetween{\blank[24pt]}
+
+\def\Before{\blank[24pt]} % between body text and start of list
+
+\def\After{\blank[18pt]} % between body text and start of list
+
+\setupitemize[inbetween=\Inbetween,
+before=\Before,
+after=\After,
+stopper=:,
+left=(,
+right=),
+margin=24pt,
+width=48pt,
+]
+...
+</pre></div>
+      <p>
+       <a href="context_examples/itemize2.tex">source file</a>
+      </p>
+      <div class="img"><img src="png_images/itemize1.png" alt="customizing a list 1">
+       <p class="figure-caption">customizing a list 1</p>
+      </img></div>
+      <div class="img"><img src="png_images/itemize2.png" alt="customizing a list 2">
+       <p class="figure-caption">customizing a list 2</p>
+      </img></div>
+     </div>
+    </div>
+   <p>
+ copyright 2005 Paul Henry Tremblay
+      
+  </p><p>
+      License: GPL
+  </p><p><a href="index.html">home | </a><a href="contents.html">contents | </a><a href="page3.html">previous | </a><a href="page5.html">next</a></p><p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=102261&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo"/></a></p><p><b>last updated: </b>2005-05-19</p></body></html>

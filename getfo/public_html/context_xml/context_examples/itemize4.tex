@@ -1,0 +1,30 @@
+% items with multiple paragraphs
+\starttext
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+These Names of Virtues with their Precepts were\par
+
+\def\BeforeHead{\blank[48pt]}
+\def\AfterHead{\blank[48pt]}
+
+\startitemize[n]
+% item as head
+\item first in head\par second in head...
+Silence. Speak not but what may benefit other or yourself.
+ASilence. Speak not but what may benefit other or yourself.
+AvSilence. Speak not but what may benefit other or yourself.
+Avoid trifling Conversation.oid trifling Conversation.void trifling Conversation.
+\par
+third in head
+
+\vskip-12pt
+\nop PHT
+
+
+\item {\sl Temperance.} Eat not to Dulness. Drink not to Elevation.
+\item {\sl Silence.} Speak not but what may benefit other or yourself.
+Avoid trifling Conversation.
+\stopitemize
+My intention being to acquire the {\sl Habitude} of all these Virtues, 
+
+\stoptext

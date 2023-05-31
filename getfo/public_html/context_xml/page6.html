@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<html><head><title>Inline</title><link rel="stylesheet" type="text/css" href="styles.css"/></head><body>
+    <h2 class="page-head">Inline</h2>
+    
+    
+    
+    
+    <div class="level2"><a name="id2259617"/>
+     <h3 class="level2">Changing font style (italics, bold, etc.)</h3>
+     <p>
+      In order to create a different font style, such as italics or bold, start
+      a group with an open bracket, issue the command, and close the group with
+      a closed bracket.
+     </p>
+<div class="context-block-code"><pre>% create italics style
+{\it The Old Man and the Sea}
+</pre></div>
+     <p>
+      Here are the commands for the different font styles.
+     </p>
+<div class="context-block-code"><pre>{\bf bold }
+{\sl slanted}
+{\it italics}
+{\bi bold and italics}
+{\bs bold and slanted}
+{\sc small caps}
+</pre></div>
+     <p>
+      <a href="context_examples/inline1.tex">source file</a>
+     </p>
+     <h3 class="list-head">Tips</h3><ul>
+      
+      <li>
+       <p>
+        ConTeXt has a
+        style that most word processors don&#x2019;t, the slanted style. This
+        style slants the style like italics, but is still distinct.
+       </p>
+      </li>
+     </ul>
+     <div class="level3"><a name="id2259715"/>
+      <h4 class="level3">Using em for more flexibility</h4>
+      <p>
+       The <tt>em</tt> command
+       allows more flexibility for emphasizing text because it takes the context
+       into consideration. If the surrounding font is upright, it will make the
+       emphasized text slanted. If the surronding text is slanted, it will make
+       it upright. The following example is hypothetical title of a book about
+       the American novel <i>Huck
+       Finn.</i> The title itself will be slanted, but Huck Finn will
+       not.
+      </p>
+<div class="context-block-code"><pre>{\em Thoughts on {\em Huck Finn}}
+
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2259764"/>
+      <h4 class="level3">Underlining Text</h4>
+      <p>
+       Underline text with the
+       <tt>underbar</tt> and
+       <tt>underbars</tt>
+       commands. The
+       <tt>underbar</tt> command
+       puts one line under all the text. The
+       <tt>underbars</tt>
+       underlines each word individually.
+      </p>
+<div class="context-block-code"><pre>\underbar{underlined text}
+\underbar{underline individual words}
+
+</pre></div>
+     </div>
+    </div>
+    <div class="level2"><a name="id2259828"/>
+     <h3 class="level2">Changing font face (serif, sans serif, etc.)</h3>
+     <p>
+      The default font face for
+      ConTeXt is
+      serif. In order to create different font faces, such as sans serif, look
+      at the following example.
+     </p>
+<div class="context-block-code"><pre>{\rm roman text}
+{\tt mono spaced font}
+{\ss sans serif}
+{\hw this is hand written style}
+{\cg this is caligraphic style}
+</pre></div>
+     <p>
+      <a href="context_examples/font_styles2.tex">source file</a>
+     </p>
+    </div>
+    <div class="level2"><a name="id2259880"/>
+     <h3 class="level2">Font Size</h3>
+     <div class="level3"><a name="id2259890"/>
+      <h4 class="level3">Setting the body font size</h4>
+      <p>
+       Set the body font size with the
+       <tt>setupbodyfont</tt>
+       command.
+      </p>
+<div class="context-block-code"><pre>\setupbodyfont[12pt]
+</pre></div>
+      <p>
+       The <tt>setupbodyfont</tt>
+       is also used to set up font family.
+      </p>
+     </div>
+     <div class="level3"><a name="id2259940"/>
+      <h4 class="level3">Explicitly changing the font size</h4>
+      <p>
+       Use the
+       <tt>switchtobodyfont</tt>
+       to switch your body font.
+      </p>
+<div class="context-block-code"><pre>{\switchtobodyfont[18pt] 18 point font}
+</pre></div>
+      <p>
+       <a href="context_examples/font_size2.tex">source file</a>
+      </p>
+     </div>
+     <div class="level3"><a name="id2259989"/>
+      <h4 class="level3">Proportionally changing the font size</h4>
+      <p>
+       An alternative to explicitly changing font size by a declaration is
+       switching them proportionally by increasing or decreasing them by a size.
+       (I&#x2019;m not sure exactly how
+       ConTeXt
+       determines a size.) In order to increase the font size, use the letter
+       <tt>a</tt>,
+       <tt>b</tt>,
+       <tt>c</tt>, or
+       <tt>d</tt> after a font command
+       (which I&#x2019;ll explain below). In order to decrease the font size, use
+       one or more of the letter
+       <tt>x</tt> after a font command.
+      </p>
+      <p>
+       By font command, I mean any command that changes a font&#x2019;s
+       appearance, such as
+       <tt>bf</tt>. If you wanted
+       to create a font face which is bold in appearance, and decrease it by one
+       size, type:
+      </p>
+<div class="context-block-code"><pre>{\bfx bold reduced by one size}
+</pre></div>
+      <p>
+       If you just want to change the font size without changing any other
+       characteristic, use the
+       <tt>tf</tt> (type face)
+       command followed by a letter.
+      </p>
+<div class="context-block-code"><pre>{\tfa increase the font size by one size}
+</pre></div>
+      <p>
+       You can use the font-increasing/decreasing letters with
+       <tt>bf</tt>,
+       <tt>sl</tt>,
+       <tt>it</tt>,
+       <tt>rm</tt>,
+       <tt>ss</tt>,
+       <tt>tt</tt>,
+       <tt>cg</tt>,
+       <tt>hw</tt>, and
+       <tt>sc</tt>. I may have
+       missed some commands, so if you think you can add a letter after a font
+       command, experiment.
+      </p>
+<div class="context-block-code"><pre>{\tfxx decrease the font size by two}
+{\tfa increase font size by one}
+{\bfa increase font size by one and make bold}
+{\tfb increase font size by two}
+{\ssd create a sans serif font and increase its size by four}
+</pre></div>
+      <p>
+       <a href="context_examples/font_size1.tex">source file</a>
+      </p>
+     </div>
+    </div>
+    <div class="level2"><a name="id2260230"/>
+     <h3 class="level2">Creating horizontal space</h3>
+     <p>
+      Create space with the
+      <tt>hspace</tt> command.
+      You will first have to define the amount of space with the
+      <tt>definespace</tt>
+      command.
+     </p>
+<div class="context-block-code"><pre>\definehspace[mine][12pt]
+\hspace[mine]
+</pre></div>
+     <p>
+      <a href="context_examples/inline1.tex">source file</a>
+     </p>
+    </div>
+    <div class="level2"><a name="id2260288"/>
+     <h3 class="level2">Superscript and Subscript</h3>
+     <p>
+      The <tt>high</tt> and
+      <tt>low</tt> commands
+      create super- and subscript text.
+     </p>
+<div class="context-block-code"><pre>You can walk in \high{high} heels, but your height is still the same.\par
+You can walk in \low{low} heels, but your height is still the same.\par
+</pre></div>
+     <p>
+      <a href="context_examples/super_sub_script.tex">source file</a>
+     </p>
+     <div class="level3"><a name="id2260346"/>
+      <h4 class="level3">Text on top of each other</h4>
+      <p>
+       Create text on top of each other with the
+       <tt>lohi</tt> command.
+       This command takes two parameter. The first parameters will be formatted
+       as subscript, and the second will be formatted on top of that.
+      </p>
+<div class="context-block-code"><pre>You can walk in \lohi{low}{high} heels, but your height is still the same.\par
+</pre></div>
+      <p>
+       <a href="context_examples/super_sub_script.tex">source file</a>
+      </p>
+     </div>
+    </div>
+   <p>
+ copyright 2005 Paul Henry Tremblay
+      
+  </p><p>
+      License: GPL
+  </p><p><a href="index.html">home | </a><a href="contents.html">contents | </a><a href="page5.html">previous | </a><a href="page7.html">next</a></p><p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=102261&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo"/></a></p><p><b>last updated: </b>2005-05-08</p></body></html>

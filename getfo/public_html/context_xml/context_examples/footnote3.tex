@@ -1,0 +1,35 @@
+% Customizing Footnotes
+
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+
+
+%set up the amount of space before each footnote
+\def\DistanceBef{\blank[12pt]}
+% set up the amount of space after each footnote
+\def\DistanceAft{\blank[12pt]}
+
+\setupfootnotedefinition[
+after=\DistanceAft,
+before=\DistanceBef,
+]
+
+When I wrote the following pages, or rather the bulk of them, I lived
+alone, in the woods, a mile from any neighbor, in a house which I had
+built myself, or the shore of Walden Pond, in Concord, Massachusetts,
+and earned my living by the labor of my hands only. I lived there two
+years and two months. At present I am a sojourner in civilized life
+again. \footnote{Thoreau started writing {\sl Walden} in 1846, a few
+months after he started living at Walden Pond. He moved back to
+Concord late in 1847. By that point he had drafted half of the
+manuscript. He continued to work on it for several years.}
+\par
+
+\input ../excerpts/walden1.tex
+
+I would fain say something, no so much concerning the Chinese and
+Sandwich Islanders \footnote{Hawaiians} 
+\input ../excerpts/walden2.tex
+
+\stoptext

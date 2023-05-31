@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<html><head><title>Figures and Floats</title><link rel="stylesheet" type="text/css" href="styles.css"/></head><body>
+    <h2 class="page-head">Figures and Floats</h2>
+    
+    
+    <div class="level2"><a name="id2260596"/>
+     <h3 class="level2">Including figures</h3>
+     <p>
+      According to
+      ConTeXt gurus,
+      good practice requires that we take three minimal steps to place a figure.
+     </p>
+     <ol>
+      <li>
+       <p>
+        Define a directory where we can find the figure with the
+        <tt>setupexternalfigures</tt>
+        command.
+       </p>
+      </li>
+      <li>
+       <p>
+        Set up the picture by telling
+        ConTeXt by
+        giving it a name, a location, and by setting up other options. Use the
+        <tt>useexternalfigure</tt>
+        for this.
+       </p>
+      </li>
+      <li>
+       <p>
+        Placing the figure with a
+        <tt>externalfigure</tt>
+        command.
+       </p>
+      </li>
+     </ol>
+     <p>
+      You can use a shortcut to combine steps one and two, but we&#x2019;ll stick
+      with the longer method for consistency.
+     </p>
+     <div class="level3"><a name="id2260710"/>
+      <h4 class="level3">Setting up figures default</h4>
+      <p>
+       The
+       <tt>setupexternalfigures</tt>
+       command can tell
+       ConTeXt where
+       to search for your graphics.
+       ConTeXt will
+       look in your present directory to find the graphics. If you graphics are
+       in another directory, use the
+       <tt>directory</tt> option. The path
+       takes unix-style syntax, and can be an absolute or relative.
+      </p>
+<div class="context-block-code"><pre>% look in the same parent directory as the tex file for a 
+% directory called pngImages
+\setupexternalfigures[directory={../pngImages}]
+</pre></div>
+      <h3 class="list-head">Tips</h3><ul>
+       
+       <li>
+        <p>
+         You can also set the
+         <tt>maxwidth</tt> and
+         <tt>maxheight</tt> with this
+         command.
+         <tt>setupexternalfigures[maxheight=5in]</tt>
+        </p>
+       </li>
+       <li>
+        <p>
+         You can also set as your first option the
+         <tt>frame</tt> or
+         <tt>empty</tt>.
+         <tt>frame</tt> puts a frame
+         around each figure.
+         <tt>empty</tt> does not place
+         the text, but does reserve the necessary space, so is useful for test
+         runs.
+        </p>
+       </li>
+      </ul>
+     </div>
+     <div class="level3"><a name="id2260875"/>
+      <h4 class="level3">Setting up options for individual figure</h4>
+      <p>
+       The
+       <tt>useexternalfigure</tt>
+       command allows you to to create many options for the figure, such as how
+       much you scale it.
+      </p>
+      <p>
+       For our sake, put a reference in the first option of this command. Use
+       any unique name, such as &#x201C;figure 1&#x201D; or &#x201C;dolpin
+       1&#x201D;.
+      </p>
+      <p>
+       In the second option, put the name of the actual graphic as it is on your
+       system, minus the extension and minus the directories. If the path to the
+       graphic is &#x201C;/home/paul/graphics/thoreau.jpg,&#x201D; you would
+       simply write &#x201C;thoreau&#x201D;.
+      </p>
+<div class="context-block-code"><pre>\useexternalfigure[dolphin ref][dophin]
+</pre></div>
+      <div class="level4"><a name="id2260932"/>
+       <h5 class="level4">Scaling the figure</h5>
+       <div class="level5"><a name="id2260942"/>
+        <h6 class="level5">By percentage</h6>
+        <p>
+         Use the <tt>scale</tt> option to
+         scale the figure in terms of percentage. To scale the figure by 50
+         percent, use 500; to scale it 120 percent, use 1200.
+        </p>
+<div class="context-block-code"><pre>% scale the figure down by 50 percent.
+\useexternalfigure[dolphin ref][dophin][scale=500]
+</pre></div>
+        <p>
+         You can also scale the figure according the the font size by using the
+         <tt>hfactor=x</tt> or
+         <tt>wfactor</tt> option, where x
+         is some percentage is a percentage of the font&#x2019;s height or width.
+        </p>
+<div class="context-block-code"><pre>% scale the figure twice as big as height of the font.
+\useexternalfigure[thoreau ref][thoreau][hafactor=20]
+</pre></div>
+       </div>
+       <div class="level5"><a name="id2261015"/>
+        <h6 class="level5">Specify heigth and width</h6>
+        <p>
+         Use the heigth or width option to specify an explicit dimension. If you
+         use only one of these dimensions,
+         ConTeXt will
+         scale the graphic proportionally.
+        </p>
+<div class="context-block-code"><pre>\useexternalfigure[thoreau ref][thoreau][height=2in]
+</pre></div>
+       </div>
+       <div class="level5"><a name="id2261053"/>
+        <h6 class="level5">To Fit</h6>
+        <p>
+         If you want the figure to retain its maxium size, but still fit on the
+         page, set the <tt>factor</tt>
+         option to <tt>max</tt>,
+         <tt>fit</tt>, or
+         <tt>broad</tt>.
+         <tt>max</tt> will make the
+         image fit on a page. <tt>will make
+         the figure fit in the remaining space on a page.
+         <tt>broad</tt> will also make
+         the figure fit on the remaining space on the page, with room for the
+         caption.</tt>
+        </p>
+<div class="context-block-code"><pre>\useexternalfigure[thoreau ref][thoreau][factor=broad]
+</pre></div>
+       </div>
+      </div>
+     </div>
+     <div class="level3"><a name="id2261143"/>
+      <h4 class="level3">Placing the figure</h4>
+      <p>
+       Place the figure with the
+       <tt>externalfigure</tt>
+       command.
+      </p>
+<div class="context-block-code"><pre>% place the figure
+\externalfigure[thoreau ref]
+</pre></div>
+      <h3 class="list-head">Tips</h3><ul>
+       
+       <li>
+        <p>
+         This is the simplest way to place a figure. You can also place it as a
+         float (see below), which gives you more control over placement.
+        </p>
+       </li>
+       <li>
+        <p>
+         The <tt>placefigure</tt>
+         command also takes a second optional option. This option can be any of
+         the values we mentioned above, such as height or scale.
+         <tt>externalfigure[thoreau
+         ref][scale=500]</tt>. Obviously, it makes no sense to define
+         values such as scale in both the
+         <tt>useexternalfigure</tt>
+         and <tt>placefigure</tt>
+         command. However, sometimes it is useful to do scaling in the
+         <tt>useexternalfigure</tt>
+         command, especially when you are using floats in combination with
+         buffers. (See below.)
+        </p>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="level2"><a name="id2261268"/>
+     <h3 class="level2">Floats</h3>
+     <p>
+      Floats are elements like tables or figures that are placed (and numbered)
+      automatically by
+      ConTeXt. For
+      XML, we don&#x2019;t need the automatic numbering, but we do need the care
+      ConTeXt takes in
+      making sure a float fits on a page, and that the caption fits with it.
+     </p>
+     <p>
+      The <tt>placetable</tt> is
+      an example of a float. However, there are other ways to place a table.
+     </p>
+     <div class="level3"><a name="id2261323"/>
+      <h4 class="level3">customizing captions</h4>
+      <p>
+       In order to customize your captions, use the
+       <tt>setupcaptions</tt>
+       command. The first option of this command defines the type of caption:
+       table, figure, etc. The second option defines the actual setups,
+       including the placement, alignment, and font-style.
+      </p>
+      <div class="level4"><a name="id2261352"/>
+       <h5 class="level4">location</h5>
+       <p>
+        The location defines where the caption is placed. A value of
+        <tt>top</tt> places the caption
+        on the top; a value of
+        <tt>bottom</tt> places it on
+        the bottom; a value of
+        <tt>none</tt> supreses the
+        figure; a value of
+        <tt>high</tt> places the
+        caption to the upper left of the figure; a value of
+        <tt>middle</tt> places the
+        figure in the left of the figure, mid-way; and a value of
+        <tt>low</tt> places the caption
+        to the lower left of the figure.
+       </p>
+      </div>
+      <div class="level4"><a name="id2261425"/>
+       <h5 class="level4">supressing numbers</h5>
+       <p>
+        By default,
+        ConTeXt
+        prepends a label to captions, such as table 1. In order to turn off this
+        automatic numbering, set
+        <tt>number</tt> equal to
+        <tt>no</tt>.
+       </p>
+      </div>
+      <div class="level4"><a name="id2261469"/>
+       <h5 class="level4">alignment</h5>
+       <p>
+        Set <tt>align</tt> equal to
+        <tt>right</tt> for ragged right
+        alignment, <tt>left</tt> to
+        push the text to the left border and
+        <tt>middle</tt> to center the
+        caption.
+       </p>
+      </div>
+      <div class="level4"><a name="id2261521"/>
+       <h5 class="level4">font style</h5>
+       <p>
+        The option <tt>style</tt> sets the
+        style of the font. The options are self-explanatory, and are
+        <tt>normal</tt>,
+        <tt>bold</tt>,
+        <tt>slanted</tt>,
+        <tt>boldslanted</tt>,
+        <tt>type</tt> (for mono
+        spaced), <tt>cap</tt>, and
+        <tt>small</tt> (for small cap,
+        I believe).
+       </p>
+      </div>
+      <div class="level4"><a name="id2261606"/>
+       <h5 class="level4">number style</h5>
+       <p>
+        If you choose automatic numbering, use the
+        <tt>conversion</tt> option to
+        choose a style. The choices are the same as with the
+        <tt>conversion</tt> option for a
+        list.
+       </p>
+<div class="context-block-code"><pre>\setupcaption[table][style=boldslanted, 
+location=top, number=no, align=left]
+
+</pre></div>
+      </div>
+     </div>
+     <div class="level3"><a name="id2261652"/>
+      <h4 class="level3">figures</h4>
+      <p>
+       A float for a figure is set up with the
+       <tt>placefigure</tt>
+       command.
+      </p>
+     </div>
+     <div class="level3"><a name="id2261678"/>
+      <h4 class="level3">Moving floats</h4>
+      <p>
+       One should be able to easily move floats around. Imagine that you are
+       using a gui application, like MS Word, or something professional like
+       Quark Express. You have imported a picture into this appliation. You
+       place your mouse on the picture and move the picture up or down. You go
+       to a dialogue box and determine how much space should go before the
+       picture and the float. Commercial applications have been able to perform
+       these basic operations for over 20 years.
+      </p>
+      <p>
+       Unfortunately, I don&#x2019;t see a similar way to perform the same
+       function in
+       ConTeXt. The
+       ConTeXt mailing
+       list pointed me to a PDF document with so much complicated code that
+       after 1 hour of not finding anything close to a solution, left me with a
+       feeling of despair about the usefullness of
+       ConTeXt.
+       Hopefully I will stumble upon a solution that will prove my frustration
+       was for nothing.
+      </p>
+     </div>
+    </div>
+   <p>
+ copyright 2005 Paul Henry Tremblay
+      
+  </p><p>
+      License: GPL
+  </p><p><a href="index.html">home | </a><a href="contents.html">contents | </a><a href="page7.html">previous | </a><a href="page9.html">next</a></p><p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=102261&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo"/></a></p><p><b>last updated: </b>2005-04-19</p></body></html>

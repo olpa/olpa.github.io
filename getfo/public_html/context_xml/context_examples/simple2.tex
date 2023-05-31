@@ -1,0 +1,15 @@
+%simple document
+
+% stop automatic page numbering for more
+% contorl
+\setuppagenumbering[state=stop, way=bytext]
+
+% enable utf documents
+\enableregime[utf]
+% the default environment every ConTeXt document must have
+\starttext
+
+% input an excerpt of another tex document
+\input ../excerpts/tex/civil_disobedience2.tex
+
+\stoptext

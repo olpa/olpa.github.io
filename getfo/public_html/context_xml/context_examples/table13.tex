@@ -1,0 +1,19 @@
+% creating colors for certain cells
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+
+%needed to get color
+\setupcolors[state=start]
+% set up the columns and rows
+\setupTABLE[1][1][background=color, backgroundcolor=red]
+\setupTABLE[2][2][background=color, backgroundcolor=red]
+
+\bTABLE
+\bTR \bTD State \eTD \bTD3-year average(2001-2003) \eTD \bTD2-year average(2001-2002) \eTD \eTR
+\bTR \bTD Alabama \eTD \bTD 13.3 \eTD \bTD 13.5 \eTD \eTR
+\bTR \bTD Alaska \eTD \bTD 17.8 \eTD \bTD 18.8 \eTD \eTR
+\bTR \bTD Arizona \eTD \bTD 17.3 \eTD \bTD 16.9 \eTD \eTR
+\eTABLE
+
+\stoptext

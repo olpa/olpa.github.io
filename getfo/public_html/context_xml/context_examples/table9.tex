@@ -1,0 +1,126 @@
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+% split the table across pages
+\splitfloat
+% make sure your group the \placetable with {}
+{\placetable{Percentage of People without health
+insurance in US}}
+% make sure you group everything else with {}
+% theis table head will repeated on each page
+{\starttablehead
+\HL
+\VL State     \VL 3-year average(2001-2003) \VL 2-year average(2001-2002)  \VL\SR
+\HL[4]
+\stoptablehead
+% this detail will be repeated at the bottom of each page
+\starttabletail
+\HL[4]
+\stoptabletail
+% create a starttables--notice the plural!
+\starttables[|l w(30mm)|l|l|]
+\VL Alabama   \VL 13.3                     \VL 13.5                        \VL\FR
+\HL
+\VL Alaska    \VL 17.8                     \VL 18.8                        \VL\MR
+\HL
+\VL Arizona   \VL 17.3                     \VL 16.9                        \VL\MR
+\HL
+\VL Arkansas   \VL 16.6                     \VL 16.2                        \VL\MR
+\HL
+\VL California   \VL 18.7                     \VL 18.8                        \VL\MR
+\HL
+\VL Colorado   \VL 16.3                     \VL 15.8                        \VL\MR
+\HL
+\VL Connecticut   \VL 10.3                     \VL 10.4                        \VL\MR
+\HL
+\VL Delaware   \VL 10.1                     \VL 9.6                        \VL\MR
+\HL
+\VL District of Columbia   \VL 13.3                     \VL 12.8                        \VL\MR
+\HL
+\VL Florida   \VL 17.6                     \VL 17.4                        \VL\MR
+\HL
+\VL Georgia   \VL 16.4                     \VL 16.3                        \VL\MR
+\HL
+\VL Hawaii   \VL 9.9                     \VL 9.8                        \VL\MR
+\HL
+\VL Idaho   \VL 17.5                     \VL 16.9                        \VL\MR
+\HL
+\VL Illinois   \VL 14.0                     \VL 13.9                        \VL\MR
+\HL
+\VL Indiana   \VL 12.9                     \VL 12.4                        \VL\MR
+\HL
+\VL Iowa   \VL 9.5                     \VL 8.5                        \VL\MR
+\HL
+\VL Kansas   \VL 10.9                     \VL 10.9                        \VL\MR
+\HL
+\VL Kentucky   \VL 13.3                     \VL 12.9                        \VL\MR
+\HL
+\VL Louisiana   \VL 19.4                     \VL 18.8                        \VL\MR
+\HL
+\VL Maine   \VL 10.7                     \VL 10.8                        \VL\MR
+\HL
+\VL Maryland   \VL 13.2                     \VL 12.8                        \VL\MR
+\HL
+\VL Massachusetts   \VL 9.6                     \VL 9.1                        \VL\MR
+\HL
+\VL Michigan   \VL 11.0                     \VL 11.0                        \VL\MR
+\HL
+\VL Minnesota   \VL 8.2                     \VL 7.9                        \VL\MR
+\HL
+\VL Mississippi   \VL 17.0                     \VL 16.5                        \VL\MR
+\HL
+\VL Missouri   \VL 10.9                     \VL 10.9                        \VL\MR
+\HL
+\VL Montana   \VL 16.9                     \VL 14.5                        \VL\MR
+\HL
+\VL Nebraska   \VL 10.3                     \VL 9.9                        \VL\MR
+\HL
+\VL Nevada   \VL 18.3                     \VL 17.9                        \VL\MR
+\HL
+\VL New Hampshire   \VL 9.9                     \VL 9.7                        \VL\MR
+\HL
+\VL New Jersey   \VL 13.7                     \VL 13.5                        \VL\MR
+\HL
+\VL New Mexico   \VL 21.3                     \VL 20.9                        \VL\MR
+\HL
+\VL New York   \VL 15.5                     \VL 15.6                        \VL\MR
+\HL
+\VL North Carolina   \VL 16.1                     \VL 15.6                        \VL\MR
+\HL
+\VL North Dakota   \VL 10.5                     \VL 10.3                        \VL\MR
+\HL
+\VL Ohio   \VL 11.7                     \VL 11.5                        \VL\MR
+\HL
+\VL Oklahoma   \VL 18.7                     \VL 17.8                        \VL\MR
+\HL
+\VL Oregon   \VL 14.8                     \VL 13.7                        \VL\MR
+\HL
+\VL Pennsylvania   \VL 10.7                     \VL 10.3                        \VL\MR
+\HL
+\VL Rhode Island   \VL 9.3                     \VL 8.8                        \VL\MR
+\HL
+\VL South Carolina   \VL 13.1                     \VL 12.4                        \VL\MR
+\HL
+\VL South Dakota   \VL 11.0                     \VL 10.4                        \VL\MR
+\HL
+\VL Tennessee   \VL 11.8                     \VL 11.0                        \VL\MR
+\HL
+\VL Texas   \VL 24.6                     \VL 24.7                        \VL\MR
+\HL
+\VL Utah   \VL 13.6                     \VL 14.1                        \VL\MR
+\HL
+\VL Vermont   \VL 9.9                     \VL 10.1                        \VL\MR
+\HL
+\VL Virginia   \VL 12.5                     \VL 12.2                        \VL\MR
+\HL
+\VL Washington   \VL 14.3                     \VL 13.7                        \VL\MR
+\HL
+\VL West Virginia   \VL 14.8                     \VL 13.9                        \VL\MR
+\HL
+\VL Wisconsin   \VL 9.5                     \VL 8.7                        \VL\MR
+\HL
+\VL Wyoming   \VL 16.5                    \VL 16.8                       \VL\LR
+\HL
+\stoptables}
+\stoptext
+

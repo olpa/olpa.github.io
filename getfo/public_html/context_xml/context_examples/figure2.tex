@@ -1,0 +1,33 @@
+% figure 2
+
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+
+An example of an external image.\par
+% specigy where to look for the image
+\setupexternalfigures[directory={../png\_images}]
+
+% give the figure a reference name; specify its location;
+% and scale it
+
+% scale it 25 percent
+%\useexternalfigure[thoreau ref][thoreau][scale=250]
+
+% make it 50 times as wide as the font width
+%\useexternalfigure[thoreau ref][thoreau][wfactor=50]
+
+% make it 2 inches wide and let ConTeXt scale it proportionally
+\useexternalfigure[thoreau ref][thoreau][height=2in]
+
+% set both width and height. 
+%\useexternalfigure[thoreau ref][thoreau][height=2in, width=2in]
+
+% setup the caption
+\setupcaption[figure][style=boldslanted, location=bottom, number=no,
+align=right]
+% place the figure
+\placefigure[here]{Portrait of Thoreau}{\externalfigure[thoreau ref]}
+
+
+\stoptext

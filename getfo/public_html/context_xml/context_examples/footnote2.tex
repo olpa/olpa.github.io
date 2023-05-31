@@ -1,0 +1,45 @@
+% Customizing Footnotes
+
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+
+
+\def\DistanceBef{\blank[24pt]}
+\def\DistanceAft{\blank[20mm]}
+%\setupfootnotedefinition[style=bold, numbercommand=5]
+\setupfootnotes[
+% use lower case Roman numerals instead of numbers
+conversion=romannumerals,
+% rule is on (default)
+% change "on" to "off" to eliminate rule
+rule=on,
+% set body font size
+bodyfont=10pt,
+% set width
+width=5in,
+% maximum heigh of footnote area, before footnotes are moved
+% to the next page
+height=30mm,
+% distnace marker extends into the margin
+margindistance=12pt,
+% distance of footnot from body text
+before=\DistanceBef,
+% distance of footnotes from header
+after=\DistanceAft,
+]
+When I wrote the following pages, or rather the bulk of them, I lived
+alone, in the woods, a mile from any neighbor, in a house which I had
+built myself, or the shore of Walden Pond, in Concord, Massachusetts,
+and earned my living by the labor of my hands only. I lived there two
+years and two months. At present I am a sojourner in civilized life
+again. \footnote{Thoreau started writing the manuscript in 1846.}
+\par
+
+\input ../excerpts/walden1.tex
+
+I would fain say something, no so much concerning the Chinese and
+Sandwich Islanders \footnote{Hawaiians} 
+\input ../excerpts/walden2.tex
+
+\stoptext

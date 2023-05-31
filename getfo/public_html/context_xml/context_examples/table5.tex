@@ -1,0 +1,22 @@
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+% table has trimmed horizontal lines
+\starttext
+
+\placetable[here][tab:insurance]{Percentage of People without health
+insurance in US}
+\starttable[|l w(30mm)|l|l|]
+\HL
+\VL State     \VL 3-year average(2001-2003) \VL 2-year average(2001-2002)  \VL\SR
+\HL[4]
+\VL Alabama   \VL 13.3                     \VL 13.5                        \VL\FR
+%
+% skips a column, draws a line, skips a column
+\DC \DL          \DR
+\VL Alaska    \VL 17.8                     \VL 18.8                        \VL\MR
+\HL
+\VL Arizona   \VL 17.3                     \VL 16.9                        \VL\LR
+\HL
+\stoptable
+
+\stoptext

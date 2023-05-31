@@ -1,0 +1,23 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Creating new projects</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="Consodoc publication server user's guide"><link rel="up" href="index.html" title="Consodoc publication server user's guide"><link rel="prev" href="quick.html" title="Quick start"><link rel="next" href="workflow.html" title="Suggested workflow"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Creating new projects</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="quick.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="workflow.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="newproj"></a>Creating new projects</h2></div></div></div><p>Create a new directory and a set of subdirectories. Recommended layout:</p><ul>
+    <li>
+      <p><tt>in/</tt>: input files, such as source XML documents</p>
+    </li>
+    <li>
+      <p><tt>out/</tt>: output files, such as final PDF documents (created automatically)</p>
+    </li>
+    <li>
+      <p><tt>tmp/</tt>: temporary files (created automatically)</p>
+    </li>
+    <li>
+      <p><tt>support/</tt>: support files, such as XSLT scripts and LaTeX class files.</p>
+    </li>
+  
+  </ul><p>Create the project file <tt>SConstruct</tt>:</p><ul>
+    <li>
+      <p>specify the input XML file (parameter <tt>in_file</tt>) and XSLT script (parameter <tt>in_xslt</tt>) for converting from XML to TeXML,</p>
+    </li>
+    <li>
+      <p>set other options and paths to files.</p>
+    </li>
+  
+  </ul><p>The build process is defined using the standard scons build files. To learn how to use scons and its build files, refer to the “<a href="http://www.scons.org/doc/HTML/scons-user/book1.html">SCons User Guide</a>”. The tool <tt>cdoc</tt> itself is just a wrapper for the tool <tt>scons</tt>.</p><p>Here is a typical <tt>SConstruct</tt> file for Consodoc:</p><pre>import Consodoc<br>Consodoc.default_process(<br>  in_file = 'in/text.xml',<br>  in_xslt = 'support/convert.xsl'<br>)</pre></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="quick.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="workflow.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Quick start </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Suggested workflow</td></tr></table></div></body></html>

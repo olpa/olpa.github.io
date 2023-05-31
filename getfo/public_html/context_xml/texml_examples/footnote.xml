@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+A simple footnote
+-->
+<TeXML xmlns="http://getfo.sourceforge.net/texml/ns1">
+  <env name="text">
+When I wrote the following pages, or rather the bulk of them, I lived
+alone, in the woods, a mile from any neighbor, in a house which I had
+built myself, or the shore of Walden Pond, in Concord, Massachusetts,
+and earned my living by the labor of my hands only. I lived there two
+years and two months. At present I am a sojourner in civilized life
+again.  
+
+<cmd name="footnote" >
+    <parm>Thoreau started writing
+    <group><cmd name="sl" gr="0"/>Walden</group> 
+    in 1846, a few months after he started living
+    at Walden Pond. He moved back to Concord late in 1847. By that point he
+    had drafted half of the manuscript. He continued to work on it for
+    several years.
+  </parm>
+  </cmd>
+
+ </env>
+</TeXML>

@@ -1,0 +1,18 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Quick start</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="Consodoc publication server user's guide"><link rel="up" href="index.html" title="Consodoc publication server user's guide"><link rel="prev" href="index.html" title="Consodoc publication server user's guide"><link rel="next" href="newproj.html" title="Creating new projects"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Quick start</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="index.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="newproj.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="quick"></a>Quick start</h2></div></div></div><p>After installing Consodoc, enter the folder <tt>examples/guide</tt>. In contains the following files:</p><ul>
+    <li>
+      <p><tt>in/guide.xml</tt>: this User's Guide in XML format</p>
+    </li>
+    <li>
+      <p><tt>in/guide.patch</tt>: patch for the LaTeX file</p>
+    </li>
+    <li>
+      <p><tt>in/guide.pdf</tt>: expected PDF result</p>
+    </li>
+    <li>
+      <p><tt>support/guide.xsl</tt>: XSLT script to convert XML to TeXML</p>
+    </li>
+    <li>
+      <p><tt>support/guide.cls</tt>: LaTeX class file</p>
+    </li>
+  
+  </ul><p>To build PDF, say</p><pre>$ cdoc pdf</pre><p>or just</p><pre>$ cdoc</pre><p>If the build is finished successfully, the folder <tt>out</tt> contains the file <tt>guide.pdf</tt>. The folder <tt>tmp</tt> contains temporary files.</p><p>View the PDF file <tt>out/guide.pdf</tt>.</p><p>To delete the folders <tt>tmp</tt> and <tt>out</tt>, say</p><pre>$ cdoc -c pdf</pre><p>or just</p><pre>$ cdoc -c</pre><p>It's possible to build only an intermediate file, without going further. Use the short name of a corresponding step. For example, to only preprocess XML, say:</p><pre>$ cdoc pp</pre></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="index.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="newproj.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Consodoc publication server user's guide </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Creating new projects</td></tr></table></div></body></html>

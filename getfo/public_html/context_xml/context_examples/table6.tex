@@ -1,0 +1,17 @@
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+%from mailing list
+% table has trimmed horizontal lines
+\starttext
+
+\placetable[here][tab:insurance]{Percentage of People without health
+insurance in US}
+\starttable[|l |l|l|l|l|]
+\HL
+\VL first     \VL second \VL third \VL fourth \VL fifth  \VL\SR
+\HL[4]
+\VL sixth   \VL seventh    \VL eight \VL ninth     \VL tenth         \VL\FR
+\DL \DL       \DC \DL  \DR
+\stoptable
+
+\stoptext

@@ -1,0 +1,1034 @@
+<?xml version="1.0"?>
+<html><head><title>Page Layout</title><link rel="stylesheet" type="text/css" href="styles.css"/></head><body>
+    <h2 class="page-head">Page Layout</h2>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>
+     Page layout involves the physical size of the paper, margins, as well as
+     headers and footers.
+    </p>
+    <p>
+     Unlike FO, which establishes most of the page layout at the start of the
+     document, ConTeXt
+     creates page layout where it is needed.
+    </p>
+    <div class="level2"><a name="id2251586"/>
+     <h3 class="level2">Default Page Layout</h3>
+     <p>
+      Without any instructions,
+      ConTeXt will
+      create one identical page for the entire document.
+     </p>
+<div class="context-block-code"><pre>% this layout produces satisfactory pages
+\starttext
+...
+\stoptext
+
+
+</pre></div>
+<div class="xml"><pre>
+&lt;!--this document produces satisfactory pages--&gt;
+&lt;TeXML&gt;
+ &lt;env name="text"&gt;
+ ...
+ &lt;/env&gt;
+
+</pre></div>
+     <div class="img"><img src="png_images/default1.png" alt="Default layout inserts margins">
+      <p class="figure-caption">Default layout inserts margins</p>
+     </img></div>
+    </div>
+    <div class="level2"><a name="id2251646"/>
+     <h3 class="level2">Physical Page Dimensions</h3>
+     <p>
+      You can set up the size of the paper in two ways, either by using
+      ConTeXt&#x2019;s
+      preset dimensions, or by defining your own.
+     </p>
+<div class="context-block-code"><pre>
+% Using ConTeXt's pre-set paper sizes
+\setuppapersize[A4]
+
+
+</pre></div>
+<div class="xml"><pre> &lt;!--Using ConTeXt's pre-set paper sizes--&gt;
+ &lt;cmd name="setuppapersize"&gt;
+  &lt;opt&gt;A4&lt;/opt&gt;
+ &lt;/cmd&gt;
+
+
+</pre></div>
+<div class="context-block-code"><pre>% defining your own paper size
+% the first option is whatever name you want
+\definepapersize[myCustomLayout][width=8.5in, height=11in]
+\setuppapersize[myCustomLayout]
+
+
+
+</pre></div>
+<div class="xml"><pre>
+&lt;!--defining your own paper size--&gt;
+&lt;!--the first option is whatever name you want--&gt;
+&lt;cmd name="definepapersize"&gt;
+ &lt;opt&gt;myCustomLayout&lt;/opt&gt;
+ &lt;opt&gt;width=8.5in, height=11in&lt;/opt&gt;
+&lt;/cmd&gt;
+
+
+</pre></div>
+    </div>
+    <div class="level2"><a name="id2251716"/>
+     <h3 class="level2">Width of Body Text</h3>
+     <p>
+      For all page layouts, set up your dimensions with the
+      <tt>definelayout</tt>
+      command. After issuing this command, invoke the definitions you have just
+      created with the
+      <tt>setuplayout</tt>
+      command. The first option of both the
+      <tt>definelayout</tt> and
+      <tt>setuplayout</tt>
+      command is the name of the definition, which can be any name you choose.
+      (In my example, the first option for both the
+      <tt>definelayout</tt> and
+      <tt>setuplayout</tt>
+      commands is &#x201C;myCustomLayout&#x201D;.)
+     </p>
+     <p>
+      Always set your <tt>width</tt> to
+      <tt>middle</tt>.
+     </p>
+     <p>
+      If you do not plan on using margin notes, use the
+      <tt>backspace</tt> and
+      <tt>cutspace</tt> property to set
+      your margins. The <tt>backspace</tt>
+      will be the total distance from the left edge of the page to your body
+      text, while the <tt>cutspace</tt>
+      property will the total distance from the right edge of the page to your
+      body text. For mirrored texts, this will be reversed: the backspace will
+      determine the right side, and the cutspace the left side.
+     </p>
+<div class="context-block-code"><pre>
+\definelayout[myCustomLayout][
+backspace=40mm,
+cutspace=38mm,
+width=middle,
+]
+
+\setuplayout[myCustomLayout]
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="definelayout"&gt;
+ &lt;opt&gt;
+   backspace = 40mm,
+   cutspace=38mm,
+   width=middle
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+
+&lt;cmd name="setuplayout"&gt;
+ &lt;opt&gt;myCustomLayout&lt;/opt&gt;
+&lt;/cmd&gt;
+
+
+</pre></div>
+     <div class="img"><img src="png_images/margins1.png" alt="setting up margins with backspace">
+      <p class="figure-caption">setting up margins with backspace</p>
+     </img></div>
+     <div class="level3"><a name="id2251893"/>
+      <h4 class="level3">Customizing Width</h4>
+      <p>
+       If you plan to use margin notes, reserve space in your margins for the
+       notes, the notes and the edge of the page, and the space between the noes
+       and your body text. The width of the leftmargin and rightmargin
+       determines the width your margin notes. The leftmargindistance and
+       rightmargindistance determine the space between the notes and your body
+       text.
+      </p>
+      <p>
+       The backspace property is the sum of the the leftmargin, the
+       leftmargindistance, and the space from the left edge of the page to the
+       left margin. If the page is mirrored (see below),this is reversed: the
+       backspace will be the sum of these regions on the right hand side of the
+       page.
+      </p>
+      <p>
+       The cutspace property is the sum of the the rightmargin, the
+       rightmargindistance, and the space from the right edge of the page to the
+       right margin. If the page is mirrored (see below),this is reversed: the
+       cutspace will be the sum of these regions on the left hand side of the
+       page.
+      </p>
+      <p>
+       This leaves two regions which have no name (so far as I know), and which
+       are calculated by
+       ConTeXt rather
+       than being explicitly coded by a user. These regions are the very outer
+       edges of the page.
+      </p>
+      <p>
+       ConTeXt
+       calculates these regions by subtracting the margin and margin distance
+       from the backspace or cutspace value. In our example, the left outer edge
+       is 15mm because the backspace (50mm) minus the leftmargin (25mm) minus
+       the leftmargindistance (10mm)= 15mm.
+      </p>
+<div class="context-block-code"><pre>
+\definelayout[myCustomLayout][
+leftmargin=25mm,
+rightmargin=30mm,
+leftmargindistance=10mm,
+rightmargindistance=10mm,
+backspace=50mm,
+width=middle,
+]
+
+\setuplayout[myCustomLayout]
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="definelayout"&gt;
+ &lt;opt&gt;
+   leftmargin=25mm,
+   rightmargin=30mm,
+   leftmargindistance=10mm,
+   rightmargindistance=10mm,
+   backspace=50mm,
+   width=middle,
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+
+&lt;cmd name="setuplayout"&gt;
+ &lt;opt&gt;myCustomLayout&lt;/opt&gt;
+&lt;/cmd&gt;
+
+
+
+</pre></div>
+      <div class="img"><img src="png_images/margins2.png" alt="custom margins">
+       <p class="figure-caption">custom margins</p>
+      </img></div>
+      <h3 class="list-head">Tips</h3><ul>
+       
+       <li>
+        <p>
+         If you do not explicitly declare
+         <tt>leftmargindistance</tt> or
+         <tt>rightmargindistance</tt>,
+         ConTeXt will
+         set these regions to 5mm.
+        </p>
+       </li>
+       <li>
+        <p>
+         If you do not explicitly declare a
+         <tt>backspace</tt> value,
+         ConTeXt will
+         set this region to 25 mm. If your left margin is greater than 25 mm,
+         this can lead to unwanted results.
+        </p>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="level2"><a name="id2252099"/>
+     <h3 class="level2">Height of Body Text</h3>
+     <p>
+      Setting up the height is very similar to setting up the width. You can
+      control the space from the edge of the page to headers, the header space
+      itself, and the distance between the header and the body text.
+     </p>
+     <p>
+      If you don&#x2019;t use headers and footers, alter the height of the body
+      text by changing the header and footer properties, and by setting the
+      height to fit. Keep in mind that
+      ConTeXt puts a
+      default space of 25 mm at the top and bottom of the page.
+     </p>
+     <p>
+      Always set your height to middle.
+     </p>
+<div class="context-block-code"><pre>\definelayout[myCustomLayout][
+ header=30mm,
+ footer=25mm,
+ height=middle,
+]
+
+\setuplayout[myCustomLayout]
+
+...
+
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="definelayout"&gt;
+ &lt;opt&gt;myCustomLayout&lt;/opt&gt;
+ &lt;opt&gt;header=30mm, 
+   footer=25mm,
+   height=middle,
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+&lt;cmd name="setuplayout"&gt;
+ &lt;opt&gt;myCustomLayout&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+     <div class="img"><img src="png_images/margins3.png" alt="changing body height through headers and footers">
+      <p class="figure-caption">changing body height through headers and footers</p>
+     </img></div>
+     <div class="level3"><a name="id2252183"/>
+      <h4 class="level3">Customizing Height</h4>
+      <p>
+       For headers and footers, reserve space for the notes, as well as space
+       between the notes and the edge of the page as well as space between the
+       noes and your body text. Increasing any of the space in this region
+       reduces the height of the body text. Always set your height to middle.
+      </p>
+      <p>
+       The <tt>topspace</tt> properties
+       establishes the space at the very top of the page. The
+       <tt>bottomspace</tt> properties
+       establishes the space at the very bottom of the page. The
+       <tt>headerdistance</tt> and
+       <tt>footerdistance</tt> reserves
+       space between the header or footer and the body text.
+      </p>
+<div class="context-block-code"><pre>
+\definelayout[myCustomLayout][
+ header=30mm,
+ footer=20mm,
+ headerdistance=10mm,
+ footerdistance=10mm,
+ topspace=30mm,
+ bottomspace=25mm,
+ height=middle,
+]
+
+\setuplayout[myCustomLayout]
+
+
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="definelayout"&gt;
+ &lt;opt&gt;
+   header=30mm,
+   footer=20mm
+   headerdistance=10mm,
+   footerdistance=10mm,
+   topspace=30mm,
+   bottomspace=25mm,
+   height=middle,
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+&lt;cmd name="setuplayout"&gt;
+ &lt;opt&gt;myCustomLayout&lt;/opt&gt;
+&lt;/cmd&gt;
+
+...
+
+</pre></div>
+      <div class="img"><img src="png_images/margins4.png" alt="setting up footer and header space">
+       <p class="figure-caption">setting up footer and header space</p>
+      </img></div>
+      <h3 class="list-head">Tips</h3><ul>
+       
+       <li>
+        <p>
+         If you do not explicitly declare
+         <tt>headerdistance</tt> or
+         <tt>footerdistance</tt>,
+         ConTeXt sets
+         these regions to 5mm.
+        </p>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="level2"><a name="id2252340"/>
+     <h3 class="level2">Mirroring Pages</h3>
+     <p>
+      ConTeXt allows
+      for different layouts on the first, even, and odd pages. Unfortunately,
+      the text width must be the same on all pages within this text flow. If you
+      change the width from one page to the next, the text will not necessarily
+      line up. In order to change the width of a page, you need to start a new
+      run of pages. For example, you can create a book in which chapter 1 had
+      pages that are 8 inches wide while chapter 2 had pages 8.5 inches wide.
+      But within the chapter, you couldn&#x2019;t have the odd page be 8 inches
+      wide and the even page be 8.5 inches wide.
+     </p>
+     <p>
+      The easiest way to change layout for odd and even pages is by mirroring
+      them, so that the page layout will be switched for odd and even pages. To
+      do so, add change the
+      <tt>setuppagenumbering</tt>
+      command to produce double-sided documents.
+     </p>
+<div class="context-block-code"><pre>
+\setuppagenumbering[state=stop, 
+  way=bytext, alternative=doublesided]
+
+\definelayout[myCustomLayout][
+width=middle,
+backspace=40mm,
+cutspace=50mm,
+]
+
+\setuplayout[myCustomLayout]
+
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="setuppagenumbering"&gt;
+ &lt;opt&gt;state=stop,
+  way=bytext,
+  alternative=doublesided
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+
+&lt;cmd name="definelayout"&gt;
+ &lt;opt&gt;
+  width=middle,
+  backspace=40mm,
+  cutspace=50mm,
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+
+&lt;cmd name="setuplayout"&gt;
+ &lt;opt&gt;myCustomLayout&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+     <div class="img"><img src="png_images/mirror1.png" alt="mirroring pages">
+      <p class="figure-caption">mirroring pages</p>
+     </img></div>
+     <h3 class="list-head">Tips</h3><ul>
+      
+      <li>
+       <p>
+        Keeping track of how values get switched seems tricky to me. Defining
+        first, odd, and even pages (see below) offers an alternative.
+       </p>
+      </li>
+     </ul>
+    </div>
+    <div class="level2"><a name="id2252469"/>
+     <h3 class="level2">Changing Layouts for First, Odd and Even Pages</h3>
+     <p>
+      A more flexible way to change layouts for different pages is to use a
+      position argument. Use &#x201C;1&#x201D; for the first page, and
+      &#x201C;odd&#x201D; and &#x201C;even&#x201D; for the odd and even pages.
+     </p>
+     <p>
+      Like with mirroring pages, you have to make sure the width of all your
+      pages is the same.
+     </p>
+<div class="context-block-code"><pre>
+% setup layout for first page
+\definelayout[1][
+ backspace=30mm,
+ cutspace=40mm,
+ width=middle,
+]
+
+% setup layout for even page
+\definelayout[even][
+ backspace=35mm,
+ cutspace=35mm,
+ width=middle,
+]
+
+% setup layout for even page
+\definelayout[odd][
+ backspace=40mm,
+ cutspace=30mm,
+ width=middle,
+]
+
+% this command now takes no option
+\setuplayout
+
+
+</pre></div>
+<div class="xml"><pre>&lt;!--setup layout for first page--&gt;
+&lt;cmd name="definelayout"&gt;
+ &lt;opt&gt;backspace=30mm,
+ cutspace=40mm,
+ width=middle,
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+
+&lt;!--setup layout for even page--&gt;
+&lt;cmd name="definelayout"&gt;
+ &lt;opt&gt;backspace=35mm,
+ cutspace=35mm,
+ width=middle,
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+
+&lt;!--setup layout for odd page--&gt;
+&lt;cmd name="definelayout"&gt;
+ &lt;opt&gt;backspace=30mm,
+ cutspace=40mm,
+ width=middle,
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+
+&lt;!--this command now takes not option--&gt;
+&lt;cmd name="setuplayout" gr="0"/&gt;
+
+</pre></div>
+     <div class="img"><img src="png_images/first_even_odd.png" alt="different first, even and odd pages">
+      <p class="figure-caption">different first, even and odd pages</p>
+     </img></div>
+     <h3 class="list-head">Tips</h3><ul>
+      
+      <li>
+       <p>
+        You don&#x2019;t need to define a separate layout for the first page if
+        you just want different odd and even pages.
+       </p>
+      </li>
+      <li>
+       <p>
+        Customization of pages is not limited to width. You can have different
+        height and footerdistances, etc, for first, even and odd pages.
+       </p>
+      </li>
+      <li>
+       <p>
+        If you set the <tt>header</tt> or
+        <tt>footer</tt> to 0mm, you will
+        eliminate the space and any texts for headers or footers along with it.
+        There are also other ways to control headers and footers explained
+        below.
+       </p>
+      </li>
+     </ul>
+    </div>
+    <div class="level2"><a name="id2252617"/>
+     <h3 class="level2">Creating Headers and Footers</h3>
+     <div class="level3"><a name="id2252627"/>
+      <h4 class="level3">Simple Headers and Footers</h4>
+      <p>
+       Place headers and footers with the commands
+       <tt>setupheadertexts</tt>
+       and
+       <tt>setupfootertexts</tt>.
+       These commands takes 4 arguments. The first is for the left margin on odd
+       pages, the second for the right margin on odd pages, the third for the
+       left margin on even pages, and the fourth for the left margin on even
+       pages.
+      </p>
+<div class="context-block-code"><pre>\setupheadertexts[one][two] [three][four]
+\setupfootertexts[one][two] [three][four]
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="setupheadertexts"&gt;
+ &lt;opt&gt;one&lt;/opt&gt;
+ &lt;opt&gt;two&lt;/opt&gt;
+ &lt;opt&gt;three&lt;/opt&gt;
+ &lt;opt&gt;four&lt;/opt&gt;
+&lt;/cmd&gt;
+&lt;cmd name="setupfootertexts"&gt;
+ &lt;opt&gt;one&lt;/opt&gt;
+ &lt;opt&gt;two&lt;/opt&gt;
+ &lt;opt&gt;three&lt;/opt&gt;
+ &lt;opt&gt;four&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+      <div class="img"><img src="png_images/headers1.png" alt="setupheadertexts with four arguments">
+       <p class="figure-caption">setupheadertexts with four arguments</p>
+      </img></div>
+      <p>
+       When pages are mirrored, the third and fourth argument are reversed. The
+       placement of the headers and footers does not change for even
+      </p>
+      <div class="img"><img src="png_images/headers2.png" alt="headers switched for mirrored layout">
+       <p class="figure-caption">headers switched for mirrored layout</p>
+      </img></div>
+     </div>
+     <div class="level3"><a name="id2252724"/>
+      <h4 class="level3">Formatting Text in Headers and Footers</h4>
+      <p>
+       We need special commands to format headers and footers, since the normal
+       commands for body text won&#x2019;t work.
+      </p>
+      <p>
+       The <tt>hfill</tt> command
+       helps us align text left and right, as well as center text. This command
+       tells ConTeXt
+       to put as much space as possible between it and the next object. If we
+       use it before some text, it pushes that text all the way to the left. If
+       we use it after some text, it pushes that text all the way to the right.
+      </p>
+      <p>
+       If we use the <tt>hfill
+       </tt> command both before and after the text, it puts as much space
+       between the left and the right as possible, resulting in text being
+       approximately centered. The centering won&#x2019;t be exact because the
+       space of your text on the left will most likely not be the same as the
+       space for the text on the right. To fix this, use the
+       <tt>llap</tt> and
+       <tt>rlap </tt> commands.
+      </p>
+<div class="context-block-code"><pre>\setupheadertexts[\hfill American Lit][] [][Thoreau
+\hfill]
+
+\setupfootertexts[\rlap{Romanticism} \hfill 
+\pagenumber \hfill \llap{Civil Disobedience}][] [][Civil Disobedience]
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="setupheadertexts"&gt;
+ &lt;opt&gt;
+  &lt;cmd name="hfill"/&gt;
+   American Lit
+ &lt;/opt&gt;
+ &lt;opt/&gt;
+ &lt;opt/&gt;
+ &lt;opt&gt;
+  Thoreau
+  &lt;cmd name="hfill"/&gt;
+ &lt;/opt&gt;
+&lt;/cmd&gt;
+
+ &lt;cmd name="setupheadertexts"&gt;
+ &lt;opt&gt;
+  &lt;cmd name="rlap"&gt;
+   &lt;parm&gt;Romanticism&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;cmd name="hfill"/&gt;
+  &lt;cmd name="pagenumber"/&gt;
+  &lt;cmd name="hfill"/&gt;
+  &lt;cmd name="llap"&gt;
+   &lt;parm&gt;Civil Disobedience&lt;/parm&gt;
+  &lt;/cmd&gt;
+  &lt;/opt&gt;
+  &lt;opt/&gt;
+  &lt;opt/&gt;
+  &lt;opt&gt;
+  Civil Disobedience
+  &lt;/opt&gt;
+ &lt;/cmd&gt;
+
+
+</pre></div>
+      <div class="img"><img src="png_images/hfill.png" alt="using hfill to place headers and footers ">
+       <p class="figure-caption">using hfill to place headers and footers </p>
+      </img></div>
+      <h3 class="list-head">Tips</h3><ul>
+       
+       <li>
+        <p>
+         You can also use the
+         <tt>hskip</tt> command
+         to create a specific amount of white space. If you wanted 10 points
+         between Thoreau and Romanticism, you type
+         <tt>hskip10pt</tt>.
+        </p>
+       </li>
+      </ul>
+      <p>
+       Since ConTeXt
+       doesn&#x2019;t allow us to create paragraphs in headers and footers as we
+       would in normal text, we use the
+       <tt>vbox</tt> command to
+       create multi-lines headers and footers. The command
+       <tt>vbox</tt> stands for
+       vertical box, the basic paragraph unit that
+       ConTeXt uses
+       behind the scenes. In order to break a line inside a
+       <tt>vbox</tt>, use
+       <tt>vskip</tt>.
+      </p>
+<div class="context-block-code"><pre>\setupheadertexts[\vbox{Chapter 8 \vskip5pt Thoreau}][][][Civil
+Disobedience]
+
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="setupheadertexts"&gt;
+ &lt;opt&gt;
+  &lt;cmd name="vbox"&gt;
+   &lt;par&gt;
+    Chapter 8
+    &lt;cmd name="vskip5pt"/&gt;
+    Thoreau
+   &lt;/par&gt;
+  &lt;/cmd&gt;
+ &lt;/opt&gt;
+ &lt;opt/&gt;
+ &lt;opt/&gt;
+ &lt;opt&gt;Civil Disobedience&lt;/opt&gt;
+&lt;/cmd&gt;
+
+
+</pre></div>
+      <div class="img"><img src="png_images/vskip.png" alt="using a vbox to create multi-line header">
+       <p class="figure-caption">using a vbox to create multi-line header</p>
+      </img></div>
+      <div class="level4"><a name="id2253000"/>
+       <h5 class="level4">Still Another Example of Customization</h5>
+       <p>
+        I came across a problem in formatting a footer with a thesis. I needed a
+        1-inch space at the bottom, with a page number centered in the middle,
+        and 1/2 an inch from the bottom. None of the above commands allowed me
+        to both center the page number and control its vertical placement, so I
+        finally had to settle for this work-around.
+       </p>
+<div class="context-block-code"><pre>\setupfootertexts[\vbox{\centerline{\pagenumber }\vskip12pt }]
+ [][][]  
+</pre></div>
+       <p>
+        The <tt>vbox</tt> command
+        functions exactly as above. The
+        <tt>centerline</tt>
+        command centers the page number. The
+        <tt>vskip</tt> command
+        put space between the bottom of the footer space and the actual number.
+        In other words, it raised up the number. A greater number for
+        <tt>vskip</tt> would have
+        made the number even higher.
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="level2"><a name="id2253079"/>
+     <h3 class="level2">Changing the layout for different parts in a document</h3>
+     <p>
+      Long documents require different layouts for different parts. The abstract
+      in a thesis may need a narrower page width. Each chapter in a book might
+      have a different header.
+     </p>
+     <p>
+      ConTeXt has a
+      hierarchy of sections for the user, including part, chapter, section,
+      sub-section, and even sub-sub-section. If a user structures his document
+      using these divisions,
+      ConTeXt can
+      create a table of contents and keep track of numbering, amongst other
+      things. However, the XML author doesn&#x2019;t need these features, which
+      often prove more of a nuisance. Through the use of XSLT, and XML author
+      already has access to a powerful numbering scheme and the ability to
+      create any type of table of contents she wants.
+     </p>
+     <p>
+      Therefore I&#x2019;ll use only one section command,
+      <tt>part</tt>. The
+      <tt>part</tt> command
+      provides the mechanism to re-define physical page size, page layout, and
+      headers and footers. By default, the
+      <tt>part</tt> command will
+      force page numbering to begin at one. In order to stop this behavior (and
+      you probably want to), set the option
+      <tt>way </tt> in the
+      <tt>setuppagenumbering</tt>
+      to <tt>bytext</tt>.
+     </p>
+     <p>
+      To start a new run of pages in which you redefine layout, issue a
+      <tt>part</tt> command.
+     </p>
+<div class="context-block-code"><pre>
+\part{}
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="part"/&gt;
+
+</pre></div>
+     <p>
+      Once you issue this command, create any new definitions you need to.
+      Simply follow the same procedure outline previously in this document, and
+      the new settings take affect. Remember to issue these commands
+      <i>after</i> you issue the
+      <tt>part</tt> command. (The
+      once exception is
+      <tt>setuphead</tt>, which
+      is explained below.) If you redefine headers and footers before the
+      <tt>part</tt> command, the
+      new definitions might appear in the previous section.
+     </p>
+     <p>
+      Here is an example of creating new headers for each chapter in a book.
+     </p>
+<div class="context-block-code"><pre>
+\part{}
+\setupheadertexts[Chapter 1][][][American Literature]
+% the rest of the chapter goes here
+
+\part{}
+\setupheadertexts[Chapter 2][][][American Literature]
+% the rest of the chapter goes here
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="part"&gt;
+ &lt;parm/&gt;
+&lt;cmd/&gt;
+
+&lt;cmd name="setupheadertexts"&gt;
+ &lt;opt&gt;Chapter 1&lt;/opt&gt;
+ &lt;opt/&gt;
+ &lt;opt/&gt;
+ &lt;opt&gt;American Literature&lt;/opt&gt;
+ &lt;!--the rest of the chpater goes here--&gt;
+&lt;/cmd&gt;
+
+&lt;cmd name="setupheadertexts"&gt;
+ &lt;opt&gt;Chapter 2&lt;/opt&gt;
+ &lt;opt/&gt;
+ &lt;opt/&gt;
+ &lt;opt&gt;American Literature&lt;/opt&gt;
+ &lt;!--the rest of the chapter goes here--&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+     <div class="level3"><a name="id2253318"/>
+      <h4 class="level3">Setting up the first page in a new section</h4>
+      <p>
+       The <tt>setuphead</tt>
+       command (not to be confused with the
+       <tt>setupheader</tt>
+       command!), helps us set up the first page for each new part. Because this
+       command defines the new section, it must come
+       <i>before</i> the
+       <tt>part</tt> command.
+      </p>
+      <p>
+       The first option of this command is the section it defines, such as part,
+       section, or sub-section.
+      </p>
+      <div class="level4"><a name="id2253378"/>
+       <h5 class="level4">Forcing left or right pages</h5>
+       <p>
+        Use the <tt>page</tt> option in
+        <tt>setuphead</tt> to
+        force an odd or even page.
+        <tt>left</tt> forces a left
+        page, and <tt>right</tt> forces
+        a right page.
+       </p>
+<div class="context-block-code"><pre>
+\setuphead[part][page=left]
+
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="setuphead"&gt;
+ &lt;opt&gt;part&lt;/opt&gt;
+ &lt;opt&gt;page=left&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+      </div>
+      <div class="level4"><a name="id2253448"/>
+       <h5 class="level4">Customizing headers and footers for the first page</h5>
+       <div class="level5"><a name="id2253459"/>
+        <h6 class="level5">Controlling the Placement of Headers and Footers</h6>
+        <p>
+         The <tt>setupheader</tt>
+         and <tt>setupfooter</tt>
+         allows for control over header and footer placement. To completely
+         eliminate a header or footer for just one page, use the
+         <tt>setupheader</tt> or
+         <tt>setupfooter</tt> commmand in
+         conjunction with the
+         <tt>header=empty</tt>.
+        </p>
+<div class="context-block-code"><pre>
+% eliminates the header and space for the header
+% for one page
+\setupheader[part][header=empty] 
+
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="setupheader"&gt;
+ &lt;opt&gt;part&lt;/opt&gt;
+ &lt;opt&gt;header=empty&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+        <div class="img"><img src="png_images/header_placement1.png" alt="header=empty">
+         <p class="figure-caption">header=empty</p>
+        </img></div>
+        <p>
+         Setting <tt>header=high</tt>, not
+         only eliminates the header text, but the white space around it.
+        </p>
+<div class="context-block-code"><pre>
+% eliminates the header and space for the header
+% for one page
+\setupheader[part][header=high] 
+
+
+</pre></div>
+<div class="xml"><pre>
+&lt;cmd name="setupheader"&gt;
+ &lt;opt&gt;part&lt;/opt&gt;
+ &lt;opt&gt;header=empty&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+        <div class="img"><img src="png_images/header_placement2.png" alt="header=high">
+         <p class="figure-caption">header=high</p>
+        </img></div>
+        <h3 class="list-head">Tips</h3><ul>
+         
+         <li>
+          <p>
+           Setting the <tt>header</tt> to
+           <tt>none</tt> eliminates
+           headers and footers, as well as the space they occupy, for all pages
+           until a contradictory command is issued.
+          </p>
+         </li>
+         <li>
+          <p>
+           Other values for <tt>header</tt>
+           are &#x201C;stop&#x201D;, which stops the placement of headers and
+           footers; &#x201C;start&#x201D;, which starts them again if they have
+           been stopped.
+          </p>
+         </li>
+         <li>
+          <p>
+           The <tt>footer=empty</tt> and
+           <tt>footer=high</tt> commands
+           are the equivalent to their header counterparts. The text and or
+           space at the bottom will be suppressed.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="level5"><a name="id2253704"/>
+        <h6 class="level5">Different headers and footers for first page</h6>
+        <p>
+         The <tt>setupheader</tt>
+         command only lets us eliminate a header or footer for the first page,
+         not create a new one. To create a custom header of footer for the first
+         page, define text with the
+         <tt>definetext</tt>
+         command, and then recall this defintion in the
+         <tt>setuphead</tt>
+         command.
+        </p>
+<div class="context-block-code"><pre>\definetext[customHeader][header][Chapter 1]
+\setuphead[part][header=customHeader]
+\part{}
+
+</pre></div>
+<div class="xml"><pre>&lt;cmd name="definetext"&gt;
+ &lt;opt&gt;customheader&lt;/opt&gt;
+ &lt;opt&gt;header&lt;/opt&gt;
+ &lt;opt&gt;Chapter 1&lt;/opt&gt;
+&lt;/cmd&gt;
+
+&lt;cmd name="setuphead"&gt;
+ &lt;opt&gt;part&lt;/opt&gt;
+ &lt;opt&gt;header=cutomHeader&lt;/opt&gt;
+&lt;/cmd&gt;
+
+</pre></div>
+        <div class="img"><img src="png_images/custom_header1.png" alt="custom header">
+         <p class="figure-caption">custom header</p>
+        </img></div>
+        <p>
+         This example uses three options for the
+         <tt>definetext</tt>
+         command. The first is the name I give it, which I use again in the
+         <tt>setuphead</tt>
+         command. The second is the position. The last options is the text
+         placed in the header.
+        </p>
+        <h3 class="list-head">Tips</h3><ul>
+         
+         <li>
+          <p>
+           Remember to place the
+           <tt>setuphead</tt>
+           command <i>before</i>
+           the <tt>part</tt>
+           command.
+          </p>
+         </li>
+         <li>
+          <p>
+           The <tt>setuphead</tt>
+           also takes the <tt>footer</tt>
+           option.
+          </p>
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="level2"><a name="id2253895"/>
+     <h3 class="level2">Page Numbering</h3>
+     <p>
+      The command
+      <tt>pagenumber</tt> prints
+      out a page number wherever it is issued (for example, in a header or
+      footer).
+     </p>
+     <div class="level3"><a name="id2253921"/>
+      <h4 class="level3">Resetting the page number</h4>
+      <p>
+       In order to reset the page number, use the
+       <tt>setuppagenumbers</tt>
+       command. Set the option
+       <tt>number</tt> to the desired
+       number.
+      </p>
+<div class="context-block-code"><pre>% sets the current page number to 3
+\setuppagenumber[number=3]
+
+</pre></div>
+     </div>
+     <div class="level3"><a name="id2253966"/>
+      <h4 class="level3">Formatting the page number</h4>
+      <p>
+       In order to change the page number to something different than an Arabic
+       number, use the
+       <tt>setuppagenumbering</tt>
+       command. Set the <tt>conversion</tt>
+       option to <tt>characters</tt>
+       for lower-case letters,
+       <tt>Characters</tt> for
+       upper-case letters,
+       <tt>romannumerals</tt> for
+       lower-case Roman Numerals, and
+       <tt>Romannumerals</tt> for
+       upper-case Roman Numerals.
+      </p>
+<div class="context-block-code"><pre>% Changes "3" to "iii"
+\setuppagenumbering[conversion=romannumerals]
+</pre></div>
+     </div>
+    </div>
+   <p>
+ copyright 2005 Paul Henry Tremblay
+      
+  </p><p>
+      License: GPL
+  </p><p><a href="index.html">home | </a><a href="contents.html">contents | </a><a href="page2.html">previous | </a><a href="page4.html">next</a></p><p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=102261&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo"/></a></p><p><b>last updated: </b>2005-03-27</p></body></html>

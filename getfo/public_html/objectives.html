@@ -1,0 +1,64 @@
+<html id="objectives">
+	<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Objectives for GetFO project</title>
+	</head>
+	<body>
+	[<a href="index.html">GetFO Home Page</a>]
+<!--	<menuitem id="objectives">Objectives</menuitem> -->
+<!--	<menuitem id="workplan">Work Plan</menuitem> -->
+	[<a href="texml/index.html">TeXML Home Page</a>]
+	[<a href="http://sourceforge.net/project/showfiles.php?group_id=102261">Downloads</a>]
+<hr>
+		<h1>Objectives for GetFO project</h1>
+		<p>Books and manuals for printing are produced using software. Some software products are better, some are worse. Most popular products for technical writing are Adobe FrameMaker and TeX (there is also Microsoft Word, but I speak about products for creation of complex, high quality documents). All these products are not compatible. You can't start to prepare document in one program and continue in another program. Also, in important case of XML documents, usual software does not benefit from XML format. So W3C proposed XSL-FO standard for layouting and formatting XML documents. Due to growing popularity of XML, the XSL-FO standard become stronger and stronger and soon will be the well-known and most important.</p>
+
+		<p>But currently, as it looks for me, XSL-FO is like a academic reasearch and is not suitable for work. The main reason is an absence of working open-source XSL-FO processors. Processors that work are working unsatisfactory.</p>
+
+		<p>Internals of XSL-FO processors are not known to me right now, but even without this knowledge, it is reasonable to suggest that functionality of XSL-FO processors should exceed or be comparable with the functionality of the TeX. But such functionality is very hard to implement. Donald Knuth wrote several versions of TeX before he produced stable bug-free release, and I do not expect that authors of the newest XSL-FO processors can repeat his job.</p>
+
+		<p>More. Plain TeX provides macrolanguage and minimal set of primitives of this language. Higher-level macrocommands are defined on the basis of these primitives. But layouting logic of XSL-FO processors is written in Java (or in C++, or in C &#8212; it is not important). Making analogue with usual programming: XSL-FO processirs are written in low level language (analogue: assembler) while TeX extensions are written in high level language (analogue: C).</p>
+
+		<p>So I think that core of a XSL-FO processor should be TeX.</p>
+
+		<p>More precisely, modified TeX. Due to being ancient, Tex does not support some modern technologies. Tasks of implementation unicode or right-to-left texts (also bottom-to-top etc) are not trivial. More, some concepts of XSL-FO (TODO: which) can not be directly mapped into the TeX engine. But these problems can be solved (omega TeX, TeXXeT and other TeX derivations).</p>
+
+		<p>Indeed, it is not required to make realization of XSL-FO in TeX. I think that it is better to create a set of &#8220;descriprive macros&#8221; that follows set of properties in XSL-FO specification. Let name our system &#8220;getfo&#8221;.</p>
+
+		<p>Naturally, we also should write a script that translates FO-files to something based on getfo. Using this way, we will get XSL-FO processor on basis of TeX.</p>
+
+		<p>More interesting that XSL-FO standard is used only as a description of the basis set of getfo macros. It is possible to convert XML directly into the getfo without intermediate conversion into the XSL-FO format, so workarounding possible limitations of XSL-FO (TODO: and which, for example?).</p>
+
+		<h2>Scripting is required</h2>
+
+		<p>There is a disaster with XSL-FO. Processors are fully automatical. But, as known, one of the translations of the word &#8220;automatically&#8221; is: you can't it fix if something goes wrong.</p>
+
+		<p>For example, suppose that you generate PDF from XML through XSL-FO. Let result is poor. In order to make it better, you have to modify XSL-FO file. But after next regeneration of PDF from XML, your changes are lost. Although it is possible to implement production and autoapply of patches, it is not realized yet.</p>
+
+		<p>Also, in more complex cases, good patch requires scripting, and script code should have access to in-process formatting model and calculations. It is not possible with existing XSL-FO processors and possible in TeX.</p>
+
+		<p>TeX output after processing of XML</p>
+
+		<p>Now about converter.</p>
+
+		<p>It is good to generate not directly into the getfo, but to some intermediate XML that is equivalent to getfo. Then we will run serializator (probably implicit using &lt;xsl:output format="tex" /&gt;). This serializator will write correct getfo/TeX file with escaping special symbols.</p>
+
+		<p>Example:</p>
+
+		<p>Intermediate result:</p>
+
+		<pre>&lt;par&gt;aaa^#\aaa&amp;#xa0;&amp;#x2014;&lt;/par&gt;</pre>
+
+		<p>TeX:</p>
+
+		<pre>\par aaa\^\#\\aaa\space---</pre>
+
+		<p>XML presentation is also good because it is possible to add metainformation. For examlpe, diff/patch functionality can be realized using attributes like &#8220;patch:id&#8221;.</p>
+
+	
+<hr>
+Hosted by<br>
+<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=102261&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net Logo"></a><br>
+Developers' link: [<a href="http://sourceforge.net/projects/getfo/">TeXML SourceForge project area</a>]
+</body>
+</html>

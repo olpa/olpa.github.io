@@ -1,0 +1,27 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Installation</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="Consodoc publication server user's guide"><link rel="up" href="index.html" title="Consodoc publication server user's guide"><link rel="prev" href="process.html" title="Predefined processes"><link rel="next" href="license.html" title="License"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Installation</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="process.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="license.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="install"></a>Installation</h2></div></div></div><p>Consodoc is developed and tested under Linux, but it's written with portability in mind. Windows and Mac users are encouraged to install the prerequisite software, set the paths to the software in the Consodoc configuration files and test Consodoc.</p><p>Consodoc is developed and tested under SCons pre-release version 0.96.90. With each new pre-release version of SCons, Consodoc development is continued under the new version. Consodoc also supports SCons 0.96.1 and the development version.</p><p>Prerequisites:</p><ul>
+    <li>
+      <p><tt>diff</tt> and <tt>patch</tt>: should be installed by default on the most Linux systems.</p>
+    </li>
+    <li>
+      <p><tt>xmllint</tt> and <tt>xstproc</tt>: should be installed by default on the most Linux systems.</p>
+    </li>
+    <li>
+      <p><tt>latex</tt> and <tt>pdflatex</tt>: should be available on the most Linux systems.</p>
+    </li>
+    <li>
+      <p><tt>python</tt>: version 2.3 or later, should be available on the most Linux systems.</p>
+    </li>
+    <li>
+      <p><tt>scons</tt>: version 0.96.1 or later, should be available on the most Linux systems.</p>
+    </li>
+    <li>
+      <p><tt>texml</tt>: can be downloaded from <a href="http://getfo.org/texml/">http://getfo.org/texml/</a>.</p>
+    </li>
+  </ul><p>Download Consodoc distribution tarball file <tt>consodoc-N.N.N.tar.gz</tt> from <a href="http://consodoc.com/">consodoc.com</a>. Unpack the tarball:</p><pre>$ tar zxf consodoc-N.N.N.tar.gz</pre><p>Enter the folder <tt>consodoc-N.N.N</tt> and execute the command:</p><pre>$ python setup.py install</pre><p>If execution is failed with the message like “No module named distutils”, make sure that Python development libraries are installed (the RPM package name might be <tt>python-devel</tt>).</p><p>The installation script copies Consodoc files to <tt>/usr/share/</tt><tt><tt>consodoc-N.N.N</tt></tt>, documentation to <tt>/usr/share/doc/</tt><tt><tt>consodoc-N.N.N</tt></tt> and creates the program <tt>/usr/bin/cdoc</tt>.</p><p>It's possible to use Consodoc locally, without installing it. To do so,</p><ul>
+    <li>
+      <p>edit the script <tt>cdoc_local</tt>: set the correct path to the Consodoc files.</p>
+    </li>
+    <li>
+      <p>use the modified script.</p>
+    </li>
+  </ul></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="process.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="license.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Predefined processes </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> License</td></tr></table></div></body></html>

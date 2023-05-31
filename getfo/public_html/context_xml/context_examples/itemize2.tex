@@ -1,0 +1,27 @@
+% customizing a  list
+% page 
+\enableregime[utf]
+\setuppagenumbering[state=stop, way=bytext]
+
+\starttext
+\def\Inbetween{\blank[24pt]}
+\def\Before{\blank[24pt]} % between body text and start of list
+\def\After{\blank[18pt]} % between body text and start of list
+\setupitemize[inbetween=\Inbetween,
+before=\Before,
+after=\After,
+stopper=:,
+left=(,
+right=),
+margin=24pt,%from edge of where body text would be to number
+width=48pt,% from the left edge of the text to the start of item
+]
+These Names of Virtues with their Precepts were\par
+\startitemize[n]
+\item {\sl Temperance.} Eat not to Dulness. Drink not to Elevation.
+\item {\sl Silence.} Speak not but what may benefit other or yourself.
+Avoid trifling Conversation.\par
+\stopitemize
+My intention being to acquire the {\sl Habitude} of all these Virtues, 
+
+\stoptext

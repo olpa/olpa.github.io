@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+Uses some of the basic commands
+-->
+<!DOCTYPE TeXML[
+<!ENTITY input SYSTEM "../excerpts/xml/civil_disobedience2.xml">
+]
+>
+<TeXML xmlns="http://getfo.sourceforge.net/texml/ns1">
+    <cmd name="enableregime">
+        <opt>utf</opt>
+    </cmd>
+    <cmd name="setuppagenumbering">
+     <opt>state=stop, way=bytext</opt>
+    </cmd>
+  <env name="text">
+      &input;
+ </env>
+</TeXML>

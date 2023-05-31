@@ -1,0 +1,19 @@
+% trying to create different rule thicknesses
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+
+\setupcolors[state=start]
+%\setupTABLE[c][1,3][rulethickness=2pt]
+%\setupTABLE[r][first][rulethickness=1pt, topframe=off, leftframe=off, rightframe=off]
+\setupTABLE[c][1,3][topthickness=1pt]
+
+\bTABLE
+\bTR \bTD State \eTD \bTD3-year average(2001-2003) \eTD \bTD2-year average(2001-2002) \eTD \eTR
+\bTR \bTD Alabama \eTD \bTD 13.3 \eTD \bTD 13.5 \eTD \eTR
+\bTR \bTD Alaska \eTD \bTD 17.8 \eTD \bTD 18.8 \eTD \eTR
+\bTR \bTD Arizona \eTD \bTD 17.3 \eTD \bTD 16.9 \eTD \eTR
+\eTABLE
+
+\stoptext
+

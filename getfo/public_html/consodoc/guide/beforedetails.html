@@ -1,0 +1,34 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Before describing details</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="Consodoc publication server user's guide"><link rel="up" href="index.html" title="Consodoc publication server user's guide"><link rel="prev" href="workflow.html" title="Suggested workflow"><link rel="next" href="params.html" title="Common parameters"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Before describing details</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="workflow.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="params.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="beforedetails"></a>Before describing details</h2></div></div></div><p>Terminology.</p><ul>
+    <li>
+      <p><b>Step</b>. An atomic action, which either successful, either failed.</p>
+    </li>
+    <li>
+      <p><b>Process</b>. A set of steps.</p>
+    </li>
+    <li>
+      <p><b>Project</b>. A definition of a process, options, input and output files and everything other to build the documentation.</p>
+    </li>
+  
+  </ul><p>The text refers to the variabes defined in the scons build files. These references look so:</p><ul>
+    <li>
+      <p>Simple reference: <tt>$(variable_name)</tt>.</p>
+    </li>
+    <li>
+      <p>Several variables at once: <tt>$(tmpdir)/$(filename)</tt>.</p>
+    </li>
+    <li>
+      <p>There are also functions in the form <tt>$(function parameters): $(basename $(in_file))</tt>.</p>
+    </li>
+  
+  </ul><p>Three functions are defined:</p><ul>
+    <li>
+      <p><tt>nodir</tt> returns the file name without the directory. For example, <tt>$(nodir in/guilde.xml)</tt> results in "<tt>guide.xml</tt>".</p>
+    </li>
+    <li>
+      <p><tt>basename</tt> returns the file name without the directory and the extension. For example, <tt>$(basename in/guilde.xml)</tt> results in "<tt>guide</tt>".</p>
+    </li>
+    <li>
+      <p><tt>noext</tt> returns the file name without th extension. For example, <tt>$(noext in/guilde.xml)</tt> results in "<tt>in/guide</tt>".</p>
+    </li>
+  
+  </ul><p>Note that this syntax is used only in this Guide. Actual substitutions in the scons build files look different.</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="workflow.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="params.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Suggested workflow </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Common parameters</td></tr></table></div></body></html>

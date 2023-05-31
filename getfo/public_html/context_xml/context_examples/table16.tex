@@ -1,0 +1,72 @@
+% mutli-paged table with TABLE
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+
+% split the table across pages and make sure the head is foot are repeated
+\bTABLE[split=repeat]
+% create the head
+\bTABLEhead
+\bTR \bTD State  \eTD \bTD 3-year average(2001-2003)  \eTD \bTD 2-year average(2001-2002)  \eTD \eTR
+\eTABLEhead
+% create the body
+\bTABLEbody
+\bTR \bTD Alabama  \eTD \bTD 13.3  \eTD \bTD 13.5  \eTD \eTR
+\bTR \bTD Alaska  \eTD \bTD 17.8  \eTD \bTD 18.8  \eTD \eTR
+\bTR \bTD Arizona  \eTD \bTD 17.3  \eTD \bTD 16.9  \eTD \eTR
+\bTR \bTD Arkansas  \eTD \bTD 16.6  \eTD \bTD 16.2  \eTD \eTR
+\bTR \bTD California  \eTD \bTD 18.7  \eTD \bTD 18.8  \eTD \eTR
+\bTR \bTD Colorado  \eTD \bTD 16.3  \eTD \bTD 15.8  \eTD \eTR
+\bTR \bTD Connecticut  \eTD \bTD 10.3  \eTD \bTD 10.4  \eTD \eTR
+\bTR \bTD Delaware  \eTD \bTD 10.1  \eTD \bTD 9.6  \eTD \eTR
+\bTR \bTD District   of   Columbia  \eTD \bTD 13.3  \eTD \bTD 12.8  \eTD \eTR
+\bTR \bTD Florida  \eTD \bTD 17.6  \eTD \bTD 17.4  \eTD \eTR
+\bTR \bTD Georgia  \eTD \bTD 16.4  \eTD \bTD 16.3  \eTD \eTR
+\bTR \bTD Hawaii  \eTD \bTD 9.9  \eTD \bTD 9.8  \eTD \eTR
+\bTR \bTD Idaho  \eTD \bTD 17.5  \eTD \bTD 16.9  \eTD \eTR
+\bTR \bTD Illinois  \eTD \bTD 14.0  \eTD \bTD 13.9  \eTD \eTR
+\bTR \bTD Indiana  \eTD \bTD 12.9  \eTD \bTD 12.4  \eTD \eTR
+\bTR \bTD Iowa  \eTD \bTD 9.5  \eTD \bTD 8.5  \eTD \eTR
+\bTR \bTD Kansas  \eTD \bTD 10.9  \eTD \bTD 10.9  \eTD \eTR
+\bTR \bTD Kentucky  \eTD \bTD 13.3  \eTD \bTD 12.9  \eTD \eTR
+\bTR \bTD Louisiana  \eTD \bTD 19.4  \eTD \bTD 18.8  \eTD \eTR
+\bTR \bTD Maine  \eTD \bTD 10.7  \eTD \bTD 10.8  \eTD \eTR
+\bTR \bTD Maryland  \eTD \bTD 13.2  \eTD \bTD 12.8  \eTD \eTR
+\bTR \bTD Massachusetts  \eTD \bTD 9.6  \eTD \bTD 9.1  \eTD \eTR
+\bTR \bTD Michigan  \eTD \bTD 11.0  \eTD \bTD 11.0  \eTD \eTR
+\bTR \bTD Minnesota  \eTD \bTD 8.2  \eTD \bTD 7.9  \eTD \eTR
+\bTR \bTD Mississippi  \eTD \bTD 17.0  \eTD \bTD 16.5  \eTD \eTR
+\bTR \bTD Missouri  \eTD \bTD 10.9  \eTD \bTD 10.9  \eTD \eTR
+\bTR \bTD Montana  \eTD \bTD 16.9  \eTD \bTD 14.5  \eTD \eTR
+\bTR \bTD Nebraska  \eTD \bTD 10.3  \eTD \bTD 9.9  \eTD \eTR
+\bTR \bTD Nevada  \eTD \bTD 18.3  \eTD \bTD 17.9  \eTD \eTR
+\bTR \bTD New  Hampshire  \eTD \bTD 9.9  \eTD \bTD 9.7  \eTD \eTR
+\bTR \bTD New  Jersey  \eTD \bTD 13.7  \eTD \bTD 13.5  \eTD \eTR
+\bTR \bTD New   Mexico  \eTD \bTD 21.3  \eTD \bTD 20.9  \eTD \eTR
+\bTR \bTD New  York  \eTD \bTD 15.5  \eTD \bTD 15.6  \eTD \eTR
+\bTR \bTD North   Carolina  \eTD \bTD 16.1  \eTD \bTD 15.6  \eTD \eTR
+\bTR \bTD North   Dakota  \eTD \bTD 10.5  \eTD \bTD 10.3  \eTD \eTR
+\bTR \bTD Ohio  \eTD \bTD 11.7  \eTD \bTD 11.5  \eTD \eTR
+\bTR \bTD Oklahoma  \eTD \bTD 18.7  \eTD \bTD 17.8  \eTD \eTR
+\bTR \bTD Oregon  \eTD \bTD 14.8  \eTD \bTD 13.7  \eTD \eTR
+\bTR \bTD Pennsylvania  \eTD \bTD 10.7  \eTD \bTD 10.3  \eTD \eTR
+\bTR \bTD Rhode  Island  \eTD \bTD 9.3  \eTD \bTD 8.8  \eTD \eTR
+\bTR \bTD South   Carolina  \eTD \bTD 13.1  \eTD \bTD 12.4  \eTD \eTR
+\bTR \bTD South   Dakota  \eTD \bTD 11.0  \eTD \bTD 10.4  \eTD \eTR
+\bTR \bTD Tennessee  \eTD \bTD 11.8  \eTD \bTD 11.0  \eTD \eTR
+\bTR \bTD Texas  \eTD \bTD 24.6  \eTD \bTD 24.7  \eTD \eTR
+\bTR \bTD Utah  \eTD \bTD 13.6  \eTD \bTD 14.1  \eTD \eTR
+\bTR \bTD Vermont  \eTD \bTD 9.9  \eTD \bTD 10.1  \eTD \eTR
+\bTR \bTD Virginia  \eTD \bTD 12.5  \eTD \bTD 12.2  \eTD \eTR
+\bTR \bTD Washington  \eTD \bTD 14.3  \eTD \bTD 13.7  \eTD \eTR
+\bTR \bTD West  Virginia  \eTD \bTD 14.8  \eTD \bTD 13.9  \eTD \eTR
+\bTR \bTD Wisconsin  \eTD \bTD 9.5  \eTD \bTD 8.7  \eTD \eTR
+\bTR \bTD Wyoming  \eTD \bTD 16.5  \eTD \bTD 16.8  \eTD \eTR
+\eTABLEbody
+\bTABLEfoot
+\bTR \bTD[nc=3] Details may not sum to totals because of rounding. \eTD \eTR
+\eTABLEfoot
+\eTABLE
+
+\stoptext
+

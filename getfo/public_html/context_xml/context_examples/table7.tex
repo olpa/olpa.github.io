@@ -1,0 +1,21 @@
+% taken from the condensed manual
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+\setupfloats[location=left]
+\setupcaption[style=boldslanted]
+\placetable{Library opening hours.}
+\starttable[|l|c|c|]
+\HL
+\VL \bf Day   \VL \use2 \bf Opening hours           \VL\SR
+\HL
+\VL Monday    \VL 14.00 -- 17.30 \VL 18.30 -- 20.30 \VL\FR
+\VL Tuesday   \VL                \VL                \VL\MR
+\VL Wednesday \VL 10.00 -- 12.00 \VL 14.00 -- 17.30 \VL\MR
+\VL Thursday  \VL 14.00 -- 17.30 \VL 18.30 -- 20.30 \VL\MR
+\VL Friday    \VL 14.00 -- 17.30 \VL                \VL\MR
+\VL Saturday  \VL 10.00 -- 12.30 \VL                \VL\LR
+\HL
+\stoptable
+\stoptext
+

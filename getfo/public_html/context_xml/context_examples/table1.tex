@@ -1,0 +1,38 @@
+%table by tabulation
+%American Community Survey
+%http://www.census.gov/hhes/income/factsheet081904.html
+
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+
+% start envrionment and setup columns
+\starttabulate[|p(6cm) j3|p(6cm)|]
+%
+% create a cell
+\NC American Community Survey 
+%
+%create a cell
+\NC Current Population Survey 
+%
+% end the row
+\NC\NR
+%
+% create a horizontal line
+\HL
+%
+% create a cell
+\NC 
+All dollar values for income are adjusted 
+to latest calendar year of estimates using 
+the Consumer Price Index for the date collected 
+versus the average for the year.
+% create a cell
+\NC None
+%
+% end the row
+\NC\NR
+% end tabulate
+\stoptabulate
+
+\stoptext

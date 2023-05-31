@@ -1,0 +1,761 @@
+<?xml version="1.0"?>
+<html><head><title>Tables</title><link rel="stylesheet" type="text/css" href="styles.css"/></head><body>
+    <h2 class="page-head">Tables</h2>
+    
+    
+    
+    
+    <div class="level2"><a name="id2257289"/>
+     <h3 class="level2">Tables without vertical lines (tabulate)</h3>
+     <p>
+      The <tt>tabulate</tt>
+      environment allows you to create simple tables, suited for tables with
+      large blocks of text. This type of table does not produce vertical lines
+      between cells&#x2014;hence the name tabulate, hinting at the type of table
+      created with tabs.
+     </p>
+     <p>
+      Rather than try to explain the many details of this layout, let me first
+      show the code example.
+     </p>
+<div class="context-block-code"><pre>% start envrionment and setup columns
+\starttabulate[|p(6cm) j3|p(6cm)|]
+
+% create a cell
+\NC American Community Survey 
+%
+%create a cell
+\NC Current Population Survey 
+%
+% end the row
+\NC\NR
+% create a horizontal line
+%
+\HL
+%
+% create a cell
+\NC 
+All dollar values for income are adjusted 
+to latest calendar year of estimates using 
+the Consumer Price Index for the date collected 
+versus the average for the year.
+% create a cell
+\NC None
+%
+% end the row
+\NC\NR
+%
+% end tabulate
+\stoptabulate
+</pre></div>
+     <p>
+      <a href="context_examples/table1.tex">source file</a>
+     </p>
+     <div class="level3"><a name="id2257357"/>
+      <h4 class="level3">Setting up the columns</h4>
+      <p>
+       Begin the table with the
+       <tt>starttabulate</tt>
+       command. Set up the column information in the first option. The
+       information for formatting each column gets put between the
+       &#x201C;|&#x201D; character. A one column table needs 2 &#x201C;|&#x201D;
+       characters, a two column table needs 3 &#x201C;|&#x201D; characters, and so
+       on.
+      </p>
+      <p>
+       The first colum of my table has two commands. The first,
+       <tt>p(6cm)</tt>, tells
+       ConTeXt to
+       create a 6 cm paragraph for the column. If the column contains cells with
+       brief text that aren&#x2019;t really paragraphs, use the
+       <tt>l</tt>,
+       <tt>r</tt>, or
+       <tt>c</tt> property. The
+       <tt>l</tt> command aligns the
+       text left; the <tt>r</tt> aligns
+       the text right; and the
+       <tt>c</tt> command centers the
+       text. For example, for a two-column table, my setups might look like
+       this:
+      </p>
+<div class="context-block-code"><pre>% make two columns, both aligned left
+\starttabulate[|l|l|]
+
+</pre></div>
+      <p>
+       In addtion, one can use the
+       <tt>w</tt> property for a one
+       line column. Like the <tt>p</tt>
+       option, the [:pr; w] option takes a dimmension in parenthesis.
+      </p>
+      <p>
+       Each column must contain one of the above properties, so that
+       ConTeXt knows
+       how to format it.
+      </p>
+      <p>
+       The setups for each column can have additional commands. The
+       <tt>j3</tt> option in my table
+       creates space after the column. A number lower than 3 creates less space,
+       while a number greater than 3 creates more. The opposite property,
+       <tt>i</tt> creates space before
+       the column, and functions just like its counterpart
+       <tt>j</tt>. The property
+       <tt>k</tt> seems to create space
+       on either side of the column.
+      </p>
+      <p>
+       Here is a summary of the options for the column setups.
+      </p>
+      <table id="format-char"><thead><tr>
+        <td>option</td>
+        <td class="last">result</td>
+       </tr></thead><tbody>
+       <caption align="bottom">Formatting Characters for Tables</caption>
+       
+       <tr>
+        <td>l</td>
+        <td class="last">align left</td>
+       </tr>
+       <tr>
+        <td>r</td>
+        <td class="last">align right</td>
+       </tr>
+       <tr>
+        <td>c</td>
+        <td class="last">align center</td>
+       </tr>
+       <tr>
+        <td>p(dimen)</td>
+        <td class="last">create a paragraph with width dimen</td>
+       </tr>
+       <tr>
+        <td>w(dimen)</td>
+        <td class="last">create a column with width dimen</td>
+       </tr>
+       <tr>
+        <td>f #1</td>
+        <td class="last">font</td>
+       </tr>
+       <tr>
+        <td>B</td>
+        <td class="last">bold</td>
+       </tr>
+       <tr>
+        <td>I</td>
+        <td class="last">italic</td>
+       </tr>
+       <tr>
+        <td>S</td>
+        <td class="last">slanted</td>
+       </tr>
+       <tr>
+        <td>T</td>
+        <td class="last">Type</td>
+       </tr>
+       <tr>
+        <td>R</td>
+        <td class="last">roman</td>
+       </tr>
+       <tr>
+        <td>m</td>
+        <td class="last">math</td>
+       </tr>
+       <tr>
+        <td>M</td>
+        <td class="last">display math</td>
+       </tr>
+       <tr>
+        <td>h</td>
+        <td class="last">hook (inner level of par lines)</td>
+       </tr>
+       <tr>
+        <td>b</td>
+        <td class="last">before (may be command)</td>
+       </tr>
+       <tr>
+        <td>a</td>
+        <td class="last">after (may be command)</td>
+       </tr>
+       <tr>
+        <td>i&lt;number&gt;</td>
+        <td class="last">skip left of column</td>
+       </tr>
+       <tr>
+        <td>j&lt;number&gt;</td>
+        <td class="last">skip right of column</td>
+       </tr>
+       <tr>
+        <td>k&lt;number&gt;</td>
+        <td class="last">skip around column</td>
+       </tr>
+      </tbody></table>
+     </div>
+     <div class="level3"><a name="id2257790"/>
+      <h4 class="level3">Body commands</h4>
+      <p>
+       Within the body of the table itself, issue comand in order to create
+       cells, rows, and horiziontal lines. The
+       <tt>NC</tt> command
+       creates a new cell. The
+       <tt>NR</tt> command
+       creates a new row. The
+       <tt>HL</tt> creates a
+       horizontal line.
+      </p>
+      <p>
+       You must end every rown (including the last) with the
+       <tt>NR</tt> command.
+      </p>
+     </div>
+    </div>
+    <div class="level2"><a name="id2257851"/>
+     <h3 class="level2">Standard table</h3>
+     <p>
+      The standard table commands give us pretty good flexibility in creating
+      complicated tables.
+     </p>
+     <div class="level3"><a name="id2257869"/>
+      <h4 class="level3">Basic Table</h4>
+      <p>
+       Here is a basic table.
+      </p>
+<div class="context-block-code"><pre>\placetable[here][tab:insurance]{Percentage of People without health
+insurance in US}
+\starttable[|l w(30mm)|l|l|]
+\HL
+\VL State     \VL 3-year average \VL 2-year average \VL\SR
+\HL[4]
+\VL Alabama   \VL 13.3           \VL 13.5           \VL\FR
+\HL
+\VL Alaska    \VL 17.8           \VL 18.8            \VL\MR
+\HL
+\VL Arizona   \VL 17.3            \VL 16.9           \VL\LR
+\HL
+\stoptable
+</pre></div>
+      <p>
+       <a href="context_examples/table2.tex">source file</a>
+      </p>
+      <div class="level4"><a name="id2257913"/>
+       <h5 class="level4">The placetable command</h5>
+       <p>
+        The <tt>placetable</tt>
+        command acts the same way as the
+        <tt>placefloat</tt>
+        command. The first option,
+        <tt>here</tt> tells
+        ConTeXt to
+        place the table (if possible) in the current location. The next option
+        is a reference marker. The parameter is the caption of the table. If you
+        don&#x2019;t want a title but do want the word &#x201C;table&#x201D; and
+        number, leave the parameter empty. If you do not want any caption at
+        all, use <tt>none</tt> for your
+        parameter. If you want a caption but not a number, see the section
+        customizing captions on the figures and float page.
+       </p>
+       <p>
+        Here is are the source files that create customize captions.
+       </p>
+       <p>
+        <a href="context_examples/table3.tex">TeX source file</a>
+       </p>
+      </div>
+      <div class="level4"><a name="id2258009"/>
+       <h5 class="level4">Setting up the columns</h5>
+       <p>
+        The column setup should look familiar. I setup 3 columns, and made sure
+        the first column was at least 30 mm wide.
+       </p>
+      </div>
+      <div class="level4"><a name="id2258028"/>
+       <h5 class="level4">Body commands</h5>
+       <p>
+        Rather than using the
+        <tt>NC</tt> command to
+        creat a new cell, this table uses
+        <tt>VL</tt>, which
+        creates a vertical line between each cell.
+       </p>
+       <p>
+        Notice how the
+        <tt>HL</tt> command has
+        the option <tt>4</tt>. This
+        option increases the line width by a factor of 4. You can use any
+        integer you want&#x2014;the larger the number, the thicker the width. You
+        can use the same option after a
+        <tt>VL</tt> command.
+       </p>
+       <p>
+        The endings for each row are different than the
+        <tt>NL</tt> commands
+        fromt the tabulate table. Each ending performs a different function.
+       </p>
+       <p>
+        * The <tt>SR</tt> command
+        puts extra space between it and the next row. (Frankly, I don&#x2019;t
+        find this to be the case with my table, but this is what it is supposed
+        to do.)
+       </p>
+       <p>
+        * The <tt>FR</tt> command
+        establishes the correct distance for the first row.
+       </p>
+       <p>
+        * The <tt>MR</tt>
+        establishes the correct distance for the middle row.
+       </p>
+       <p>
+        * The <tt>LR</tt> command
+        establishes the correct distance for the last row.
+       </p>
+       <h3 class="list-head">Tips</h3><ul>
+        
+        <li>
+         <p>
+          You can use the
+          <tt>AR</tt> or
+          automatic row command in place of the
+          <tt>SR</tt>,
+          <tt>FR</tt>, and
+          <tt>LR</tt> commands.
+          The <tt>AR</tt> command
+          seems to do a good job adjusting the height.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="level4"><a name="id2258251"/>
+       <h5 class="level4">Merging cells horizontally</h5>
+       <p>
+        In order to merge cells horizontally, use the
+        <tt>NC</tt> instead of
+        the <tt>VL</tt> command,
+        and omit any text for the cell to be merged. In other words, simpley
+        create an empty cell with no border.
+       </p>
+<div class="context-block-code"><pre>\starttable[|l w(30mm)|l|l|]
+\HL
+\VL State     \VL 3-year average \VL 2-year average \VL\SR
+\HL[4]
+\VL Alabama   \NC                \VL 13.5           \VL\FR
+...
+</pre></div>
+       <p>
+        <a href="context_examples/table4.tex">source file</a>
+       </p>
+      </div>
+      <div class="level4"><a name="id2258312"/>
+       <h5 class="level4">Merging cells vertically</h5>
+       <p>
+        In order to merge cells vertically, don&#x2019;t use the
+        <tt>HR</tt> command to
+        draw a continuous line. Instead, use a combination of the
+        <tt>DL</tt>,
+        <tt>DC</tt> and
+        <tt>DR</tt> commands to
+        draw lines under the columns you want.
+       </p>
+       <p>
+        * The <tt>DL</tt> command
+        draws a line under the next column,
+        <i>and then skips a
+        column.</i> This last part is important to remember. If you start
+        your line-drawing commands with a
+        <tt>DL</tt> command,
+        ConTeXt draws
+        a line under column one and then leaves a blank for column two. In
+        essence, the <tt>DL</tt>
+        command issues two commands: (1) draw a line across the column(s); and
+        (2) create an empty space across the following column.
+       </p>
+       <p>
+        If you want to draw a line across two columns, use an option after the
+        <tt>DL</tt> command, and
+        make the option the number of how lines you wish to draw.
+       </p>
+<div class="context-block-code"><pre>% draw a line across two columns, then down't draw a line across the
+% next
+\DL[2] ...
+</pre></div>
+       <p>
+        Note the difference between the first and second command below. The
+        first leaves no line under the middle column. The second command leaves
+        no line under the third column.
+       </p>
+<div class="context-block-code"><pre>% draws a line for column one, skips column two, and draws a line 
+% for column three
+\DL \DL ...
+% draws a line for columns one and two, and skips column three
+\DL[2] ...
+</pre></div>
+       <p>
+        * The <tt>DC</tt> command
+        tells ConTeXt
+        to draw no line.
+       </p>
+<div class="context-block-code"><pre>% skips column one before drawing a line for column two
+% and leaving the a blank for column 3
+\DC \DL ...
+</pre></div>
+       <p>
+        * The <tt>DR</tt> command
+        is used to end a row which contains
+        <tt>DL</tt> or
+        <tt>DC</tt> command.
+       </p>
+<div class="context-block-code"><pre>% draws a line for column one, skips column two, and draws a line 
+% for column three
+% (same as above, except now the rows are properly ended)
+\DL \DL \DR
+% draws a line for columns one and two, and skips column three
+\DL[2] \DR
+</pre></div>
+       <p>
+        <a href="context_examples/table5.tex">source file</a>
+       </p>
+      </div>
+      <div class="level4"><a name="id2258556"/>
+       <h5 class="level4">Creating a multi-paged table</h5>
+       <p>
+        In order to create a multi-page table with this type of table, follow
+        the example below. I&#x2019;m not sure of all the details of this type of
+        table, but I have been told it is depreacted, and that for multi-page
+        tables it might be better to use the type of table in the next section.
+        None-the-less, I was able to get this table to work.
+       </p>
+<div class="context-block-code"><pre>% split the table across pages
+\splitfloat
+% make sure your group the \placetable with {}
+{\placetable{Percentage of People without health
+insurance in US}}
+% make sure you group everything else with {}
+% theis table head will repeated on each page
+{\starttablehead
+\HL
+\VL State     \VL 3-year average \VL 2-year average  \VL\SR
+\HL[4]
+\stoptablehead
+% this detail will be repeated at the bottom of each page
+\starttabletail
+\HL[4]
+\stoptabletail
+% create a starttables--notice the plural!
+\starttables[|l w(30mm)|l|l|]
+\VL Alabama   \VL 13.3      \VL 13.5   \VL\FR
+\HL
+...
+\stoptables}
+</pre></div>
+       <p>
+        <a href="context_examples/table9.tex">source file</a>
+       </p>
+      </div>
+      <div class="level4"><a name="id2258621"/>
+       <h5 class="level4">More Examples</h5>
+       <p>
+        Here are some more examples of tables.
+       </p>
+       <p>
+        This table is an example of merging cells horizontally and vertically.
+        It also shows how to cutomize a header, center cell text, and create
+        blank cells.
+       </p>
+       <p>
+        <a href="context_examples/table7.tex">source file</a>
+       </p>
+       <p>
+        This table is likewise a good example of merging cells horizontally and
+        vertically.
+       </p>
+       <p>
+        <a href="context_examples/table8.tex">source file</a>
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="level2"><a name="id2258685"/>
+     <h3 class="level2">Tables with TABLE</h3>
+     <p>
+      The TABLE is the most powerful and flexible tables module in
+      ConTeXt. Its
+      sytax is closest to css stylesheets.
+     </p>
+     <p>
+      You can find a PDF file with many examples at
+      <a href="http://www.pragma-ade.com/general/manuals/enattab.pdf">url=http://www.pragma-ade.com/general/manuals/enattab.pdf</a>
+     </p>
+     <p>
+      The following is a simple table.
+     </p>
+<div class="context-block-code"><pre>\bTABLE
+\bTR \bTD State \eTD \bTD3-year average \eTD \bTD2-year average \eTD \eTR
+\bTR \bTD Alabama \eTD \bTD 13.3 \eTD \bTD 13.5 \eTD \eTR
+...
+\eTABLE
+</pre></div>
+     <p>
+      <a href="context_examples/table10.tex">source file</a>
+     </p>
+     <p>
+      Each command in the TABLE environment is paired:
+      <tt>bTABLE</tt> is matched
+      with <tt>eTable</tt>,
+      <tt>bTR</tt> is matched
+      with <tt>eTR</tt>, and so
+      on. The lower-case &#x201C;b&#x201D; stands for beginn, while the lower-case
+      &#x201C;e&#x201D; stands for end.
+     </p>
+     <p>
+      The commands otherwise look very much like XHTML format, with TR standing
+      for table row, and TD for table cell.
+     </p>
+     <div class="level3"><a name="id2258810"/>
+      <h4 class="level3">Merging cells horizontally</h4>
+      <p>
+       In order to merge cells horiziontally, use the
+       <tt>nc</tt> option after the cell
+       you want to merge. The
+       <tt>nc</tt> stands for number of
+       columns.
+      </p>
+<div class="context-block-code"><pre>\bTABLE
+\bTR \bTD State \eTD \bTD3-year average \eTD \bTD2-year average \eTD \eTR
+%
+% merge the first two cells
+\bTR \bTD[nc=2] Alabama \eTD  \bTD 13.5 \eTD \eTR
+%
+% merge last two cells
+\bTR \bTD Alaska \eTD \bTD[nc=2] 17.8 \eTD  \eTR
+%
+%merget all three cells
+\bTR \bTD[nc=3] Arizona \eTD  \eTR
+\eTABLE
+</pre></div>
+      <p>
+       <a href="context_examples/table11.tex">source file</a>
+      </p>
+     </div>
+     <div class="level3"><a name="id2258872"/>
+      <h4 class="level3">Merging cells vertically</h4>
+      <p>
+       In order to merge cells vertically, use the
+       <tt>nr</tt> option after the cell
+       you want to merge. The
+       <tt>nj</tt> stands for number of
+       rows.
+      </p>
+<div class="context-block-code"><pre>\bTABLE
+\bTR \bTD State \eTD \bTD3-year average \eTD \bTD2-year average \eTD \eTR
+%
+% merge first cell down one
+\bTR \bTD[nr=2] Alabama \eTD \bTD 13.3 \eTD \bTD 13.5 \eTD \eTR
+%
+% merge last cell down one
+\bTR \bTD 17.8 \eTD \bTD[nr=2] 18.8 \eTD \eTR
+\bTR \bTD Arizona \eTD \bTD 17.3 \eTD  \eTR
+\eTABLE
+</pre></div>
+      <p>
+       <a href="context_examples/table12.tex">source file</a>
+      </p>
+     </div>
+     <div class="level3"><a name="id2258935"/>
+      <h4 class="level3">Creating multi-page tables</h4>
+      <p>
+       In order to make sure a larget TABLE can split across pages, use the
+       option <tt>split=yes</tt> right
+       after the <tt>bTABLE</tt>
+       command.
+      </p>
+<div class="context-block-code"><pre>\bTABLE[split=yes]
+</pre></div>
+      <p>
+       If you want create tables in which the header is repeated with each page,
+       divide your table into the head, body, and foot. Use the
+       <tt>bTABLEhead</tt> and
+       <tt>eTABLEhead</tt> to
+       create the head. Use the
+       <tt>bTABLEbody</tt> and
+       <tt>eTABLEbody</tt> to
+       create the body. Use the
+       <tt>bTABLEfoot</tt> and
+       <tt>eTABLEfoot</tt> to
+       create the foot.
+      </p>
+      <p>
+       Use the option <tt>split=repeat</tt>
+       right after the
+       <tt>bTABLE</tt> command.
+      </p>
+      <p>
+       The head will appear at the top of the table on each page. The foot will
+       appear once at the bottom of the table.
+      </p>
+<div class="context-block-code"><pre>% split the table across pages and make sure the head is foot are repeated
+\bTABLE[split=repeat]
+% create the head
+\bTABLEhead
+\bTR \bTD State  \eTD \bTD 3-year average \eTD \bTD 2-year average \eTD \eTR
+\eTABLEhead
+% create the body
+\bTABLEbody
+\bTR \bTD Alabama  \eTD \bTD 13.3  \eTD \bTD 13.5  \eTD \eTR
+\bTR \bTD Alaska  \eTD \bTD 17.8  \eTD \bTD 18.8  \eTD \eTR
+...
+\eTABLEbody
+% create the foot
+\bTABLEfoot
+\bTR \bTD[nc=3] Details may not sum to totals because of rounding. \eTD \eTR
+\eTABLEfoot
+\eTABLE
+</pre></div>
+      <p>
+       <a href="context_examples/table16.tex">source file</a>
+      </p>
+     </div>
+     <div class="level3"><a name="id2259101"/>
+      <h4 class="level3">Customizing TABLE</h4>
+      <p>
+       Customizing cells and rows in TABLE is more straightforward than with
+       other table modules. Use the
+       <tt>setupTABLE</tt>
+       command. The first few commands of this option describe the rows,
+       columns, or cells that need to be customized. The last option describes
+       the actual customization.
+      </p>
+      <p>
+       You can use as many
+       <tt>setupTABLE</tt>
+       commands as you have customizations.
+      </p>
+      <div class="level4"><a name="id2259145"/>
+       <h5 class="level4">cell numbers</h5>
+       <p>
+        Each cell in the TABLE environment is assigned both a row and column
+        number.
+       </p>
+       <div class="img"><img src="png_images/rows_columns_1.png" alt="each cell as a row and column number">
+        <p class="figure-caption">each cell as a row and column number</p>
+       </img></div>
+       <p>
+        If the table has merged cells, the numbering does not change. The
+        invisible cells are given their number, and the non-invisible cells keep
+        theirs.
+       </p>
+       <div class="img"><img src="png_images/rows_columns_2.png" alt="each cell as a row and column number">
+        <p class="figure-caption">each cell as a row and column number</p>
+       </img></div>
+      </div>
+      <div class="level4"><a name="id2259201"/>
+       <h5 class="level4">customization options</h5>
+       <p>
+        Here is a table of possible properties you can use to customize each
+        cell.
+       </p>
+       <table id="table-setup-options"><thead><tr>
+         <td>option</td>
+         <td>result</td>
+         <td class="last">note</td>
+        </tr></thead><tbody>
+        <caption align="bottom">Possible options for setupTABLE</caption>
+        
+        <tr>
+         <td>width=&lt;dimen&gt;</td>
+         <td class="last">set height</td>
+        </tr>
+        <tr>
+         <td>height=&lt;dimen&gt;</td>
+         <td class="last">set height</td>
+        </tr>
+        <tr>
+         <td>background=color</td>
+         <td>sets color</td>
+         <td class="last">used in conjuction with color=&lt;color&gt;;use the word 
+            "color," not the name of the color</td>
+        </tr>
+        <tr>
+         <td>color=&lt;color&gt;</td>
+         <td>sets color</td>
+         <td class="last">used in conjuction with backgroundcolor=color</td>
+        </tr>
+        <tr>
+         <td>frame=&lt;off&gt;|&lt;on&gt;</td>
+         <td class="last">turns frame (borders) off or on</td>
+        </tr>
+        <tr>
+         <td>framecolor=&lt;color&gt;</td>
+         <td class="last">set color of border</td>
+        </tr>
+        <tr>
+         <td>rulethickness=&lt;dimen&gt;</td>
+         <td class="last">set thickness of rule for entire frame around cell</td>
+        </tr>
+       </tbody></table>
+      </div>
+      <div class="level4"><a name="id2259334"/>
+       <h5 class="level4">Changing cells by their numbers</h5>
+       <p>
+        To change something for individual cells using cell addressing (that is,
+        identifying the cells by their rows and numbers), use the [:setupTABLE]
+        command, followed by the number of the column, followed by the number
+        followed by the number of the row, and finally followed by the desired
+        customization. The following table makes the first cell (1, 1) and the
+        middle cell (2, 2) red.
+       </p>
+<div class="context-block-code"><pre>%needed to get color
+\setupcolors[state=start]
+%
+% set up first column, first row
+\setupTABLE[1][1][background=color, backgroundcolor=red]
+%
+% setup second column, second row
+\setupTABLE[2][2][background=color, backgroundcolor=red]
+</pre></div>
+       <p>
+        <a href="context_examples/table13.tex">source file</a>
+       </p>
+      </div>
+      <div class="level4"><a name="id2259384"/>
+       <h5 class="level4">Changing rows</h5>
+       <p>
+        To change the appearance of one or more rows, use &#x201C;r&#x201D; as the
+        property for your first option. In the second option, describe which
+        rows you want to change. Use
+        <tt>each</tt> for every row;
+        <tt>odd</tt> for odd rows;
+        <tt>even</tt> for even rows;
+        <tt>first</tt> for the first
+        row; <tt>last</tt> for the last
+        row; a number to indicate a certain row; a series of numbers separated
+        by commas to indicate a series of rows.
+       </p>
+<div class="context-block-code"><pre>% change color of all even rows to red
+\setupTABLE[r][even][background=color, backgroundcolor=red]
+</pre></div>
+       <p>
+        <a href="context_examples/table14.tex">source file</a>
+       </p>
+      </div>
+      <div class="level4"><a name="id2259478"/>
+       <h5 class="level4">Changing columns</h5>
+       <p>
+        To change the appearance of one or more rows, use &#x201C;c&#x201D; as the
+        property for your first option. You can use the same positional
+        properties as you do for rows (see above).
+       </p>
+<div class="context-block-code"><pre>% change color of all even columns to red
+\setupTABLE[c][even][background=color, backgroundcolor=red]
+</pre></div>
+       <p>
+        <a href="context_examples/table15.tex">source file</a>
+       </p>
+      </div>
+     </div>
+    </div>
+   <p>
+ copyright 2005 Paul Henry Tremblay
+      
+  </p><p>
+      License: GPL
+  </p><p><a href="index.html">home | </a><a href="contents.html">contents | </a><a href="page4.html">previous | </a><a href="page6.html">next</a></p><p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=102261&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo"/></a></p><p><b>last updated: </b>2005-04-11</p></body></html>

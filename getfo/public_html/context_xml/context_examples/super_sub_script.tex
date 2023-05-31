@@ -1,0 +1,14 @@
+% superscript and subscript
+
+\setuppagenumbering[state=stop, way=bytext]
+\enableregime[utf]
+\starttext
+
+You can walk in \high{high} heels, but your height is still the same.\par
+You can walk in \low{low} heels, but your height is still the same.\par
+normal text\par
+
+% set up text on top of each other.
+You can walk in \lohi{low}{high} heels, but your height is still the same.\par
+
+\stoptext

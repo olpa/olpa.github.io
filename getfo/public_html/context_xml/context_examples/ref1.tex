@@ -1,0 +1,17 @@
+% refernce
+\setuppagenumbering[state=stop, way=bytext, conversion=Characters]
+\setupreferencing[partnumber=no]
+\enableregime[utf]
+\starttext
+
+text\par
+
+%see \pagereference[mark1]
+see \ref[p][mark1] \par
+
+see \at[mark1]
+%\marking[mark1] foo bar\par
+\page
+\reference[mark1]{} foo \par
+
+\stoptext

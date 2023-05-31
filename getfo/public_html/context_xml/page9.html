@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<html><head><title>Other</title><link rel="stylesheet" type="text/css" href="styles.css"/></head><body>
+    <h2 class="page-head">Other</h2>
+    
+    <div class="level2"><a name="id2261775"/>
+     <h3 class="level2">Referencing Page Numbers</h3>
+     <div class="level3"><a name="id2261785"/>
+      <h4 class="level3">Getting rid of part numbers</h4>
+      <p>
+       If you have used the
+       <tt>part</tt> command to
+       create a new run of pages, you will want to get rid of
+       ConTeXt&#x2019;s
+       feature that automatically generates part numbers. If you don&#x2019;t
+       disable this feature, you will always get a part number in front of your
+       page number. Most likely, you don&#x2019;t want this part number, since
+       you can generate your own numbers in XSLT.
+      </p>
+<div class="context-block-code"><pre>\setupreferencing[partnumber=no]
+</pre></div>
+      <p>
+       In order to reference a page number (such as when producing a table of
+       contents), create an anchor and then point to that anchor. For example,
+       if we want to create a table of contents that list the the page number
+       for each chapter, we first set up the anchor at the chapter.
+      </p>
+<div class="context-block-code"><pre>\reference[chapt-1-id]
+</pre></div>
+      <p>
+       In order to get the page number to this chapter, use the at command,
+       using the same id as for the chapter.
+      </p>
+<div class="context-block-code"><pre>\at[partnumber=no]
+\reference[chapt-1-id]
+</pre></div>
+      <p>
+       With XSLT, normally one uses the generate-id() function to create unique
+       ids for each section.
+      </p>
+     </div>
+    </div>
+   <p>
+ copyright 2005 Paul Henry Tremblay
+      
+  </p><p>
+      License: GPL
+  </p><p><a href="index.html">home | </a><a href="contents.html">contents | </a><a href="page8.html">previous | </a></p><p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=102261&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo"/></a></p><p><b>last updated: </b>2005-05-15</p></body></html>

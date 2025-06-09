@@ -39,6 +39,12 @@ permalink: "/blog/2017/09/30/cleaning-the-signal-from-eeg-smt/"
 <p>I still don't understand the need to have _two_ electrodes for one channel. Even after reading <a href="http://openeeg.sourceforge.net/doc/modeeg/modeeg_design.html">The ModularEEG Design</a> document, I can't get it.</p>
 <p>What I'd expect is that there is one and only one electrode pro channel, and additionally there is a "base" electrode, to be used as a zero potential.</p>
 <p>The clear thing is that when two electrodes are connected together, the signal should be zero. Surprisingly, it is not so in my case. Initially it is so, but with time the noice starts again. TODO: ask in the mailing list what happens.</p>
+<blockquote>
+  <p> 9 June 2025, comment by <a href="https://github.com/michaloblastni/local-neural-monitoring">Michal Oblastni</a></p>
+  <p>Well, and I figured they have two electrodes for one channel because the devices does a differential.</p>
+  <p>It senses with the + electrode i.e. 300mV in position 1, and with the - electrode i.e. 250 mV in position 2, and so it figures out the electric cellular signalling is 50mV between position 1 and 2. So, channel 1 will show 50mV.</p>
+  <p>This approach to EEG removes the background noise that otherwise exists when one channel is only one electrode. When you connect the CH1 + to the CH1 - it should measure a flat line meaning the difference between position 1 and position 2 is 0 mV.</p>
+</blockquote>
 <p>For futher investigation:</p>
 <p>Maybe a contact gel is useful.</p>
 <p><a href="https://en.wikipedia.org/wiki/10%E2%80%9320_system_(EEG)">The 10–20 system</a> or International 10–20 system is an internationally recognized method to describe and apply the location of scalp electrodes in the context of an EEG test or experiment.</p>

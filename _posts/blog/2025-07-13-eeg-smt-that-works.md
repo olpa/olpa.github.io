@@ -40,3 +40,6 @@ Of course the standard EEG-SMT DLR electrode is absolutely awful. To solve it, I
 
 It's unbelievable how much effort went into figuring it out and testing different options. This is, I believe, how everyone can turn EEG-SMT into an EEG solution that can be used for daily work, not just as a one-time PoC.
 
+### Update
+
+I'm so glad I got rid of the original electrodes and figured out how to use professional EEG electrodes instead. The original electrodes are the worst product I've ever used. Three sprawling wires that don't even hold together, and huge PCBs.

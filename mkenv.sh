@@ -6,3 +6,5 @@
 source /home/olpa/.rvm/scripts/rvm
 #rvm use 2.7.4@github
 rvm use 3.1.0@github
+
+# fixme: "rvm use 3.1.0@github" fails, but "server.sh" works anyway.

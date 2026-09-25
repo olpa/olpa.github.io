@@ -3,7 +3,11 @@ layout: post
 title: Transformer decoder block diagram
 type: post
 categories:
+- ai
+tags:
 - ml
+- llm
+- transformers
 ---
 
 Re-implementing the transformer architecture and reasoning about its time and space complexity is hard. This activity requires that the brain loads extra details such as traditional naming of parameters and dimensions. It's a side activity for me; each time I have a time slot to do something, I realize I spend the whole slot remembering the details.

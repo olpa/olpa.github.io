@@ -3,7 +3,10 @@ layout: post
 title: Double-checking GPU acceleration basics
 type: post
 categories:
+- ai
+tags:
 - ml
+- gpu
 ---
 
 The habit of double-checking the basics has bitten me again. This time it was GPU acceleration.

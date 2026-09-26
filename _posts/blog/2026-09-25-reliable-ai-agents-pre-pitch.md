@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reliable AI Agents: A Pre-Pitch"
+title: "Durable AI Agents: A Pre-Pitch"
 type: post
 categories:
 - ai
@@ -12,14 +12,14 @@ tags:
 - erlang
 - beam
 excerpt: >-
-  A reliable agent is an agent that does not fail, or, at least, can recover when it does.
+  A durable agent is an agent that does not fail, or, at least, can recover when it does.
 
   The clearest example is a long task. Imagine a workflow with one hundred steps. If the agent fails at step 98, it would be a shame to lose the whole process.
 ---
 
 ## Why to care
 
-A reliable agent is an agent that does not fail, or, at least, can recover when it does.
+A durable agent is an agent that does not fail, or, at least, can recover when it does.
 
 The clearest example is a long task. Imagine a workflow with one hundred steps. If the agent fails at step 98, it would be a shame to lose the whole process.
 
@@ -49,10 +49,10 @@ That would be the first layer. The second layer would be a more usual framework 
 
 ## The unresolved question
 
-All of this only matters if reliable AI-agent workflows are truly a problem without a solution yet, and I am not yet sure that they are.
+All of this only matters if durable AI-agent workflows are truly a problem without a solution yet, and I am not yet sure that they are.
 
 When I look at Claude Code, Codex, and similar agent tools, an interruption does not seem like a disaster. Often you can simply tell the agent to continue, and it picks up where it left off. The history may be nothing more than a list of JSON messages, but that history matters a great deal: it may already hold enough information to recover.
 
-So the main question still needs an answer. **Do AI agents really need a new way to stay reliable, or are today's tools and workflow systems already reliable enough?**
+So the main question still needs an answer. **Do AI agents really need durable execution, or are today's tools and workflow systems already reliable enough?**
 
 Until the answer to that is "yes," I would not turn this idea into a startup pitch.
